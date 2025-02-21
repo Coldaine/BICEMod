@@ -235,32 +235,6 @@ unit_medals = {
 		
 	}
 	
-	China_Service_Medal = {
-		
-		available = { should_have_usa_medals_trigger = yes 
-			has_war = no
-			CHI = { has_defensive_war = yes
-			} 
-			has_opinion = {
-    				target = CHI
-    				value > 50
-			}
-		}
-		frame = 12
-		icon = "GFX_medal_icon_usa"
-		
-		cost = 3
-		
-		unit_modifiers = {
-			max_dig_in_factor = 0.2　
-
-		}
-		
-		one_time_effect = {
-			add_divisional_commander_xp = 100
-		}
-		
-	}
 	
 	European_African_MiddleEastern_Campaign_Medal = {
 		
