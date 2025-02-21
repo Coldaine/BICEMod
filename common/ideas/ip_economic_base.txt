@@ -212,13 +212,6 @@ ideas = {
                     add = 40
                 }
 
-                modifier = {
-                    has_idea = neutrality
-                    NOT = {
-                        has_country_leader_ideology = fascism
-                    }
-                    add = 30
-                }
 
                 modifier = {
                     has_idea = syndicalist_markets
