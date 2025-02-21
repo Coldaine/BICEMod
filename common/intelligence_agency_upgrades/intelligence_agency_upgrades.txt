@@ -1,0 +1,1134 @@
+# List of intelligence agency upgrades, and their effects
+# For documentation, there is a file _documentation.info in the same folder.
+
+branch_intelligence = {
+
+	upgrade_economy_civilian = {
+	
+		picture = GFX_agency_economy_department
+		frame = GFX_upgrade_frame_economy
+		sound = Spy_Agency_Intel_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				civilian_intel_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_economy_civilian value = 1 }
+			}
+		}
+		level = {
+			modifier = {
+				civilian_intel_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_economy_civilian value = 2 }
+			}
+		}
+		level = {
+			modifier = {
+				civilian_intel_factor = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_economy_civilian value = 3 }
+			}
+		}
+	}
+	
+	upgrade_army_department = {
+	
+		picture = GFX_agency_army_department
+		frame = GFX_upgrade_frame_army
+		sound = Spy_Agency_Intel_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				army_intel_factor = 0.05
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_army_department value = 1 }
+			}
+		}
+		level = {
+			modifier = {
+				army_intel_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_army_department value = 2 }
+			}
+		}
+		level = {
+			modifier = {
+				army_intel_factor = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_army_department value = 3 }
+			}
+		}
+		
+	}
+	
+	upgrade_naval_department = {
+	
+		picture = GFX_agency_naval_department
+		frame = GFX_upgrade_frame_naval
+		sound = Spy_Agency_Intel_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				navy_intel_factor = 0.05
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_naval_department value = 1 }
+			}
+		}
+		level = {
+			modifier = {
+				navy_intel_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_naval_department value = 2 }
+			}
+		}
+		level = {
+			modifier = {
+				navy_intel_factor = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_naval_department value = 3 }
+			}
+		}
+		
+	}
+	
+	upgrade_airforce_department = {
+	
+		picture = GFX_agency_airforce_department
+		frame = GFX_upgrade_frame_airforce
+		sound = Spy_Agency_Intel_Upgrades_Confirm
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				airforce_intel_factor = 0.05
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_airforce_department value = 1 }
+			}
+		}
+		level = {
+			modifier = {
+				airforce_intel_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_airforce_department value = 2 }
+			}
+		}
+		level = {
+			modifier = {
+				airforce_intel_factor = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_airforce_department value = 3 }
+			}
+		}
+		
+	}
+	upgrade_security_department = {
+	
+		picture = GFX_classified_intelligence
+		frame = GFX_upgrade_frame_form
+		sound = Spy_Agency_Intel_Upgrades_Confirm
+
+		ai_will_do = {
+			factor = 0
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 5
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				
+			}
+			complete_effect = {
+				custom_effect_tooltip = upgrade_security_department_tt
+			}			
+		}
+		
+	}
+}
+
+branch_defense = {
+	
+	upgrade_passive_defense = {
+	
+		picture = GFX_agency_defense_department
+		frame = GFX_upgrade_frame_defense
+		sound = Spy_Agency_Defense_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				OR = {
+					is_spymaster = yes 
+					is_faction_leader = yes 
+				}
+			}
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 5
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				intelligence_agency_defense = 1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_passive_defense value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				intelligence_agency_defense = 1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_passive_defense value = 2 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				intelligence_agency_defense = 1.25
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_passive_defense value = 3 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				intelligence_agency_defense = 1.25
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_passive_defense value = 4 }
+			}
+		}
+		
+	}
+
+	upgrade_anti_partisan = {
+	
+		picture = GFX_agency_anti_partisan
+		sound = Spy_Agency_Defense_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = temp 
+				set_temp_variable = { temp = num_occupied_states }
+				divide_temp_variable = { temp = 10 }
+				add_to_temp_variable = { temp = 1 }
+			}
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 5
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				root_out_resistance_effectiveness_factor = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_anti_partisan value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				root_out_resistance_effectiveness_factor = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_anti_partisan value = 2 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				root_out_resistance_effectiveness_factor = 0.20
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_anti_partisan value = 3 }
+			}
+		}
+	}
+	
+	upgrade_form_operations = {
+	
+		picture = GFX_agency_diplomatic_training
+		Sound = Spy_Agency_Training_Facilities_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				OR = {
+					is_spymaster = yes
+					major_country = yes 
+					num_of_operatives > 1
+				}
+			}
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 7
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				operative_slot = 1
+				new_operative_slot_bonus = 3
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_form_operations value = 1 }
+			}
+		}
+	}
+	
+	upgrade_expand_operations = {
+	
+		picture = GFX_local_training_centers
+		Sound = Spy_Agency_Training_Facilities_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				OR = {
+					is_spymaster = yes
+					major_country = yes 
+					num_of_operatives > 1
+				}
+			}
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 12
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				operative_slot = 1
+				new_operative_slot_bonus = 1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_expand_operations value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				operative_slot = 1
+				new_operative_slot_bonus = 1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_expand_operations value = 2 }
+			}
+		}
+	}
+	
+	upgrade_underground_contacts = {
+	
+		picture = GFX_agency_anti_partisan
+		Sound = Spy_Agency_Training_Facilities_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 3
+				OR = {
+					is_spymaster = yes
+					major_country = yes 
+					num_of_operatives > 1
+				}
+			}
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 7
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				intel_network_gain_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_underground_contacts value = 1 }
+			}
+		}
+		level = {
+			modifier = {
+				intel_network_gain_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_underground_contacts value = 2 }
+			}
+		}
+		level = {
+			modifier = {
+				intel_network_gain_factor = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_underground_contacts value = 3 }
+			}
+		}
+	}
+}
+
+branch_operation = {
+	
+	upgrade_blueprint_stealing = {
+	
+		picture = GFX_agency_steal_blueprints
+		sound = Spy_Agency_Operations_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				operation_steal_tech_outcome = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_blueprint_stealing value = 1 }
+			}
+		}
+		level = {
+			modifier = {
+				operation_steal_tech_outcome = 0.15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_blueprint_stealing value = 2 }
+			}
+		}
+		
+	}
+	
+	upgrade_portable_radios = {
+	
+		picture = GFX_agency_portable_radios
+		sound = Spy_Agency_Operations_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+			has_tech = radio_technology
+		}
+
+		modifiers_during_progress = {
+			civilian_factory_use = 3
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				operation_coordinated_strike_outcome = 0.5
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_portable_radios value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				operation_coordinated_strike_outcome = 0.5
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_portable_radios value = 2 }
+			}
+		}
+		
+	}
+	
+	upgrade_invisible_ink = {
+	
+		picture = GFX_agency_invisible_ink
+		sound = Spy_Agency_Operations_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				intel_from_operatives_factor = 0.1
+				operation_steal_tech_risk = -0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_invisible_ink value = 1 }
+			}
+		}
+		level = {
+			modifier = {
+				intel_from_operatives_factor = 0.1
+				operation_steal_tech_risk = -0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_invisible_ink value = 2 }
+			}
+		}
+		
+	}
+	
+	upgrade_plastic_explosives = {
+	
+		picture = GFX_agency_plastic_explosives
+		sound = Spy_Agency_Operations_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 5
+				num_of_operatives > 2
+				has_war_with = GER
+			}
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 7
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				target_sabotage_factor = 0.10
+				boost_resistance_factor = 0.10
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_plastic_explosives value = 1 }
+			}
+		}
+		level = {
+			modifier = {
+				target_sabotage_factor = 0.10
+				boost_resistance_factor = 0.10
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_plastic_explosives value = 2 }
+			}
+		}
+		
+	}
+	
+	upgrade_suicide_pills = {
+	
+		picture = GFX_agency_suicide_pills
+		sound = Spy_Agency_Operations_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 3
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				operative_death_on_capture_chance = 0.25
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_suicide_pills value = 1 }
+			}
+		}
+		
+	}
+	
+}
+
+branch_operative = {
+	
+	upgrade_training_centers = {
+	
+		picture = GFX_agency_localized_training_center
+		Sound = Spy_Agency_Training_Facilities_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 5
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				enemy_operative_recruitment_chance = 0.1
+				occupied_operative_recruitment_chance = 0.25
+				new_operative_slot_bonus = 1
+			}
+			
+			complete_effect = {
+				unlock_decision_category_tooltip = lar_local_recruitment
+		
+				set_country_flag = { flag = upgrade_training_centers value = 1 }
+			}
+		}
+		
+	}
+	
+	upgrade_commando_training = {
+	
+		picture = GFX_agency_commando_training
+		sound = Spy_Agency_Training_Facilities_Upgrades_Confirm	
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				commando_trait_chance_factor = 0.5 # +100%
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_commando_training value = 1 }
+			}
+		}
+		
+	}
+	
+	upgrade_interrogation_techniques = {
+	
+		picture = GFX_agency_interrogation_techniques
+		sound = Spy_Agency_Training_Facilities_Upgrades_Confirm
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = temp 
+				
+				set_temp_variable = { temp = num_of_operatives }
+			}
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				enemy_operative_recruitment_chance = 0.025
+				enemy_operative_capture_chance_factor = 0.25
+				enemy_operative_intel_extraction_rate = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_interrogation_techniques value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				enemy_operative_recruitment_chance = 0.025
+				enemy_operative_capture_chance_factor = 0.25
+				enemy_operative_intel_extraction_rate = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_interrogation_techniques value = 2 }
+			}
+		}
+		
+	}
+	
+	upgrade_diplo_training = {
+	
+		picture = GFX_diplomatic_training
+		sound = Spy_Agency_Training_Facilities_Upgrades_Confirm
+
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 3
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				control_trade_mission_factor = 0.1
+				diplomatic_pressure_mission_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_diplo_training value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				control_trade_mission_factor = 0.1
+				diplomatic_pressure_mission_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_diplo_training value = 2 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				control_trade_mission_factor = 0.1
+				diplomatic_pressure_mission_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_diplo_training value = 3 }
+			}
+		}
+		
+	}
+	
+	upgrade_psycho_warfare = {
+	
+		picture = GFX_agency_psychological_warfare
+		sound = Spy_Agency_Training_Facilities_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_operations
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 4
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				enemy_operative_recruitment_chance = 0.05
+				propaganda_mission_factor = 0.1
+				boost_ideology_mission_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_psycho_warfare value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				enemy_operative_recruitment_chance = 0.05
+				propaganda_mission_factor = 0.1
+				boost_ideology_mission_factor = 0.1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_psycho_warfare value = 2 }
+			}
+		}
+		
+	}
+	
+}
+
+branch_crypto = {
+	
+	upgrade_form_department = {
+	
+		picture = GFX_agency_form_department
+		frame = GFX_upgrade_frame_form
+		sound = Spy_Agency_Cryptology_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				is_spymaster = yes 
+			}
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 15
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				crypto_department_enabled = 1
+				crypto_strength = 1
+				decryption_power = 25
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_form_department value = 1 }
+			}
+		}
+		
+	}
+	
+	upgrade_decryption_boost = {
+	
+		picture = GFX_agency_decryption_boost_1
+		sound = Spy_Agency_Cryptology_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				is_spymaster = yes 
+			}
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_department
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 10
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				decryption_power = 15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_decryption_boost value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				decryption_power = 10
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_decryption_boost value = 2 }
+			}
+		}	
+
+		level = {
+			modifier = {
+				decryption_power = 10
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_decryption_boost value = 3 }
+			}
+		}	
+	}
+
+	upgrade_decryption_boost_2 = {
+	
+		picture = GFX_agency_decryption_boost_2
+		sound = Spy_Agency_Cryptology_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1.5
+			modifier = {
+				factor = 2
+				is_spymaster = yes 
+			}
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_decryption_boost
+			has_tech = mechanical_computing
+			has_tech = basic_decryption_lar
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 25
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				decryption_power = 25
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_decryption_boost_2 value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				decryption_power = 20
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_decryption_boost_2 value = 2 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				decryption_power = 15
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_decryption_boost_2 value = 3 }
+			}
+		}
+		
+	}
+	
+	upgrade_crypto_strength = {
+	
+		picture = GFX_agency_cryptology_2
+		sound = Spy_Agency_Cryptology_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 2
+				is_spymaster = yes 
+			}
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_form_department
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 10
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				crypto_strength = 2
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_crypto_strength value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				crypto_strength = 2
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_crypto_strength value = 2 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				crypto_strength = 2
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_crypto_strength value = 3 }
+			}
+		}
+	}
+	
+	upgrade_crypto_strength_2 = {
+	
+		picture = GFX_agency_cryptology_1
+		sound = Spy_Agency_Cryptology_Upgrades_Confirm
+		
+		ai_will_do = {
+			factor = 1.5
+			modifier = {
+				factor = 2
+				is_spymaster = yes 
+			}
+		}
+		
+		available = {
+			has_done_agency_upgrade = upgrade_crypto_strength
+			has_tech = mechanical_computing
+			has_tech = basic_encryption_lar
+		}
+		
+		modifiers_during_progress = {
+			civilian_factory_use = 30
+			hidden_modifier = { is_upgrading_agency = 1 }
+		}
+		
+		level = {
+			modifier = {
+				crypto_strength = 4
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_crypto_strength_2 value = 1 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				crypto_strength = 4
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_crypto_strength_2 value = 2 }
+			}
+		}
+		
+		level = {
+			modifier = {
+				crypto_strength = 4
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_crypto_strength_2 value = 3 }
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,7154 @@
+
+
+scripted_gui = {
+	BI_research_slot_view = {
+		context_type = player_context
+		
+		window_name = "research_slot_info_container"
+		parent_window_name = "research_slots_hook"
+		#parent_window_token = technology_tab
+        
+		visible = {
+		}
+		
+		#dirty = ui_research
+		
+		effects = {
+			research_slot_overlay_1_click = {
+				ROOT = {
+					set_variable = { selected_research_slot = 1 }
+					
+					set_country_flag = UNLOCK:infantry_folder
+					set_country_flag = UNLOCK:special_forces
+					set_country_flag = UNLOCK:support_folder
+					set_country_flag = UNLOCK:artillery_folder
+					set_country_flag = UNLOCK:tank_techs_folder
+					set_country_flag = UNLOCK:armor_folder
+					set_country_flag = UNLOCK:air_techs_folder
+					set_country_flag = UNLOCK:air_techs_folder_army
+					set_country_flag = UNLOCK:air_techs_folder_navy
+					set_country_flag = UNLOCK:naval_folder
+					set_country_flag = UNLOCK:naval_techs_folder
+					set_country_flag = UNLOCK:industry_folder
+					set_country_flag = UNLOCK:raw_materials_folder
+					set_country_flag = UNLOCK:ww1_land_doctrine_folder
+					set_country_flag = UNLOCK:land_doctrine_folder
+					set_country_flag = UNLOCK:naval_doctrine_folder
+					set_country_flag = UNLOCK:air_doctrine_folder
+					set_country_flag = UNLOCK:electronics_folder
+					set_country_flag = UNLOCK:nuclear_folder
+					
+					add_to_variable = { ui_research = 1 }
+				}
+			}
+			research_slot_overlay_2_click = {
+				ROOT = {
+					set_variable = { selected_research_slot = 2 }
+					
+					set_country_flag = UNLOCK:infantry_folder
+					set_country_flag = UNLOCK:special_forces
+					set_country_flag = UNLOCK:support_folder
+					set_country_flag = UNLOCK:artillery_folder
+					set_country_flag = UNLOCK:tank_techs_folder
+					set_country_flag = UNLOCK:armor_folder
+					set_country_flag = UNLOCK:air_techs_folder
+					set_country_flag = UNLOCK:air_techs_folder_army
+					set_country_flag = UNLOCK:air_techs_folder_navy
+					set_country_flag = UNLOCK:naval_folder
+					set_country_flag = UNLOCK:naval_techs_folder
+					set_country_flag = UNLOCK:industry_folder
+					set_country_flag = UNLOCK:raw_materials_folder
+					set_country_flag = UNLOCK:ww1_land_doctrine_folder
+					set_country_flag = UNLOCK:land_doctrine_folder
+					set_country_flag = UNLOCK:naval_doctrine_folder
+					set_country_flag = UNLOCK:air_doctrine_folder
+					set_country_flag = UNLOCK:electronics_folder
+					set_country_flag = UNLOCK:nuclear_folder
+					
+					add_to_variable = { ui_research = 1 }
+				}
+			}
+			research_slot_overlay_click = {
+				set_variable = { Root.selected_research_slot = i }
+				add_to_variable = { Root.selected_research_slot = 3 }
+				set_research_rights = yes
+					
+				add_to_variable = { ROOT.ui_research = 1 }
+			} 
+			research_slot_overlay_right_click = {
+				if = {
+					limit = {
+						ROOT = { has_variable = selected_research_slot }
+					}
+				 	ROOT = {
+						clear_variable = selected_research_slot
+					}
+				}
+				else = {
+					ROOT = {
+						meta_effect = {
+							text = {
+								goto_state = [ID]
+							}
+							ID = "[Prev.GetID]"
+						}
+					}
+				}
+			}
+			research_slot_lost_overlay_right_click = {
+				if = {
+					limit = {
+						ROOT = { has_variable = selected_research_slot }
+					}
+				 	ROOT = {
+						clear_variable = selected_research_slot
+						add_to_variable = { ui_research = 1 }
+					}
+				}
+				else = {
+					ROOT = {
+						meta_effect = {
+							text = {
+								goto_state = [ID]
+							}
+							ID = "[Prev.GetID]"
+						}
+					}
+				}
+			}
+		}
+		
+		dynamic_lists = {
+			research_slot_list = {
+				array = Root.research_slots
+				change_scope = yes
+				entry_container = "research_slot_container"
+			}
+		}
+        
+		triggers = {  
+			research_rights_icon_list_visible = {
+				set_temp_variable = { num_research_rights = 0 }
+				if = { limit = { has_state_flag = SLOT:infantry_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:support_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:artillery_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:tank_techs_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:armor_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:air_techs_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:air_techs_folder_army@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:air_techs_folder_navy@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:naval_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:naval_techs_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:industry_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:raw_materials_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:ww1_land_doctrine_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:land_doctrine_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:naval_doctrine_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:air_doctrine_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:electronics_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				if = { limit = { has_state_flag = SLOT:nuclear_folder@ROOT } add_to_temp_variable = { num_research_rights = 1 } }
+				
+				check_variable = { num_research_rights < 10 }
+			}
+			research_rights_icon_list_small_visible = {
+				
+				check_variable = { num_research_rights > 9 }
+			}
+			
+			marker_visible = {
+				set_temp_variable = { selected = i }
+				add_to_temp_variable = { selected = 3 }
+				check_variable = { selected = Root.selected_research_slot }
+			}
+			marker_1_visible = {
+				check_variable = { Root.selected_research_slot = 1 }
+			}
+			marker_2_visible = {
+				check_variable = { Root.selected_research_slot = 2 }
+			}
+			research_slot_overlay_visible = {
+				set_temp_variable = { selected = i }
+				add_to_temp_variable = { selected = 3 }
+				NOT = {
+					check_variable = { Root.selected_research_slot = selected }
+				}
+			}
+			research_slot_overlay_1_visible = {
+				NOT = {
+					check_variable = { Root.selected_research_slot = 1 }
+				}
+			} 
+			research_slot_overlay_2_visible = {
+				NOT = {
+					check_variable = { Root.selected_research_slot = 2 }
+				}
+			} 
+			research_slot_lost_overlay_visible = {
+				NOT = {
+					CONTROLLER = {
+						OR = {
+							tag = ROOT 
+							is_ally_with = ROOT 
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	BI_decision_view = {
+		context_type = player_context
+		
+		window_name = "BI_decision_view_container"
+		parent_window_token = decision_tab 
+		  
+		effects = {
+			show_event_settings_click = {
+				if = {
+					limit = {
+						has_country_flag = ui_show_event_setting
+					}
+					clr_country_flag = ui_show_event_setting
+				}
+				else = {
+					set_country_flag = ui_show_event_setting
+				}
+			}
+		}
+	}
+        
+	BI_event_settings = {
+		context_type = player_context
+		
+		window_name = "BI_event_settings_container"
+		parent_window_token = decision_tab 
+        
+		visible = {
+			has_country_flag = ui_show_event_setting
+		}
+		
+		properties = {
+			ace_checkbox = {
+				frame = ace_frame?2
+			}
+			ace_created_checkbox = {
+				frame = ace_created_frame?2
+			}
+			ace_died_checkbox = {
+				frame = ace_died_frame?2
+			}
+			enemy_ace_died_checkbox = {
+				frame = enemy_ace_died_frame?2
+			}
+			
+			unit_leader_checkbox = {
+				frame = unit_leader_frame?2
+			}
+			leader_sick_checkbox = {
+				frame = unit_leader_sick_frame?2
+			}
+			leader_wounded_checkbox = {
+				frame = unit_leader_wounded_frame?2
+			}
+			leader_upgrade_checkbox = {
+				frame = unit_leader_upgrade_frame?2
+			}
+			
+			mob_warning_checkbox = {
+				frame = mob_warning_frame?2
+			}
+			inv_warning_checkbox = {
+				frame = inv_warning_frame?2
+			}
+		}
+		 
+		effects = {
+			close_button_click = {
+				clr_country_flag = ui_show_event_setting
+			}
+			
+			ace_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_ace
+					}
+					clr_country_flag = notif_disable_ace
+				}
+				else = {
+					set_country_flag = notif_disable_ace
+				}
+			} 
+			ace_created_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_ace_created
+					}
+					clr_country_flag = notif_disable_ace_created
+				}
+				else = {
+					set_country_flag = notif_disable_ace_created
+				}
+			}
+			ace_died_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_ace_died
+					}
+					clr_country_flag = notif_disable_ace_died
+				}
+				else = {
+					set_country_flag = notif_disable_ace_died
+				}
+			}
+			enemy_ace_died_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_ace_enemy_died
+					}
+					clr_country_flag = notif_disable_ace_enemy_died
+				}
+				else = {
+					set_country_flag = notif_disable_ace_enemy_died
+				}
+			}
+			
+			unit_leader_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_unit_leader
+					}
+					clr_country_flag = notif_disable_unit_leader
+				}
+				else = {
+					set_country_flag = notif_disable_unit_leader
+				}
+			}
+			leader_sick_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_unit_leader_sick
+					}
+					clr_country_flag = notif_disable_unit_leader_sick
+				}
+				else = {
+					set_country_flag = notif_disable_unit_leader_sick
+				}
+			}
+			leader_wounded_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_unit_leader_wounded
+					}
+					clr_country_flag = notif_disable_unit_leader_wounded
+				}
+				else = {
+					set_country_flag = notif_disable_unit_leader_wounded
+				}
+			}
+			leader_upgrade_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_unit_leader_upgrade
+					}
+					clr_country_flag = notif_disable_unit_leader_upgrade
+				}
+				else = {
+					set_country_flag = notif_disable_unit_leader_upgrade
+				}
+			}
+			mob_warning_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_mob_warning
+					}
+					clr_country_flag = notif_disable_mob_warning
+				}
+				else = {
+					set_country_flag = notif_disable_mob_warning
+				}
+			}
+			inv_warning_checkbox_click = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_inv_warning
+					}
+					clr_country_flag = notif_disable_inv_warning
+				}
+				else = {
+					set_country_flag = notif_disable_inv_warning
+				}
+			}
+		}
+		
+		triggers = {
+			ace_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_ace
+					}
+					set_temp_variable = { ace_frame = 1 }
+				}
+			}
+			ace_created_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_ace_created
+					}
+					set_temp_variable = { ace_created_frame = 1 }
+				}
+			}
+			ace_died_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_ace_died
+					}
+					set_temp_variable = { ace_died_frame = 1 }
+				}
+			}
+			enemy_ace_died_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_ace_enemy_died
+					}
+					set_temp_variable = { enemy_ace_died_frame = 1 }
+				}
+			}
+			unit_leader_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_unit_leader
+					}
+					set_temp_variable = { unit_leader_frame = 1 }
+				}
+			}
+			leader_sick_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_unit_leader_sick
+					}
+					set_temp_variable = { unit_leader_sick_frame = 1 }
+				}
+			}
+			leader_wounded_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_unit_leader_wounded
+					}
+					set_temp_variable = { unit_leader_wounded_frame = 1 }
+				}
+			}
+			leader_upgrade_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_unit_leader_upgrade
+					}
+					set_temp_variable = { unit_leader_upgrade_frame = 1 }
+				}
+			}
+			mob_warning_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_mob_warning
+					}
+					set_temp_variable = { mob_warning_frame = 1 }
+				}
+			}
+			inv_warning_checkbox_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = notif_disable_inv_warning
+					}
+					set_temp_variable = { inv_warning_frame = 1 }
+				}
+			}
+		}
+	}
+	
+	BI_mini_event = {
+		context_type = player_context
+		 
+		window_name = "BI_mini_event_container"	
+		
+		dirty = weekly_gui #this does not actually work and i have 0 clue why not
+		
+		visible = {  
+			has_country_flag = mobilization_warning_on
+			#can_take_mob_general = yes  
+		}
+		
+		
+		properties = { 
+			picture = {
+				image = "[Root.BI_GetMiniEventPicture]"
+			}
+		}
+		effects = { 
+			close_button_click = {
+				add_to_variable = { weekly_gui = 1 }
+				clr_country_flag = mobilization_warning_on
+				set_country_flag = { flag = mobilization_warning value = 1 days = 60 }
+			}
+			mobilize_button_click = {
+				#add_ideas = mob_general 
+				set_temp_variable = { cost = 30 }
+				set_temp_variable = { modifier = modifier@mobilization_laws_cost_factor }
+				add_to_temp_variable = { modifier = 1 }
+				multiply_temp_variable = { cost = modifier }
+				multiply_temp_variable = { cost = -1 }
+				add_political_power = cost
+				
+				if = {
+					limit = {
+						has_idea = mob_reserve
+						can_take_mob_standing = yes
+					}
+					add_ideas = mob_standing
+				}
+				else_if = {
+					limit = {
+						has_idea = mob_standing
+						can_take_mob_limited = yes
+					}
+					add_ideas = mob_limited
+				}
+				else_if = {
+					limit = {
+						has_idea = mob_limited
+						can_take_mob_general = yes
+					}
+					add_ideas = mob_general
+				}
+				add_to_variable = { weekly_gui = 1 }
+				clr_country_flag = mobilization_warning_on
+				set_country_flag = { flag = mobilization_warning value = 1 days = 60 }
+			}
+		}
+	}
+	
+	#Recuitment_deployment-tab
+	BI_deployment_view_menu = {
+		context_type = player_context
+		
+		window_name = "deployment_view_menu_container"
+		parent_window_token = deployment_tab
+		
+		visible = {
+			#player_only_trigger = yes
+		}
+		
+		#properties = {
+		#	officer_law_icon = {
+		#		image = GFX_idea_[?global.law@officer_training_standards^Root.law_level@officer_training_standards.GetTokenKey]
+		#	}
+		#	cadet_law_icon = {
+		#		image = GFX_idea_[?global.law@cadet_training_standards^Root.law_level@cadet_training_standards.GetTokenKey]
+		#	}
+		#}
+
+		effects = {
+			SS_open_container_click = {
+				if = {
+					limit = {
+						has_country_flag = show_SS_container
+					}
+					clr_country_flag = show_SS_container
+				}
+				else = {
+					set_SS_division_bg_frames = yes
+					set_country_flag = show_SS_container
+				}
+			}
+		}
+		
+		triggers = {
+			SS_open_container_visible = {
+				has_completed_focus = GER_algemeine_ss
+			}
+		}
+	}
+	#Trade-tab
+	BI_trade_view_menu = {
+		context_type = player_context
+		
+		window_name = "trade_view_menu_container"
+		parent_window_token = trade_tab
+		
+		visible = {
+			
+		}
+		
+		dynamic_lists = {
+			resource_list = {   
+				array = global.resources
+		  		change_scope = yes
+				entry_container = "global_resource_entry"
+			}
+		}   
+		
+		properties = {
+			open_overview = { frame = open_overview }
+			open_energy = { frame = open_energy }
+		}
+
+		effects = {
+			open_overview_click = {
+				clr_country_flag = ui_show_energy
+				
+				set_variable = { ui_refinery_overlay = global.date }
+			}
+			open_energy_click = {
+				set_country_flag = ui_show_energy
+			}
+			
+			law_click = {
+				meta_effect = {
+					text = {
+						show_ideas_tooltip = [X]
+					}
+					X = "[?sublaw@token:trade_laws.GetTokenKey]"
+				}
+			}
+			
+			local_resources_icon_click = {
+				MTT_get_resource_efficiency_modifiers = yes
+			}
+		}
+		
+		triggers = {
+			open_overview_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = ui_show_energy
+					}
+					set_temp_variable = { open_overview = 2 }
+				}
+			}
+			open_energy_click_enabled = {
+				if = {
+					limit = {
+						NOT = { has_country_flag = ui_show_energy }
+					}
+					set_temp_variable = { open_energy = 2 }
+				}
+			}
+			
+			glow_visible = {
+				has_country_flag = ui_show_energy
+				check_variable = { ui_refinery_alert > 0 }
+			}
+			glowidea_visible = {
+				has_country_flag = ui_show_energy
+				check_variable = { ui_refinery_alert > 0 }
+			}
+		}
+	}
+	#Army-view
+	BI_logistics_view_menu = {
+		context_type = player_context
+		
+		window_name = "BI_logistics_tab_container"
+		parent_window_token = logistics_tab 
+		
+		visible = {
+			#player_only_trigger = yes
+		}
+		
+		effects = {
+		}
+		
+		properties = {	
+			efficiency_progressbar = {
+				frame = frame 
+			}
+			efficiency_progressbar_to_max = {
+				frame = max_frame 
+			}
+		}
+		 
+		triggers = {
+			efficiency_progressbar_click_enabled = {
+				set_temp_variable = { frame = 27 }
+				set_temp_variable = { max_prod = modifier@production_factory_max_efficiency_factor }
+				multiply_temp_variable = { max_prod = 100 }
+				add_to_temp_variable = { frame = max_prod }
+			}
+			efficiency_progressbar_to_max_click_enabled = {
+				set_temp_variable = { max_frame = 29 }
+				set_temp_variable = { max_prod = modifier@production_factory_max_efficiency_factor }
+				multiply_temp_variable = { max_prod = 100 }
+				add_to_temp_variable = { max_frame = max_prod }
+			}
+		}
+	}
+	#Army-view
+	BI_army_view_menu = {
+		context_type = player_context
+		
+		window_name = "army_view_menu_container"
+		parent_window_name = army_tab_hook
+		
+		visible = {
+			#player_only_trigger = yes
+		}
+		
+		dirty = global.num_days
+		
+		properties = {
+			army_strength = { 
+				image = "[GetArmyStrengthGFX]"
+			}
+			field_strength = { 
+				image = "[GetFieldStrengthGFX]"
+			}
+		}
+		
+		effects = {
+			army_strength_click = { 
+				custom_effect_tooltip = ARMY_STRENGTH_TITLE 
+				custom_effect_tooltip = INFANTRY_WEIGHT 
+				custom_effect_tooltip = LIGHT_INFANTRY_WEIGHT 
+				custom_effect_tooltip = GARRISON_WEIGHT
+				custom_effect_tooltip = MILITIA_WEIGHT
+				custom_effect_tooltip = IRREGULAR_WEIGHT
+				custom_effect_tooltip = PACK_ARTILLERY_WEIGHT
+				custom_effect_tooltip = LIGHT_ARTILLERY_WEIGHT
+				custom_effect_tooltip = MEDIUM_ARTILLERY_WEIGHT   
+				custom_effect_tooltip = HEAVY_ARTILLERY_WEIGHT  
+				custom_effect_tooltip = ANTI_TANK_WEIGHT 
+				custom_effect_tooltip = HEAVY_ANTI_TANK_WEIGHT  
+				custom_effect_tooltip = ANTI_AIR_WEIGHT  
+				custom_effect_tooltip = HEAVY_ANTI_AIR_WEIGHT  
+				custom_effect_tooltip = MOUNTAINEER_WEIGHT
+				custom_effect_tooltip = MARINE_WEIGHT   
+				custom_effect_tooltip = PARATROOPER_WEIGHT     
+				custom_effect_tooltip = CAVALRY_WEIGHT    
+				custom_effect_tooltip = SEMI_MOTORIZED_WEIGHT      
+				custom_effect_tooltip = MOTORIZED_WEIGHT  
+				custom_effect_tooltip = MECHANIZED_WEIGHT  
+				custom_effect_tooltip = LIGHT_ARMOR_WEIGHT
+				custom_effect_tooltip = MEDIUM_ARMOR_WEIGHT 
+				custom_effect_tooltip = HEAVY_ARMOR_WEIGHT 
+				custom_effect_tooltip = ARMY_STRENGTH_MULTIPLICATOR 
+				
+				meta_effect = {
+					text = {
+						show_ideas_tooltip = army_strength_[X]
+					}
+					X = army_strength_level
+				}
+			}  
+		}
+		
+		triggers = {
+		}
+	}
+	BI_navy_view_menu = {
+		context_type = player_context
+		
+		window_name = "navy_view_menu_container"
+		parent_window_name = navy_tab_hook
+		
+		visible = {
+			#player_only_trigger = yes
+		}
+		
+		#dirty = BI_navy_update
+		
+		properties = {
+			navy_strength = { 
+				image = "[GetNavyStrengthGFX]"
+			} 
+		}
+		
+		effects = {
+			navy_strength_click = { 
+				custom_effect_tooltip = NAVAL_WEIGHT_TT    
+				custom_effect_tooltip = BATTLESHIP_WEIGHT  
+				custom_effect_tooltip = BATTLECRUISER_WEIGHT  
+				custom_effect_tooltip = LARGE_CRUISER_WEIGHT  
+				custom_effect_tooltip = PREDREADNOUGHT_WEIGHT  
+				custom_effect_tooltip = SUPER_CARRIER_WEIGHT     
+				custom_effect_tooltip = CARRIER_WEIGHT     
+				custom_effect_tooltip = ARMORED_CARRIER_WEIGHT
+				custom_effect_tooltip = LIGHT_CARRIER_WEIGHT   
+				custom_effect_tooltip = ESCORT_CARRIER_WEIGHT   
+				custom_effect_tooltip = POCKET_BATTLESHIP_WEIGHT
+				custom_effect_tooltip = HEAVY_CRUISER_WEIGHT
+				custom_effect_tooltip = LIGHT_CRUISER_WEIGHT
+				custom_effect_tooltip = DESTROYER_WEIGHT
+				custom_effect_tooltip = DESTROYER_ESCORT_WEIGHT
+				custom_effect_tooltip = TORPEDO_BOAT_WEIGHT
+				custom_effect_tooltip = ESCORT_WEIGHT
+				custom_effect_tooltip = LONG_RANGE_SUBMARINE_WEIGHT
+				custom_effect_tooltip = SUBMARINE_WEIGHT 
+				custom_effect_tooltip = COASTAL_SUBMARINE_WEIGHT
+				
+				if = {
+					limit = {
+						has_idea = tiny_navy
+					}
+					show_ideas_tooltip = tiny_navy
+				}
+				else_if = {
+					limit = {
+						has_idea = small_navy
+					}
+					show_ideas_tooltip = small_navy
+				}
+				else_if = {
+					limit = {
+						has_idea = average_navy
+					}
+					show_ideas_tooltip = average_navy
+				}
+				else_if = {
+					limit = {
+						has_idea = large_navy
+					}
+					show_ideas_tooltip = large_navy
+				}
+				else_if = {
+					limit = {
+						has_idea = huge_navy
+					}
+					show_ideas_tooltip = huge_navy
+				}
+				
+			}
+		}
+		
+		triggers = {
+		}
+	}
+	BI_air_view_menu = {
+		context_type = player_context
+		
+		window_name = "air_view_menu_container"
+		parent_window_name = air_tab_hook
+		
+		visible = {
+			#player_only_trigger = yes
+		}
+		
+		#dirty = BI_air_update
+
+		properties = {
+			air_strength = { 
+				image = "[GetAirStrengthGFX]"
+			}
+		}
+		
+		effects = { 
+			air_strength_click = {
+				custom_effect_tooltip = AIR_STRENGTH_TITLE 
+				custom_effect_tooltip = FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = ALT_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = INTERCEPTOR_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = INTERCEPTOR_NAVY_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = MR_FIGHT_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CV_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CV_MR_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CV_CAS_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CV_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = HV_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = NIGHT_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CAS_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = TWIN_CAS_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = NAV_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = HV_NAV_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = NAV_BOMB_GB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = FLYING_BOAT_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = TAC_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = FAST_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = LT_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = STRAT_BOAT_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = TRANSPORT_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = SCOUT_PLANE_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = SUICIDE_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = JET_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = JET_MR_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = JET_CAS_EQUIPMENT_WEIGHT
+				custom_effect_tooltip = JET_TAC_EQUIPMENT_WEIGHT
+				custom_effect_tooltip = JET_STRAT_EQUIPMENT_WEIGHT
+				custom_effect_tooltip = ROCKET_INTERCEPTOR_EQUIPMENT_WEIGHT
+				if = {
+					limit = {
+						has_idea = tiny_air_force
+					}
+					show_ideas_tooltip = tiny_air_force
+				}
+				else_if = {
+					limit = { 
+						has_idea = small_air_force
+					}
+					show_ideas_tooltip = small_air_force
+				}
+				else_if = {
+					limit = { 
+						has_idea = average_air_force
+					}
+					show_ideas_tooltip = average_air_force
+				}
+				else_if = {
+					limit = { 
+						has_idea = large_air_force
+					}
+					show_ideas_tooltip = large_air_force
+				}
+				else_if = {
+					limit = { 
+						has_idea = huge_air_force
+					}
+					show_ideas_tooltip = huge_air_force
+				} 
+			} 
+			
+		}
+		
+		triggers = {
+		}  
+	}
+	BI_officer_window_land = {
+		context_type = player_context
+		
+		window_name = "BI_officer_tab_container"
+		parent_window_name = officer_core_view
+		
+		properties = {
+			academy_spirit_icon = {
+				image = GFX_idea_[?academy_spirit_icon.GetTokenKey]
+			}
+			army_spirit_icon = {
+				image = GFX_idea_[?army_spirit_icon.GetTokenKey]
+			}
+			division_command_spirit_icon = {
+				image = GFX_idea_[?division_command_spirit_icon.GetTokenKey]
+			}
+			air_force_spirit_icon = {
+				image = GFX_idea_[?air_force_spirit_icon.GetTokenKey]
+			}
+			air_force_command_spirit_icon = {
+				image = GFX_idea_[?air_force_command_spirit_icon.GetTokenKey]
+			}
+			naval_academy_spirit_icon = {
+				image = GFX_idea_[?naval_academy_spirit_icon.GetTokenKey]
+			}
+			navy_spirit_icon = {
+				image = GFX_idea_[?navy_spirit_icon.GetTokenKey]
+			}
+			naval_command_spirit_icon = {
+				image = GFX_idea_[?naval_command_spirit_icon.GetTokenKey]
+			}
+			 
+		} 
+		
+		triggers = {
+			academy_spirit_icon_visible = {
+				has_variable = spirit@token:academy_spirit
+			}
+			army_spirit_icon_visible = {
+				has_variable = spirit@token:army_spirit
+			}
+			division_command_spirit_icon_visible = {
+				has_variable = spirit@token:division_command_spirit
+			}
+			 
+			air_force_spirit_icon_visible = {
+				has_variable = spirit@token:air_force_spirit
+			}
+			air_force_command_spirit_icon_visible = {
+				has_variable = spirit@token:air_force_command_spirit
+			}
+			 
+			naval_academy_spirit_icon_visible = {
+				has_variable = spirit@token:naval_academy_spirit
+			}
+			navy_spirit_icon_visible = {
+				has_variable = spirit@token:navy_spirit
+			}
+			naval_command_spirit_icon_visible = {
+				has_variable = spirit@token:naval_command_spirit
+			}
+			
+			academy_spirit_click_enabled = {
+				set_temp_variable = { academy_spirit_icon = spirit@token:academy_spirit }
+			}
+			army_spirit_click_enabled = {
+				set_temp_variable = { army_spirit_icon = spirit@token:army_spirit }
+			}
+			division_command_spirit_click_enabled = {
+				set_temp_variable = { division_command_spirit_icon = spirit@token:division_command_spirit }
+			}
+			
+			naval_academy_spirit_click_enabled = {
+				set_temp_variable = { naval_academy_spirit_icon = spirit@token:naval_academy_spirit }
+			}
+			navy_spirit_click_enabled = {
+				set_temp_variable = { navy_spirit_icon = spirit@token:navy_spirit }
+			}
+			naval_command_spirit_click_enabled = {
+				set_temp_variable = { naval_command_spirit_icon = spirit@token:naval_command_spirit }
+			}
+			
+			air_force_spirit_click_enabled = {
+				set_temp_variable = { air_force_spirit_icon = spirit@token:air_force_spirit }
+			}
+			air_force_command_spirit_click_enabled = {
+				set_temp_variable = { air_force_command_spirit_icon = spirit@token:air_force_command_spirit }
+			}
+		}
+		effects = {
+			academy_spirit_click = {
+				clear_array = selected_spirits
+				for_each_loop = {
+					array = global.academy_spirit
+					
+					set_temp_variable = { allowed = 1 }
+					if = {
+						limit = {
+							meta_trigger = {
+								text = {
+									can_[X] = yes
+								}
+								X = "[?v.GetTokenKey]"
+							}
+						}
+					}
+					 
+					if = {
+						limit = {
+							check_variable = { allowed = 1 } 
+						} 
+								 
+						add_to_array = { selected_spirits = v }
+					}
+				}
+				  
+				set_variable = { selected_spirit_type = token:academy_spirit }
+				set_variable = { selected_spirit_type_frame = 1 }
+				
+				set_temp_variable = { tt = token:academy_spirit } 
+				if = {
+					limit = {
+						has_variable = spirit@var:tt
+					}
+					custom_effect_tooltip = "SPIRIT_TITLE_TT"
+					meta_effect = {
+						text = {
+							[X]_data = yes
+						}  
+						X = "[?spirit@var:tt.GetTokenKey]"
+					}
+				}
+			}
+			army_spirit_click = {
+				clear_array = selected_spirits
+				for_each_loop = {
+					array = global.army_spirit
+					
+					add_to_array = { selected_spirits = v }
+				} 
+				
+				set_variable = { selected_spirit_type = token:army_spirit }
+				set_variable = { selected_spirit_type_frame = 10 }
+				
+				set_temp_variable = { tt = token:army_spirit } 
+				if = {
+					limit = {
+						has_variable = spirit@var:tt
+					}
+					custom_effect_tooltip = "SPIRIT_TITLE_TT"
+					meta_effect = {
+						text = {
+							[X]_data = yes
+						}  
+						X = "[?spirit@var:tt.GetTokenKey]"
+					}
+				}
+			}
+			division_command_spirit_click = {
+				clear_array = selected_spirits
+				for_each_loop = {
+					array = global.division_command_spirit
+					
+					add_to_array = { selected_spirits = v }
+				}
+				
+				set_variable = { selected_spirit_type = token:division_command_spirit }
+				set_variable = { selected_spirit_type_frame = 4 }
+				
+				set_temp_variable = { tt = token:division_command_spirit } 
+				if = {
+					limit = {
+						has_variable = spirit@var:tt
+					}
+					custom_effect_tooltip = "SPIRIT_TITLE_TT"
+					meta_effect = { 
+						text = {
+							[X]_data = yes
+						}  
+						X = "[?spirit@var:tt.GetTokenKey]"
+					}
+				}
+			}
+			
+			naval_academy_spirit_click = {
+				clear_array = selected_spirits
+				for_each_loop = {
+					array = global.naval_academy_spirit
+					
+					add_to_array = { selected_spirits = v }
+				}
+				
+				set_variable = { selected_spirit_type = token:naval_academy_spirit }
+				set_variable = { selected_spirit_type_frame = 1 }
+				
+				set_temp_variable = { tt = token:naval_academy_spirit } 
+				if = {
+					limit = {
+						has_variable = spirit@var:tt
+					}
+					custom_effect_tooltip = "SPIRIT_TITLE_TT"
+					meta_effect = {
+						text = {
+							[X]_data = yes
+						}  
+						X = "[?spirit@var:tt.GetTokenKey]"
+					}
+				}
+			}
+			navy_spirit_click = {
+				clear_array = selected_spirits
+				for_each_loop = {
+					array = global.navy_spirit
+					
+					add_to_array = { selected_spirits = v }
+				}
+				
+				set_variable = { selected_spirit_type = token:navy_spirit }
+				set_variable = { selected_spirit_type_frame = 13 }
+				
+				set_temp_variable = { tt = token:navy_spirit } 
+				if = {
+					limit = {
+						has_variable = spirit@var:tt
+					}
+					custom_effect_tooltip = "SPIRIT_TITLE_TT"
+					meta_effect = {
+						text = {
+							[X]_data = yes
+						}  
+						X = "[?spirit@var:tt.GetTokenKey]"
+					}
+				}
+			}
+			naval_command_spirit_click = {
+				clear_array = selected_spirits
+				for_each_loop = {
+					array = global.naval_command_spirit
+					
+					add_to_array = { selected_spirits = v }
+				}
+				
+				set_variable = { selected_spirit_type = token:naval_command_spirit }
+				set_variable = { selected_spirit_type_frame = 4 }
+				
+				set_temp_variable = { tt = token:naval_command_spirit } 
+				if = {
+					limit = {
+						has_variable = spirit@var:tt
+					}
+					custom_effect_tooltip = "SPIRIT_TITLE_TT"
+					meta_effect = {
+						text = {
+							[X]_data = yes
+						}  
+						X = "[?spirit@var:tt.GetTokenKey]"
+					}
+				}
+			}
+			
+			air_force_spirit_click = {
+				clear_array = selected_spirits
+				for_each_loop = {
+					array = global.air_force_spirit
+					
+					add_to_array = { selected_spirits = v }
+				}
+				
+				set_variable = { selected_spirit_type = token:air_force_spirit }
+				set_variable = { selected_spirit_type_frame = 7 }
+				
+				set_temp_variable = { tt = token:air_force_spirit } 
+				if = {
+					limit = {
+						has_variable = spirit@var:tt
+					}
+					custom_effect_tooltip = "SPIRIT_TITLE_TT"
+					meta_effect = {
+						text = {
+							[X]_data = yes
+						}  
+						X = "[?spirit@var:tt.GetTokenKey]"
+					}
+				}
+			 }
+			air_force_command_spirit_click = {
+				clear_array = selected_spirits
+				for_each_loop = {
+					array = global.air_force_command_spirit
+					
+					add_to_array = { selected_spirits = v }
+				}
+				
+				set_variable = { selected_spirit_type = token:air_force_command_spirit }
+				set_variable = { selected_spirit_type_frame = 4 }
+				
+				set_temp_variable = { tt = token:air_force_command_spirit } 
+				if = { 
+					limit = {
+						has_variable = spirit@var:tt
+					}
+					custom_effect_tooltip = "SPIRIT_TITLE_TT"
+					meta_effect = {
+						text = {
+							[X]_data = yes
+						}  
+						X = "[?spirit@var:tt.GetTokenKey]"
+					}
+				}
+			}
+			
+			
+		
+			high_command_army_limit_click = { 
+				
+				if = {        
+					limit = {       
+						has_country_flag = { flag = has_high_command_army value = 2 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LIMIT_REACHED" 
+				}     
+				else_if = {     
+					limit = {   
+				 		has_country_flag = { flag = has_high_command_army value = 1 }
+					}     
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_2"
+				}
+						
+			}
+			high_command_air_limit_click = { 
+				
+				if = {  
+					limit = {    
+						has_country_flag = { flag = has_high_command_air value = 2 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LIMIT_REACHED"
+				} 
+				else_if = {   
+					limit = {
+				 		has_country_flag = { flag = has_high_command_air value = 1 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_2"
+				}
+					
+			}
+			high_command_navy_limit_click = { 
+				
+				if = {  
+					limit = { 
+						has_country_flag = { flag = has_high_command_navy value = 2 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LIMIT_REACHED"
+				} 
+				else_if = {  
+					limit = {
+				 		has_country_flag = { flag = has_high_command_navy value = 1 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_2"
+				}
+						
+			}
+			
+			theorist_army_limit_click = { 
+				
+				if = {  
+					limit = {   
+						has_country_flag = { flag = has_theorist_army value = 2 }
+					}   
+					custom_effect_tooltip = "THEORIST_LIMIT_REACHED"
+				}  
+				else_if = {   
+					limit = {
+				 		has_country_flag = { flag = has_theorist_army value = 1 }
+					}    
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_2"
+				}
+						
+			}
+			theorist_air_limit_click = { 
+				
+				if = {  
+					limit = {    
+						has_country_flag = { flag = has_theorist_air value = 2 }
+					}   
+					custom_effect_tooltip = "THEORIST_LIMIT_REACHED" 
+				}     
+				else_if = {   
+					limit = { 
+				 		has_country_flag = { flag = has_theorist_air value = 1 }
+					}    
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_1"
+				} 
+				else = {
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_2"
+				}
+						
+			}
+			theorist_navy_limit_click = { 
+				  
+				if = {  
+					limit = { 
+						has_country_flag = { flag = has_theorist_navy value = 2 }
+					}   
+					custom_effect_tooltip = "THEORIST_LIMIT_REACHED"
+				} 
+				else_if = {  
+					limit = {
+				 		has_country_flag = { flag = has_theorist_navy value = 1 }
+					}   
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_2"
+				}
+						
+			}
+		}
+	}
+	BI_officer_window_land_no_nsb = {
+		context_type = player_context
+		
+		window_name = "BI_officer_tab_container_no_nsb"
+		parent_window_name = officer_core_view_no_spirit
+		 
+		effects = {
+			
+			high_command_army_limit_click = { 
+				
+				if = {        
+					limit = {       
+						has_country_flag = { flag = has_high_command_army value = 2 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LIMIT_REACHED" 
+				}     
+				else_if = {     
+					limit = {   
+				 		has_country_flag = { flag = has_high_command_army value = 1 }
+					}     
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_2"
+				}
+						
+			}
+			high_command_air_limit_click = { 
+				
+				if = {  
+					limit = {    
+						has_country_flag = { flag = has_high_command_air value = 2 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LIMIT_REACHED"
+				} 
+				else_if = {   
+					limit = {
+				 		has_country_flag = { flag = has_high_command_air value = 1 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_2"
+				}
+					
+			}
+			high_command_navy_limit_click = { 
+				
+				if = {  
+					limit = { 
+						has_country_flag = { flag = has_high_command_navy value = 2 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LIMIT_REACHED"
+				} 
+				else_if = {  
+					limit = {
+				 		has_country_flag = { flag = has_high_command_navy value = 1 }
+					}   
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "HIGH_COMMAND_LEFT_SLOT_2"
+				}
+						
+			}
+			
+			theorist_army_limit_click = { 
+				
+				if = {  
+					limit = {   
+						has_country_flag = { flag = has_theorist_army value = 2 }
+					}   
+					custom_effect_tooltip = "THEORIST_LIMIT_REACHED"
+				}  
+				else_if = {   
+					limit = {
+				 		has_country_flag = { flag = has_theorist_army value = 1 }
+					}    
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_2"
+				}
+						
+			}
+			theorist_air_limit_click = { 
+				
+				if = {  
+					limit = {    
+						has_country_flag = { flag = has_theorist_air value = 2 }
+					}   
+					custom_effect_tooltip = "THEORIST_LIMIT_REACHED" 
+				}     
+				else_if = {   
+					limit = { 
+				 		has_country_flag = { flag = has_theorist_air value = 1 }
+					}    
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_1"
+				} 
+				else = {
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_2"
+				}
+						
+			}
+			theorist_navy_limit_click = { 
+				  
+				if = {  
+					limit = { 
+						has_country_flag = { flag = has_theorist_navy value = 2 }
+					}   
+					custom_effect_tooltip = "THEORIST_LIMIT_REACHED"
+				} 
+				else_if = {  
+					limit = {
+				 		has_country_flag = { flag = has_theorist_navy value = 1 }
+					}   
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_1"
+				}
+				else = {
+					custom_effect_tooltip = "THEORIST_LEFT_SLOT_2"
+				}
+						
+			}
+		}
+	}
+	BI_selected_spirit = {
+		context_type = player_context
+		
+		window_name = "BI_selected_spirit_container"
+		parent_scripted_gui = BI_officer_window_land
+		
+		visible = {
+			has_variable = selected_spirit_type
+		}
+		 
+		properties = {
+			icon = {
+				image = GFX_idea_[?v.GetTokenKey]
+			}
+			select_spirit = { 
+				frame = frame_tile
+			}  
+			icon_inherited_spirit_bg = {
+				frame = selected_spirit_type_frame
+			}
+		} 
+		
+		dynamic_lists = {
+			spirit_list = {  
+				#array = global.countries
+				array = selected_spirits
+		  		change_scope = yes
+				entry_container = "military_spirit_entry"
+			}
+		}    
+
+		effects = {
+			close_click = {
+				clear_variable = selected_spirit_type
+				clear_variable = selected_spirit_type_frame
+				clear_array = selected_spirits
+			}
+			spirit_overlay1_click = {
+				clear_variable = selected_spirit_type
+				clear_variable = selected_spirit_type_frame
+				clear_array = selected_spirits
+			}
+			spirit_overlay2_click = {
+				clear_variable = selected_spirit_type
+				clear_variable = selected_spirit_type_frame
+				clear_array = selected_spirits
+			}
+			spirit_overlay3_click = {
+				clear_variable = selected_spirit_type
+				clear_variable = selected_spirit_type_frame
+				clear_array = selected_spirits
+			}
+			spirit_overlay4_click = {
+				clear_variable = selected_spirit_type
+				clear_variable = selected_spirit_type_frame
+				clear_array = selected_spirits
+			}
+			select_spirit_click = {
+				effect_tooltip = {
+					meta_effect = {
+						text = {
+							[X]_data = yes
+						}
+						X = "[?v.GetTokenKey]"
+					}
+				}
+				if = {
+					limit = {	
+						NOT = { has_idea = var:v }
+						meta_trigger = {
+							text = {
+								can_[X] = yes
+							}
+							X = "[?v.GetTokenKey]"
+						}
+						#has_army_experience > army_xp_cost
+						#has_air_experience > air_xp_cost
+						#has_navy_experience > navy_xp_cost
+					}
+					if = {
+						limit = {
+							check_variable = { selected_spirit_type = token:academy_spirit }
+						}
+						set_temp_variable = { factor = 1 }
+						add_to_temp_variable = { factor = modifier@academy_spirit_cost_factor }
+						multiply_temp_variable = { army_xp_cost = factor }
+					}
+					multiply_temp_variable = { army_xp_cost = -1 }
+					multiply_temp_variable = { air_xp_cost = -1 }
+					multiply_temp_variable = { navy_xp_cost = -1 }
+	
+					
+					hidden_effect = {
+						army_experience = army_xp_cost
+						air_experience = air_xp_cost
+						navy_experience = navy_xp_cost
+						
+						if = {
+							limit = {
+								has_variable = spirit@var:selected_spirit_type
+							}
+							swap_ideas = {
+								remove_idea = var:spirit@var:selected_spirit_type
+								add_idea = var:v
+							}
+						}
+						else = {
+							add_ideas = var:v
+						}
+					}
+					set_variable = { spirit@var:selected_spirit_type = v }
+				}
+			}
+		}
+		
+		triggers = {
+			cost_visible = {
+				NOT = {
+					check_variable = { spirit@var:selected_spirit_type = v }
+				}
+			}
+			icon_background_army_visible = {
+				OR = {
+					check_variable = { selected_spirit_type = token:academy_spirit }
+					check_variable = { selected_spirit_type = token:army_spirit }
+					check_variable = { selected_spirit_type = token:division_command_spirit }
+				}
+			}
+			icon_background_air_visible = {
+				OR = {
+					check_variable = { selected_spirit_type = token:air_force_spirit }
+					check_variable = { selected_spirit_type = token:air_force_command_spirit }
+				}
+			}
+			icon_background_navy_visible = {
+				OR = {
+					check_variable = { selected_spirit_type = token:naval_academy_spirit }
+					check_variable = { selected_spirit_type = token:navy_spirit }
+					check_variable = { selected_spirit_type = token:naval_command_spirit }
+				}
+			}
+			select_spirit_click_enabled = {
+				set_temp_variable = { frame_tile = 1 }
+				if = {
+		 			limit = {
+						check_variable = { spirit@var:selected_spirit_type = v }
+				 	}
+					set_temp_variable = { frame_tile = 2 }
+			 	}
+				else = {
+					meta_trigger = {
+						text = {
+							can_[X] = yes
+						}
+						X = "[?v.GetTokenKey]"
+					}
+					if = {
+						limit = { NOT = { check_variable = { army_xp_cost = 0 } } }
+						if = {
+							limit = {
+								check_variable = { selected_spirit_type = token:academy_spirit }
+							}
+							set_temp_variable = { factor = 1 }
+							add_to_temp_variable = { factor = modifier@academy_spirit_cost_factor }
+							multiply_temp_variable = { army_xp_cost = factor }
+						}
+						has_army_experience > army_xp_cost
+					}
+					if = {
+						limit = { NOT = { check_variable = { air_xp_cost = 0 } } }
+						has_air_experience > air_xp_cost
+					}
+					if = {
+						limit = { NOT = { check_variable = { navy_xp_cost = 0 } } }
+						has_navy_experience > navy_xp_cost
+					}
+				}
+			}
+		}
+		      
+	}
+	BI_min_cons_goods_view = {
+		context_type = player_context
+		  
+		parent_window_name = "construction_lines_container"         
+		window_name = "BI_min_cons_goods_container"  
+		
+		#dirty = BI_construction_update #pdx... you disappointed me again
+		
+		effects = { 
+			cons_threshold_bg_click = {
+				MTT_get_min_cons_goods_modifiers = yes 
+			}
+		}
+	}
+	BI_construction_view_menu = {
+		context_type = player_context
+		 
+		window_name = "BI_construction_tab_container"
+		parent_window_token = construction_tab
+
+		 
+		visible = {
+		
+		}
+
+		effects = {
+			show_buildings_click = {
+				if = {
+					limit = {
+						has_country_flag = ui_show_building_list
+					}
+					clr_country_flag = ui_show_building_list
+					clear_variable = ui_building_list
+				}
+				else = {
+					set_country_flag = ui_show_building_list
+					
+					clear_array = buildings_list
+					clear_array = buildings_list_parent
+					clear_variable = ui_building_list
+					for_each_loop = {
+						array = global.buildings
+						
+						clear_variable = ui_num_building@var:v
+					}
+					
+					every_controlled_state = {
+						for_each_loop = {
+							array = global.buildings
+							
+							if = {
+								limit = {
+									check_variable = { modifier@local_factories = 0 }
+								}
+								
+								add_to_variable = { ROOT.ui_num_building@var:v = building_level@var:v }
+							}
+							else = {
+										
+								set_temp_variable = { local = modifier@local_factories }
+								add_to_temp_variable = { local = 1 }
+									
+								set_temp_variable = { t = building_level@var:v }
+								multiply_temp_variable = { t = local }
+								add_to_variable = { ROOT.ui_num_building@var:v = t }
+							}
+						}
+					}
+					
+					for_each_loop = {
+						array = global.buildings
+						
+						if = {
+							limit = {
+								check_variable = { ui_num_building@var:v > 0 }
+							}
+							round_variable = ui_num_building@var:v
+							add_to_array = { buildings_list = v }
+							add_to_array = { buildings_list_parent = v }
+						}
+					}
+				}
+					
+			}
+			
+			buildings_close_button_click = {
+				clr_country_flag = ui_show_building_list
+				clear_variable = ui_building_list
+			}
+				
+		}
+		
+		triggers = {
+			buildings_close_button_visible = {
+				has_country_flag = ui_show_building_list
+			}
+		}
+	}
+	BI_building_list = {
+		context_type = player_context
+		 
+		window_name = "BI_building_list_container"
+		parent_window_token = construction_tab
+
+		 
+		visible = {
+			has_country_flag = ui_show_building_list
+		}
+
+		dynamic_lists = {
+			building_list = {  
+				array = buildings_list
+		  		change_scope = yes
+				entry_container = "[GetBuildingEntryContainer]"
+			}
+		}    
+		
+		properties = {
+			building_icon = {
+				frame = global.building_frame@var:v
+			}
+		}
+
+		effects = {
+			building_click = {
+				if = {
+					limit = {
+						set_temp_variable = { next_i = i }
+						add_to_temp_variable = { next_i = 1 }
+						check_variable = { ROOT.buildings_list_parent^next_i = v }
+					}
+					#log = "CLEAR"
+					remove_from_array = { array = buildings_list index = next_i }
+					remove_from_array = { array = buildings_list index = next_i }
+					remove_from_array = { array = buildings_list_parent index = next_i }
+					remove_from_array = { array = buildings_list_parent index = next_i }
+					clear_variable = ui_building_list
+				}
+				else_if = {
+					limit = {
+						NOT = { check_variable = { ui_building_list = v } }
+					}
+					#log = "INITIATE"
+					
+					
+					set_temp_variable = { next_i = i }
+					add_to_temp_variable = { next_i = 1 }
+					#add_to_array = { array = buildings_list value = 3 index = next_i }
+					add_to_array = { array = buildings_list value = 2 index = next_i }
+					add_to_array = { array = buildings_list value = 1 index = next_i }
+					
+					add_to_array = { array = buildings_list_parent value = v index = next_i }
+					add_to_array = { array = buildings_list_parent value = v index = next_i }
+					
+					clear_variable = ui_num_building_owned@var:v
+					clear_variable = ui_num_building_occupied@var:v
+					
+					set_variable = { ui_building_list = v }
+					every_controlled_state = {
+					
+						if = {
+							limit = {
+								check_variable = { modifier@local_factories = 0 }
+							}
+							
+							add_to_variable = { ROOT.ui_num_building_owned@var:v = building_level@var:v }
+						}
+						else = {
+									
+							set_temp_variable = { local = modifier@local_factories }
+							add_to_temp_variable = { local = 1 }
+								
+							set_temp_variable = { t = building_level@var:v }
+							multiply_temp_variable = { t = local }
+							add_to_variable = { ROOT.ui_num_building_occupied@var:v = t }
+						}
+						
+					}
+						
+				}
+				
+			}
+		}
+		
+		triggers = {
+			building_click_enabled = {
+				set_temp_variable = { parent = buildings_list_parent^i }
+			}
+		}
+	}
+	
+	BI_construction_speed_view_menu = {
+		context_type = player_context
+		
+		window_name = "BI_construction_speed_view_menu_container"
+		parent_window_name = possible_constructions
+		
+		triggers = { #DLC exclusive building, hide speed and icon if not active
+			mega_gun_emplacement_speed_icon_visible = {
+				has_dlc = Gotterdammerung
+			}
+			mega_gun_emplacement_speed_visible = {
+				has_dlc = Gotterdammerung
+			}
+		}
+
+		effects = {
+			industrial_complex_click = {
+				set_temp_variable = { building = token:industrial_complex }
+				custom_effect_tooltip = industrial_complex_desc
+				
+				set_temp_variable = { need = 8 }
+				set_temp_variable = { factor = modifier@energy_need_civilian_factor }
+				add_to_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				set_temp_variable = { conversion = 4800 }
+				
+				#set_temp_variable = { days = global.building_cost@industrial_complex }
+				#set_temp_variable = { speed = modifier@production_speed_buildings_factor }
+				#add_to_temp_variable = { speed = modifier@production_speed_industrial_complex_factor }
+				#add_to_temp_variable = { speed = 1 }
+				#multiply_temp_variable = { speed = 3.2 }
+				#multiply_temp_variable = { speed = 24 }
+				#divide_temp_variable = { days = speed }
+				
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+				custom_effect_tooltip = building_conversion_tooltip
+			}
+			arms_factory_click = {
+				set_temp_variable = { building = token:arms_factory }
+				custom_effect_tooltip = arms_factory_desc
+				
+				set_temp_variable = { need = 10 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				set_temp_variable = { conversion = 4800 }
+				
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+				custom_effect_tooltip = building_conversion_tooltip
+			}
+			dockyard_click = {
+				set_temp_variable = { building = token:dockyard }
+				custom_effect_tooltip = dockyard_desc
+				
+				set_temp_variable = { need = 30 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			shipyard_click = {
+				set_temp_variable = { building = token:shipyard }
+				if = {
+					limit = {
+						NOT = { has_tech = ship_industry }
+					}
+					set_temp_variable = { tech = token:ship_industry }
+					custom_effect_tooltip = building_requirement_tooltip
+				}
+				custom_effect_tooltip = shipyard_desc
+				
+				set_temp_variable = { need = 6 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			subyard_click = {
+				set_temp_variable = { building = token:subyard }
+				if = {
+					limit = {
+						NOT = { has_tech = sub_industry }
+					}
+					set_temp_variable = { tech = token:sub_industry }
+					custom_effect_tooltip = building_requirement_tooltip
+				}
+				custom_effect_tooltip = subyard_desc
+				
+				set_temp_variable = { need = 6 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			artillery_assembly_click = {
+				set_temp_variable = { building = token:artillery_assembly }
+				custom_effect_tooltip = artillery_assembly_desc
+				
+				set_temp_variable = { need = 6 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				custom_effect_tooltip = artillery_assembly_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			engine_assembly_click = {
+				set_temp_variable = { building = token:engine_assembly }
+				custom_effect_tooltip = engine_assembly_desc
+				
+				set_temp_variable = { need = 6 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				custom_effect_tooltip = engine_assembly_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			air_assembly_click = {
+				set_temp_variable = { building = token:air_assembly }
+				custom_effect_tooltip = air_assembly_desc
+				
+				set_temp_variable = { need = 6 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				custom_effect_tooltip = air_assembly_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			tank_assembly_click = {
+				set_temp_variable = { building = token:tank_assembly }
+				custom_effect_tooltip = tank_assembly_desc
+				
+				set_temp_variable = { need = 6 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				custom_effect_tooltip = tank_assembly_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			shipyard_capital_building_click = {
+				set_temp_variable = { building = token:shipyard_capital_building }
+				custom_effect_tooltip = shipyard_capital_building_desc
+				
+				set_temp_variable = { need = 6 }
+				set_temp_variable = { factor = modifier@energy_consumption_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { need = factor }
+				
+				custom_effect_tooltip = capital_assembly_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_unbuildable_tooltip
+			}
+			
+			steel_refinery_click = {
+				set_temp_variable = { building = token:steel_refinery }
+				custom_effect_tooltip = steel_refinery_desc
+				
+				set_temp_variable = { need = 5 }
+				add_to_temp_variable = { need = modifier@steel_energy_cost }
+							
+				set_temp_variable = { output = 30 }
+				add_to_temp_variable = { output = modifier@steel_conversion_output }
+				
+				custom_effect_tooltip = steel_refinery_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			aluminium_refinery_click = {
+				set_temp_variable = { building = token:aluminium_refinery }
+				custom_effect_tooltip = aluminium_refinery_desc
+				
+				set_temp_variable = { need = 15 }
+				add_to_temp_variable = { need = modifier@aluminium_energy_cost }
+							
+				set_temp_variable = { output = 20 }
+				add_to_temp_variable = { output = modifier@aluminium_conversion_output }
+				
+				custom_effect_tooltip = aluminium_refinery_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			rubber_refinery_click = {
+				set_temp_variable = { building = token:synthetic_rubber_refinery }
+				if = {
+					limit = {
+						NOT = { has_tech = rubber_processing }
+					}
+					set_temp_variable = { tech = token:rubber_processing }
+					custom_effect_tooltip = building_requirement_tooltip
+				}
+				custom_effect_tooltip = synthetic_rubber_refinery_desc
+				
+				set_temp_variable = { need = 30 }
+				add_to_temp_variable = { need = modifier@rubber_energy_cost }
+							
+				set_temp_variable = { output = 12 }
+				add_to_temp_variable = { output = modifier@rubber_conversion_output }
+				
+				custom_effect_tooltip = rubber_refinery_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			fuel_refinery_click = {
+				set_temp_variable = { building = token:synthetic_refinery }
+				if = {
+					limit = {
+						NOT = { has_tech = synth_oil_experiments }
+					}
+					set_temp_variable = { tech = token:synth_oil_experiments }
+					custom_effect_tooltip = building_requirement_tooltip
+				}
+				custom_effect_tooltip = synthetic_refinery_desc
+				
+				set_temp_variable = { need = 20 }
+				add_to_temp_variable = { need = modifier@fuel_energy_cost }
+							
+				set_temp_variable = { output = 60 }
+				set_temp_variable = { factor = modifier@fuel_gain_factor_from_states }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { output = factor }
+				
+				custom_effect_tooltip = fuel_refinery_resource
+				custom_effect_tooltip = building_energy_tooltip
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			power_plant_click = {
+				set_temp_variable = { building = token:power_plant }
+				custom_effect_tooltip = power_plant_desc
+				
+				set_temp_variable = { output = 120 }
+				set_temp_variable = { factor = modifier@energy_production_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { output = factor }
+				
+				custom_effect_tooltip = power_plant_resource
+				custom_effect_tooltip = building_cost_tooltip
+			}
+			hydro_power_click = {
+				set_temp_variable = { building = token:hydro_power }
+				custom_effect_tooltip = hydro_power_desc
+				
+				set_temp_variable = { output = 160 }
+				set_temp_variable = { factor = modifier@energy_hydro_factor }
+				add_to_temp_variable = { factor = 1 }
+				multiply_temp_variable = { output = factor }
+				
+				custom_effect_tooltip = hydro_power_resource
+				custom_effect_tooltip = building_cost_tooltip
+			}
+		}
+	}
+	#Production-tab
+	BI_production_view_menu = {
+		context_type = player_context
+		  
+		window_name = "BI_production_view_container" 
+		parent_window_token = production_tab
+		
+		visible = {  
+			NOT = { has_country_flag = show_HTD }
+		}    
+	 	 
+		properties = {
+			shipyard = {
+				frame = shipyard
+			}
+			subyard = {
+				frame = subyard
+			}
+		}   
+   
+		effects = { 
+			air_assembly_capacity_click = {    
+				MTT_get_air_assembly_output = yes
+			}
+			tank_assembly_capacity_click = {    
+				MTT_get_tank_assembly_output = yes
+			}
+			engine_assembly_capacity_click = {    
+				MTT_get_engine_assembly_output = yes
+			}
+			artillery_assembly_capacity_click = {    
+				MTT_get_artillery_assembly_output = yes
+			}
+			shipyard_assembly_capacity_click = {    
+				MTT_get_capital_shipyard_output = yes
+			}
+			local_resources_icon_click = {
+				MTT_get_resource_efficiency_modifiers = yes
+			}
+			production_start_efficiency_icon_click = {
+				MTT_get_starting_efficiency_modifiers = yes
+			}
+			open_equipment_intro_click = {
+				if = {
+					limit = {
+						has_country_flag = show_introduce_new_equipments_menu
+					}
+					clr_country_flag = show_introduce_new_equipments_menu
+				
+				}
+				else = {
+					update_equipment_intro_UI = yes
+					set_country_flag = show_introduce_new_equipments_menu
+				}
+			}
+			alert_click = {
+				d_update_equipment_intro_alert = yes
+			}
+		
+			open_HSD_menu_click = {
+				if = {
+					limit = {
+						has_country_flag = show_HTD
+					}
+					clr_country_flag = show_HTD
+				}
+				else = {
+					set_country_flag = show_HTD
+					clr_country_flag = HED_armor
+					HTD_open_window = yes
+					
+					add_to_variable = { ui_HTD = 1 }
+				}
+			}
+			open_HTD_menu_click = {
+				if = {
+					limit = {
+						has_country_flag = show_HTD
+					}
+					clr_country_flag = show_HTD
+				}
+				else = {
+					set_country_flag = show_HTD
+					set_country_flag = HED_armor
+					HTD_open_window = yes
+					
+					add_to_variable = { ui_HTD = 1 }
+				}
+			}
+		}
+		
+			
+		
+		triggers = {
+			open_HSD_menu_visible = {
+				major_country = yes 
+			}
+			open_HTD_menu_visible = {
+				OR = {
+					major_country = yes 
+					tag = CAN
+					tag = AST
+					#tag = HUN
+					tag = CZE
+					#tag = SWE
+					#tag = POL
+				}
+				
+			}
+			shipyard_click_enabled = {
+				set_temp_variable = { shipyard = num_shipyard }
+				add_to_temp_variable = { shipyard = 1 }
+				
+				set_temp_variable = { subyard = num_subyard }
+				add_to_temp_variable = { subyard = 1 }
+			}
+			
+			alert_visible = {
+				check_variable = { num_alerts > 0 }
+			}
+			alerts_visible = {
+				check_variable = { num_alerts > 0 }
+			} 
+			alert_click_enabled = {
+				equipment_intro_alert = yes
+			}
+		}
+	}
+	BI_introduce_new_equipments_menu = {
+		context_type = player_context
+		 
+		window_name = "BI_equipment_introduction_container"	
+		parent_scripted_gui = BI_production_view_menu
+		
+		visible = {  
+			has_country_flag = show_introduce_new_equipments_menu
+		}
+		
+		#dirty = x
+		properties = {  
+			subunit_icon = {  
+				image = "[GetEquipmentIntroGroupGFX]"
+				frame = 2  
+			}
+			equipment_icon = {
+				image = "[GetEquipmentIntroGFX]"
+			}
+		}
+		effects = { 
+			close_button_click = {
+				clr_country_flag = show_introduce_new_equipments_menu
+				clear_variable = selected_equipment
+				clear_array = equipment_intro_list
+				clear_array = equipment_unit_group_list
+				clear_array = equipment_unit_group_deployed_list
+			}
+			refresh_button_click = {
+				clear_array = equipment_intro_list
+				clear_array = equipment_unit_group_list
+				clear_array = equipment_unit_group_deployed_list
+				if = {
+					limit = {
+						#has_tech = mortars
+					}
+					add_to_array = { equipment_intro_list = token:mortar_equipment }
+				}
+				if = {
+					limit = {
+						#has_tech = hmg
+					}
+					add_to_array = { equipment_intro_list = token:HMG_equipment }
+				}
+				if = {
+					limit = {
+						#has_tech = radio
+					}
+					add_to_array = { equipment_intro_list = token:radio_equipment }
+				}
+				if = {
+					limit = {
+						#has_tech = infantry_at
+					}
+					add_to_array = { equipment_intro_list = token:handheld_at_equipment }
+				}
+				if = {
+					limit = {
+						#has_tech = infantry_guns
+					}
+					add_to_array = { equipment_intro_list = token:infantrygun_equipment }
+				}
+				if = {
+					limit = {
+						#has_tech = mechanized_hmg_tech
+					}	
+					add_to_array = { equipment_intro_list = token:mechanized_hmg }
+				}
+				if = {
+					limit = {
+						#has_tech = mechanized_mortar_tech
+					}
+					add_to_array = { equipment_intro_list = token:mechanized_mortar }
+				}
+				if = {
+					limit = {
+						#has_tech = mechanized_at_tech
+					}
+					add_to_array = { equipment_intro_list = token:mechanized_at }
+				}
+				if = {
+					limit = {
+						#has_tech = mechanized_aa_tech
+					}
+					add_to_array = { equipment_intro_list = token:mechanized_aa }
+				}
+				
+				update_equipment_intro_UI = yes
+			}  
+			
+			introduce_button_click = {
+				if = {
+					limit = {
+						check_variable = { selected_equipment = var:v }
+						check_variable = { equipment_unit_group_list^num > 0 }
+					}
+					clear_array = equipment_unit_group_list
+				}
+				else = {
+					ROOT = { BI_add_unit_categories = yes }
+				}
+			}  
+			 
+			introduce_equipment_button_click = {
+				if = {
+					limit = {
+						check_variable = { selected_equipment = token:mortar_equipment } #has that selected
+						check_variable = { v = token:special_forces_group } #clicks on this group
+						has_tech = mortars_2 #has this tech
+					} #then add it to paratroopers as well
+					hidden_effect = {
+						set_technology = { mortar_equipment_paratrooper_group_tech = 1 popup = no }
+					}
+				}
+				else_if = {
+					limit = {
+						check_variable = { selected_equipment = token:radio_equipment } #has that selected
+						check_variable = { v = token:support_group } #clicks on this group
+						has_tech = recon_radio #has this tech
+					} #then add it to recon as well
+					hidden_effect = {
+						set_technology = { radio_equipment_recon_group_tech = 1 popup = no }
+					}
+				}
+				hidden_effect = {
+					meta_effect = {
+						text = {
+							set_country_flag = [EQUIP]_intro/[GROUP]
+							set_technology = { [EQUIP]_[GROUP]_tech = 1 popup = no }
+						}
+						debug = yes
+						EQUIP = "[?selected_equipment.GetTokenKey]"
+						GROUP = "[?v.GetTokenKey]"
+					}
+				}
+				if = {
+					limit = {
+						check_variable = { Root.equipment_unit_group_list^num = 1 }
+					}
+					remove_from_array = { Root.equipment_intro_list = Root.selected_equipment }
+				}
+		 		remove_from_array = { Root.equipment_unit_group_list = var:v }
+				#add_to_array = { Root.equipment_unit_group_deployed_list = var:v }
+				
+				introduce_equipments_big_ass_tooltip = yes
+				
+				add_to_variable = { ui_eq_intro_alert = 1 }
+			}
+		} 
+		
+		triggers = {
+			introduce_equipment_button_click_enabled = {
+				if = {
+					limit = {
+						check_variable = { selected_equipment = token:radio_equipment }
+					}
+					
+					if = { limit = { check_variable = { v = token:infantry_group } }
+					
+						has_tech = infantry_radio
+					 	
+					}
+					else_if = { limit = { check_variable = { v = token:special_forces_group } }
+					
+						has_tech = infantry_radio
+						
+					}
+					else_if = { limit = { check_variable = { v = token:mobile_group } }
+					
+						has_tech = vehicle_radio
+					 	
+					}
+					#else_if = { limit = { check_variable = { v = token:support_group } }
+					#
+					#	has_tech = HQ_radio # deprecated tech
+					#	
+					#}
+				}
+			} 
+			introduce_button_highlight_visible = {
+				check_variable = { selected_equipment = v }
+			}
+		}
+		
+		dynamic_lists = {
+			BI_equipment_introduction_list = {
+				array = Root.equipment_intro_list 
+				change_scope = yes
+				entry_container = "BI_equipment_introduction_entry"
+			}
+			BI_unit_group_list = {
+				array = Root.equipment_unit_group_list
+				change_scope = yes
+				entry_container = "BI_unit_group_entry"
+			}
+			BI_unit_group_deployed_list = {
+				array = Root.equipment_unit_group_deployed_list
+				change_scope = yes
+				entry_container = "BI_unit_group_deployed_entry"
+			}
+		}
+	}
+	
+	BI_continuous_focus_view = {
+		context_type = player_context
+		  
+		window_name = "BI_continuous_focus_container"
+		parent_window_name = "continuous_focus_window"
+		
+		dirty = global.num_days
+		
+		triggers = {
+			progress_10_on_visible = {
+				check_variable = { focus_progress > 69.9 }
+			}
+			progress_20_on_visible = {
+				check_variable = { focus_progress > 139.9 }
+			}
+			progress_30_on_visible = {
+				check_variable = { focus_progress > 209.9 }
+			}
+			progress_40_on_visible = {
+				check_variable = { focus_progress > 279.9 }
+			}
+			progress_50_on_visible = {
+				check_variable = { focus_progress > 349.9 }
+			}
+			progress_60_on_visible = {
+				check_variable = { focus_progress > 419.9 }
+			}
+			progress_70_on_visible = {
+				check_variable = { focus_progress > 489.9 }
+			}
+			progress_80_on_visible = {
+				check_variable = { focus_progress > 559.9 }
+			}
+			progress_90_on_visible = {
+				check_variable = { focus_progress > 629.9 }
+			}
+			progress_100_on_visible = {
+				check_variable = { focus_progress > 699.9 }
+			}
+		}
+	}
+	#BI_subjects_view_menu = {
+	#	context_type = player_context
+	#	  
+	#	window_name = "BI_subjects_view_container"
+	#	#parent_window_name = "subject_items_window"
+	#	
+	#	visible = {  
+	#		always = no
+	#		#check_variable = { subjects^num > 0 }
+	#	}
+	#
+	#	dynamic_lists = {
+	#		BI_subject_list = {
+	#			array = Root.subjects
+	#			change_scope = yes
+	#			entry_container = "BI_subject_list_entry"
+	#		}
+	#	}
+	#	  
+	#	#dirty = EIC_update2
+	#	
+	#	effects = {
+	#		subject_list_button_click = {
+	#			set_variable = { Root.selected_subject = This.id }
+	#		}
+	#	}
+	#}
+	#BI_selected_subject_view_menu = {
+	#	context_type = player_context
+	#	  
+	#	window_name = "BI_selected_subject_container"
+	#	#parent_window_name = "manage_subjects_window"
+	#	
+	#	visible = { 
+	#		always = no 
+	#		#check_variable = { subjects^num > 0 }
+	#	}
+	#
+	#	dynamic_lists = {
+	#		BI_subject_list = {
+	#			array = Root.subjects
+	#			change_scope = yes
+	#			entry_container = "BI_subject_list_entry"
+	#		}
+	#	} 
+	#	  
+	#	#dirty = EIC_update2
+	#	
+	#	effects = {
+	#		subject_list_button_click = {
+	#			set_variable = { Root.selected_subject = This.id }
+	#		}
+	#	}
+	#} 
+	MTG_naval_treaties_gui = {  
+		context_type = decision_category
+		  
+		window_name = "MTG_treaty_container"
+ 
+		properties = {
+			flag = {
+				image = "[This.GetFlag]"
+			}
+		}
+		
+		dirty = global.num_days
+		
+		dynamic_lists = {
+			treaty_participants_list = {
+				array = global.MTG_naval_treaty
+				change_scope = yes
+				entry_container = "naval_treaty_participant_entry"
+			}
+		} 
+	}
+	CW_the_plan_window = {  
+		context_type = decision_category
+		  
+		window_name = "CW_the_plan_container"
+		
+		effects = {
+			cost_click = {
+				custom_effect_tooltip = CW_COST_TITLE
+				
+				custom_effect_tooltip = CW_COST_TOOLTIP
+			}
+			bonus_click = {
+				if = {
+					limit = {
+						has_idea = CW_british_commonwealth_air_training_plan
+					}
+					show_ideas_tooltip = CW_british_commonwealth_air_training_plan
+					
+					set_temp_variable = { plan_target = PLAN_level_2 }
+					custom_effect_tooltip = CW_NEXT_BONUS
+					effect_tooltip = {
+						swap_ideas = {
+							add_idea = CW_british_commonwealth_air_training_plan2
+							remove_idea = CW_british_commonwealth_air_training_plan
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = CW_british_commonwealth_air_training_plan2
+					}
+					show_ideas_tooltip = CW_british_commonwealth_air_training_plan2
+					
+					set_temp_variable = { plan_target = PLAN_level_3 }
+					custom_effect_tooltip = CW_NEXT_BONUS
+					effect_tooltip = {
+						swap_ideas = {
+							add_idea = CW_british_commonwealth_air_training_plan3
+							remove_idea = CW_british_commonwealth_air_training_plan2
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = CW_british_commonwealth_air_training_plan3
+					}
+					show_ideas_tooltip = CW_british_commonwealth_air_training_plan3
+					
+					set_temp_variable = { plan_target = PLAN_level_4 }
+					custom_effect_tooltip = CW_NEXT_BONUS
+					effect_tooltip = {
+						swap_ideas = {
+							add_idea = CW_british_commonwealth_air_training_plan4
+							remove_idea = CW_british_commonwealth_air_training_plan3
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = CW_british_commonwealth_air_training_plan4
+					}
+					show_ideas_tooltip = CW_british_commonwealth_air_training_plan4
+					
+					set_temp_variable = { plan_target = PLAN_level_5 }
+					custom_effect_tooltip = CW_NEXT_BONUS
+					effect_tooltip = {
+						swap_ideas = {
+							add_idea = CW_british_commonwealth_air_training_plan5
+							remove_idea = CW_british_commonwealth_air_training_plan4
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = CW_british_commonwealth_air_training_plan5
+					}
+					show_ideas_tooltip = CW_british_commonwealth_air_training_plan5
+					
+					set_temp_variable = { plan_target = PLAN_level_6 }
+					custom_effect_tooltip = CW_NEXT_BONUS
+					effect_tooltip = {
+						swap_ideas = {
+							add_idea = CW_british_commonwealth_air_training_plan6
+							remove_idea = CW_british_commonwealth_air_training_plan5
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						has_idea = CW_british_commonwealth_air_training_plan6
+					}
+					show_ideas_tooltip = CW_british_commonwealth_air_training_plan6
+				}
+				else = {
+					custom_effect_tooltip = CW_INITIAL_UNLOCK
+					effect_tooltip = {
+						add_ideas = CW_british_commonwealth_air_training_plan
+					}
+				}
+			}
+		}
+	}
+	government_in_exiles_window = {  
+		context_type = decision_category
+		  
+		window_name = "government_in_exiles_decision_container"
+		
+		effects = {
+			
+		}
+		
+		properties = {
+			flag = {
+				image = "[This.GetFlag]" 
+			}
+		}
+		
+		triggers = {
+			icon_visible = {
+				check_variable = { ROOT.exile_decision_target = THIS }
+			}
+		}
+		
+		effects = {
+			flag_click = {
+				if = {
+					limit = {
+						check_variable = { ROOT.exile_decision_target = THIS }
+					}
+				}
+				else = {
+					var:ROOT.exile_decision_target = {
+						ROOT = {
+							if = { limit = { NOT = { has_country_flag = purge_infiltrators@PREV } }
+								remove_targeted_decision = {
+									target = PREV
+									decision = purge_infiltrators
+								}
+							}
+							if = { limit = { NOT = { has_country_flag = weapons_for_the_resistance@PREV } }
+								remove_targeted_decision = {
+									target = PREV
+									decision = weapons_for_the_resistance
+								}
+							}
+							if = { limit = { NOT = { has_country_flag = unity_parade@PREV } }
+								remove_targeted_decision = {
+									target = PREV
+									decision = unity_parade
+								}
+							}
+							if = { limit = { NOT = { has_country_flag = joint_training_exercise@PREV } }
+								remove_targeted_decision = {
+									target = PREV
+									decision = joint_training_exercise
+								}
+							}
+							if = { limit = { NOT = { has_country_flag = request_control_of_navy@PREV } }
+								remove_targeted_decision = {
+									target = PREV
+									decision = request_control_of_navy
+								}
+							}
+							if = { limit = { NOT = { has_country_flag = exile_extraction_campaign@PREV } }
+								remove_targeted_decision = {
+									target = PREV
+									decision = exile_extraction_campaign
+								}
+							}
+							if = { limit = { NOT = { has_country_flag = grant_parliamentary_audience@PREV } }
+								remove_targeted_decision = {
+									target = PREV
+									decision = grant_parliamentary_audience
+								}
+							}
+							if = { limit = { NOT = { has_country_flag = expatriate_donations@PREV } }
+								remove_targeted_decision = {
+									target = PREV
+									decision = expatriate_donations
+								}
+							}
+						}
+					}
+					set_variable = { ROOT.exile_decision_target = THIS }
+					ROOT = {
+						activate_targeted_decision = {
+							target = PREV
+							decision = purge_infiltrators
+						}
+						activate_targeted_decision = {
+							target = PREV
+							decision = weapons_for_the_resistance
+						}
+						activate_targeted_decision = {
+							target = PREV
+							decision = unity_parade
+						}
+						activate_targeted_decision = {
+							target = PREV
+							decision = joint_training_exercise
+						}
+						activate_targeted_decision = {
+							target = PREV
+							decision = exile_extraction_campaign
+						}
+						activate_targeted_decision = {
+							target = PREV
+							decision = grant_parliamentary_audience
+						}
+						activate_targeted_decision = {
+							target = PREV
+							decision = expatriate_donations
+						}
+						if = { limit = { NOT = { has_country_flag = request_control_of_navy@PREV } }
+							activate_targeted_decision = {
+								target = PREV
+								decision = request_control_of_navy
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		dynamic_lists = {
+			exile_list = {
+				array = exiles
+				change_scope = yes
+				entry_container = "flag_medium_entry"
+			}
+		} 
+	}
+	spanish_civil_war = {  
+		context_type = decision_category
+		  
+		window_name = "spanish_civil_war_container"
+ 
+		properties = {
+			flag = {
+				image = "[This.GetFlag]"
+			}
+			spr_flag = {
+				image = "[SPR.GetFlag]"
+			}
+			spa_flag = {
+				image = "[SPA.GetFlag]"
+			}
+			progress = { frame = global.spanish_progress }
+		}
+		
+		dirty = global.num_days
+		
+		dynamic_lists = { 
+			treaty_participants_list = {
+				array = SPR.volunteers_send
+				change_scope = yes
+				entry_container = "naval_treaty_participant_entry"
+			}
+			nationalist_list = {
+				array = SPA.volunteers_send
+				change_scope = yes 
+				entry_container = "nationalist_entry"
+			} 
+		} 
+		
+		triggers = {
+		}
+	}
+	
+	ai_difficulty_country = {
+		context_type = player_context
+
+		window_name = "ai_difficulty_country_container"
+ 
+		dynamic_lists = {
+			setting_target = {
+				array = ai_setting_target
+				#array = global.countries
+				change_scope = yes
+				entry_container = "setting_target_window"
+			}
+			setting_target_countries = {
+				array = ai_setting_target_countries
+				#array = global.countries
+				change_scope = yes
+				entry_container = "setting_target_countries_window"
+			}
+		} 
+		  
+		visible = {
+			has_country_flag = ui_show_ai_bonuses
+		}
+		
+		dirty = ui_difficulty
+		
+		properties = {
+			setting_target_button = { 
+				frame = frame_var 
+			}
+			flag = {
+				image = "[This.GetFlag]"
+			}
+			
+			division_spawn_civilian = {
+				frame = division_spawn_civilian
+			}
+			division_spawn_recruits = {
+				frame = division_spawn_recruit
+			}
+			division_spawn_regular = {
+				frame = division_spawn_regular
+			}
+			division_spawn_veteran = {
+				frame = division_spawn_veteran
+			}
+			division_spawn_elite = {
+				frame = division_spawn_elite
+			}
+			
+			equipment_spawn_civilian = {
+				frame = equipment_spawn_civilian
+			}
+			equipment_spawn_recruits = {
+				frame = equipment_spawn_recruit
+			}
+			equipment_spawn_regular = {
+				frame = equipment_spawn_regular
+			}
+			equipment_spawn_veteran = {
+				frame = equipment_spawn_veteran
+			}
+			equipment_spawn_elite = {
+				frame = equipment_spawn_elite
+			}
+			
+			convoy_spawn_civilian = {
+				frame = convoy_spawn_civilian
+			}
+			convoy_spawn_recruits = {
+				frame = convoy_spawn_recruit
+			}
+			convoy_spawn_regular = {
+				frame = convoy_spawn_regular
+			}
+			convoy_spawn_veteran = {
+				frame = convoy_spawn_veteran
+			}
+			convoy_spawn_elite = {
+				frame = convoy_spawn_elite
+			}
+			
+			fuel_spawn_civilian = {
+				frame = fuel_spawn_civilian
+			}
+			fuel_spawn_recruits = {  
+				frame = fuel_spawn_recruit
+			}
+			fuel_spawn_regular = {
+				frame = fuel_spawn_regular
+			}
+			fuel_spawn_veteran = {
+				frame = fuel_spawn_veteran
+			}
+			fuel_spawn_elite = {
+				frame = fuel_spawn_elite
+			}
+			
+			strengthen_bar = {
+				frame = strengthen_bar
+			}
+			weaken_bar = { 
+				frame = weaken_bar
+			}
+			politics_bar = { 
+				frame = politics_bar
+			}
+			army_bar = { 
+				frame = army_bar
+			}
+			air_bar = { 
+				frame = air_bar
+			}
+			navy_bar = { 
+				frame = navy_bar
+			}
+			fuel_bar = { 
+				frame = fuel_bar
+			}
+			construction_bar = { 
+				frame = construction_bar
+			}
+			production_bar = { 
+				frame = production_bar
+			}
+		} 
+		
+		triggers = {
+			strengthen_bar_click_enabled = {
+				var:ROOT.selected_target = {
+					set_temp_variable = { strengthen_bar = ai_diff_strengthen }
+				}
+			}
+			weaken_bar_click_enabled = {
+				var:ROOT.selected_target = { 
+					set_temp_variable = { weaken_bar = ai_diff_weaken }
+				}
+			}
+			politics_bar_click_enabled = {
+				var:ROOT.selected_target = { 
+					set_temp_variable = { politics_bar = ai_diff_politics }
+				}
+			}
+			army_bar_click_enabled = {
+				var:ROOT.selected_target = { 
+					set_temp_variable = { army_bar = ai_diff_army }
+				}
+			}
+			air_bar_click_enabled = {
+				var:ROOT.selected_target = { 
+					set_temp_variable = { air_bar = ai_diff_air }
+				}
+			}
+			navy_bar_click_enabled = {
+				var:ROOT.selected_target = { 
+					set_temp_variable = { navy_bar = ai_diff_navy }
+				}
+			}
+			fuel_bar_click_enabled = {
+				var:ROOT.selected_target = { 
+					set_temp_variable = { fuel_bar = ai_diff_fuel }
+				}
+			}
+			production_bar_click_enabled = {
+				var:ROOT.selected_target = { 
+					set_temp_variable = { production_bar = ai_diff_production }
+				}
+			}
+			construction_bar_click_enabled = {
+				var:ROOT.selected_target = { 
+					set_temp_variable = { construction_bar = ai_diff_construction }
+				}
+			}
+			setting_target_button_click_enabled = {
+				set_temp_variable = { frame_var = 2 }
+				if = {
+					limit = {
+						check_variable = { ROOT.selected_target = THIS }
+					}
+					set_temp_variable = { frame_var = 1 }
+				}
+			}
+			
+			division_spawn_civilian_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 1 }
+						}
+					}
+					set_temp_variable = { division_spawn_civilian = 2 }
+				}
+			}
+			division_spawn_recruits_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 2 }
+						}
+					}
+					set_temp_variable = { division_spawn_recruit = 2 }
+				}
+			}
+			division_spawn_regular_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 3 }
+						}
+					}
+					set_temp_variable = { division_spawn_regular = 2 }
+				}
+			}
+			division_spawn_veteran_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 4 }
+						}
+					}
+					set_temp_variable = { division_spawn_veteran = 2 }
+				}
+			}
+			division_spawn_elite_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 5 }
+						}
+					}
+					set_temp_variable = { division_spawn_elite = 2 }
+				}
+			}
+			
+			
+			equipment_spawn_civilian_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 1 }
+						}
+					}
+					set_temp_variable = { equipment_spawn_civilian = 2 }
+				}
+			}
+			equipment_spawn_recruits_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 2 }
+						}
+					}
+					set_temp_variable = { equipment_spawn_recruit = 2 }
+				}
+			}
+			equipment_spawn_regular_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 3 }
+						}
+					}
+					set_temp_variable = { equipment_spawn_regular = 2 }
+				}
+			}
+			equipment_spawn_veteran_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 4 }
+						}
+					}
+					set_temp_variable = { equipment_spawn_veteran = 2 }
+				}
+			}
+			equipment_spawn_elite_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 5 }
+						}
+					}
+					set_temp_variable = { equipment_spawn_elite = 2 }
+				}
+			}
+			
+			
+			convoy_spawn_civilian_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 1 }
+						}
+					}
+					set_temp_variable = { convoy_spawn_civilian = 2 }
+				}
+			}
+			convoy_spawn_recruits_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 2 }
+						}
+					}
+					set_temp_variable = { convoy_spawn_recruit = 2 }
+				}
+			}
+			convoy_spawn_regular_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 3 }
+						}
+					}
+					set_temp_variable = { convoy_spawn_regular = 2 }
+				}
+			}
+			convoy_spawn_veteran_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 4 }
+						}
+					}
+					set_temp_variable = { convoy_spawn_veteran = 2 }
+				}
+			}
+			convoy_spawn_elite_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 5 }
+						}
+					}
+					set_temp_variable = { convoy_spawn_elite = 2 }
+				}
+			}
+			
+			
+			fuel_spawn_civilian_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 1 }
+						}
+					}
+					set_temp_variable = { fuel_spawn_civilian = 2 }
+				}
+			}
+			fuel_spawn_recruits_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 2 }
+						}
+					}
+					set_temp_variable = { fuel_spawn_recruit = 2 }
+				}
+			}
+			fuel_spawn_regular_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 3 }
+						}
+					}
+					set_temp_variable = { fuel_spawn_regular = 2 }
+				}
+			}
+			fuel_spawn_veteran_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 4 }
+						}
+					}
+					set_temp_variable = { fuel_spawn_veteran = 2 }
+				}
+			}
+			fuel_spawn_elite_click_enabled = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 5 }
+						}
+					}
+					set_temp_variable = { fuel_spawn_elite = 2 }
+				}
+			}
+			
+			debug_button_visible = {
+				always = no 
+			}
+		}
+		
+		effects = {
+			close_button_click = {
+				clear_array = ai_setting_target
+				clear_array = ai_setting_target_countries
+				clear_variable = ROOT.selected_target
+				clr_country_flag = ui_show_ai_bonuses
+			}
+			open_modifier_button_click = {
+				if = {
+					limit = {
+						has_country_flag = ui_show_ai_modifier
+					}
+					clr_country_flag = ui_show_ai_modifier
+					clear_array = ai_diff_modifier_display
+				}
+				else = {
+					set_country_flag = ui_show_ai_modifier
+					
+					ROOT = {
+						clear_array = ai_diff_modifier_display
+						var:ROOT.selected_target = {
+							for_each_loop = {
+								array = BI_AI_modifier_list
+								
+								add_to_array = { ROOT.ai_diff_modifier_display = v }
+							}
+						}
+					}
+				}
+				
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			add_countries_button_click = {
+				if = {
+					limit = {
+						has_country_flag = ai_difficulty_add_countries
+					}
+					clr_country_flag = ai_difficulty_add_countries
+					clr_country_flag = ui_country_selection
+				}
+				else = {
+					BI_filter_effect = yes
+					set_country_flag = ai_difficulty_add_countries
+					set_country_flag = ui_country_selection
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			flag_right_click = {
+				if = {
+					limit = {
+						check_variable = { ROOT.ai_setting_target_countries^num < 2 }
+					}
+				
+					clear_variable = ROOT.selected_target
+					clr_country_flag = ai_difficulty_setting_target 
+					remove_from_array = { ROOT.ai_setting_target = THIS }
+					clear_array = ai_difficulty_setting_targets
+					clear_array = ROOT.ai_setting_target_countries
+					clear_array = PREV.name_array
+					
+					ui_ai_remove_country_from_settings = yes
+				}
+				else_if = {
+					limit = {
+						has_country_flag = ai_difficulty_setting_target
+					}
+					for_each_scope_loop = {
+						array = ai_difficulty_setting_targets
+						break = small_break
+						
+						if = {
+							limit = {
+								NOT = { tag = PREV }
+							}
+							set_temp_variable = { new_storer = THIS }
+							clear_array = ai_difficulty_setting_targets
+							set_country_flag = ai_difficulty_setting_target
+							for_each_loop = {
+								array = PREV.ai_difficulty_setting_targets
+								
+								if = {
+									limit = {
+										NOT = { check_variable = { v = THIS } }
+									}
+									add_to_array = { ai_difficulty_setting_targets = v }
+								}
+							}
+							for_each_loop = {
+								array = PREV.name_array
+								
+								add_to_array = { name_array = v }
+							}
+							set_variable = { ai_diff_strengthen = PREV.ai_diff_strengthen }
+							set_variable = { ai_diff_weaken = PREV.ai_diff_weaken }
+							set_variable = { ai_diff_politics = PREV.ai_diff_politics }
+							set_variable = { ai_diff_army = PREV.ai_diff_army }
+							set_variable = { ai_diff_air = PREV.ai_diff_air }
+							set_variable = { ai_diff_navy = PREV.ai_diff_navy }
+							set_variable = { ai_diff_fuel = PREV.ai_diff_fuel }
+							set_variable = { ai_diff_construction = PREV.ai_diff_construction }
+							set_variable = { ai_diff_production = PREV.ai_diff_production }
+							clear_array = PREV.name_array
+							set_temp_variable = { small_break = 1 }
+						}
+					}
+					
+					for_each_loop = {
+						array = ROOT.ai_setting_target
+						
+						if = {
+							limit = {
+								check_variable = { v = THIS }
+							}
+							add_to_array = { 
+								array = ROOT.ai_setting_target
+								value = new_storer
+								index = i
+							}
+							set_temp_variable = { break = 1 }
+						}
+					}
+					remove_from_array = { ROOT.ai_setting_target = THIS.id }
+					clear_array = ai_difficulty_setting_targets
+					clr_country_flag = ai_difficulty_setting_target
+					
+					var:new_storer = {
+						set_variable = { ROOT.selected_target = THIS }
+						clear_array = ROOT.ai_setting_target_countries
+						add_to_array = { ROOT.ai_setting_target_countries = THIS }
+						for_each_scope_loop = {
+							array = ai_difficulty_setting_targets
+							
+							add_to_array = { ROOT.ai_setting_target_countries = THIS }
+						}
+					}
+					
+					ui_ai_remove_country_from_settings = yes
+				}
+				else = {
+					var:ROOT.selected_target = {
+						remove_from_array = { ai_difficulty_setting_targets = PREV }
+						
+						
+						clear_array = ROOT.ai_setting_target_countries
+						add_to_array = { ROOT.ai_setting_target_countries = THIS }
+						for_each_scope_loop = {
+							array = ai_difficulty_setting_targets
+							
+							add_to_array = { ROOT.ai_setting_target_countries = THIS }
+						}
+					}
+					clear_array = PREV.name_array
+					
+					ui_ai_remove_country_from_settings = yes
+				}
+				add_to_variable = { ROOT.ui_difficulty = 1 }
+			}
+			flag_shift_click = {
+				if = {
+					limit = {
+						check_variable = { ROOT.ai_setting_target_countries^num > 1 }
+					}
+						
+					if = {
+						limit = {
+							has_country_flag = ai_difficulty_setting_target
+						}
+						for_each_scope_loop = {
+							array = ai_difficulty_setting_targets
+							break = small_break
+							
+							if = {
+								limit = {
+									NOT = { tag = PREV }
+								}
+								set_temp_variable = { new_storer = THIS }
+								clear_array = ai_difficulty_setting_targets
+								set_country_flag = ai_difficulty_setting_target
+								for_each_loop = {
+									array = PREV.ai_difficulty_setting_targets
+									
+									if = {
+										limit = {
+											NOT = { check_variable = { v = THIS } }
+										}
+										add_to_array = { ai_difficulty_setting_targets = v }
+									}
+								}
+								for_each_loop = {
+									array = PREV.name_array
+									
+									add_to_array = { name_array = v }
+								}
+								set_variable = { ai_diff_strengthen = PREV.ai_diff_strengthen }
+								set_variable = { ai_diff_weaken = PREV.ai_diff_weaken }
+								set_variable = { ai_diff_politics = PREV.ai_diff_politics }
+								set_variable = { ai_diff_army = PREV.ai_diff_army }
+								set_variable = { ai_diff_air = PREV.ai_diff_air }
+								set_variable = { ai_diff_navy = PREV.ai_diff_navy }
+								set_variable = { ai_diff_fuel = PREV.ai_diff_fuel }
+								set_variable = { ai_diff_construction = PREV.ai_diff_construction }
+								set_variable = { ai_diff_production = PREV.ai_diff_production }
+								clear_array = PREV.name_array
+								set_temp_variable = { small_break = 1 }
+							}
+						}
+						
+						for_each_loop = {
+							array = ROOT.ai_setting_target
+							
+							if = {
+								limit = {
+									check_variable = { v = THIS }
+								}
+								add_to_array = { 
+									array = ROOT.ai_setting_target
+									value = new_storer
+									index = i
+								}
+								set_temp_variable = { break = 1 }
+							}
+						}
+						remove_from_array = { ROOT.ai_setting_target = THIS.id }
+						clear_array = ai_difficulty_setting_targets
+						clr_country_flag = ai_difficulty_setting_target
+						
+						var:new_storer = {
+							set_variable = { ROOT.selected_target = THIS }
+							clear_array = ROOT.ai_setting_target_countries
+							add_to_array = { ROOT.ai_setting_target_countries = THIS }
+							for_each_scope_loop = {
+								array = ai_difficulty_setting_targets
+								
+								add_to_array = { ROOT.ai_setting_target_countries = THIS }
+							}
+						}
+						remove_from_array = { array = ROOT.ai_setting_target }
+						add_to_array = { ROOT.ai_setting_target = THIS }
+						add_to_array = { ROOT.ai_setting_target = 1 }
+						set_variable = { ROOT.selected_target = THIS }
+						set_country_flag = ai_difficulty_setting_target
+						
+						clear_array = ROOT.ai_setting_target_countries
+						add_to_array = { ROOT.ai_setting_target_countries = THIS }
+						for_each_scope_loop = {
+							array = ai_difficulty_setting_targets
+							
+							add_to_array = { ROOT.ai_setting_target_countries = THIS }
+						}
+					}
+					else = {
+						var:ROOT.selected_target = {
+							remove_from_array = { ai_difficulty_setting_targets = PREV }
+							
+							remove_from_array = { array = ROOT.ai_setting_target }
+							add_to_array = { ROOT.ai_setting_target = PREV }
+							add_to_array = { ROOT.ai_setting_target = 1 }
+							
+							clear_array = ROOT.ai_setting_target_countries
+							add_to_array = { ROOT.ai_setting_target_countries = THIS }
+							for_each_scope_loop = {
+								array = ai_difficulty_setting_targets
+								
+								add_to_array = { ROOT.ai_setting_target_countries = THIS }
+							}
+							
+							PREV = {
+								set_variable = { ai_diff_strengthen = PREV.ai_diff_strengthen }
+								set_variable = { ai_diff_weaken = PREV.ai_diff_weaken }
+								set_variable = { ai_diff_politics = PREV.ai_diff_politics }
+								set_variable = { ai_diff_army = PREV.ai_diff_army }
+								set_variable = { ai_diff_air = PREV.ai_diff_air }
+								set_variable = { ai_diff_navy = PREV.ai_diff_navy }
+								set_variable = { ai_diff_fuel = PREV.ai_diff_fuel }
+								set_variable = { ai_diff_construction = PREV.ai_diff_construction }
+								set_variable = { ai_diff_production = PREV.ai_diff_production }
+							}
+						}
+						set_variable = { ROOT.selected_target = THIS }
+						
+						set_country_flag = ai_difficulty_setting_target
+						
+						clear_array = ROOT.ai_setting_target_countries
+						add_to_array = { ROOT.ai_setting_target_countries = THIS }
+						for_each_scope_loop = {
+							array = ai_difficulty_setting_targets
+							
+							add_to_array = { ROOT.ai_setting_target_countries = THIS }
+						}
+					}
+				}
+				add_to_variable = { ROOT.ui_difficulty = 1 }
+			}
+			
+			setting_target_button_click = {
+				if = {
+					limit = {
+						check_variable = { v = 1 }
+					}
+					set_variable = { ROOT.selected_target = THIS }
+					clear_array = ROOT.ai_setting_target_countries
+					
+					ROOT = { set_country_flag = ai_difficulty_add_countries set_country_flag = ui_country_selection }
+					
+					BI_filter_effect = yes
+					
+					clear_array = ai_diff_modifier_display
+				}
+				else = {
+					ROOT = { clr_country_flag = ai_difficulty_add_countries clr_country_flag = ui_country_selection }
+					
+					set_variable = { ROOT.selected_target = THIS }
+					
+					clear_array = ROOT.ai_setting_target_countries
+					add_to_array = { ROOT.ai_setting_target_countries = THIS }
+					for_each_scope_loop = {
+						array = ai_difficulty_setting_targets
+				 		
+						add_to_array = { ROOT.ai_setting_target_countries = THIS }
+					} 
+					clear_array = ROOT.ai_diff_modifier_display
+					var:ROOT.selected_target = {
+						for_each_loop = {
+							array = BI_AI_modifier_list
+							
+							add_to_array = { ROOT.ai_diff_modifier_display = v }
+						}
+					}
+				} 
+				add_to_variable = { ROOT.ui_difficulty = 1 }
+			} 
+			setting_target_button_right_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { v = 1 } }
+					}
+					
+					if = {
+						limit = {
+							has_country_flag = setting_type_name
+						}
+						clr_country_flag = setting_type_name
+						clear_variable = ROOT.setting_name_target
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target
+							
+							clr_country_flag = setting_type_name
+						}
+						set_country_flag = setting_type_name
+						set_variable = { ROOT.setting_name_target = THIS }
+					}
+				}
+				add_to_variable = { ROOT.ui_difficulty = 1 }
+			} 
+			
+			strengthen_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_strengthen_1
+		 					}
+							show_ideas_tooltip = ai_diff_strengthen_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_strengthen_2
+							}
+							show_ideas_tooltip = ai_diff_strengthen_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_strengthen_3
+							}
+							show_ideas_tooltip = ai_diff_strengthen_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_strengthen_4
+							}
+							show_ideas_tooltip = ai_diff_strengthen_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			strengthen_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_strengthen_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_strengthen_2
+								remove_idea = ai_diff_strengthen_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_strengthen_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_strengthen_3
+								remove_idea = ai_diff_strengthen_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_strengthen_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_strengthen_4
+								remove_idea = ai_diff_strengthen_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_strengthen_4 }
+							}
+							add_ideas = ai_diff_strengthen_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_strengthen = 25 }
+					clamp_variable = { var = ai_diff_strengthen max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_strengthen }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_strengthen_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_strengthen_1
+									ai_diff_strengthen_2
+									ai_diff_strengthen_3
+									ai_diff_strengthen_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_strengthen_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_strengthen_1
+								ai_diff_strengthen_2
+								ai_diff_strengthen_3
+								ai_diff_strengthen_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+				
+			}
+			strengthen_down_click = {		
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_strengthen_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_strengthen_3
+								remove_idea = ai_diff_strengthen_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_strengthen_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_strengthen_2
+								remove_idea = ai_diff_strengthen_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_strengthen_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_strengthen_1
+								remove_idea = ai_diff_strengthen_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_strengthen_1
+							}
+							remove_ideas = ai_diff_strengthen_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_strengthen = -25 }
+					clamp_variable = { var = ai_diff_strengthen min = 0 }
+						
+					set_temp_variable = { lvl = ai_diff_strengthen }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_strengthen_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_strengthen_1
+									ai_diff_strengthen_2
+									ai_diff_strengthen_3
+									ai_diff_strengthen_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_strengthen_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_strengthen_1
+								ai_diff_strengthen_2
+								ai_diff_strengthen_3
+								ai_diff_strengthen_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			weaken_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_weaken_1
+		 					}
+							show_ideas_tooltip = ai_diff_weaken_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_weaken_2
+							}
+							show_ideas_tooltip = ai_diff_weaken_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_weaken_3
+							}
+							show_ideas_tooltip = ai_diff_weaken_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_weaken_4
+							}
+							show_ideas_tooltip = ai_diff_weaken_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			weaken_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_weaken_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_weaken_2
+								remove_idea = ai_diff_weaken_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_weaken_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_weaken_3
+								remove_idea = ai_diff_weaken_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_weaken_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_weaken_4
+								remove_idea = ai_diff_weaken_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_weaken_4 }
+							}
+							add_ideas = ai_diff_weaken_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_weaken = 25 }
+					clamp_variable = { var = ai_diff_weaken max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_weaken }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_weaken_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_weaken_1
+									ai_diff_weaken_2
+									ai_diff_weaken_3
+									ai_diff_weaken_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_weaken_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			weaken_down_click = {		
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_weaken_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_weaken_3
+								remove_idea = ai_diff_weaken_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_weaken_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_weaken_2
+								remove_idea = ai_diff_weaken_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_weaken_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_weaken_1
+								remove_idea = ai_diff_weaken_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_weaken_1
+							}
+							remove_ideas = ai_diff_weaken_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_weaken = -25 }
+					clamp_variable = { var = ai_diff_weaken min = 0 }
+					
+					set_temp_variable = { lvl = ai_diff_weaken }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_weaken_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_weaken_1
+									ai_diff_weaken_2
+									ai_diff_weaken_3
+									ai_diff_weaken_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_weaken_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_weaken_1
+								ai_diff_weaken_2
+								ai_diff_weaken_3
+								ai_diff_weaken_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			politics_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_politics_1
+		 					}
+							show_ideas_tooltip = ai_diff_politics_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_politics_2
+							}
+							show_ideas_tooltip = ai_diff_politics_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_politics_3
+							}
+							show_ideas_tooltip = ai_diff_politics_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_politics_4
+							}
+							show_ideas_tooltip = ai_diff_politics_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			politics_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_politics_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_politics_2
+								remove_idea = ai_diff_politics_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_politics_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_politics_3
+								remove_idea = ai_diff_politics_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_politics_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_politics_4
+								remove_idea = ai_diff_politics_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_politics_4 }
+							}
+							add_ideas = ai_diff_politics_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_politics = 25 }
+					clamp_variable = { var = ai_diff_politics max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_politics }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_politics_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_politics_1
+									ai_diff_politics_2
+									ai_diff_politics_3
+									ai_diff_politics_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_politics_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			politics_down_click = {		
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_politics_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_politics_3
+								remove_idea = ai_diff_politics_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_politics_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_politics_2
+								remove_idea = ai_diff_politics_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_politics_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_politics_1
+								remove_idea = ai_diff_politics_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_politics_1
+							}
+							remove_ideas = ai_diff_politics_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_politics = -25 }
+					clamp_variable = { var = ai_diff_politics min = 0 }
+					
+					set_temp_variable = { lvl = ai_diff_politics }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_politics_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_politics_1
+									ai_diff_politics_2
+									ai_diff_politics_3
+									ai_diff_politics_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_politics_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_politics_1
+								ai_diff_politics_2
+								ai_diff_politics_3
+								ai_diff_politics_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			army_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_army_1
+		 					}
+							show_ideas_tooltip = ai_diff_army_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_army_2
+							}
+							show_ideas_tooltip = ai_diff_army_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_army_3
+							}
+							show_ideas_tooltip = ai_diff_army_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_army_4
+							}
+							show_ideas_tooltip = ai_diff_army_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			army_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_army_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_army_2
+								remove_idea = ai_diff_army_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_army_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_army_3
+								remove_idea = ai_diff_army_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_army_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_army_4
+								remove_idea = ai_diff_army_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_army_4 }
+							}
+							add_ideas = ai_diff_army_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_army = 25 }
+					clamp_variable = { var = ai_diff_army max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_army }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_army_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_army_1
+									ai_diff_army_2
+									ai_diff_army_3
+									ai_diff_army_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_army_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			army_down_click = {		
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_army_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_army_3
+								remove_idea = ai_diff_army_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_army_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_army_2
+								remove_idea = ai_diff_army_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_army_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_army_1
+								remove_idea = ai_diff_army_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_army_1
+							}
+							remove_ideas = ai_diff_army_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_army = -25 }
+					clamp_variable = { var = ai_diff_army min = 0 }
+					
+					set_temp_variable = { lvl = ai_diff_army }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_army_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_army_1
+									ai_diff_army_2
+									ai_diff_army_3
+									ai_diff_army_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_army_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_army_1
+								ai_diff_army_2
+								ai_diff_army_3
+								ai_diff_army_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			air_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_air_1
+		 					}
+							show_ideas_tooltip = ai_diff_air_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_air_2
+							}
+							show_ideas_tooltip = ai_diff_air_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_air_3
+							}
+							show_ideas_tooltip = ai_diff_air_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_air_4
+							}
+							show_ideas_tooltip = ai_diff_air_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			air_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_air_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_air_2
+								remove_idea = ai_diff_air_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_air_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_air_3
+								remove_idea = ai_diff_air_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_air_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_air_4
+								remove_idea = ai_diff_air_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_air_4 }
+							}
+							add_ideas = ai_diff_air_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_air = 25 }
+					clamp_variable = { var = ai_diff_air max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_air }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_air_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_air_1
+									ai_diff_air_2
+									ai_diff_air_3
+									ai_diff_air_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_air_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			air_down_click = {		
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_air_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_air_3
+								remove_idea = ai_diff_air_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_air_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_air_2
+								remove_idea = ai_diff_air_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_air_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_air_1
+								remove_idea = ai_diff_air_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_air_1
+							}
+							remove_ideas = ai_diff_air_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_air = -25 }
+					clamp_variable = { var = ai_diff_air min = 0 }
+					
+					set_temp_variable = { lvl = ai_diff_air }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_air_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_air_1
+									ai_diff_air_2
+									ai_diff_air_3
+									ai_diff_air_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_air_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_air_1
+								ai_diff_air_2
+								ai_diff_air_3
+								ai_diff_air_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			navy_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_navy_1
+		 					}
+							show_ideas_tooltip = ai_diff_navy_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_navy_2
+							}
+							show_ideas_tooltip = ai_diff_navy_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_navy_3
+							}
+							show_ideas_tooltip = ai_diff_navy_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_navy_4
+							}
+							show_ideas_tooltip = ai_diff_navy_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			navy_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_navy_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_navy_2
+								remove_idea = ai_diff_navy_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_navy_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_navy_3
+								remove_idea = ai_diff_navy_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_navy_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_navy_4
+								remove_idea = ai_diff_navy_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_navy_4 }
+							}
+							add_ideas = ai_diff_navy_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_navy = 25 }
+					clamp_variable = { var = ai_diff_navy max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_navy }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_navy_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_navy_1
+									ai_diff_navy_2
+									ai_diff_navy_3
+									ai_diff_navy_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_navy_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			navy_down_click = {		
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_navy_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_navy_3
+								remove_idea = ai_diff_navy_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_navy_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_navy_2
+								remove_idea = ai_diff_navy_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_navy_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_navy_1
+								remove_idea = ai_diff_navy_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_navy_1
+							}
+							remove_ideas = ai_diff_navy_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_navy = -25 }
+					clamp_variable = { var = ai_diff_navy min = 0 }
+					
+					set_temp_variable = { lvl = ai_diff_navy }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_navy_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_navy_1
+									ai_diff_navy_2
+									ai_diff_navy_3
+									ai_diff_navy_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_navy_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_navy_1
+								ai_diff_navy_2
+								ai_diff_navy_3
+								ai_diff_navy_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			fuel_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_fuel_1
+		 					}
+							show_ideas_tooltip = ai_diff_fuel_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_fuel_2
+							}
+							show_ideas_tooltip = ai_diff_fuel_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_fuel_3
+							}
+							show_ideas_tooltip = ai_diff_fuel_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_fuel_4
+							}
+							show_ideas_tooltip = ai_diff_fuel_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			fuel_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_fuel_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_fuel_2
+								remove_idea = ai_diff_fuel_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_fuel_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_fuel_3
+								remove_idea = ai_diff_fuel_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_fuel_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_fuel_4
+								remove_idea = ai_diff_fuel_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_fuel_4 }
+							}
+							add_ideas = ai_diff_fuel_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_fuel = 25 }
+					clamp_variable = { var = ai_diff_fuel max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_fuel }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_fuel_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_fuel_1
+									ai_diff_fuel_2
+									ai_diff_fuel_3
+									ai_diff_fuel_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_fuel_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			fuel_down_click = {		
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_fuel_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_fuel_3
+								remove_idea = ai_diff_fuel_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_fuel_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_fuel_2
+								remove_idea = ai_diff_fuel_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_fuel_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_fuel_1
+								remove_idea = ai_diff_fuel_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_fuel_1
+							}
+							remove_ideas = ai_diff_fuel_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_fuel = -25 }
+					clamp_variable = { var = ai_diff_fuel min = 0 }
+					
+					set_temp_variable = { lvl = ai_diff_fuel }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_fuel_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_fuel_1
+									ai_diff_fuel_2
+									ai_diff_fuel_3
+									ai_diff_fuel_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_fuel_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_fuel_1
+								ai_diff_fuel_2
+								ai_diff_fuel_3
+								ai_diff_fuel_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			construction_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_construction_1
+		 					}
+							show_ideas_tooltip = ai_diff_construction_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_construction_2
+							}
+							show_ideas_tooltip = ai_diff_construction_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_construction_3
+							}
+							show_ideas_tooltip = ai_diff_construction_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_construction_4
+							}
+							show_ideas_tooltip = ai_diff_construction_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			construction_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_construction_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_construction_2
+								remove_idea = ai_diff_construction_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_construction_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_construction_3
+								remove_idea = ai_diff_construction_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_construction_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_construction_4
+								remove_idea = ai_diff_construction_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_construction_4 }
+							}
+							add_ideas = ai_diff_construction_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_construction = 25 }
+					clamp_variable = { var = ai_diff_construction max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_construction }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_construction_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_construction_1
+									ai_diff_construction_2
+									ai_diff_construction_3
+									ai_diff_construction_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_construction_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			construction_down_click = {		
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_construction_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_construction_3
+								remove_idea = ai_diff_construction_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_construction_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_construction_2
+								remove_idea = ai_diff_construction_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_construction_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_construction_1
+								remove_idea = ai_diff_construction_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_construction_1
+							}
+							remove_ideas = ai_diff_construction_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_construction = -25 }
+					clamp_variable = { var = ai_diff_construction min = 0 }
+					
+					set_temp_variable = { lvl = ai_diff_construction }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_construction_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_construction_1
+									ai_diff_construction_2
+									ai_diff_construction_3
+									ai_diff_construction_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_construction_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_construction_1
+								ai_diff_construction_2
+								ai_diff_construction_3
+								ai_diff_construction_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			production_bar_click = { 
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+					 			has_idea = ai_diff_production_1
+		 					}
+							show_ideas_tooltip = ai_diff_production_1
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_production_2
+							}
+							show_ideas_tooltip = ai_diff_production_2
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_production_3
+							}
+							show_ideas_tooltip = ai_diff_production_3
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_production_4
+							}
+							show_ideas_tooltip = ai_diff_production_4
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			production_up_click = {
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_production_1
+							}
+							swap_ideas = {
+								add_idea = ai_diff_production_2
+								remove_idea = ai_diff_production_1
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_production_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_production_3
+								remove_idea = ai_diff_production_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_production_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_production_4
+								remove_idea = ai_diff_production_3
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_idea = ai_diff_production_4 }
+							}
+							add_ideas = ai_diff_production_1
+						}
+					}
+				}
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_production = 25 }
+					clamp_variable = { var = ai_diff_production max = 100 }
+					
+					set_temp_variable = { lvl = ai_diff_production }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_production_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_production_1
+									ai_diff_production_2
+									ai_diff_production_3
+									ai_diff_production_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_production_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			production_down_click = {			
+				effect_tooltip = {
+					every_country = { limit = { is_in_array = { ROOT.ai_setting_target_countries = THIS } }
+						if = {
+							limit = {
+								has_idea = ai_diff_production_4
+							}
+							swap_ideas = {
+								add_idea = ai_diff_production_3
+								remove_idea = ai_diff_production_4
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_production_3
+							}
+							swap_ideas = {
+								add_idea = ai_diff_production_2
+								remove_idea = ai_diff_production_3
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_production_2
+							}
+							swap_ideas = {
+								add_idea = ai_diff_production_1
+								remove_idea = ai_diff_production_2
+							}
+						}
+						else_if = {
+							limit = {
+								has_idea = ai_diff_production_1
+							}
+							remove_ideas = ai_diff_production_1
+						}
+					}
+				}
+								
+				var:ROOT.selected_target = {
+					add_to_variable = { ai_diff_production = -25 }
+					clamp_variable = { var = ai_diff_production min = 0 }
+					
+					set_temp_variable = { lvl = ai_diff_production }
+					
+					if = {
+						limit = {
+							check_variable = { lvl > 0 }
+						}
+						divide_temp_variable = { lvl = 25 }
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							if = {
+								limit = {
+									meta_trigger = {
+										text = {
+											NOT = { has_idea = ai_diff_production_[X] }
+										}
+										X = "[?lvl]"
+									}
+								}
+								remove_ideas = {
+									ai_diff_production_1
+									ai_diff_production_2
+									ai_diff_production_3
+									ai_diff_production_4
+								}
+								meta_effect = {
+									text = {
+										add_ideas = ai_diff_production_[X]
+									}
+									X = "[?lvl]"
+								}
+							}
+						}
+					}
+					else = {
+						for_each_scope_loop = {
+							array = ROOT.ai_setting_target_countries
+								
+							remove_ideas = {
+								ai_diff_production_1
+								ai_diff_production_2
+								ai_diff_production_3
+								ai_diff_production_4
+							}
+						}
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			} 
+			
+			division_spawn_civilian_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 1 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:division_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:division_spawn value = 1 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			division_spawn_recruits_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 2 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:division_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:division_spawn value = 2 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			division_spawn_regular_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 3 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:division_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:division_spawn value = 3 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			division_spawn_veteran_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 4 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:division_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:division_spawn value = 4 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			division_spawn_elite_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:division_spawn value = 5 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:division_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:division_spawn value = 5 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			
+			equipment_spawn_civilian_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 1 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:equipment_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:equipment_spawn value = 1 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			equipment_spawn_recruits_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 2 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:equipment_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:equipment_spawn value = 2 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			equipment_spawn_regular_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 3 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:equipment_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:equipment_spawn value = 3 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			equipment_spawn_veteran_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 4 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:equipment_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:equipment_spawn value = 4 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			equipment_spawn_elite_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:equipment_spawn value = 5 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:equipment_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:equipment_spawn value = 5 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			
+			convoy_spawn_civilian_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 1 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:convoy_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:convoy_spawn value = 1 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			convoy_spawn_recruits_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 2 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:convoy_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:convoy_spawn value = 2 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			convoy_spawn_regular_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 3 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:convoy_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:convoy_spawn value = 3 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			convoy_spawn_veteran_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 4 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:convoy_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:convoy_spawn value = 4 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			convoy_spawn_elite_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:convoy_spawn value = 5 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:convoy_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:convoy_spawn value = 5 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+			
+			fuel_spawn_civilian_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 1 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:fuel_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:fuel_spawn value = 1 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			fuel_spawn_recruits_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 2 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:fuel_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:fuel_spawn value = 2 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			fuel_spawn_regular_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 3 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:fuel_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:fuel_spawn value = 3 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			fuel_spawn_veteran_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 4 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:fuel_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:fuel_spawn value = 4 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			fuel_spawn_elite_click = {
+				if = {
+					limit = {
+						any_of_scopes = {
+							array = ai_setting_target_countries
+							
+							has_country_flag = { flag = ai_diff:fuel_spawn value = 5 }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						clr_country_flag = ai_diff:fuel_spawn
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						set_country_flag = { flag = ai_diff:fuel_spawn value = 5 }
+					}
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+		}
+	}
+		
+	BI_textbox = {
+		context_type = player_context
+
+		window_name = "BI_textbox_type"
+		parent_scripted_gui = ai_difficulty_country
+ 
+		visible = { 
+			var:ROOT.setting_name_target = {
+				has_country_flag = setting_type_name
+			} 
+		}
+		
+		effects = {
+			1_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 40 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			2_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 41 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			3_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 42 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			4_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 43 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			5_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 44 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			6_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 45 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			7_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 46 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			8_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 47 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			9_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 48 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			0_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 49 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			a_click = { 
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 1 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			b_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 2 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			c_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 3 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			d_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 4 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			e_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 5 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			f_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 6 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			g_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 7 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			h_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 8 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			i_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 9 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			j_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 10 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			k_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 11 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			l_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 12 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			m_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 13 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			n_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 14 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			o_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 15 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			p_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 16 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			q_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 17 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			r_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 18 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			s_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 19 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			t_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 20 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			u_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 21 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			v_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 22 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			w_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 23 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			x_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 24 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			y_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 25 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			z_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 26 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			delete_click = {
+				var:ROOT.setting_name_target = {
+					remove_from_array = { array = name_array }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			space_click = {
+				var:ROOT.setting_name_target = {
+					add_to_array = { name_array = 30 }
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			enter_click = {
+				var:ROOT.setting_name_target = {
+					clr_country_flag = setting_type_name
+				}
+				add_to_variable = { ui_difficulty = 1 }
+			}
+			
+		}
+	}
+	 
+	BI_main_menu_ai_gui = {
+		context_type = player_context  
+		  
+		window_name = "BI_main_menu_ai_gui"
+		parent_scripted_gui = ai_difficulty_country
+		
+		visible = {
+			has_country_flag = ui_show_ai_modifier
+		}
+		
+		dynamic_lists = { 
+			
+			BI_AI_modifier_list = { 
+				#array = global.BI_AI_modifier_list
+				array = ROOT.ai_diff_modifier_display
+				change_scope = yes
+				entry_container = "BI_AI_army_modifier_container"
+			}   
+			
+		} 
+		
+		properties = {
+			
+		}
+		
+		effects = {
+			BI_close_modifier_list_button_click = {
+				clr_country_flag = ui_show_ai_modifier
+				clr_country_flag = ui_show_select_ai_modifier
+				clear_array = ai_diff_modifier_display
+			}
+			BI_open_modifier_list_button_click = {
+				if = {
+					limit = {
+						has_country_flag = ui_show_select_ai_modifier
+					}
+					clr_country_flag = ui_show_select_ai_modifier
+					clear_array = BI_modifier_list
+				}
+				else = {
+					set_country_flag = ui_show_select_ai_modifier
+						
+					clear_array = BI_modifier_list
+					add_to_array = { BI_modifier_list = token:army_attack_factor }
+					add_to_array = { BI_modifier_list = token:army_defence_factor }
+					add_to_array = { BI_modifier_list = token:army_core_attack_factor }
+					add_to_array = { BI_modifier_list = token:army_core_defence_factor }
+					add_to_array = { BI_modifier_list = token:breakthrough_factor }
+					add_to_array = { BI_modifier_list = token:army_speed_factor }
+					add_to_array = { BI_modifier_list = token:army_org_factor }
+					add_to_array = { BI_modifier_list = token:army_morale_factor }
+					add_to_array = { BI_modifier_list = token:land_reinforce_rate }
+					add_to_array = { BI_modifier_list = token:dig_in_speed }
+					add_to_array = { BI_modifier_list = token:dig_in_speed_factor }
+					add_to_array = { BI_modifier_list = token:max_planning }
+					add_to_array = { BI_modifier_list = token:max_planning_factor }
+					add_to_array = { BI_modifier_list = token:planning_speed }
+					add_to_array = { BI_modifier_list = token:supply_consumption_factor }
+					add_to_array = { BI_modifier_list = token:out_of_supply_factor }
+					add_to_array = { BI_modifier_list = token:no_supply_grace }
+					add_to_array = { BI_modifier_list = token:attrition }
+					add_to_array = { BI_modifier_list = token:winter_attrition }
+					add_to_array = { BI_modifier_list = token:heat_attrition }
+					add_to_array = { BI_modifier_list = token:training_time_army_factor }
+					add_to_array = { BI_modifier_list = token:special_forces_cap }
+					add_to_array = { BI_modifier_list = token:experience_gain_army_unit_factor }
+					add_to_array = { BI_modifier_list = token:conscription }
+					add_to_array = { BI_modifier_list = token:conscription_factor }
+				}
+				clear_array = BI_saved_number
+			}
+			BI_clear_army_modifier_list_button_click = {
+				for_each_scope_loop = {
+					array = ai_setting_target_countries
+						
+					for_each_loop = {
+						array = BI_AI_modifier_list
+						
+						meta_effect = { 
+							text = {
+								clear_variable = BI_AI_mod/[v]
+							}
+							v = "[?v.GetTokenKey]"
+						}
+					}
+					clear_array = BI_AI_modifier_list
+				}
+					
+				clear_array = ai_diff_modifier_display
+				var:ROOT.selected_target = {
+					for_each_loop = {
+						array = BI_AI_modifier_list
+						
+						add_to_array = { ROOT.ai_diff_modifier_display = v }
+					}
+				}
+			}
+			BI_clear_current_modifier_button_click = {
+				set_temp_variable = { current = v }
+				for_each_scope_loop = {
+					array = ai_setting_target_countries
+					
+					meta_effect = { 
+						text = {
+							clear_variable = BI_AI_mod/[v]
+						}
+						v = "[?v.GetTokenKey]"
+					}
+					remove_from_array = { BI_AI_modifier_list = v }
+				}
+				
+				clear_array = ai_diff_modifier_display
+				var:ROOT.selected_target = {
+					for_each_loop = {
+						array = BI_AI_modifier_list
+						
+						add_to_array = { ROOT.ai_diff_modifier_display = v }
+					}
+				}
+			}
+			BI_add_to_current_modifier_button_click = {
+				set_temp_variable = { current = v }
+				
+				if = {
+					limit = {
+						OR = {
+							check_variable = { v = token:air_production_capacity }
+							check_variable = { v = token:tank_production_capacity }
+							check_variable = { v = token:engine_production_capacity }
+							check_variable = { v = token:artillery_production_capacity }
+							check_variable = { v = token:global_building_slots }
+							check_variable = { v = token:naval_invasion_capacity }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						meta_effect = { 
+							text = {
+								add_to_variable = { BI_AI_mod/[X] = 1 }
+							}
+							X = "[?current.GetTokenKey]"
+						}
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						meta_effect = { 
+							text = {
+								add_to_variable = { BI_AI_mod/[X] = 0.01 }
+							}
+							X = "[?current.GetTokenKey]"
+						}
+					}
+				}
+			}
+			BI_add_to_current_modifier_button_shift_click = {
+				set_temp_variable = { current = v }
+				
+				if = {
+					limit = {
+						OR = {
+							check_variable = { v = token:air_production_capacity }
+							check_variable = { v = token:tank_production_capacity }
+							check_variable = { v = token:engine_production_capacity }
+							check_variable = { v = token:artillery_production_capacity }
+							check_variable = { v = token:global_building_slots }
+							check_variable = { v = token:naval_invasion_capacity }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						meta_effect = { 
+							text = {
+								add_to_variable = { BI_AI_mod/[X] = 5 }
+							}
+							X = "[?current.GetTokenKey]"
+						}
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						meta_effect = { 
+							text = {
+								add_to_variable = { BI_AI_mod/[X] = 0.05 }
+							}
+							X = "[?current.GetTokenKey]"
+						}
+					}
+				}
+			}
+			BI_subtract_from_current_modifier_button_click = {
+				set_temp_variable = { current = v }
+				
+				if = {
+					limit = {
+						OR = {
+							check_variable = { v = token:air_production_capacity }
+							check_variable = { v = token:tank_production_capacity }
+							check_variable = { v = token:engine_production_capacity }
+							check_variable = { v = token:artillery_production_capacity }
+							check_variable = { v = token:global_building_slots }
+							check_variable = { v = token:naval_invasion_capacity }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						meta_effect = { 
+							text = {
+								add_to_variable = { BI_AI_mod/[X] = -1 }
+							}
+							X = "[?current.GetTokenKey]"
+						}
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						meta_effect = { 
+							text = {
+								add_to_variable = { BI_AI_mod/[X] = -0.01 }
+							}
+							X = "[?current.GetTokenKey]"
+						}
+					}
+				}
+			}
+			BI_subtract_from_current_modifier_button_shift_click = {
+				set_temp_variable = { current = v }
+				
+				if = {
+					limit = {
+						OR = {
+							check_variable = { v = token:air_production_capacity }
+							check_variable = { v = token:tank_production_capacity }
+							check_variable = { v = token:engine_production_capacity }
+							check_variable = { v = token:artillery_production_capacity }
+							check_variable = { v = token:global_building_slots }
+							check_variable = { v = token:naval_invasion_capacity }
+						}
+					}
+					
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						meta_effect = { 
+							text = {
+								add_to_variable = { BI_AI_mod/[X] = -5 }
+							}
+							X = "[?current.GetTokenKey]"
+						}
+					}
+				}
+				else = {
+					for_each_scope_loop = {
+						array = ai_setting_target_countries
+						
+						meta_effect = { 
+							text = {
+								add_to_variable = { BI_AI_mod/[X] = -0.05 }
+							}
+							X = "[?current.GetTokenKey]"
+						}
+					}
+				}
+			}
+			value_bg_click = {
+				set_variable = { BI_selected_modifier_for_value = v }
+			}
+		}
+		
+		triggers = {
+		}
+	}
+	BI_select_modifier_gui = { 
+		context_type = player_context 
+		
+		window_name = "BI_select_modifier_gui_container"
+		parent_scripted_gui = ai_difficulty_country
+		
+		visible = {
+			has_country_flag = ui_show_select_ai_modifier
+		}
+		
+		dynamic_lists = {
+			BI_AI_select_modifier_list = { 
+				array = BI_modifier_list
+				change_scope = yes
+				entry_container = "BI_AI_select_modifier_container"
+			}
+		} 
+		
+		effects = {
+			BI_select_modifier_button_click = {
+				for_each_scope_loop = {
+					array = ai_setting_target_countries
+					
+					if = {
+						limit = {
+							NOT = { is_in_array = { BI_AI_modifier_list = v } }
+						}
+						add_to_array = { BI_AI_modifier_list = v }
+					}
+				}
+				ROOT = {
+					clear_array = ai_diff_modifier_display
+					var:ROOT.selected_target = {
+						for_each_loop = {
+							array = BI_AI_modifier_list
+							
+							add_to_array = { ROOT.ai_diff_modifier_display = v }
+						}
+					}
+				}
+				clr_country_flag = ui_show_select_ai_modifier
+			}
+			BI_select_modifier_button_shift_click = {
+				for_each_scope_loop = {
+					array = ai_setting_target_countries
+					
+					if = {
+						limit = {
+							NOT = { is_in_array = { BI_AI_modifier_list = v } }
+						}
+						add_to_array = { BI_AI_modifier_list = v }
+					}
+				}
+				ROOT = {
+					clear_array = ai_diff_modifier_display
+					var:ROOT.selected_target = {
+						for_each_loop = {
+							array = BI_AI_modifier_list
+							
+							add_to_array = { ROOT.ai_diff_modifier_display = v }
+						}
+					}
+				}
+			}
+			
+			land_click = { 
+				clear_array = BI_modifier_list   
+				add_to_array = { BI_modifier_list = token:army_attack_factor }
+				add_to_array = { BI_modifier_list = token:army_defence_factor }
+				add_to_array = { BI_modifier_list = token:army_core_attack_factor }
+				add_to_array = { BI_modifier_list = token:army_core_defence_factor }
+				add_to_array = { BI_modifier_list = token:breakthrough_factor }
+				add_to_array = { BI_modifier_list = token:army_speed_factor }
+				add_to_array = { BI_modifier_list = token:army_org_factor }
+				add_to_array = { BI_modifier_list = token:army_morale_factor } 
+				add_to_array = { BI_modifier_list = token:land_reinforce_rate }
+				add_to_array = { BI_modifier_list = token:dig_in_speed }
+				add_to_array = { BI_modifier_list = token:dig_in_speed_factor }
+				add_to_array = { BI_modifier_list = token:max_planning }
+				add_to_array = { BI_modifier_list = token:max_planning_factor }
+				add_to_array = { BI_modifier_list = token:planning_speed } 
+				add_to_array = { BI_modifier_list = token:supply_consumption_factor }
+				add_to_array = { BI_modifier_list = token:out_of_supply_factor }
+				add_to_array = { BI_modifier_list = token:no_supply_grace }
+				add_to_array = { BI_modifier_list = token:attrition }
+				add_to_array = { BI_modifier_list = token:winter_attrition }
+				add_to_array = { BI_modifier_list = token:heat_attrition }
+				add_to_array = { BI_modifier_list = token:training_time_army_factor }
+				add_to_array = { BI_modifier_list = token:special_forces_cap }
+				add_to_array = { BI_modifier_list = token:experience_gain_army_unit_factor }
+				add_to_array = { BI_modifier_list = token:conscription }
+				add_to_array = { BI_modifier_list = token:conscription_factor }
+				
+			}
+			air_click = {
+				clear_array = BI_modifier_list 
+				add_to_array = { BI_modifier_list = token:air_accidents_factor }
+				add_to_array = { BI_modifier_list = token:air_ace_generation_chance_factor }
+				add_to_array = { BI_modifier_list = token:air_agility_factor }
+				add_to_array = { BI_modifier_list = token:air_attack_factor }
+				add_to_array = { BI_modifier_list = token:air_defence_factor }
+				add_to_array = { BI_modifier_list = token:air_bombing_targetting }
+				add_to_array = { BI_modifier_list = token:air_cas_efficiency }
+				add_to_array = { BI_modifier_list = token:air_cas_present_factor }
+				add_to_array = { BI_modifier_list = token:air_detection }
+				add_to_array = { BI_modifier_list = token:air_escort_efficiency }
+				add_to_array = { BI_modifier_list = token:air_intercept_efficiency }
+				add_to_array = { BI_modifier_list = token:air_mission_efficiency }
+				add_to_array = { BI_modifier_list = token:air_nav_efficiency }
+				add_to_array = { BI_modifier_list = token:air_night_penalty }
+				add_to_array = { BI_modifier_list = token:air_superiority_efficiency }
+				add_to_array = { BI_modifier_list = token:air_mission_xp_gain_factor }
+				
+			}
+			navy_click = {
+				clear_array = BI_modifier_list
+				add_to_array = { BI_modifier_list = token:naval_invasion_capacity }
+				add_to_array = { BI_modifier_list = token:naval_invasion_penalty }
+				add_to_array = { BI_modifier_list = token:naval_invasion_prep_speed }
+				add_to_array = { BI_modifier_list = token:convoy_escort_efficiency }
+				add_to_array = { BI_modifier_list = token:convoy_raiding_efficiency_factor }
+				add_to_array = { BI_modifier_list = token:navy_capital_ship_attack_factor }
+				add_to_array = { BI_modifier_list = token:navy_screen_attack_factor }
+				add_to_array = { BI_modifier_list = token:navy_org_factor }
+				add_to_array = { BI_modifier_list = token:positioning }
+				add_to_array = { BI_modifier_list = token:sortie_efficiency }
+				add_to_array = { BI_modifier_list = token:screening_efficiency }
+				add_to_array = { BI_modifier_list = token:experience_gain_navy_unit_factor }
+				add_to_array = { BI_modifier_list = token:refit_speed }
+				
+			} 
+			industry_click = {
+				clear_array = BI_modifier_list   
+				add_to_array = { BI_modifier_list = token:production_factory_max_efficiency_factor }
+				add_to_array = { BI_modifier_list = token:line_change_production_efficiency_factor }
+				add_to_array = { BI_modifier_list = token:production_factory_efficiency_gain_factor }
+				add_to_array = { BI_modifier_list = token:production_factory_start_efficiency_factor }
+				add_to_array = { BI_modifier_list = token:industrial_capacity_factory }
+				add_to_array = { BI_modifier_list = token:industrial_capacity_dockyard }
+				add_to_array = { BI_modifier_list = token:industry_air_damage_factor }
+				add_to_array = { BI_modifier_list = token:industry_free_repair_factor }
+				add_to_array = { BI_modifier_list = token:production_speed_buildings_factor }
+				add_to_array = { BI_modifier_list = token:consumer_goods_expected_value }
+				add_to_array = { BI_modifier_list = token:resources_factor }
+				add_to_array = { BI_modifier_list = token:research_speed_factor }
+				add_to_array = { BI_modifier_list = token:air_production_capacity }
+				add_to_array = { BI_modifier_list = token:tank_production_capacity }
+				add_to_array = { BI_modifier_list = token:engine_production_capacity }
+				add_to_array = { BI_modifier_list = token:artillery_production_capacity }
+				add_to_array = { BI_modifier_list = token:global_building_slots }
+				add_to_array = { BI_modifier_list = token:global_building_slots_factor }
+				add_to_array = { BI_modifier_list = token:civilian_fuel_use_factor }
+				
+			}
+			
+			special_click = {
+				clear_array = BI_modifier_list 
+				add_to_array = { BI_modifier_list = token:ai_focus_aggressive_factor }
+				add_to_array = { BI_modifier_list = token:ai_focus_defense_factor }
+				add_to_array = { BI_modifier_list = token:ai_desired_units }
+				add_to_array = { BI_modifier_list = token:ai_desired_planes }
+			}
+					
+		}
+		
+		triggers = {
+		}
+	}
+	BI_type_number_gui = { 
+		context_type = player_context 
+		 
+		window_name = "BI_type_number_gui_container"
+		parent_scripted_gui = ai_difficulty_country
+		
+		visible = {
+			has_variable = BI_selected_modifier_for_value
+		}
+		effects = {
+			enter_button_click = { 
+				meta_effect = { 
+					text = {
+						set_temp_variable = { temp = [0][1][2][3][4] }
+						
+					} 
+					0 = "[BI_GetTypedNum0]"
+					1 = "[BI_GetTypedNum1]"
+					2 = "[BI_GetTypedNum2]"
+					3 = "[BI_GetTypedNum3]"
+					4 = "[BI_GetTypedNum4]"
+				}
+				
+				for_each_scope_loop = {
+					array = ai_setting_target_countries
+					
+			 		meta_effect = { 
+						text = {
+							set_variable = { BI_AI_mod/[X] = temp }
+						}
+						X = "[?Root.BI_selected_modifier_for_value.GetTokenKey]"
+					}
+				}
+				#else = {
+				#	meta_effect = { 
+				#		text = {	
+				#			set_variable = { global.BI_AI_mod/[v] = temp }
+				#		}
+				#		v = "[?Root.BI_selected_modifier_for_value.GetTokenKey]"
+				#	}
+			 	#}
+				clear_variable = BI_selected_modifier_for_value
+				clear_array = BI_saved_number
+				log = "[?temp] TEMP" 
+			}
+			point_click = {
+				add_to_array = { BI_saved_number = -1 }
+			}
+			minus_click = { 
+				add_to_array = { BI_saved_number = -2 }
+			}
+			zero_click = {
+				add_to_array = { BI_saved_number = 0 }
+			}
+			one_click = {
+				add_to_array = { BI_saved_number = 1 }
+			}
+			two_click = {
+				add_to_array = { BI_saved_number = 2 }
+			}
+			three_click = {
+				add_to_array = { BI_saved_number = 3 }
+			}
+			four_click = {
+				add_to_array = { BI_saved_number = 4 }
+			}
+			five_click = {
+				add_to_array = { BI_saved_number = 5 }
+			}
+			six_click = {
+				add_to_array = { BI_saved_number = 6 }
+			}
+			seven_click = {
+				add_to_array = { BI_saved_number = 7 }
+			}
+			eight_click = {
+				add_to_array = { BI_saved_number = 8 }
+			}
+			nine_click = {
+				add_to_array = { BI_saved_number = 9 }
+			}
+		}
+		 
+	}  
+	#BI_onmap_tests = { 
+	#	context_type = state_mapicon 
+	#	  
+	#	window_name = "statemap_tests"
+	#	
+	#	visible = {
+	#		#has_variable = BI_selected_modifier_for_value
+	#	}
+	#	
+	#	mapicon_targets = {
+	#		target_array = global.small_airbase_list
+	#		#target_array = global.medium_airbase_list
+	#	}
+	#}
+	BI_invasion_warning = {
+		context_type = player_context
+		 
+		window_name = "BI_invasion_warning"	
+		
+		visible = {  
+			has_country_flag = ui_show_invasion_warning
+		}
+		
+		effects = {
+			ok_button_click = {
+				clr_country_flag = ui_show_invasion_warning
+			}
+			goto_state_button_click = {
+				meta_effect = {
+					text = {
+						goto_state = [ID]
+					}
+					ID = "[?ui_invaded_state.GetID]"
+				}
+				clr_country_flag = ui_show_invasion_warning
+			}
+			disable_button_click = {
+				set_country_flag = notif_disable_inv_warning
+				clr_country_flag = ui_show_invasion_warning
+			}
+		}
+		
+		properties = {
+			sender_flag = {
+				image = "[?ui_invader_country.GetFlag]"
+			}
+			receiver_flag = {
+				image = "[This.GetFlag]"
+			}
+		}
+		
+	}
+	
+	BI_diplomacy_overlay = {
+		context_type = selected_country_context
+
+		window_name = "BI_diplomacy_overlay_container"
+        parent_window_token = selected_country_view_diplomacy
+		#parent_window_name = "diplomatic_actions_hook"
+		   
+		dynamic_lists = {
+			diplomacy_list = {
+				array = diplo
+				change_scope = yes
+				entry_container = "diplo_overlay_entry"
+			}
+			modifier_list = {
+				array = diplo_modifiers
+				change_scope = yes
+				entry_container = "diplo_modifier_entry"
+			}
+		}
+		
+		properties = {
+			volunteer_allowance = {
+				frame = volunteer_frame
+			}
+			#diplo_bg = {
+			#	frame = diplo_frame
+			#}
+		}
+		
+		triggers = {
+			win_header_short_click_enabled = {
+				if = {
+					limit = {
+						NOT = { tag = ROOT }
+					}
+					generate_diplomacy_overlay = yes
+				}
+				else = {
+					add_to_temp_array = { diplo_modifiers = token:enemy_declare_war_tension  }
+					add_to_temp_array = { diplo_modifiers = token:enemy_justify_war_goal_time  }
+					add_to_temp_array = { diplo_modifiers = token:faction_trade_opinion_factor  }
+					add_to_temp_array = { diplo_modifiers = token:generate_wargoal_tension  }
+					add_to_temp_array = { diplo_modifiers = token:guarantee_cost  }
+					add_to_temp_array = { diplo_modifiers = token:guarantee_tension  }
+					add_to_temp_array = { diplo_modifiers = token:join_faction_tension  }
+					add_to_temp_array = { diplo_modifiers = token:justify_war_goal_time  }
+					add_to_temp_array = { diplo_modifiers = token:justify_war_goal_when_in_major_war_time  }
+					add_to_temp_array = { diplo_modifiers = token:lend_lease_tension  }
+					#add_to_temp_array = { diplo_modifiers = token:lend_lease_tension_with_overlord  }
+					add_to_temp_array = { diplo_modifiers = token:opinion_gain_monthly_factor  }
+					add_to_temp_array = { diplo_modifiers = token:opinion_gain_monthly_same_ideology_factor  }
+					#add_to_temp_array = { diplo_modifiers = token:request_lease_tension  }
+					add_to_temp_array = { diplo_modifiers = token:send_volunteer_divisions_required  }
+					add_to_temp_array = { diplo_modifiers = token:send_volunteer_factor  }
+					add_to_temp_array = { diplo_modifiers = token:send_volunteer_size  }
+					add_to_temp_array = { diplo_modifiers = token:send_volunteers_tension  }
+					add_to_temp_array = { diplo_modifiers = token:air_volunteer_cap  }
+					add_to_temp_array = { diplo_modifiers = token:embargo_threshold_factor  }
+					add_to_temp_array = { diplo_modifiers = token:embargo_cost_factor  }
+				}
+			}
+			
+			diplo_bg_click_enabled = {
+			
+				if = {
+					limit = {
+						check_variable = { v = token:justify_war_goal }
+					}
+					ui_can_justify_war_goal = yes
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:send_volunteers }
+					}
+					ui_can_send_volunteers = yes
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:negotiate_licenses }
+					}
+					ui_can_negotiate_licenses = yes
+				}
+				#else_if = {
+				#	limit = {
+				#		OR = {
+				#			check_variable = { v = token:adjust_ai_defense }
+				#			check_variable = { v = token:adjust_ai_production }
+				#		}
+				#	}
+				#	set_temp_variable = { diplo_frame = 2 }
+				#}
+				
+			}
+			diplo_bg_clickable_visible = {
+				OR = {
+					check_variable = { v = token:justify_war_goal }
+					check_variable = { v = token:send_volunteers }
+					check_variable = { v = token:negotiate_licenses }
+				}
+				if = {
+					limit = {
+						check_variable = { v = token:justify_war_goal }
+					}
+					NOT = { ui_can_justify_war_goal = yes }
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:send_volunteers }
+					}
+					NOT = { ui_can_send_volunteers = yes }
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:negotiate_licenses }
+					}
+					NOT = { ui_can_negotiate_licenses = yes }
+				}
+			}
+			diplo_bg_visible = {
+				OR = {
+					check_variable = { v = token:justify_war_goal }
+					check_variable = { v = token:send_volunteers }
+					check_variable = { v = token:negotiate_licenses }
+					check_variable = { v = token:adjust_ai_defense }
+					check_variable = { v = token:adjust_ai_production }
+				}
+				
+				if = {
+					limit = {
+						check_variable = { v = token:justify_war_goal }
+					}
+					NOT = { ui_can_justify_war_goal = yes }
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:send_volunteers }
+					}
+					NOT = { ui_can_send_volunteers = yes }
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:negotiate_licenses }
+					}
+					NOT = { ui_can_negotiate_licenses = yes }
+				}
+			}
+			diplo_name_visible = {
+				
+				OR = {
+					check_variable = { v = token:justify_war_goal }
+					check_variable = { v = token:send_volunteers }
+					check_variable = { v = token:negotiate_licenses }
+					check_variable = { v = token:adjust_ai_defense }
+					check_variable = { v = token:adjust_ai_production }
+				}
+				
+				if = {
+					limit = {
+						check_variable = { v = token:justify_war_goal }
+					}
+					NOT = { ui_can_justify_war_goal = yes }
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:send_volunteers }
+					}
+					NOT = { ui_can_send_volunteers = yes }
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:negotiate_licenses }
+					}
+					NOT = { ui_can_negotiate_licenses = yes }
+				}
+			}
+			
+			############# volunteers 
+			
+			volunteer_allowance_click_enabled = {
+				ROOT = {
+					if = {
+						limit = {
+							NOT = { 
+								has_relation_modifier = {
+									target = PREV
+									modifier = diplomacy_disable_land_volunteers
+								}
+							}
+							NOT = { 
+								has_relation_modifier = {
+									target = PREV
+									modifier = diplomacy_disable_air_volunteers
+								}
+							}
+						}
+						set_temp_variable = { volunteer_frame = 1 }
+					}
+					else_if = {
+						limit = {
+							has_relation_modifier = {
+								target = PREV
+								modifier = diplomacy_disable_land_volunteers
+							}
+						}
+						set_temp_variable = { volunteer_frame = 3 }
+					}
+					else_if = {
+						limit = {
+							has_relation_modifier = {
+								target = PREV
+								modifier = diplomacy_disable_air_volunteers
+							}
+						}
+						set_temp_variable = { volunteer_frame = 2 }
+					}
+				}
+			}
+			volunteer_allowance_visible = {
+				check_variable = { v = token:send_volunteers }
+			}
+		}
+			
+		effects = {	
+			volunteer_allowance_click = {
+				ROOT = {
+					if = {
+						limit = {
+							NOT = { 
+								has_relation_modifier = {
+									target = PREV
+									modifier = diplomacy_disable_land_volunteers
+								}
+							}
+							NOT = { 
+								has_relation_modifier = {
+									target = PREV
+									modifier = diplomacy_disable_air_volunteers
+								}
+							}
+						}
+						custom_effect_tooltip = diplomacy_allow_both_volunteers
+					}
+					else_if = {
+						limit = {
+							has_relation_modifier = {
+								target = PREV
+								modifier = diplomacy_disable_land_volunteers
+							}
+						}
+						custom_effect_tooltip = diplomacy_allow_air_volunteers
+					}
+					else_if = {
+						limit = {
+							has_relation_modifier = {
+								target = PREV
+								modifier = diplomacy_disable_air_volunteers
+							}
+						}
+						custom_effect_tooltip = diplomacy_allow_land_volunteers
+					}
+				}
+			}
+			diplo_bg_click = {
+				#custom_effect_tooltip = "[From.GetTag] [Root.GetTag]"
+				
+				if = {
+					limit = {
+						check_variable = { v = token:justify_war_goal }
+					}
+					custom_effect_tooltip = DIPLOMACY_GENERATE_WARGOAL_ACTION_DESC
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:send_volunteers }
+					}
+					custom_effect_tooltip = DIPLOMACY_SEND_VOLUNTEERS_ACTION_DESC
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:adjust_ai_defense }
+					}
+					custom_effect_tooltip = adjust_ai_defense_desc
+					set_variable = { ROOT.targeted_country = FROM }
+			
+					clear_array = ROOT.defence_array_list
+					add_to_array = { ROOT.defence_array_list = 1 }
+					add_to_array = { ROOT.defence_array_list = token:europe }
+					add_to_array = { ROOT.defence_array_list = token:africa }
+					add_to_array = { ROOT.defence_array_list = token:middle_east }
+					add_to_array = { ROOT.defence_array_list = token:asia }
+					add_to_array = { ROOT.defence_array_list = token:north_america }
+					add_to_array = { ROOT.defence_array_list = token:south_america }
+					add_to_array = { ROOT.defence_array_list = 2 }
+			
+					var:ROOT.targeted_country = {
+						if = {
+							limit = {
+								NOT = { has_country_flag = ai_use_area_defense }
+							}
+							for_each_loop = {
+								array = allies
+								
+								add_to_array = { ROOT.defence_array_list = v }
+							}
+							for_each_loop = {
+								array = subjects
+								
+								if = {
+									limit = {
+										NOT = { is_in_array = { ROOT.defence_array_list = v } }
+									}
+									add_to_array = { ROOT.defence_array_list = v }
+								}
+							}
+						
+							if = {
+								limit = {
+									is_subject = yes
+								}
+								OVERLORD = {
+									if = {
+										limit = {
+											NOT = { is_in_array = { ROOT.defence_array_list = THIS } }
+										}
+										add_to_array = { ROOT.defence_array_list = THIS }
+									}
+								}
+							}
+						}
+					}
+					
+					ROOT = { 
+						set_country_flag = ui_ai_country_defence 
+						clr_country_flag = ui_show_ai_production
+					}
+					
+				}
+				else_if = {
+					limit = {
+						check_variable = { v = token:adjust_ai_production }
+					}
+					custom_effect_tooltip = adjust_ai_production_desc
+					
+					set_variable = { ROOT.targeted_country = FROM }
+					ROOT = {
+						clr_country_flag = ui_ai_country_defence
+						set_country_flag = ui_show_ai_production
+						clr_country_flag = ui_show_ai_air_production
+						clr_country_flag = ui_show_ai_navy_production
+					}
+					ui_show_ai_army_production = yes
+				}
+				
+			}
+		}
+		
+	}
+}

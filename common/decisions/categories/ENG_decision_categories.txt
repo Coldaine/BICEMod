@@ -1,0 +1,43 @@
+################
+##### ENG ######
+################
+
+ENG_imperial_conference_decision = {
+	icon = eng_imperial_conference
+
+	allowed = {
+		original_tag = ENG
+	}
+}
+
+ENG_enforce_the_naval_treaties = {
+	icon = generic_political_actions
+
+	allowed = {
+		original_tag = ENG
+	}
+}
+CW_AIR_PLAN = {
+	icon = ITA_reggianes_exports
+	picture = tiger_moth
+    allowed = {
+		OR = {
+			original_tag = ENG
+			original_tag = AST
+			original_tag = CAN
+			original_tag = SAF
+			original_tag = RAJ
+			original_tag = NZL
+		}
+	}	
+	priority = 85
+	visible = {
+		or = {
+			has_country_flag = CW_THE_PLAN
+			has_country_flag = testing
+		}
+	}
+	
+	scripted_gui = CW_the_plan_window
+	visible_when_empty = yes
+}

@@ -1,0 +1,251 @@
+medals_for_free = {
+	make_medals_free = {
+		icon = mfe_medal
+		allowed = {
+			
+		}
+		visible = {
+			NOT = {
+				has_country_flag = mfe_medals
+			}
+
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = mfe_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = mfe_medals
+				add_dynamic_modifier = { modifier = mfe_dynamic_modifiers }
+				add_to_variable = { grant_medal_cost_factor_value = -1 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	make_medals_default = {
+		icon = mfe_medal
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = mfe_medals
+				set_variable = { grant_medal_cost_factor_value = 0 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_increase_1 ={
+		icon = mfe_red_1
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = 0.01 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_increase_5 ={
+		icon = mfe_red_5
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = 0.05 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_increase_10 ={
+		icon = mfe_red_10
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = 0.1 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_increase_25 ={
+		icon = mfe_red_25
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = 0.25 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_increase_50 ={
+		icon = mfe_red_50
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = 0.5 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_decrease_1 ={
+		icon = mfe_green_1
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = -0.01 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_decrease_5 ={
+		icon = mfe_green_5
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = -0.05 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_decrease_10 ={
+		icon = mfe_green_10
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = -0.1 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_decrease_25 ={
+		icon = mfe_green_25
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = -0.25 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+	medals_decrease_50 ={
+		icon = mfe_green_50
+		allowed = {
+			
+		}
+		visible = {
+			has_country_flag = mfe_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = mfe_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				add_to_variable = { grant_medal_cost_factor_value = -0.5 }
+				force_update_dynamic_modifier = yes
+			}
+		}
+	}
+}

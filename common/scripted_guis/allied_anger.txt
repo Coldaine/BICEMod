@@ -1,0 +1,344 @@
+scripted_gui = {
+
+	BI_political_party_container = {
+		context_type = player_context
+		    
+		window_name = "BI_political_party_container"
+		parent_window_name = political_party_hook
+		
+		dynamic_lists = {
+			party_list = {
+				array = global.ideology_groups
+				change_scope = yes
+				entry_container = "political_party_iteration"
+			}
+		}
+		
+		dirty = ui_selected_law
+		
+		properties = {
+			status = {
+				frame = status
+			}
+			status_opp = {
+				frame = status_opp
+			}
+		}
+		
+		triggers = { 
+			drift_visible = {
+				check_variable = { current_party_ideology_group = v }
+			}
+			drift_opp_visible = {
+				NOT = { check_variable = { current_party_ideology_group = v } }
+			}
+			status_visible = {
+				check_variable = { current_party_ideology_group = v }
+				NOT = { check_variable = { last_change@var:v = 0 }  }
+				
+				if = {
+					limit = {
+						check_variable = { last_change@var:v > 0 }
+					}
+					set_temp_variable = { status = 2 } #increase
+				}
+				else = { 
+					set_temp_variable = { status = 3 } #decrease
+				}
+			}
+			status_opp_visible = {
+				NOT = { 
+					check_variable = { current_party_ideology_group = v } 
+					check_variable = { last_change@var:v = 0 } 
+				}
+				
+				if = {
+					limit = {
+						check_variable = { last_change@var:v > 0 }
+					}
+					set_temp_variable = { status_opp = 4 } #increase red
+				}
+				else = {
+					set_temp_variable = { status_opp = 1 } #decrease green
+				}
+			}
+			banned_visible = {
+				meta_trigger = {
+					text = {
+						has_country_flag = party_banned@[X]
+					}
+					X = "[?v.GetTokenKey]"
+				}
+			}
+			ruling_visible = {
+				check_variable = { current_party_ideology_group = v }
+			}
+		}
+		
+		effects = { 
+			drift_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { drift = 0 } }
+					}
+					custom_effect_tooltip = "party_drift_drift_tooltip"
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { ruling = 0 } }
+					}
+					custom_effect_tooltip = "party_drift_ruling_tooltip"
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { num_advisor@var:v = 0 } }
+					}
+					custom_effect_tooltip = "party_drift_advisor_tooltip"
+				}
+			}
+			drift_opp_click = {
+				if = {
+					limit = {
+						NOT = { check_variable = { drift = 0 } }
+					}
+					custom_effect_tooltip = "party_drift_drift_opposition_tooltip"
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { ruling = 0 } }
+					}
+					custom_effect_tooltip = "party_drift_ruling_opposition_tooltip"
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { num_advisor@var:v = 0 } }
+					}
+					custom_effect_tooltip = "party_drift_advisor_opposition_tooltip"
+				}
+				if = {
+					limit = {
+						NOT = { check_variable = { banned_drift@var:v = 0 } }
+					} 
+					custom_effect_tooltip = "party_banned_tooltip"
+				}
+				if = {
+					limit = {
+						is_in_array = { party_banned = v }
+					} 
+					custom_effect_tooltip = "party_banned_tooltip_text"
+				}
+			}
+		}
+	}
+        
+	BI_politics_tab = {
+		context_type = player_context
+		    
+		window_name = "BI_politics_tab"
+		parent_window_token = politics_tab
+        
+		visible = {
+		
+		}
+		    
+		#dirty = BI_politics_update
+			
+		effects = {
+			civ_fuel_background_click = {
+				MTT_get_civilian_fuel_use = yes
+			}
+			
+			allied_anger_test_click = { 
+				custom_effect_tooltip = allied_anger_TT_0
+				
+				every_country = {  
+					limit = { 
+						is_in_faction_with = ENG 
+					}
+					custom_effect_tooltip = allied_anger_TT_1 
+					custom_effect_tooltip = allied_anger_TT_2
+				} 
+				
+				if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_1 }
+					}
+					show_ideas_tooltip = allied_anger_1
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_2 }
+					}
+					show_ideas_tooltip = allied_anger_2
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_3 }
+					}
+					show_ideas_tooltip = allied_anger_3
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_4 }
+					}
+					show_ideas_tooltip = allied_anger_4
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_5 }
+					}
+					show_ideas_tooltip = allied_anger_5
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_6 }
+					}
+					show_ideas_tooltip = allied_anger_6
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_7 }
+					}
+					show_ideas_tooltip = allied_anger_7
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_8 }
+					}
+					show_ideas_tooltip = allied_anger_8
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_9 }
+					}
+					show_ideas_tooltip = allied_anger_9
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_10 }
+					}
+					show_ideas_tooltip = allied_anger_10
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_11 }
+					}
+					show_ideas_tooltip = allied_anger_11
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_12 }
+					}
+					show_ideas_tooltip = allied_anger_12
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_13 }
+					}
+					show_ideas_tooltip = allied_anger_13
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_14 }
+					}
+					show_ideas_tooltip = allied_anger_14
+				}
+				else_if = {
+					limit = {
+						ENG = {	has_idea = allied_anger_15 }
+					}
+					show_ideas_tooltip = allied_anger_15
+				}
+				else = { 
+					custom_effect_tooltip = allied_anger_TT_3
+				}
+			} 
+		}
+		
+		triggers = {
+			no_faction_text_visible = {
+				is_in_faction = no 
+			}
+			civ_fuel_background_click_enabled = {
+				set_temp_variable = { daily_fuel = civilian_fuel_use }
+				multiply_temp_variable = { daily_fuel = 24 }
+			}
+			
+			allied_anger_bg_visible = {
+				has_country_flag = allied_anger_visible
+			}
+			allied_anger_visible = {
+				has_country_flag = allied_anger_visible
+			}
+			allied_anger_text_visible = {
+				has_country_flag = allied_anger_visible
+			}
+		}
+	}
+	
+	initialize_politics_tab = {
+		context_type = player_context
+		    
+		window_name = "politics_tab_overlay"
+		parent_window_token = politics_tab
+         
+		dirty = ui_overlay
+			
+		effects = {
+			button_click = {
+				add_to_variable = { ui_selected_law = 1 }
+			
+				set_variable = { ui_overlay = global.date }
+			}
+		}
+		
+		triggers = {
+			button_visible = {
+				NOT = { check_variable = { ui_overlay = global.date } }
+				set_temp_variable = { t = ui_overlay }
+				add_to_temp_variable = { t = 0.001  }
+				NOT = { check_variable = { t = global.date } }
+			}
+			text_visible = {
+				NOT = { check_variable = { ui_overlay = global.date } }
+				set_temp_variable = { t = ui_overlay }
+				add_to_temp_variable = { t = 0.001  }
+				NOT = { check_variable = { t = global.date } }
+			}
+		}
+	}
+	
+	initialize_refinery_tab = {
+		context_type = player_context
+		    
+		window_name = "refinery_tab_overlay"
+		parent_scripted_gui = BI_resource_conversion_window
+         
+		dirty = ui_refinery_overlay
+			
+		effects = {
+			button_click = {
+			
+				set_variable = { ui_refinery_overlay = global.date }
+				add_to_variable = { ui_refinery = 1 }
+			}  
+		}
+		
+		triggers = {
+			button_visible = {
+				NOT = { check_variable = { ui_refinery_overlay = global.date } }
+				set_temp_variable = { t = ui_refinery_overlay }
+				add_to_temp_variable = { t = 0.001  }
+				NOT = { check_variable = { t = global.date } }
+
+			}
+			text_visible = {
+				NOT = { check_variable = { ui_refinery_overlay = global.date } }
+				set_temp_variable = { t = ui_refinery_overlay }
+				add_to_temp_variable = { t = 0.001  }
+				NOT = { check_variable = { t = global.date } }
+			}
+		}
+	}
+}
+### EOF ###

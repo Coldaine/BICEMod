@@ -1,0 +1,299 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.3 (custom name support "_EF" to prevent conflict)
+
+###########################
+
+sub_units = {
+
+	flamethrower_EF = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_front_line
+			category_support_battalions
+			category_army
+		}
+
+	
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 1
+		max_organisation = 10
+		default_morale = 0.3
+		manpower = 231
+		training_time = 120
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.03
+		
+		# Support nerfs to combat abilities
+		hard_attack = -0.5
+		soft_attack = 1
+
+		essential = {
+			support_equipment
+		}
+
+		need = {
+			infantry_equipment = 14
+			support_equipment = 28
+		}
+
+		can_be_parachuted = yes
+
+		mountain = {
+			attack = 0.15
+			defence = 0.1
+			movement = 0.1
+		}
+
+		urban = {
+			attack = 0.2
+			defence = 0.1
+		}
+
+		fort = {
+			attack = 0.15
+			defence = 0.1
+		}
+
+		marsh = {
+			movement = -0.05
+		}
+
+		river = {
+			movement = -0.05
+		}
+
+		amphibious = {
+			movement = -0.05
+		}
+	}
+
+	sniper_EF = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_front_line
+			category_light_infantry
+			category_support_battalions
+			category_all_infantry
+			category_army
+		}
+	
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 10
+		max_organisation = 50
+		default_morale = 0.3
+		manpower = 231
+		training_time = 120
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.03
+		can_be_parachuted = yes
+		
+		# Support nerfs to combat abilities
+ 		breakthrough = -0.5
+		hard_attack = -0.5
+
+		essential = {
+			infantry_equipment
+			support_equipment
+		}
+
+		need = {
+			infantry_equipment = 42
+			support_equipment = 14
+		}
+
+		forest = {
+			defence = 0.1
+		}
+		urban = {
+			attack = 0.1
+			defence = 0.2
+		}
+		plains = {
+			defence = 0.1
+		}
+		jungle = {
+			defence = 0.2
+		}
+		desert = {
+			defence = 0.1
+		}
+	}
+
+	mortar_EF = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_front_line
+			category_light_infantry
+			category_support_battalions
+			category_all_infantry
+			category_army
+		}
+
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 10
+		max_organisation = 50
+		default_morale = 0.3
+		manpower = 231
+		training_time = 120
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.04
+		can_be_parachuted = yes
+		
+		# Support nerfs to combat abilities	
+		defense = -0.5
+		soft_attack = -0.5
+
+
+		essential = {
+			infantry_equipment
+			support_equipment
+		}
+
+		need = {
+			infantry_equipment = 14
+			support_equipment = 42
+		}
+
+
+		hills = {
+			attack = 0.15
+		}
+		mountain = {
+			attack = 0.25
+		}
+		plains = {
+			attack = 0.1
+		}
+		desert = {
+			attack = 0.15
+		}
+		fort = {
+			attack = 0.25
+			defence = 0.1
+		}
+		marsh = {
+			movement = -0.05
+		}
+
+		river = {
+			movement = -0.05
+		}
+
+		amphibious = {
+			movement = -0.05
+		}
+	}
+
+
+	commandHQ_EF = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+		affects_speed = no
+
+		type = {
+			support
+			infantry
+		}
+		
+		group = support
+		
+		categories = {
+			category_front_line
+			category_light_infantry
+			category_support_battalions
+			category_all_infantry
+			category_army
+		}
+	
+		#Size Definitions
+		max_strength = 5
+		max_organisation = 360
+		default_morale = 0.6
+		manpower = 231
+		training_time = 180
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.05
+		can_be_parachuted = yes
+		
+		combat_width = 0
+		soft_attack = -0.8
+		hard_attack = -0.8
+		
+		essential = {
+			infantry_equipment
+			support_equipment
+		}
+
+		need = {
+			infantry_equipment = 14
+			support_equipment = 42
+			motorized_equipment = 28
+		}
+		urban = {
+			defence = 0.3
+		}
+		fort = {
+			defence = 0.2
+		}
+	}
+
+	
+}

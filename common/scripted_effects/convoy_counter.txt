@@ -1,0 +1,175 @@
+count_convoys = {
+	
+  set_temp_variable = { convoy_count = 0 }
+
+  set_temp_variable = { temp = 4096}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 4096}
+  } 
+    
+  set_temp_variable = { temp = 2048}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 2048}
+  } 
+    
+  set_temp_variable = { temp = 1024}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 1024}
+  } 
+
+  set_temp_variable = { temp = 512}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 512}
+  }     
+
+  set_temp_variable = { temp = 256}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 256}
+  } 
+
+  set_temp_variable = { temp = 128}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 128}
+  } 
+
+  set_temp_variable = { temp = 64}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 64}
+  } 
+
+  set_temp_variable = { temp = 32}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 32}
+  } 
+
+  set_temp_variable = { temp = 16}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 16}
+  } 
+
+  set_temp_variable = { temp = 8}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 8}
+  } 
+  
+  set_temp_variable = { temp = 4}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 4}
+  } 
+
+  set_temp_variable = { temp = 2}
+  add_to_temp_variable = { temp = convoy_count}
+  if = { 
+    limit = { 
+      meta_trigger = {
+        text = {
+           stockpile_ratio = { archetype = convoy ratio > [X] }
+        }
+        X = "[?temp]"
+      }
+    }
+    add_to_temp_variable = {convoy_count = 2}
+  } 
+
+  #log = "[?convoy_count] CONVOYS"
+  
+}

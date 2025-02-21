@@ -1,0 +1,12 @@
+#Check to see what idea's to give to all the Axis as a bonus for having the historical countries as part of
+# countries checked currently ITA, HUN, ROM, BUL, FIN,
+# possible minors to add IRQ, CRO, SLO
+
+mauser_mio_effect = {
+
+	#mio:GER_mauser_organization = {
+	#	add_mio_size  = 2
+	#}
+
+}
+

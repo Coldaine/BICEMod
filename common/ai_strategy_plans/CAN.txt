@@ -1,0 +1,53 @@
+CAN_historical = {
+	name = "Canada historical plan"
+	desc = "Essentially historical behaviour for Canada"
+	allowed = { tag = CAN }
+
+	enable = {
+		original_tag = CAN
+		is_historical_focus_on = yes
+	}
+
+	ai_national_focuses = {
+		CAN_steady
+		CAN_prov_power
+		CAN_canada_wheat_board
+		CAN_conference
+		CAN_municipalities
+		CAN_rowell_sirois_commission
+		CAN_prairies
+		CAN_remilitarise
+		CAN_depression
+		CAN_defence_of_canada_regulations
+		CAN_partial_independence
+		CW_riverdale
+		CAN_neutral
+		CAN_election
+		CAN_liberals
+		CAN_king
+		CAN_overseas
+		CAN_pebliscite
+		CAN_go_back
+		CAN_deal_conscription
+		CAN_commit_to_the_war
+		CAN_ww1
+		CAN_halifax_shipyards
+		CAN_army_modernization
+		CAN_bank
+		CAN_french_divs
+		CAN_national_housing_act
+		CAN_employment
+		CAN_imperial_oil
+		CAN_army_mobilzation
+		CAN_ducks
+		CAN_dust_bowl
+		CAN_keynesian
+		CW_caribbeans
+		CW_guiana
+	}
+	
+	weight = {
+		factor = 1.0
+	}
+}
+### EOF ###

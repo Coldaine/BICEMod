@@ -1,0 +1,54 @@
+BHU_historical = {
+	name = "Bhutan historical plan"
+	desc = "Essentially historical behaviour for Bhutan"
+	allowed = { tag = BHU }
+
+	enable = {
+		original_tag = BHU
+		is_historical_focus_on = yes
+	}
+
+	ai_national_focuses = {
+		#1936
+		BHU_aftermath_of_the_visit_to_india
+		BHU_maintain_monarchic_regime
+		BHU_wonders
+		BHU_follow_the_1921_modernization_roadmap
+		#1937
+		BHU_education_reform
+		BHU_reinforce_the_throne
+		BHU_train_more_doctors
+		BHU_improve_agriculture
+		BHU_the_quiet_strength
+		BHU_new_weaving_techniques
+		#1938
+		BHU_improve_the_roads
+		BHU_mineral_survey
+		BHU_exploit_the_findings
+		BHU_reform_the_taxation_system
+		BHU_fledgeling_industry
+		#1939
+		BHU_the_dragon_trains
+		BHU_create_an_army
+		BHU_arms_deliveries
+		BHU_first_inspection
+		BHU_small_arms_workshop
+		#1940
+		BHU_officers_training
+		BHU_organize_the_land
+		BHU_formalize_military_doctrine
+		BHU_small_arms_technology
+		BHU_ammunitions
+		BHU_elite_mountain_troops
+		#1941
+		BHU_industrial_modernization
+		BHU_technological_progress
+		BHU_industry_enlightened_by_science
+		#from here, no focus are still important
+	}
+	
+	weight = {
+		factor = 1.0
+	}
+}
+### EOF ###

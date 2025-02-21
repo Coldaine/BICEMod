@@ -1,0 +1,116 @@
+#####################
+
+###  ##  #  # # #  ## 
+ #  #  # ## # # # #   
+ #  #### # ## ##   #  
+ #  #  # #  # # #   # 
+ #  #  # #  # # # ## 
+
+ #################### 
+
+#####################
+
+ ## #  # ### ###   ## 
+#   #  #  #  #  # #   
+ #  ####  #  ###   #  
+  # #  #  #  #      # 
+##  #  # ### #    ##  
+ 
+#####################
+
+
+###########################
+
+###  #    ##  #  # ###  ## 
+#  # #   #  # ## # #   #   
+###  #   #### # ## ##   #  
+#    #   #  # #  # #     # 
+#    ### #  # #  # ### ##  
+
+###########################
+
+
+################################### 
+
+#   #  ##  ### ### ###  ### ### #   
+## ## #  #  #  #   #  #  #  #   #   
+# # # ####  #  ##  ###   #  ##  #   
+#   # #  #  #  #   #  #  #  #   #   
+#   # #  #  #  ### #  # ### ### ### 
+
+
+###################################
+
+CHI_taiyuan_arsenal_organization = {
+	include = generic_artillery_organization
+	icon = GFX_idea_generic_artillery_manufacturer_1
+	allowed = {	
+		OR = {
+			is_chinese_nations/TAG = yes
+			tag = MAN
+			tag = MEN
+		} 
+	}
+	available = {
+		IF = {
+			limit = {
+				FROM = { tag = PRC }
+			}	
+			FROM = { has_completed_focus = PRC_expand_taiyuan_arsenal }
+		}	
+		else = {
+			owner = { controls_state = 615 }
+		}
+	}
+}
+CHI_liaoning_arsenal_organization = {
+	include = generic_motorized_mechanized_organization
+	icon = GFX_idea_generic_motorized_equipment_manufacturer_1
+	allowed = {	
+		OR = {
+			is_chinese_nations/TAG = yes
+			tag = MAN
+			tag = MEN
+		} 
+		has_dlc = "Waking the Tiger"
+	}
+	available = {
+		owner = { controls_state = 715 }
+		IF = {
+			limit = {
+				FROM = { tag = CHI }
+			}	
+			FROM = { has_completed_focus = KMT_modernize_army }
+		}
+	}
+}
+CHI_hanyan_arsenal_organization = {
+	include = generic_infantry_equipment_organization
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_1
+	allowed = {	
+		OR = {
+			is_chinese_nations/TAG = yes
+			tag = MAN
+			tag = MEN
+		} 
+		has_dlc = "Waking the Tiger"
+	}
+	available = {
+		owner = { controls_state = 620 }
+	}
+}
+CHI_mukden_arsenal_organization = {
+	include = generic_infantry_equipment_organization
+	icon = GFX_idea_generic_infantry_equipment_manufacturer_2
+	allowed = {	
+		OR = {
+			is_chinese_nations/TAG = yes
+			tag = MAN
+			tag = MEN
+		} 
+		has_dlc = "Waking the Tiger"
+	}
+	available = {
+		owner = { controls_state = 716 }
+	}
+}

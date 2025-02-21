@@ -1,0 +1,63 @@
+leader_traits = {
+	monument_trait_nuclear_reactor_build_speed_medium = {
+		random = no
+		production_speed_nuclear_reactor_factor = 0.1
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	monument_trait_nuclear_reactor_build_speed_large = {
+		random = no
+		production_speed_nuclear_reactor_factor = 0.15
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	monument_trait_nuclear_special_projects_speed_small = {
+		random = no
+		sp_tag_nuclear_power_speed_factor = 0.03
+		sp_commercial_nuclear_reactor_speed_factor = 0.03
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	monument_trait_nuclear_special_projects_speed_medium = {
+		random = no
+		sp_tag_nuclear_power_speed_factor = 0.05
+		sp_commercial_nuclear_reactor_speed_factor = 0.05
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	monument_trait_nuclear_special_projects_speed_large = {
+		random = no
+		sp_tag_nuclear_power_speed_factor = 0.1
+		sp_commercial_nuclear_reactor_speed_factor = 0.1
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	monument_trait_aircraft_special_projects_speed_medium = {
+		random = no
+		sp_tag_aircraft_speed_factor = 0.05
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	monument_trait_aircraft_special_projects_speed_large = {
+		random = no
+		sp_tag_aircraft_speed_factor = 0.1
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -1,0 +1,27 @@
+ideas = {
+	#Designers
+	#Aircraft
+	aircraft_manufacturers = {
+		#designer = yes
+		
+		anbo = {
+			picture = generic_air_manufacturer_3
+			
+			allowed = {
+				original_tag = LIT
+			}
+			
+			research_bonus = {
+				air_equipment = 0.05
+			}
+			
+			traits = { light_aircraft_manufacturer  aircraft_manufacturers_trait }
+			
+			equipment_bonus = {
+				# made very few training planes, bombers
+			}
+			
+		}
+	}
+}
+### EOF ###

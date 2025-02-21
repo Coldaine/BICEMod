@@ -1,0 +1,329 @@
+characters={
+	ECR_li_shouxin={
+		name= ECR_li_shouxin
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_3.dds"
+			}
+			army = {
+				small = gfx/interface/ideas/idea_generic_army_asia_2.dds
+			}
+		}
+		corps_commander={
+			traits={ logistics_wizard_CC }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=-1
+		}
+		country_leader={
+			desc="POLITICS_LI_SHOUXIN_DESC"
+			ideology=fascism_ideology
+			traits={ fascist }
+			expire="1965.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = high_command
+			idea_token = ECR_li_shouxin_high_command
+			on_add = {
+				set_temp_variable = { character = token:ECR_li_shouxin}
+				set_temp_variable = { slot = token:high_command}
+
+				high_command_on_add_effect = yes
+			} 
+			on_remove = {
+				set_temp_variable = { character = token:ECR_li_shouxin}
+				set_temp_variable = { slot = token:high_command}
+
+				high_command_on_remove_effect = yes
+			} 
+			available = {
+				#has_country_flag = can_high_command_army
+			}			
+			traits = { army_artillery_1 fascist }
+			
+			ledger = army
+			
+		}
+	}
+	ECR_zhang_fakui={
+		name = ECR_zhang_fakui
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_3.dds"
+			}
+		}
+		country_leader={
+			desc="POLITICS_Bai_Chongxi_DESC"
+			ideology=military_dictatorship
+			traits={ indomitable_perseverance neutral }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	ECR_amemiya={
+		name = ECR_amemiya
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_1.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_1.dds"
+			}
+		}
+		corps_commander={
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}
+	ECR_asaka={
+		name = ECR_asaka
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_2.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_2.dds"
+			}
+		}
+		corps_commander={
+			traits={ offensive_doctrine_CC }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	ECR_funabiki={
+		name = ECR_funabiki
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_5.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_5.dds"
+			}
+		}
+		corps_commander={
+			traits={ winter_3 }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	ECR_hayashi={
+		name = ECR_hayashi
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_2.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_2.dds"
+			}
+		}
+		corps_commander={
+			traits={ offensive_doctrine_CC }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	ECR_homma={
+		name = ECR_homma
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_4.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_4.dds"
+			}
+		}
+		corps_commander={
+			traits={ logistics_wizard_CC }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	ECR_kasahara={
+		name = ECR_kasahara
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_3.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_3.dds"
+			}
+		}
+		corps_commander={
+			traits={ trickster_CC }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			planning_skill=3
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}
+	ECR_maeda={
+		name = ECR_maeda
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_land_5.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_5.dds"
+			}
+		}
+		corps_commander={
+			traits={ commando_trait }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	ECR_mahrholz={
+		name = ECR_mahrholz
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_navy_2.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_navy_2.dds"
+			}
+		}
+		navy_leader={
+			traits={ spotter }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			maneuvering_skill=1
+			coordination_skill=1
+			legacy_id=-1
+		}
+	}
+	ECR_wehr={
+		name = ECR_wehr
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_asia_generic_navy_2.dds"
+			}
+			army={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_navy_2.dds"
+			}
+		}
+		navy_leader={
+			traits={ seawolf }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			maneuvering_skill=1
+			coordination_skill=1
+			legacy_id=-1
+		}
+	}
+	ECR_ma_wang={
+		name = ECR_ma_wang
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+			}
+		}
+		country_leader={
+			ideology=rep_party_us
+			expire="1948.1.1.12"
+			id=-1
+		}
+	}
+	ECR_gao_fouxing={
+		name = ECR_gao_fouxing
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+			}
+		}
+		country_leader={
+			ideology=centerright
+			traits={ armaments_organizer war_industrialist }
+			expire="1943.1.1.12"
+			id=-1
+		}
+	}
+	ECR_zheng_sun={
+		name = ECR_zheng_sun
+		portraits={
+			civilian={
+				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+			}
+		}
+		country_leader={
+			ideology=anarcho_socialism
+			traits={ elder_statesman guns_over_butter_advocate }
+			expire="1954.1.1.12"
+			id=-1
+		}
+	}
+	ECR_kang_jing={
+		name = ECR_kang_jing
+		portraits={
+			civilian={
+				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			}
+		}
+		country_leader={
+			ideology=industrial_farmers
+			traits={ armaments_organizer ineffective_politician }
+			expire="1949.1.1.12"
+			id=-1
+		}
+	}
+	ECR_zhu_liang={
+		name = ECR_zhu_liang
+		portraits={
+			civilian={
+				large="GFX_Portrait_Asia_Generic_1"
+			}
+		}
+		country_leader={
+			ideology=late_maoism
+			traits={ war_hero naval_builder }
+			expire="1944.1.1.12"
+			id=-1
+		}
+	}
+	ECR_xiang_fouhai={
+		name = ECR_xiang_fouhai
+		portraits={
+			civilian={
+				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+			}
+		}
+		country_leader={
+			ideology=absolutism
+			traits={ war_industrialist public_works_focus }
+			expire="1956.1.1.12"
+			id=-1
+		}
+	}
+}

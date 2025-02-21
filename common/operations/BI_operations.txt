@@ -1,0 +1,1288 @@
+#   Definition: SCOPE_OPERATION
+# ------------------------------------------
+# FROM = the target country of the operation
+# ROOT = the origin country of the operation
+# ------------------------------------------
+
+
+
+operation_blow_fuel = { ### 18 2/35
+
+	icon = GFX_operations_targeted_sabotage
+	map_icon = GFX_operations_targeted_sabotage_map
+	name = operation_blow_fuel
+	desc = operation_blow_fuel_desc
+
+	priority = 15
+
+	days = 40
+
+	danger_level = 3
+	
+	operatives = 2
+
+	
+	network_strength = 55
+
+	visible = {
+		NOT = { has_country_flag = ui_hide_operations@FROM }
+		num_of_operatives > 1
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+
+		has_operation_token = {
+			tag = FROM
+			token = token_resistance_contacts
+		}
+		has_done_agency_upgrade = upgrade_form_operations
+	}	
+
+	requirements = {
+		has_war_with = FROM
+	}
+	selection_target_state = {
+		IF = {
+			limit = {
+				FROM = {
+					fuel_silo > 0
+				}
+			}
+			fuel_silo > 0
+		}
+		else = {
+			is_capital = yes
+		}			
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	required_tokens = { token_resistance_contacts token_civilian }
+	equipment = {
+		recon_equipment = 20
+	}
+	risk_chance = 0.2
+	experience = 2
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { target_sabotage_factor operation_risk }
+	risk_modifiers = { target_sabotage_risk operation_outcome }
+	cost_modifiers = { target_sabotage_cost operation_cost }
+	
+	outcome_execute = {
+		FROM.FROM = {
+			IF = {
+				limit = {
+					fuel_silo > 0
+				}
+				damage_building = {
+					type = fuel_silo
+					damage = 1
+				}				
+			}
+			ELSE = {
+				FROM = {
+					IF = {
+						limit = {
+							has_fuel > 5000
+						}
+						add_fuel = -5000
+						
+					}
+					ELSE = {
+						set_fuel_ratio = 0.0
+					}
+				}
+			}
+		}
+		ROOT = {
+			remove_operation_token = {
+				tag = FROM
+				token = token_resistance_contacts
+			}
+		}
+	}
+	outcome_extra_execute = { # SCOPE_OPERATION
+		random_list = {
+			33 = {
+				FROM.FROM = {
+					IF = {
+						limit = {
+							fuel_silo > 0
+						}
+						damage_building = {
+							type = fuel_silo
+							damage = 1
+						}
+						FROM = {						
+							IF = {
+
+								limit = {
+									has_fuel > 5000
+								}
+								add_fuel = -5000
+							}
+							ELSE = {
+								set_fuel_ratio = 0.0
+							}	
+						}
+					}
+					ELSE = {
+						FROM = {
+							IF = {
+								limit = {
+									has_fuel > 7500
+								}
+								add_fuel = -7500
+							}
+							ELSE = {
+								set_fuel_ratio = 0.0
+							}
+						}
+					}
+				}
+			}
+			67 = {
+				FROM.FROM = {
+					IF = {
+						limit = {
+							fuel_silo > 0
+						}
+						damage_building = {
+							type = fuel_silo
+							damage = 1
+						}	
+						FROM = {
+							IF = {
+								limit = {
+									has_fuel > 7500
+								}
+								add_fuel = -7500
+							}
+							ELSE = {
+								set_fuel_ratio = 0.0
+							}
+						}
+					}
+					ELSE = {
+						FROM = {
+							IF = {
+								limit = {
+									has_fuel > 10000
+								}
+								add_fuel = -10000
+							}
+							ELSE = {
+								set_fuel_ratio = 0.0
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	outcome_potential = {
+		custom_effect_tooltip = operation_outcome_sabotage_fuel_silo_tt
+		custom_effect_tooltip = operation_outcome_consumes_token_tt
+	}
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+	}
+	phases = { #preparing
+		coordinated_strike_scout_target = { base = 50 }
+		coordinate_strike_mark_targets = { base = 50 }
+	}
+	phases = { #excution
+		targeted_sabotage_burn_storage = { base = 50 }
+		targeted_sabotage_plant_explosives = { base = 50 }
+	}
+}
+operation_flood_money = { ### 18 2/35
+
+	icon = GFX_operations_infiltrate_civilian_govt
+	map_icon = GFX_operations_infiltrate_civilian_govt_map
+	name = operation_flood_money
+	desc = operation_flood_money_desc
+
+	priority = 16
+
+	days = 90
+
+	
+	operatives = 1
+
+	
+	network_strength = 65
+
+	visible = {
+		NOT = { has_country_flag = ui_hide_operations@FROM }
+		num_of_operatives > 0
+		network_national_coverage = {
+			target = FROM
+			value > 45
+		}
+
+		has_operation_token = {
+			tag = FROM
+			token = token_civilian
+		}
+		has_done_agency_upgrade = upgrade_economy_civilian
+	}	
+
+	selection_target = {
+		targets = { FROM }
+	}
+	equipment = {
+		civilian_factories = {
+			amount = 2
+			days = 15
+		}
+	}
+	required_tokens = { token_civilian }
+	risk_chance = 0.2
+	outcome_extra_chance = 0.25
+	risk_modifiers = { operation_infiltrate_risk operation_risk }
+	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+	outcome_execute = {
+		ROOT = {
+			remove_operation_token = {
+				tag = FROM
+				token = token_civilian
+			}
+		}
+		FROM = {
+			add_timed_idea = {
+				idea = counterfeit_money
+				days = 75
+			}
+		}
+	}
+	outcome_extra_execute = { # SCOPE_OPERATION
+		random_list = {
+			33 = {
+				FROM = {
+					add_timed_idea = {
+						idea = counterfeit_money
+						days = 105
+					}
+				}
+			}
+			67 = {
+				FROM = {
+					add_timed_idea = {
+						idea = counterfeit_money
+						days = 135
+					}
+				}	
+			}
+		}
+	}
+
+	outcome_potential = {
+		custom_effect_tooltip = operation_outcome_consumes_token_tt
+		FROM = {
+			add_ideas = {
+				counterfeit_money
+			}
+		}
+	}
+
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		infiltration_diplomatic = {
+			base = 45
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+		}
+	}
+	phases = { #make contact
+		resistance_contacts_briefings = { base = 33 }
+		collaboration_government_set_up_planning_committees = { base = 33 }
+		steal_blueprints_middle_manager = { base = 20 }
+	}
+	phases = { #exfiltration
+		exfiltration_air_pickup = { 
+			base = 15 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		exfiltration_border = { base = 30 }
+		exfiltration_go_to_ground = { base = 30 }
+		exfiltration_submarine_pickup = { base = 25 }
+	}
+
+}
+operation_targeted_sabotage_radar = { 
+	icon = GFX_operations_targeted_sabotage
+	map_icon = GFX_operations_targeted_sabotage_map
+	name = operation_targeted_sabotage_radar
+	desc = operation_targeted_sabotage_radar_desc
+	priority = 18
+
+	days = 150
+	network_strength = 35
+	operatives = 3
+
+	visible = {
+		NOT = { has_country_flag = ui_hide_operations@FROM }
+		num_of_operatives > 1
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+
+		has_operation_token = {
+			tag = FROM
+			token = token_resistance_contacts
+		}
+		has_done_agency_upgrade = upgrade_form_operations
+	}	
+
+	requirements = {
+		FROM = {
+			radar_station > 0
+		}
+	}
+	selection_target_state = {
+		radar_station > 0
+	}
+	selection_target = {
+		targets = { FROM }
+	}
+	required_tokens = { token_resistance_contacts }
+	equipment = {
+		radio_equipment = 100
+	}
+	risk_chance = 0.2
+	experience = 2
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { target_sabotage_factor operation_risk }
+	risk_modifiers = { target_sabotage_risk operation_outcome }
+	cost_modifiers = { target_sabotage_cost operation_cost }
+	
+	outcome_execute = {
+		FROM.FROM = {
+			damage_building = {
+				type = radar_station
+				damage = 1
+			}
+		}
+		ROOT = {
+			remove_operation_token = {
+				tag = FROM
+				token = token_resistance_contacts
+			}
+		}
+	}
+	outcome_extra_execute = { # SCOPE_OPERATION
+		random_list = {
+			56 = {
+				FROM.FROM = {
+					damage_building = {
+						type = radar_station
+						damage = 2
+					}
+				}
+			}
+			44 = {
+				FROM.FROM = {
+					damage_building = {
+						type = radar_station
+						damage = 3
+					}
+				}
+			}
+		}
+	}
+	outcome_potential = {
+		custom_effect_tooltip = operation_outcome_sabotage_radar_tt
+		custom_effect_tooltip = operation_outcome_consumes_token_tt
+	}
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		infiltration_diplomatic = {
+			base = 25
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
+			}
+		}
+	}
+	phases = {
+		targeted_sabotage_plant_explosives = { base = 75 }
+		coordinated_strike_sabotage_communications = { base = 25 }
+	}
+	phases = { #exfiltration
+		exfiltration_air_pickup = { 
+			base = 15 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		exfiltration_border = { base = 30 }
+		exfiltration_go_to_ground = { base = 30 }
+		exfiltration_submarine_pickup = { base = 25 }
+	}
+}
+operation_political_scandal = { ### 18 2/35
+
+	icon = GFX_operations_infiltrate_civilian_govt
+	map_icon = GFX_operations_infiltrate_civilian_govt_map
+	name = operation_political_scandal
+	desc = operation_political_scandal_desc
+
+	priority = 25
+
+	days = 45
+
+	
+	operatives = 1
+
+	
+	network_strength = 25
+
+	visible = {
+		NOT = { has_country_flag = ui_hide_operations@FROM }
+		num_of_operatives > 0
+		network_national_coverage = {
+			target = FROM
+			value > 45
+		}
+
+		has_operation_token = {
+			tag = FROM
+			token = token_civilian
+		}
+		has_done_agency_upgrade = upgrade_economy_civilian
+	}
+
+	selection_target = {
+		targets = { FROM }
+	}
+	equipment = {
+	}
+	required_tokens = { token_civilian }
+	risk_chance = 0.1
+	outcome_extra_chance = 0.45
+	risk_modifiers = { operation_infiltrate_risk operation_risk }
+	outcome_modifiers = { operation_infiltrate_outcome operation_outcome }
+	cost_modifiers = { operation_infiltrate_cost operation_cost }
+	outcome_execute = {
+		ROOT = {
+			remove_operation_token = {
+				tag = FROM
+				token = token_civilian
+			}
+		}
+		FROM = {
+			set_temp_variable = { pop = -0.1 }
+			add_ruling_pop = yes 
+		}
+	}
+	outcome_extra_execute = { # SCOPE_OPERATION
+		random_list = {
+			33 = {
+				FROM = {
+					set_temp_variable = { pop = -0.15 }
+					add_ruling_pop = yes 
+				}
+			}
+			67 = {
+				FROM = {
+					set_temp_variable = { pop = -0.1 }
+					add_ruling_pop = yes 
+				}				
+			}
+		}
+	}
+
+	outcome_potential = {
+		custom_effect_tooltip = operation_outcome_consumes_token_tt
+		custom_effect_tooltip = operation_political_scandal_tt
+	}
+
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		infiltration_diplomatic = {
+			base = 45
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+		}
+	}
+	phases = { #make contact
+		resistance_contacts_briefings = { base = 40 }
+		steal_blueprints_seduction = { base = 40 }
+		steal_blueprints_bribe = { base = 10 }
+		
+	}
+	phases = { #exfiltration
+		exfiltration_air_pickup = { 
+			base = 15 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		exfiltration_border = { base = 30 }
+		exfiltration_go_to_ground = { base = 30 }
+		exfiltration_submarine_pickup = { base = 25 }
+	}
+}
+operation_steal_weapons = { ### 16 3/55
+	icon = GFX_operations_infiltrate_armed_forces
+	map_icon = GFX_operations_infiltrate_armed_forces_map
+	name = operation_steal_tech_army
+	desc = operation_steal_tech_army_desc
+	priority = 16
+
+	days = 120
+	network_strength = 45
+	operatives = 2
+
+	visible = {
+		NOT = { has_country_flag = ui_hide_operations@FROM }
+		num_of_operatives > 1
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+
+		has_operation_token = {
+			tag = FROM
+			token = token_army
+		}
+		has_done_agency_upgrade = upgrade_army_department
+	}
+
+	equipment = {
+		
+	}
+
+	required_tokens = {
+		token_army
+	}
+	risk_chance = 0.2
+	experience = 2
+	risk_modifiers = { operation_steal_tech_risk operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { operation_steal_tech_outcome operation_outcome }
+	cost_modifiers = { operation_cost }
+	outcome_execute = {
+		FROM = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 1000
+				target = ROOT
+			}
+		}
+		ROOT = {
+			remove_operation_token = {
+				tag = FROM
+				token = token_army
+			}
+		}
+	}
+	outcome_extra_execute = { # SCOPE_OPERATION
+		random_list = {
+			33 = {
+				FROM = {
+					send_equipment = {
+						equipment = infantry_equipment
+						amount = 1000
+						target = ROOT
+					}
+				}
+			}
+			67 = {
+				ROOT = {
+					remove_operation_token = {
+						tag = FROM
+						token = token_army
+					}
+				}
+				FROM = {
+					send_equipment = {
+						equipment = infantry_equipment
+						amount = 1000
+						target = ROOT
+					}
+					send_equipment = {
+						equipment = support_equipment
+						amount = 250
+						target = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	outcome_potential = {
+		FROM = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 1000
+				target = ROOT
+			}
+			send_equipment = {
+				equipment = support_equipment
+				amount = 250
+				target = ROOT
+			}
+		}
+		custom_effect_tooltip = operation_outcome_consumes_token_tt
+	}
+
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		infiltration_diplomatic = {
+			base = 25
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
+			}
+		}
+	}
+	phases = { #blueprint theft
+		steal_blueprints_bribe = { base = 25 }
+		steal_blueprints_seduction = { base = 25 }
+		infiltrate_military_seduction = { base = 25 }
+		infiltrate_military_ideological_supporter = { base = 25 }
+	}
+	phases = { #exfiltration
+		exfiltration_air_pickup = { 
+			base = 15 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		exfiltration_border = { base = 30 }
+		exfiltration_submarine_pickup = { base = 25 }
+	}
+}
+operation_assassinate_commander = { ### 16 3/55
+	icon = GFX_operations_infiltrate_armed_forces
+	map_icon = GFX_operations_infiltrate_armed_forces_map
+	name = operation_assassinate_commander
+	desc = operation_assassinate_commander_desc
+	priority = 13
+
+	days = 120
+	network_strength = 80
+	operatives = 3
+
+	visible = {
+		NOT = { has_country_flag = ui_hide_operations@FROM }
+		num_of_operatives > 2
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+
+		has_operation_token = {
+			tag = FROM
+			token = token_army
+		}
+		has_done_agency_upgrade = upgrade_army_department
+	}
+
+	equipment = {
+		infantry_equipment = 100
+		support_equipment = 50
+	}
+
+	required_tokens = {
+		token_army
+	}
+	risk_chance = 0.5
+	experience = 3
+	risk_modifiers = { operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	outcome_execute = {
+		FROM = {
+			random_army_leader = {
+				limit = {
+					is_assigned = yes
+				}
+				add_timed_unit_leader_trait = {
+					trait = wounded
+					days = 90
+				}
+			}
+		}
+		ROOT = {
+			remove_operation_token = {
+				tag = FROM
+				token = token_army
+			}
+		}
+	}
+	outcome_extra_execute = { # SCOPE_OPERATION
+		random_list = {
+			40 = {
+				FROM = {
+					random_army_leader = {
+						limit = {
+							is_assigned = yes
+						}
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 90
+						}
+					}
+				}
+			}
+			45 = {
+				FROM = {
+					random_army_leader = {
+						limit = {
+							is_assigned = yes
+						}
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+				}
+			}
+			15 = {
+				FROM = {
+					random_army_leader = {
+						limit = {
+							is_assigned = yes
+						}
+						retire = yes
+					}	
+				}
+				ROOT = {
+					remove_operation_token = {
+						tag = FROM
+						token = token_army
+					}
+				}
+			}
+		}
+	}
+
+	outcome_potential = {
+		FROM = {
+			random_army_leader = {
+				limit = {
+					is_assigned = yes
+				}
+				add_timed_unit_leader_trait = {
+					trait = wounded
+					days = 120
+				}
+			}
+		}
+		custom_effect_tooltip = operation_assassinate_commander_tt		
+		custom_effect_tooltip = operation_outcome_consumes_token_tt
+	}
+
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		infiltration_diplomatic = {
+			base = 25
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
+			}
+		}
+	}
+	phases = { #blueprint theft
+		steal_blueprints_bribe = { base = 25 }
+		steal_blueprints_seduction = { base = 25 }
+		infiltrate_military_seduction = { base = 25 }
+		infiltrate_military_ideological_supporter = { base = 25 }
+	}
+	phases = { #exfiltration
+		exfiltration_air_pickup = { 
+			base = 15 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		exfiltration_border = { base = 30 }
+		exfiltration_submarine_pickup = { base = 25 }
+	}
+}
+operation_assassinate_navy = { ### 16 3/55
+	icon = GFX_operations_infiltrate_naval_forces
+	map_icon = GFX_operations_infiltrate_naval_forces_map
+	name = operation_assassinate_navy
+	desc = operation_assassinate_navy_desc
+	priority = 13
+
+	days = 120
+	network_strength = 80
+	operatives = 3
+
+	visible = {
+		NOT = { has_country_flag = ui_hide_operations@FROM }
+		num_of_operatives > 2
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+
+		has_operation_token = {
+			tag = FROM
+			token = token_navy
+		}
+		has_done_agency_upgrade = upgrade_naval_department
+	}
+
+	equipment = {
+		infantry_equipment = 100
+		support_equipment = 50
+	}
+
+	required_tokens = {
+		token_navy
+	}
+	risk_chance = 0.5
+	experience = 3
+	risk_modifiers = { operation_risk }
+	outcome_extra_chance = 0.25
+	outcome_modifiers = { operation_outcome }
+	cost_modifiers = { operation_cost }
+	outcome_execute = {
+		FROM = {
+			random_navy_leader = {
+				limit = {
+					is_assigned = yes
+				}
+				add_timed_unit_leader_trait = {
+					trait = wounded
+					days = 90
+				}
+			}
+		}
+		ROOT = {
+			remove_operation_token = {
+				tag = FROM
+				token = token_navy
+			}
+		}
+	}
+	outcome_extra_execute = { # SCOPE_OPERATION
+		random_list = {
+			40 = {
+				FROM = {
+					random_navy_leader = {
+						limit = {
+							is_assigned = yes
+						}
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 90
+						}
+					}
+				}
+			}
+			45 = {
+				FROM = {
+					random_navy_leader = {
+						limit = {
+							is_assigned = yes
+						}
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 120
+						}
+					}
+				}
+			}
+			15 = {
+				FROM = {
+					random_navy_leader = {
+						limit = {
+							is_assigned = yes
+						}
+						retire = yes
+					}	
+				}
+				ROOT = {
+					remove_operation_token = {
+						tag = FROM
+						token = token_navy
+					}
+				}
+			}
+		}
+	}
+
+	outcome_potential = {
+		FROM = {
+			random_navy_leader = {
+				limit = {
+					is_assigned = yes
+				}
+				add_timed_unit_leader_trait = {
+					trait = wounded
+					days = 120
+				}
+			}
+		}
+		custom_effect_tooltip = operation_assassinate_commander_tt		
+		custom_effect_tooltip = operation_outcome_consumes_token_tt
+	}
+
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		infiltration_diplomatic = {
+			base = 25
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
+			}
+		}
+	}
+	phases = { #blueprint theft
+		steal_blueprints_bribe = { base = 25 }
+		steal_blueprints_seduction = { base = 25 }
+		infiltrate_military_seduction = { base = 25 }
+		infiltrate_military_ideological_supporter = { base = 25 }
+	}
+	phases = { #exfiltration
+		exfiltration_air_pickup = { 
+			base = 15 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		exfiltration_border = { base = 30 }
+		exfiltration_submarine_pickup = { base = 25 }
+	}
+}
+operation_blow_ship = { ### 16 3/55
+	icon = GFX_operations_infiltrate_naval_forces
+	map_icon = GFX_operations_infiltrate_naval_forces_map
+	name = operation_blow_ship
+	desc = operation_blow_ship_desc
+	priority = 7
+
+	days = 120
+	network_strength = 65
+	operatives = 3
+
+	visible = {
+		NOT = { has_country_flag = ui_hide_operations@FROM }
+		num_of_operatives > 2
+		network_national_coverage = {
+			target = FROM
+			value > 0
+		}
+
+		has_operation_token = {
+			tag = FROM
+			token = token_navy
+		}
+		has_done_agency_upgrade = upgrade_naval_department
+	}
+
+	equipment = {
+		convoy = 5
+		support_equipment = 50
+	}
+
+	required_tokens = {
+		token_navy
+	}
+	risk_chance = 0.5
+	experience = 3
+	outcome_modifiers = { target_sabotage_factor operation_outcome }
+	risk_modifiers = { target_sabotage_risk operation_risk }
+	cost_modifiers = { target_sabotage_cost operation_cost }
+	outcome_extra_chance = 0.33
+	outcome_execute = {
+		FROM = {
+			destroy_ships = {
+				type = nrm_ship_hull_destroyer #nrm_ship_hull_light
+				count = 1
+			}
+		}
+		ROOT = {
+			remove_operation_token = {
+				tag = FROM
+				token = token_navy
+			}
+		}
+	}
+	outcome_extra_execute = { # SCOPE_OPERATION
+		random_list = {
+			40 = {
+				FROM = {
+					destroy_ships = {
+						type = nrm_ship_hull_destroyer #nrm_ship_hull_light
+						count = 1
+					}
+				}
+			}
+			45 = {
+				FROM = {
+					destroy_ships = {
+						type = nrm_ship_hull_destroyer
+						count = 1
+					}
+				}
+				ROOT = {
+					remove_operation_token = {
+						tag = FROM
+						token = token_navy
+					}
+				}
+			}
+			10 = {
+				FROM = {
+					destroy_ships = {
+						type = nrm_ship_hull_destroyer
+						count = 1
+					}
+				}
+			}
+			5 = {
+				FROM = {
+					destroy_ships = {
+						type = nrm_ship_hull_destroyer
+						count = 1
+					}
+					random_navy_leader = {
+						limit = {
+							is_assigned = yes
+						}
+						add_timed_unit_leader_trait = {
+							trait = wounded
+							days = 30
+						}
+					}
+				}
+			}
+		}
+	}
+
+	outcome_potential = {
+		FROM = {
+			destroy_ships = {
+				type = nrm_ship_hull_destroyer
+				count = 1
+			}
+		}		
+		custom_effect_tooltip = operation_outcome_consumes_token_tt
+	}
+
+	phases = { #infiltration
+		infiltration_border = { base = 25 }
+		infiltration_submarine = { base = 25 }
+		infiltration_paradrop = { 
+			base = 25 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		infiltration_diplomatic = {
+			base = 25
+			modifier = {
+				factor = 20
+				ROOT = { has_war = no }
+				FROM = {
+					has_war = no
+				}
+			}
+			modifier = {
+				FROM = {
+					has_war_with = ROOT
+				}
+				factor = 0
+			}
+		}
+	}
+	phases = { 
+		coordinate_strike_mark_targets = { base = 20 }
+		infiltrate_military_seduction = { base = 40 }
+		infiltrate_military_ideological_supporter = { base = 40 }
+	}
+	phases = { #exfiltration
+		exfiltration_air_pickup = { 
+			base = 15 
+			modifier = {
+				ROOT = { 
+					has_equipment = {
+						transport_plane_equipment < 1
+					}
+				}
+				factor = 0.1 #less likely if we have no transports
+			}
+		}
+		exfiltration_border = { base = 20 }
+		exfiltration_submarine_pickup = { base = 60 }
+	}
+}

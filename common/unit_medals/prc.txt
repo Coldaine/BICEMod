@@ -1,0 +1,355 @@
+# Valid unit modifiers are not exhaustive
+# Currently supported:
+# army_morale
+# army_morale_factor
+# army_org
+# army_org_factor
+# supply_consumption_factor
+# equipment_capture
+# equipment_capture_factor
+# army_fuel_capacity_factor
+# army_fuel_consumption_factor
+# recon_factor
+# recon_factor_while_entrenched
+# transport_capacity (?)
+# breakthrough_factor
+# armor_factor
+# army_strength_factor
+# experience_loss_factor
+# leader_modifier applies unit modifiers to all units under them as a general, similarly to traits.
+# army_attack_factor
+# army_defence_factor
+# max_dig_in
+# max_dig_in_factor
+
+@cost = 30
+
+unit_medals = {
+	
+	### PRC
+
+	August_1_Medal = {
+		
+		available = { should_have_prc_medals_trigger = yes
+				has_completed_focus = PRC_proclaim_the_peoples_republic
+		}
+		frame = 1
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 50
+		
+		unit_modifiers = {
+			army_morale_factor = 0.10
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	
+	Order_of_Independence_and_Freedom = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+				has_completed_focus = PRC_proclaim_the_peoples_republic
+		}
+		frame = 2
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 40
+		
+		unit_modifiers = {
+			army_strength_factor = 0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Order_of_Liberation = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+				has_completed_focus = PRC_proclaim_the_peoples_republic
+		}
+		frame = 3
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 30
+		
+		unit_modifiers = {
+			breakthrough_factor = 0.10
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Medal_of_Heroes_and_Models_1st_Class = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+				has_completed_focus = PRC_proclaim_the_peoples_republic
+		}
+		frame = 4
+		icon = "GFX_medal_icon_prc"
+
+		
+		cost = 30
+		
+		unit_modifiers = {
+			army_morale_factor = 0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+
+	Medal_of_Heroes_and_Models_2nd_Class = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+				has_completed_focus = PRC_proclaim_the_peoples_republic
+		}
+		frame = 5
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 20
+		
+		unit_modifiers = {
+			army_org_factor = 0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Medal_of_1st_Class_Merit = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+				has_completed_focus = PRC_proclaim_the_peoples_republic
+		}
+		frame = 6
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 15
+		
+		unit_modifiers = {
+			army_defence_factor = 0.10
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Medal_of_2nd_Class_Merit = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+				has_completed_focus = PRC_proclaim_the_peoples_republic
+		}
+		frame = 7
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 10
+		
+		unit_modifiers = {
+			experience_loss_factor = -0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Medal_of_3rd_Class_Merit = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+				has_completed_focus = PRC_proclaim_the_peoples_republic
+		}
+		frame = 8
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 5
+		
+		unit_modifiers = {
+			recon_factor = 0.10
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+
+	Liberation_of_North_China_Commemorative_Medal = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+			controls_state = 608
+			controls_state = 611
+		}
+		frame = 9
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_morale_factor = 0.10
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	
+	Liberation_of_Central_South_China_Commemorative_Medal = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+			controls_state = 620
+			controls_state = 593
+		}
+		frame = 14
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_defence_factor = 0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Liberation_of_Northwest_China_Commemorative_Medal = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+			controls_state = 754
+			controls_state = 617
+		}
+		frame = 12
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			supply_consumption_factor = -0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	
+	Liberation_of_Southwest_China_Commemorative_Medal = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+			controls_state = 325
+			controls_state = 605
+		}
+		frame = 11
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_fuel_consumption_factor = -0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	
+	Liberation_of_Hainan_Island_Commemorative_Medal = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+			controls_state = 591
+		}
+		frame = 10
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			equipment_capture_factor = 0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	
+	Liberation_of_Tibet_Commemorative_Medal = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+			controls_state = 757
+		}
+		frame = 13
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_strength_factor = 0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Anti_USA_and_North_Korea_Commemorative_Medal = {
+		
+		available = { should_have_prc_medals_trigger = yes 
+			has_completed_focus = PRC_proclaim_the_peoples_republic
+			has_war_with = USA
+		}
+		frame = 15
+		icon = "GFX_medal_icon_prc"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_attack_factor = 0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	
+	
+	
+}

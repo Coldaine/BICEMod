@@ -1,0 +1,468 @@
+﻿###################################################
+add_namespace = BI_on_action
+
+#equipment factories
+country_event = {
+	id = BI_on_action.200
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+		create_character_index = yes
+	}
+}
+
+country_event = {
+	id = BI_on_action.1
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+			
+		clear_variable = num_refinery@aluminium
+		clear_variable = num_refinery@steel
+		set_temp_variable = { num_refinery_new@steel = 0 }
+		set_temp_variable = { num_refinery_new@aluminium = 0 }
+		
+		set_temp_variable = { num_farm = 0 }
+		set_temp_variable = { num_infra = 0 }
+		set_temp_variable = { num_food_storage = 0 }
+					
+		update_state_mechanics = yes
+		
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			ai_update_resource_conversion = yes
+		}
+		else = {
+				
+			set_variable = { steel_alert = 2 }
+			set_variable = { aluminium_alert = 2 }
+			
+			set_variable = { num_refinery_assigned@steel = num_refinery@steel }
+			multiply_variable = { num_refinery_assigned@steel = 0.1 }
+			round_variable = num_refinery_assigned@steel
+			
+			set_variable = { num_refinery_assigned@aluminium = num_refinery@aluminium }
+			multiply_variable = { num_refinery_assigned@aluminium = 0.1 }
+			round_variable = num_refinery_assigned@aluminium
+			
+			update_resource_conversion_daily = yes
+			add_to_variable = { ui_refinery = 1 }
+		}
+	}
+}
+
+#offensive/defensive debuff
+country_event = {
+	id = BI_on_action.2
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+		get_offensive_or_defensive_war_status = yes
+	}
+}
+
+#Convoy spawn after cap
+country_event = {
+	id = BI_on_action.3
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+		set_temp_variable = { convoy_stock = convoy_count }
+		multiply_temp_variable = { convoy_stock = 0.2 }
+		clamp_temp_variable = { var = convoy_stock min = 0  } 
+		add_equipment_to_stockpile = {
+			type = convoy_1
+			amount = convoy_stock 
+		}		
+	}
+}
+
+country_event = {
+	id = BI_on_action.30
+	hidden = yes  #timeout
+    timeout_days = 1
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_popularities = {
+			monarchism = save_monarchism
+			fascism = save_fascism
+			communism = save_communism
+			socialism = save_socialism
+			conservatism = save_conservatism
+			liberalism = save_liberalism
+			neutrality = save_neutrality
+			agrarianism = save_agrarianism
+		}	
+		if = {
+			limit = { has_country_flag = was_conservatism }
+			set_politics = {
+				ruling_party = conservatism
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = was_agrarianism }
+			set_politics = {
+				ruling_party = agrarianism
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = was_liberalism }
+			set_politics = {
+				ruling_party = liberalism
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = was_socialism }
+			set_politics = {
+				ruling_party = socialism
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = was_monarchism }
+			set_politics = {
+				ruling_party = monarchism
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = was_fascism }
+			set_politics = {
+				ruling_party = fascism
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = was_communism }
+			set_politics = {
+				ruling_party = communism
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = was_neutrality }
+			set_politics = {
+				ruling_party = neutrality
+			}
+		}
+		
+		clear_variable = save_fascism
+		clear_variable = save_monarchism
+		clear_variable = save_socialism
+		clear_variable = save_liberalism
+		clear_variable = save_conservatism
+		clear_variable = save_agrarianism
+		clear_variable = save_neutrality
+		clear_variable = save_communism
+	}
+	
+	option = { }
+	
+}
+
+country_event = {
+	id = BI_on_action.100
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+		ai_update_30_1 = yes 
+		country_event = { id = BI_on_action.101 hours = 1 }
+	}
+}
+country_event = {
+	id = BI_on_action.101
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+		ai_update_30_2 = yes 
+	}
+}
+country_event = {
+	id = BI_on_action.105
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+		ai_update_90_1 = yes 
+	}
+}
+country_event = {
+	id = BI_on_action.107
+    timeout_days = 2000
+	title = "[FROM.GetName] TRADE LAW"
+	desc = "[FROM.GetName] change to [?URG.trade_law_change.GetTokenKey] | [GetMonth] [GetYear]"
+
+	is_triggered_only = yes
+	
+	immediate = {
+		#clear_variable = trade_law_change
+	}
+	
+	option = {
+		name = ok 
+		
+	}
+}
+country_event = {
+	id = BI_on_action.1070
+    timeout_days = 2000
+	title = "SAVEGAME LOADED"
+	desc = "SAVEGAME GOT LOADED TODAY [GetDate]"
+
+	is_triggered_only = yes
+	
+	immediate = {
+		#clear_variable = trade_law_change
+	}
+	
+	option = {
+		name = ok 
+		
+	}
+}
+country_event = {
+	id = BI_on_action.108
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+		clear_variable = URG.trade_law_change
+	}
+}
+country_event = {
+	id = BI_on_action.111
+	hidden = yes  #timeout
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	immediate = {
+		ai_update_country_logic = yes
+	}
+}
+ 
+country_event = {
+	id = BI_on_action.140 
+	title = "[?setting_add_country.GetName] already part of group [?setting_holder.ai_GetDiffSettingNameEvent]"
+	desc = " "
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Proceed"
+		
+		var:setting_holder = {
+			remove_from_array = { ai_difficulty_setting_targets = ROOT.setting_add_country }
+		}
+		var:setting_add_country = {
+			ui_ai_remove_country_from_settings = yes
+		}
+		
+		var:ROOT.selected_target = {
+			add_to_array = { ai_difficulty_setting_targets = ROOT.setting_add_country }
+									
+			clear_array = ROOT.ai_setting_target_countries
+			add_to_array = { ROOT.ai_setting_target_countries = THIS }
+			for_each_scope_loop = {
+				array = ai_difficulty_setting_targets
+				
+				add_to_array = { ROOT.ai_setting_target_countries = THIS }
+			}
+			
+			for_each_scope_loop = {
+				array = ROOT.ai_setting_target_countries
+				 
+				ui_ai_add_country_to_settings = yes
+			}
+		}
+		clear_variable = setting_add_country
+		clear_variable = setting_holder
+		
+		add_to_variable = { ROOT.ui_difficulty = 1 }
+	}
+	
+	option = {
+		name = "Abort"
+		
+		clear_variable = setting_add_country
+		clear_variable = setting_holder
+	}
+}	 
+country_event = {
+	id = BI_on_action.141
+	title = "[?setting_add_country.GetName] already part of group [?setting_holder.ai_GetDiffSettingNameEvent]"
+	desc = " "
+    timeout_days = 1
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "Proceed"
+		
+		var:setting_holder = {
+			remove_from_array = { ai_difficulty_setting_targets = ROOT.setting_add_country }
+		}
+		var:setting_add_country = {
+			ui_ai_remove_country_from_settings = yes
+		}
+		
+		set_variable = { ROOT.selected_target = setting_add_country }
+		log = "[?selected_target] selected_target"
+		var:ROOT.selected_target = {
+			set_country_flag = ai_difficulty_setting_target
+			#add_to_array = { ai_difficulty_setting_targets = ROOT.setting_add_country }
+									
+			clear_array = ROOT.ai_setting_target_countries
+			add_to_array = { ROOT.ai_setting_target_countries = THIS }
+			
+			remove_from_array = { array = ROOT.ai_setting_target }
+			add_to_array = { ROOT.ai_setting_target = ROOT.selected_target }
+			add_to_array = { ROOT.ai_setting_target = 1 } 
+			
+								
+			for_each_scope_loop = {
+				array = ai_difficulty_setting_targets
+				
+				add_to_array = { ROOT.ai_setting_target_countries = THIS }
+			}
+			
+			for_each_scope_loop = {
+				array = ROOT.ai_setting_target_countries
+				 
+				ui_ai_add_country_to_settings = yes
+			}
+		}
+		clear_variable = setting_add_country
+		clear_variable = setting_holder
+	}
+	
+	option = {
+		name = "Abort"
+		
+		clear_variable = setting_add_country
+		clear_variable = setting_holder
+	}
+}
+
+country_event = {
+	id = BI_on_action.201
+	title = "Different Checksum detected"
+	desc = "This savegame was started in an earlier / different version of Black ICE. Depending on the changes this save is not compatible anymore. Continue at your own risk."
+    timeout_days = 120
+
+	is_triggered_only = yes
+	
+	immediate = {
+		set_global_flag = savegame_busted
+		
+		clear_variable = global.manual_checksum
+		add_to_variable = { global.manual_checksum = token:GER_adolf_hitler }
+		add_to_variable = { global.manual_checksum = token:infantry_equipment }
+	}
+	
+	option = {
+		name = "Try Repair"
+		trigger = {
+			is_debug = yes
+		}
+		
+		#clear and create global law arrays
+		d_fill_law_array = yes
+		
+		#clear and create character specific tokens
+		every_possible_country = {
+			every_character = {
+				clear_variable = key
+			}
+			
+			country_event = { id = BI_on_action.200 }
+		}
+		
+		
+	}
+	
+	option = {
+		name = "Ok"
+		
+	}
+}
+
+#force update resource conversion a hour after a change has been made to fix an issue where while paused game does not update resource counts in time
+country_event = {
+	id = BI_on_action.444
+	hidden = yes 
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_to_temp_array = { conversion_steel = token:steel }
+		update_resource_conversion = yes
+	}
+}
+country_event = {
+	id = BI_on_action.445
+	hidden = yes 
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_to_temp_array = { conversion_aluminium = token:aluminium }
+		update_resource_conversion = yes
+	}
+}
+country_event = {
+	id = BI_on_action.448
+	hidden = yes 
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_to_temp_array = { conversion_fuel = token:fuel }
+		update_resource_conversion = yes
+	}
+}
+country_event = {
+	id = BI_on_action.449
+	hidden = yes 
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		add_to_temp_array = { conversion_rubber = token:rubber }
+		update_resource_conversion = yes
+	}
+}
+country_event = {
+	id = BI_on_action.446
+	hidden = yes 
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		remove_from_array = { energy_priority = energy_priority^remove_energy_priority }
+		clear_variable = remove_energy_priority
+	}
+}

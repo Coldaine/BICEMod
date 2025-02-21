@@ -1,0 +1,286 @@
+scripted_gui = {
+	
+	BI_agency_tab = {
+		context_type = player_context
+		    
+		window_name = "BI_intel_agency_container"
+		parent_window_name = intelligence_agency_upgrades_window
+        
+		visible = {
+		
+		}
+		                        
+		effects = { 
+		} 
+		
+		triggers = {
+		}
+	}
+	BI_intel_tab_window = {
+		context_type = player_context
+		     
+		window_name = "BI_intel_tab_container"
+		parent_window_name = countryintelligenceagencyview
+		
+		effects = {
+			expand_button_click = {
+				clr_country_flag = ui_hide_foreign_assets
+			}
+			minimize_button_click = {
+				set_country_flag = ui_hide_foreign_assets
+			}
+		}
+		
+		triggers = {
+			expand_button_visible = {
+				has_country_flag = ui_hide_foreign_assets
+			}
+			minimize_button_visible = {
+				NOT = { has_country_flag = ui_hide_foreign_assets }
+			}
+		}
+	}
+         
+	BI_intel_assets_window = {
+		context_type = player_context
+		     
+		window_name = "BI_operation_token_container"
+		parent_scripted_gui = BI_intel_tab_window
+		
+		visible = { 
+			NOT = { has_country_flag = ui_hide_foreign_assets } 
+		}
+         
+		dynamic_lists = {
+			BI_operation_token_country_list = {
+				array = intel_networks
+				change_scope = yes 
+				entry_container = "BI_operation_token_country_list_container"
+			}
+			intel_network_assets = {
+				array = ROOT.intel_assets@var:v
+				change_scope = yes 
+				entry_container = "intel_network_asset_entry"
+				value = asset
+			}
+		}
+		
+		properties = {
+			flag = {
+				image = "[This.GetFlag]"
+			}
+			checkbox = { frame = checkbox_frame }
+			asset = { image = "GFX_[?asset.GetTokenKey]" }
+		}
+
+		effects = { 
+			close_button_click = {
+				set_country_flag = ui_hide_foreign_assets
+			}
+			checkbox_click = {
+				ROOT = {
+					if = {
+						limit = {
+							has_country_flag = ui_hide_operations@PREV
+						}
+						clr_country_flag = ui_hide_operations@PREV
+					}
+					else = {
+						set_country_flag = ui_hide_operations@PREV
+					}
+				}
+			}
+			
+			operatives_icon_click = {
+				ROOT = {
+					every_operative = {
+						limit = {
+							check_variable = { operation_country = PREV.PREV }
+						}
+						display_individual_scopes = yes
+						
+						custom_effect_tooltip = "[?mtth:operative_mission.GetTokenLocalizedKey]"
+						custom_effect_tooltip = "[?operation_type.GetTokenLocalizedKey]"
+						custom_effect_tooltip = line_break
+					}
+				}
+			}
+			
+		} 
+		
+		triggers = {
+			empty_visible = {
+				check_variable = { intel_networks^num = 0 }
+			}
+			checkbox_click_enabled = {
+				ROOT = {
+					if = {
+						limit = {
+							has_country_flag = ui_hide_operations@PREV
+						}
+						set_temp_variable = { checkbox_frame = 1 }
+					}
+					else = {
+						set_temp_variable = { checkbox_frame = 2 }
+					}
+				}
+			}
+			
+		}
+	}
+	BI_foreign_agency_gui = {
+		context_type = player_context
+		    
+		window_name = "BI_foreign_agency_container"
+		parent_window_token = civilian_ledger
+        
+		visible = {
+			has_country_flag = ui_show_foreign_agency
+		}
+		   
+		dirty = ledger_target
+		
+		properties = {
+			upgrade_economy_civilian_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_economy_civilian]"  
+			}
+			upgrade_army_department_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_army_department]"  
+			}
+			upgrade_naval_department_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_naval_department]"  
+			}
+			upgrade_airforce_department_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_airforce_department]"  
+			}
+			upgrade_passive_defense_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_passive_defense]"  
+			}
+			upgrade_anti_partisan_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_anti_partisan]"  
+			}
+			upgrade_expand_operations_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_expand_operations]"  
+			}
+			upgrade_underground_contacts_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_underground_contacts]"  
+			}
+			upgrade_blueprint_stealing_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_blueprint_stealing]"  
+			}
+			upgrade_portable_radios_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_portable_radios]"  
+			}
+			upgrade_invisible_ink_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_invisible_ink]"  
+			}
+			upgrade_plastic_explosives_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_plastic_explosives]"  
+			}
+			upgrade_interrogation_techniques_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_interrogation_techniques]"  
+			}
+			upgrade_diplo_training_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_diplo_training]"  
+			}
+			upgrade_psycho_warfare_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_psycho_warfare]"  
+			}
+			upgrade_decryption_boost_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_decryption_boost]"  
+			}
+			upgrade_decryption_boost_2_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_decryption_boost_2]"  
+			}
+			upgrade_crypto_strength_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_crypto_strength]"  
+			}
+			upgrade_crypto_strength_2_progress = {
+				image = "[?ledger_target.GetAgencyProgress/upgrade_crypto_strength_2]"  
+			}
+			   
+			upgrade_economy_civilian_bg = {     
+				image = "[?ledger_target.GetAgencyFinished/upgrade_economy_civilian]"
+			}
+			upgrade_army_department_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_army_department]"
+			}
+			upgrade_naval_department_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_naval_department]"
+			}
+			upgrade_airforce_department_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_airforce_department]"
+			}
+			upgrade_passive_defense_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_passive_defense]"
+			}
+			upgrade_anti_partisan_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_anti_partisan]"
+			}
+			upgrade_form_operations_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_form_operations]"
+			}
+			upgrade_expand_operations_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_expand_operations]"
+			}
+			upgrade_underground_contacts_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_underground_contacts]"
+			}
+			upgrade_blueprint_stealing_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_blueprint_stealing]"
+			}
+			upgrade_portable_radios_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_portable_radios]"
+			}
+			upgrade_invisible_ink_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_invisible_ink]"
+			}
+			upgrade_plastic_explosives_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_plastic_explosives]"
+			}
+			upgrade_suicide_pills_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_suicide_pills]"
+			}
+			upgrade_training_centers_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_training_centers]"
+			}
+			upgrade_commando_training_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_commando_training]"
+			}
+			upgrade_interrogation_techniques_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_interrogation_techniques]"
+			}
+			upgrade_diplo_training_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_diplo_training]"
+			}
+			upgrade_psycho_warfare_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_psycho_warfare]"
+			}
+			upgrade_form_department_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_form_department]"
+			}
+			upgrade_decryption_boost_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_decryption_boost]"
+			}
+			upgrade_decryption_boost_2_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_decryption_boost_2]"
+			}
+			upgrade_crypto_strength_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_crypto_strength]"
+			}
+			upgrade_crypto_strength_2_bg = { 
+				image = "[?ledger_target.GetAgencyFinished/upgrade_crypto_strength_2]"
+			}
+		}
+		                         
+		effects = {
+			btn_close_click = {
+				clear_variable = ledger_target
+				clr_country_flag = ui_show_foreign_agency
+			}
+		}
+		
+		triggers = {
+		}
+	}
+}

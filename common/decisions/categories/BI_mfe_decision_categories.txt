@@ -1,0 +1,26 @@
+medals_for_free = {
+	icon = "GFX_decision_mfe_medals_for_everyone"
+	allowed = {
+		has_dlc = "By Blood Alone"
+	}
+	visible = {
+		is_ai = no
+	}
+	available = {
+		
+	}
+	priority = -100
+}
+BI_medals_from_countries = {
+	icon = "GFX_decision_mfe_medals_for_everyone"
+	allowed = {
+		has_dlc = "By Blood Alone"
+	}
+	visible = {
+		is_ai = no
+	}
+	available = {
+		
+	}
+	priority = -100
+}

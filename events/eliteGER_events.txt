@@ -1,0 +1,249 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.1
+
+###########################
+
+
+add_namespace = eliteGER
+
+### 4.1
+
+############### EVENT 01   1938 ###############
+
+country_event = {
+
+	id = eliteGER.1
+
+	title = "German Intelligence Service Brandenburg Special Forces 1938" #eliteGER.1.t
+
+	desc =  "The Brandenburgers were members of the German Special Forces unit. This unit was the brainchild of the German Intelligence Service, the Abwehr by the will of the Admiral Wilhelm Canaris. Initially the unit consisted mainly of former German expatriates." #eliteGER.1.d
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_GER # must write GFX_
+
+
+
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = GER
+					date > 1938.01.01
+
+					date < 1938.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "Unlock 'Gruppe Ebbinghaus Brandenburgers'" #eliteGER.1.a
+
+		#ai_chance = { base = 100 }  ########
+
+
+		GER = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_ger_brandenburgers_1938"
+
+		} 	#end hidden
+		} 	#end GER
+
+
+		custom_effect_tooltip = "This option triggers a country-specific tech which unlocks the 'HBrandenburg-Bataillon unit and Brandenburg (Spezialeinheit) template'! and deploys the 'Gruppe Ebbinghaus Brandenburgers'! to Ostmark." #eliteGER.1.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 02   1939 ###############
+
+country_event = {
+
+	id = eliteGER.2
+
+	title = "German Intelligence Service Brandenburg Special Forces 1939"
+
+	desc =  "The training was physically and mentally demanding, with focuses on foreign languages, small unit tactics, parachuting, demolitions, covert operations, swimming, secret messaging, map reading, long range scouting, use of vehicles, aircraft and tanks."
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_GER # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = GER
+					date > 1939.01.01
+
+					date < 1939.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "Lehr und Bau Kompanie Brandburg 800" #eliteGER.2.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		GER = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_ger_brandenburgers_1939"
+
+		} 	#end hidden
+		} 	#end GER
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the 'Lehr und Bau Kompanie Brandburg 800'! to Ostmark." #eliteGER.2.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+
+############### EVENT 03   1940 ###############
+
+country_event = {
+
+	id = eliteGER.3
+
+	title = "German Intelligence Service Brandenburg Special Forces 1940"
+
+	desc =  "Regiment Brandenburg evolved out of the Abwehr's 2nd Department, and was used as a commando unit during the first years of the war. Some sub-units were specifically trained as pilots or trained in forgery or camouflage. During the war it grew in dimensions."
+
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_GER # must write GFX_
+
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = GER
+					date > 1940.01.01
+
+					date < 1940.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "Lehr-Regiment Brandenburg z.b.V. 800" #eliteGER.3.a
+
+		ai_chance = { base = 100 }  ########
+
+		GER = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_ger_brandenburgers_1940"
+
+		} 	#end hidden
+		} 	#end GER
+
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the 'Lehr-Regiment Brandenburg z.b.V. 800'! to Ostmark."
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 04   1941 ###############
+
+country_event = {
+
+	id = eliteGER.4
+
+	title = "German Intelligence Service Brandenburg Special Forces 1941"
+
+	desc =  "The first German units to cross the Soviet frontier in June 1941 were the men of the Brandenburg Regiment. Until 1944 it was an OKH unit rather than a unit of the regular army (Heer). The unit expanded until it was reallocated to the Großdeutschland."
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_GER # must write GFX_
+
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = GER
+					date > 1941.01.01
+
+					date < 1941.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "Sonderverbänd 800 Brandenburger" #eliteGER.4.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		GER = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_ger_brandenburgers_1941"
+
+		} 	#end hidden
+		} 	#end GER
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the 'Sonderverbänd 800 Brandenburger'! to Ostmark."
+		} 	#end option
+
+
+} 	#end year
+
+###

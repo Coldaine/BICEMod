@@ -1,0 +1,244 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.1
+
+###########################
+
+
+add_namespace = eliteJAP
+
+### 4.1
+
+############### EVENT 01   1938 ###############
+
+country_event = {
+
+	id = eliteJAP.1
+
+	title = "Imperial Japanese Army Special Force 1938" #eliteJAP.1.t
+
+	desc =  "The Special Naval Landing Forces (Kaigun Tokubetsu Rikusentai) were units of the Imperial Japanese Navy. They saw extensive service in the Pacific theatre. 1ª KTR was trained as paratroopers and small units of armored vehicles were also available" #eliteJAP.1.d
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_JAP # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = JAP
+					date > 1938.01.01
+
+					date < 1938.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "1° Kaigun T.R. Marine Paratroopers" #eliteJAP.1.a
+
+		#ai_chance = { base = 100 }  ########
+
+
+		JAP = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_jap_takasago_giyutai_1938"
+
+		} 	#end hidden
+		} 	#end JAP
+
+
+		custom_effect_tooltip = "This option triggers a country-specific tech which unlocks the 'Tokubetsu Rikusentai Imperial Japanese Army Special Force template' and deploys the '1° Kaigun T.R. Marine Paratroopers' to Tokyo." #eliteJAP.1.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 02   1939 ###############
+
+country_event = {
+
+	id = eliteJAP.2
+
+	title = "Imperial Japanese Army Special Force 1939"
+
+	desc =  "Takasago Volunteers were soldiers recruited from the Taiwanese aboriginal tribes in the Imperial Japanese Army for using in special forces operations They were viewed as being more physically capable of operating in the jungle of sub-tropical regions"
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_JAP # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = JAP
+					date > 1939.01.01
+
+					date < 1939.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "Takasago Giyutai" #eliteJAP.2.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		JAP = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_jap_takasago_giyutai_1939"
+
+		} 	#end hidden
+		} 	#end JAP
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the 'Takasago Giyutai' to Tokyo." #eliteJAP.2.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+
+############### EVENT 03   1941 ###############
+
+country_event = {
+
+	id = eliteJAP.3
+
+	title = "Imperial Japanese Army Special Force 1942"
+
+	desc =  "Teishin Shudan was a special forces/airborne unit. The unit was a division-level force, and was part of the Imperial Japanese Army Air Force. The units were therefore distinct from the marine parachute units of the Special Naval Landing Forces."
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_JAP # must write GFX_
+
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = JAP
+					date > 1941.01.01
+
+					date < 1941.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "Teishin Shudan" #eliteJAP.3.a
+
+		ai_chance = { base = 100 }  ########
+
+		JAP = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_jap_takasago_giyutai_1941"
+
+		} 	#end hidden
+		} 	#end JAP
+
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the 'Teishin Shudan' to Tokyo."
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 04   1942 ###############
+
+country_event = {
+
+	id = eliteJAP.4
+
+	title = "Imperial Japanese Army Special Force 1943"
+
+	desc =  "Giretsu Kuteitai ('Heroic Paratroopers') was an airlifted special forces unit formed as a last-ditch attempt to reduce and delay Allied bombing raids for 'special operations' mission to attack and destroy the bombers on the enemy airfield."
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_JAP # must write GFX_
+
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = JAP
+					date > 1942.01.01
+
+					date < 1942.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "Giretsu Kuteitai" #eliteJAP.4.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		JAP = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_jap_takasago_giyutai_1942"
+
+		} 	#end hidden
+		} 	#end JAP
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the 'Giretsu Kuteitai' to Tokyo."
+		} 	#end option
+
+
+} 	#end year
+
+###

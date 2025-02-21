@@ -1,0 +1,193 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.1
+
+###########################
+
+
+add_namespace = eliteENG
+
+### 4.1
+
+############### EVENT 01   1940 ###############
+
+country_event = {
+
+	id = eliteENG.1
+
+	title = "British Army Commandos and Royal Marines Commandos" #1.t
+
+	desc =  "The commandos were formed in 1940, by the order of W. Churchill. He called for specially trained troops that would 'develop a reign of terror down the enemy coast'. By the autumn of 1940 more than 2,000 men had volunteered for Commando training" #to became elements of the British Army and the Royal Marines." #eliteENG.1.d
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_ENG # must write GFX_
+
+
+
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {	TAG = ENG 
+					date > 1940.01.03
+
+					date < 1940.01.25
+		}
+
+	        mean_time_to_happen = { days = 1} #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "40'- Royal Marine Commandos unit" #eliteENG.1.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		ENG = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_eng_royal_naval_commandos_1940"
+
+		} 	#end hidden
+		} 	#end ENG   §§§§§
+
+
+		custom_effect_tooltip = "This option triggers a country-specific tech which unlocks the 'British Army Commandos and Royal Marines Commandos units and Special Service Brigade template§! and deploys the ' 40'- Royal Marine Commandos' unit to Achnacarry." #eliteENG.1.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 02   1941 ###############
+
+country_event = {
+
+	id = eliteENG.2
+
+	title = "British Army Commandos and Royal Marines Commandos 1939"
+
+	desc =  "The Commandos served in all theatres of war from the Arctic Circle to Europe, Mediterranean, Middle East and South-East Asia. Their operations ranged from small groups landing from the sea or by parachute to a brigade of assault troops invasions."
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_ENG # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {	TAG = ENG 
+					date > 1941.01.03
+
+					date < 1941.01.25
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "42'- Royal Marine Commandos" #eliteENG 2.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		ENG = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_eng_royal_naval_commandos_1941"
+
+		} 	#end hidden
+		} 	#end ENG
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the the '42'- Royal Marine Commandos' to Achnacarry." #eliteENG 2.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+
+############### EVENT 03   1942 ###############
+
+country_event = {
+
+	id = eliteENG.3
+
+	title = "British Army Commandos and Royal Marines Commandos 1940" #eliteENG.3.t:0 
+
+	desc =  "The Royal Naval Commandos were formed in 1942. The units had been raised to carry out various tasks associated with establishing, maintaining and controlling beachheads during amphibious operations tooks part in every operation carried out by Allies."  #eliteENG.3.d:0 
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_ENG # must write GFX_
+
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {	TAG = ENG 
+					date > 1942.01.03
+
+					date < 1942.01.25
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name =  "44' and 45' - Royal Marine Commandos" #eliteENG.3.a 
+
+		ai_chance = { base = 100 }  ########
+
+		ENG = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_eng_royal_naval_commandos_1942"
+
+		} 	#end hidden
+		} 	#end ENG
+
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the '44' and 45'- Royal Marine Commandos' unit to Achnacarry"
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 04   1941 ###############
+
+
+###

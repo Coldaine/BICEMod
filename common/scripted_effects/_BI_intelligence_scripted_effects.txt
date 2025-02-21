@@ -1,0 +1,116 @@
+
+add_operation_token_for_FROM = {
+	if = {
+		limit = {
+			NOT = { FROM = { is_in_array = { array = Root.operation_token_array } } }
+		}
+		add_to_array = { operation_token_array = From.id }
+	}
+	meta_effect = {
+		text = {
+			add_operation_token = {
+				tag = FROM
+				token = [TOKEN]
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = operation/[TOKEN]@FROM }
+				}
+				set_country_flag = operation_token/[TOKEN]@FROM
+			}
+			else = {
+				modify_country_flag = {
+					flag = operation/[TOKEN]@FROM
+					value = 1 
+				}
+			}
+		}
+		TOKEN = "[?temp.GetTokenKey]"
+	}
+}
+
+update_intel_networks = {
+	
+	every_operative = {
+		
+		if = {
+			limit = {
+				NOT = { is_in_array = { ROOT.intel_networks = operation_country } }
+			}
+			add_to_array = { ROOT.intel_networks = operation_country }
+		}
+	}
+	
+	###########
+	
+	for_each_scope_loop = {
+		array = intel_networks
+		
+		ROOT = {
+			clear_array = intel_assets@PREV
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_army
+					}
+				}
+				add_to_array = { intel_assets@PREV = token:token_army }
+			}
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_airforce
+					}
+				}
+				add_to_array = { intel_assets@PREV = token:token_airforce }
+			}
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_navy
+					}
+				}
+				add_to_array = { intel_assets@PREV = token:token_navy }
+			}
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_civilian
+					}
+				}
+				add_to_array = { intel_assets@PREV = token:token_civilian }
+			}
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_resistance_contacts
+					}
+				}
+				add_to_array = { intel_assets@PREV = token:token_resistance_contacts }
+			}
+		
+		}
+		
+		### Remove check 
+		
+		if = {
+			limit = {
+				check_variable = { ROOT.intel_assets@THIS^num = 0 }
+				ROOT = { check_variable = { mtth:network_strength = 0 } }
+			}
+			add_to_temp_array = { remove_asset = THIS }
+		}
+		
+	}
+	
+	for_each_loop = { 
+		array = remove_asset
+		
+		remove_from_array = { intel_networks = v }
+	}
+}

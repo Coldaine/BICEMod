@@ -1,0 +1,41 @@
+monument_character_trigger_has_country_leader_adolf_hitler = {
+	has_country_leader = { character = GER_adolf_hitler ruling_only = yes }
+}
+
+monument_character_trigger_country_leader_attaturk_died = {
+	custom_trigger_tooltip = {
+		tooltip = TUR_ATATURK_HAS_DIED
+		has_global_flag = ataturk_died
+		NOT = { has_country_leader = { character = TUR_mustafa_kemal_ataturk ruling_only = yes } }
+	}
+}
+
+monument_character_trigger_has_character_heinrich_himmler = {
+	if = {
+		limit = {
+			has_character = GER_heinrich_himmler
+		}
+		OR = {
+
+			has_country_leader = { character = GER_heinrich_himmler ruling_only = yes }
+			custom_trigger_tooltip = {
+				tooltip = MONUMENT_TRIGGER_HAS_HIMMLER_IN_INNER_CIRCLE_TT
+				OR = {
+					check_variable = { GER_ascended_advisor_1 = 4 }
+					check_variable = { GER_ascended_advisor_2 = 4 }
+					check_variable = { GER_ascended_advisor_3 = 4 }
+				}
+			}
+		}
+	}
+	else = {
+		has_character = GER_heinrich_himmler
+	}
+}
+
+monument_character_trigger_has_country_leader_wilhelm_ii_or_iii = {
+	OR = {
+		has_country_leader = { character = GER_wilhelm_ii ruling_only = yes }
+		has_country_leader = { character = GER_wilhelm_iii ruling_only = yes }
+	}
+}

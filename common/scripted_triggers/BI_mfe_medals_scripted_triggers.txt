@@ -1,0 +1,43 @@
+BI_should_have_german_medals_trigger = {
+	has_country_flag = BI_mfe_GER_medals
+}
+
+BI_should_have_usa_medals_trigger = {
+	has_country_flag = BI_mfe_USA_medals
+}
+
+BI_should_have_soviet_medals_trigger = {
+	has_country_flag = BI_mfe_SOV_medals
+}
+
+BI_should_have_english_medals_trigger = {
+	has_country_flag = BI_mfe_ENG_medals
+}
+
+BI_should_have_french_medals_trigger = {
+	has_country_flag = BI_mfe_FRA_medals
+}
+
+BI_should_have_italian_medals_trigger = {
+	has_country_flag = BI_mfe_ITA_medals
+}
+
+BI_should_have_japanese_medals_trigger = {
+	has_country_flag = BI_mfe_JAP_medals
+}
+
+BI_should_have_fascism_generic_medals_trigger = {
+	has_country_flag = BI_mfe_fascism_generic_medals
+}
+
+BI_should_have_communism_generic_medals_trigger = {
+	has_country_flag = BI_mfe_communism_generic_medals
+}
+
+BI_should_have_democracy_generic_medals_trigger = {
+	has_country_flag = BI_mfe_democracy_generic_medals
+}
+
+BI_should_have_neutrality_generic_medals_trigger = {
+	has_country_flag = BI_mfe_neutrality_generic_medals
+}

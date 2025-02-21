@@ -1,0 +1,135 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.1
+
+###########################
+
+
+add_namespace = eliteUSA
+
+### 4.1
+
+############### EVENT 01   1942 ###############
+
+country_event = {
+
+	id = eliteUSA.1
+
+	title = "United States Army Rangers 1942" #eliteUSA.1.t
+
+	desc =  "The U.S. Army Rangers are an elite military formation of the United States Army.  U.S. Rangers were dispersed through the British Commandos for the Dieppe Raid in August 1942, the first American soldiers to combat in the European." #eliteUSA.1.d
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_USA # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = USA
+					date > 1942.01.01
+
+					date < 1942.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "1st and 2nd Army Rangers" #eliteUSA.1.a
+
+		#ai_chance = { base = 100 }  ########
+
+
+		USA = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_usa_army_rangers_1942"
+
+		} 	#end hidden
+		} 	#end USA
+
+
+		custom_effect_tooltip = "This option triggers a country-specific tech which unlocks the 'Army Rangers unit and template' and deploys the '1st Army Rangers' to Georgia and the '6nd Army Rangers' to Washington (state)." #eliteUSA.1.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 02   1939 ###############
+
+country_event = {
+
+	id = eliteUSA.2
+
+	title = "United States Army Rangers 1943"
+
+	desc =  "The Rangers fought also in North Africa and Italy, and the invasion of Normandy. Two separate Ranger units fought the war in the Pacific Theater. There the 6th Ranger Battalion led the invasion of the Philippines and fought during the Burma Campaign."
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_USA # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = USA
+					date > 1943.01.01
+
+					date < 1943.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "5nd and 2nd Army Rangers" #eliteUSA.2.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		USA = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_usa_army_rangers_1943"
+
+		} 	#end hidden
+		} 	#end USA
+
+
+		
+		custom_effect_tooltip = "This option deploys the '5nd Army Rangers' to Georgia and the '6nd Army Rangers' to Washington (state)." #eliteUSA.2.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+
+############### EVENT 03   1940 ###############
+
+
+############### EVENT 04   1941 ###############
+
+
+
+
+###

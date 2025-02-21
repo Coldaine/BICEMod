@@ -1,0 +1,135 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.1
+
+###########################
+
+
+add_namespace = eliteSOV
+
+### 4.1
+
+############### EVENT 01   1941 ###############
+
+country_event = {
+
+	id = eliteSOV.1
+
+	title = "Special Soviet Naval Scouts 1941" #eliteSOV.1.t
+
+	desc =  "The 4th Special Volunteer Sailor Detachment began conducting sabotage missions and raids to destroy German ammunition and supply depots, communication centers, and harass enemy troop concentrations along the Finnish and Russian coasts." #eliteSOV.1.d
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_SOV # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = SOV
+					date > 1941.01.01
+
+					date < 1941.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "4th Special Volunteer Detachment" #eliteSOV.1.a
+
+		#ai_chance = { base = 100 }  ########
+
+
+		SOV = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_sov_soviet_naval_scouts_1941"
+
+		} 	#end hidden
+		} 	#end SOV
+
+
+		custom_effect_tooltip = "This option triggers a country-specific tech which unlocks the 'Special Soviet Naval Scouts'! and deploys the '4th Special Volunteer Detachment' to Murmansk." #eliteSOV.1.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 02   1942 ###############
+
+country_event = {
+
+	id = eliteSOV.2
+
+	title = "Special Soviet Naval Scouts 1942"
+
+	desc =  "The 181st Special Reconnaissance Detachment fighting Germany, Japan, Poland and Finland in the Second World War, new units of storm pioneers, parachuters were set up. Thereby the soviets merged existing experiences and started to deploy Elite Forces"
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_SOV # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = SOV
+					date > 1942.01.01
+
+					date < 1942.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "181st Special Reconnaissance Detachment and 2 other special forces regiments" #eliteSOV.2.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		SOV = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_sov_soviet_naval_scouts_1942"
+
+		} 	#end hidden
+		} 	#end SOV
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the '181st Special Reconnaissance Detachment' and 'OGBM - Otdelnly Gwardieskij Batalion Minerow' and 'Ground Reconnaissance Northern Fleet' to Murmansk." #eliteSOV.2.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+
+############### EVENT 03   1940 ###############
+
+
+
+############### EVENT 04   1941 ###############
+
+
+
+###

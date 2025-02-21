@@ -1,0 +1,72 @@
+#####################
+
+###  ##  #  # # #  ## 
+ #  #  # ## # # # #   
+ #  #### # ## ##   #  
+ #  #  # #  # # #   # 
+ #  #  # #  # # # ## 
+
+ #################### 
+
+
+
+#####################
+
+ ## #  # ### ###   ## 
+#   #  #  #  #  # #   
+ #  ####  #  ###   #  
+  # #  #  #  #      # 
+##  #  # ### #    ##  
+ 
+#####################
+
+
+###########################
+
+###  #    ##  #  # ###  ## 
+#  # #   #  # ## # #   #   
+###  #   #### # ## ##   #  
+#    #   #  # #  # #     # 
+#    ### #  # #  # ### ##  
+
+###########################
+
+
+################################### 
+
+#   #  ##  ### ### ###  ### ### #   
+## ## #  #  #  #   #  #  #  #   #   
+# # # ####  #  ##  ###   #  ##  #   
+#   # #  #  #  #   #  #  #  #   #   
+#   # #  #  #  ### #  # ### ### ### 
+
+
+###################################
+
+HUN_femaru_fegyver_es_gepgyar_organization = {
+	include = generic_infantry_equipment_organization
+	icon = GFX_idea_HUN_femaru_fegyver_es_gepgyar
+	allowed = { 
+		tag = HUN
+	}
+}
+
+HUN_digep_organization = {
+	name = digep
+	include = generic_artillery_organization
+	icon = GFX_idea_digep
+	allowed = { 
+		tag = HUN
+	}
+}
+HUN_raba_organization = {
+	name = raba
+	include = generic_artillery_organization
+	icon = GFX_idea_raba
+	allowed = { 
+		tag = HUN
+	}
+	available = {
+		FROM = { has_completed_focus = HUN_motorization_effort }
+	}	
+}

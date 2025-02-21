@@ -1,0 +1,229 @@
+scripted_gui = {
+	BI_sidebar = {
+		context_type = player_context
+		
+		#parent_scripted_gui = BI_sidebar_frame
+		parent_window_token = top_bar 
+		window_name = "BI_sidebar_container"
+		
+		visible = { 
+			has_country_flag = sidebar 
+		} 
+		
+		dynamic_lists = {
+			sidebar_list = {
+				array = sidebar_list
+				change_scope = yes
+				entry_container = "sidebar_entry_container"
+			}
+		}
+		
+		properties = {
+			army_strength = { 
+				image = "[GetArmyStrengthGFX]"
+			}
+			air_strength = { 
+				image = "[GetAirStrengthGFX]"
+			}
+			navy_strength = { 
+				image = "[GetNavyStrengthGFX]"
+			}
+			
+			icon = {
+				image = GFX_idea_[?icon.GetTokenKey]
+			}
+			
+			hide = {
+				y = hide_y
+			}
+		}
+		
+		dirty = ui_sidebar_update
+
+		triggers = {
+			hide_click_enabled = {
+				
+				set_temp_variable = { hide_y = sidebar_list^num }
+				if = {
+					limit = {
+						check_variable = { hide_y = 0 }
+					}
+					set_temp_variable = { hide_y = 315 }
+				}
+				else = {
+					multiply_temp_variable = { hide_y = 80 }
+					add_to_temp_variable = { hide_y = 250 }
+				}
+		
+			}
+			
+			icon_click_enabled = {
+				sidebar_trigger = yes
+			}
+		}
+		
+		effects = {
+			icon_click = {
+				sidebar_effect = yes
+			}
+			army_strength_click = { 
+				custom_effect_tooltip = ARMY_STRENGTH_TITLE 
+				custom_effect_tooltip = INFANTRY_WEIGHT 
+				custom_effect_tooltip = LIGHT_INFANTRY_WEIGHT 
+				custom_effect_tooltip = GARRISON_WEIGHT
+				custom_effect_tooltip = MILITIA_WEIGHT
+				custom_effect_tooltip = IRREGULAR_WEIGHT 
+				custom_effect_tooltip = PACK_ARTILLERY_WEIGHT
+				custom_effect_tooltip = LIGHT_ARTILLERY_WEIGHT
+				custom_effect_tooltip = MEDIUM_ARTILLERY_WEIGHT   
+				custom_effect_tooltip = HEAVY_ARTILLERY_WEIGHT 
+				custom_effect_tooltip = ANTI_TANK_WEIGHT 
+				custom_effect_tooltip = HEAVY_ANTI_TANK_WEIGHT  
+				custom_effect_tooltip = ANTI_AIR_WEIGHT  
+				custom_effect_tooltip = HEAVY_ANTI_AIR_WEIGHT  
+				custom_effect_tooltip = MOUNTAINEER_WEIGHT
+				custom_effect_tooltip = MARINE_WEIGHT   
+				custom_effect_tooltip = PARATROOPER_WEIGHT     
+				custom_effect_tooltip = CAVALRY_WEIGHT    
+				custom_effect_tooltip = SEMI_MOTORIZED_WEIGHT      
+				custom_effect_tooltip = MOTORIZED_WEIGHT  
+				custom_effect_tooltip = MECHANIZED_WEIGHT  
+				custom_effect_tooltip = LIGHT_ARMOR_WEIGHT
+				custom_effect_tooltip = MEDIUM_ARMOR_WEIGHT 
+				custom_effect_tooltip = HEAVY_ARMOR_WEIGHT 
+				custom_effect_tooltip = ARMY_STRENGTH_MULTIPLICATOR 
+				
+				meta_effect = {
+					text = {
+						show_ideas_tooltip = army_strength_[X]
+					}
+					X = army_strength_level
+				}
+			}  
+			 
+			air_strength_click = {
+				custom_effect_tooltip = AIR_STRENGTH_TITLE 
+				custom_effect_tooltip = FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = ALT_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = INTERCEPTOR_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = INTERCEPTOR_NAVY_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = MR_FIGHT_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CV_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CV_MR_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CV_CAS_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CV_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = HV_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = NIGHT_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = CAS_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = TWIN_CAS_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = NAV_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = HV_NAV_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = NAV_BOMB_GB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = FLYING_BOAT_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = TAC_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = FAST_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = LT_BOMB_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = STRAT_BOAT_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = TRANSPORT_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = SCOUT_PLANE_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = SUICIDE_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = JET_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = JET_MR_FIGHTER_EQUIPMENT_WEIGHT 
+				custom_effect_tooltip = JET_CAS_EQUIPMENT_WEIGHT
+				custom_effect_tooltip = JET_TAC_EQUIPMENT_WEIGHT
+				custom_effect_tooltip = JET_STRAT_EQUIPMENT_WEIGHT
+				custom_effect_tooltip = ROCKET_INTERCEPTOR_EQUIPMENT_WEIGHT
+				if = {
+					limit = {
+						has_idea = tiny_air_force
+					}
+					show_ideas_tooltip = tiny_air_force
+				}
+				else_if = {
+					limit = { 
+						has_idea = small_air_force
+					}
+					show_ideas_tooltip = small_air_force
+				}
+				else_if = {
+					limit = { 
+						has_idea = average_air_force
+					}
+					show_ideas_tooltip = average_air_force
+				}
+				else_if = {
+					limit = { 
+						has_idea = large_air_force
+					}
+					show_ideas_tooltip = large_air_force
+				}
+				else_if = {
+					limit = { 
+						has_idea = huge_air_force
+					}
+					show_ideas_tooltip = huge_air_force
+				} 
+			} 
+			
+			navy_strength_click = { 
+				custom_effect_tooltip = NAVAL_WEIGHT_TT    
+				custom_effect_tooltip = BATTLESHIP_WEIGHT  
+				custom_effect_tooltip = BATTLECRUISER_WEIGHT  
+				custom_effect_tooltip = LARGE_CRUISER_WEIGHT  
+				custom_effect_tooltip = PREDREADNOUGHT_WEIGHT  
+				custom_effect_tooltip = SUPER_CARRIER_WEIGHT     
+				custom_effect_tooltip = CARRIER_WEIGHT     
+				custom_effect_tooltip = ARMORED_CARRIER_WEIGHT
+				custom_effect_tooltip = LIGHT_CARRIER_WEIGHT   
+				custom_effect_tooltip = ESCORT_CARRIER_WEIGHT   
+				custom_effect_tooltip = POCKET_BATTLESHIP_WEIGHT
+				custom_effect_tooltip = HEAVY_CRUISER_WEIGHT
+				custom_effect_tooltip = LIGHT_CRUISER_WEIGHT
+				custom_effect_tooltip = DESTROYER_WEIGHT
+				custom_effect_tooltip = DESTROYER_ESCORT_WEIGHT
+				custom_effect_tooltip = TORPEDO_BOAT_WEIGHT
+				custom_effect_tooltip = ESCORT_WEIGHT
+				custom_effect_tooltip = LONG_RANGE_SUBMARINE_WEIGHT
+				custom_effect_tooltip = SUBMARINE_WEIGHT 
+				custom_effect_tooltip = COASTAL_SUBMARINE_WEIGHT
+				
+				if = {
+					limit = {
+						has_idea = tiny_navy
+					}
+					show_ideas_tooltip = tiny_navy
+				}
+				else_if = {
+					limit = {
+						has_idea = small_navy
+					}
+					show_ideas_tooltip = small_navy
+				}
+				else_if = {
+					limit = {
+						has_idea = average_navy
+					}
+					show_ideas_tooltip = average_navy
+				}
+				else_if = {
+					limit = {
+						has_idea = large_navy
+					}
+					show_ideas_tooltip = large_navy
+				}
+				else_if = {
+					limit = {
+						has_idea = huge_navy
+					}
+					show_ideas_tooltip = huge_navy
+				}
+				
+			}
+			
+			hide_click = {
+				clr_country_flag = sidebar
+				add_to_variable = { ui_topbar_update = 1 }
+			}
+        }
+	}
+}

@@ -1,0 +1,46 @@
+﻿l_russian:
+ #Some Stuff 
+ medals_for_free: "Медали бесплатно" #NT!
+ Vanilla_medals_from_countries: "Медали из ванильных стран" #NT!
+ EAW_medals_from_countries: "Медали Эквестрии на войне" #NT!
+ RT56_medals_from_countries: "Медали «Дорога к 56»" #NT!
+ KR_medals_from_countries: "Медали Кайзеррайха" #NT!
+ KX_medals_from_countries: "Медали от Kaiserredux" #NT!
+ MD_medals_from_countries: "Медали из Millenium Dawn" #NT!
+ BI_medals_from_countries: "Медали от BlackICE" #NT!
+ make_medals_free: "Медали бесплатно - §RFalse§!" #NT!
+ make_medals_default: "Медали бесплатно - §GTrue§!" #NT!
+ mfe_dynamic_modifiers: "Медали за бесплатный модификатор" #NT!
+ medals_increase_1: "Стоимость увеличена на §R1%§!" #NT!
+ medals_increase_5: "Стоимость увеличена на §R5%§!" #NT!
+ medals_increase_10: "Стоимость увеличена на §R10%§!" #NT!
+ medals_increase_25: "Стоимость увеличена на §R25%§!" #NT!
+ medals_increase_50: "Стоимость увеличена на §R50%§!" #NT!
+ medals_decrease_1: "Стоимость снижена на §G1%§!" #NT!
+ medals_decrease_5: "Стоимость снижена на §G5%§!" #NT!
+ medals_decrease_10: "Стоимость снижена на §G10%§!" #NT!
+ medals_decrease_25: "Стоимость снижена на §G25%§!" #NT!
+ medals_decrease_50: "Стоимость снижена на §G50%§!" #NT!
+ #BlackICE 
+ BI_allow_GER_medals: "Немецкие медали - §RFalse§!" #NT!
+ BI_disallow_GER_medals: "Немецкие медали - §GTrue§!" #NT!
+ BI_allow_USA_medals: "Американские медали - §RFalse§!" #NT!
+ BI_disallow_USA_medals: "Американские медали - §GTrue§!" #NT!
+ BI_allow_SOV_medals: "Советские медали - §RFalse§!" #NT!
+ BI_disallow_SOV_medals: "Советские медали - §GTrue§!" #NT!
+ BI_allow_ENG_medals: "Британские медали - §RFalse§!" #NT!
+ BI_disallow_ENG_medals: "Британские медали - §GTrue§!" #NT!
+ BI_allow_FRA_medals: "Французские медали - §RFalse§!" #NT!
+ BI_disallow_FRA_medals: "Французские медали - §GTrue§!" #NT!
+ BI_allow_ITA_medals: "Итальянские медали - §RFalse§!" #NT!
+ BI_disallow_ITA_medals: "Итальянские медали - §GTrue§!" #NT!
+ BI_allow_JAP_medals: "Японские медали - §RFalse§!" #NT!
+ BI_disallow_JAP_medals: "Японские медали - §GTrue§!" #NT!
+ BI_allow_fascism_generic_medals: "Родовой фашизм - §RFalse§!" #NT!
+ BI_disallow_fascism_generic_medals: "Родовой фашизм - §GTrue§!" #NT!
+ BI_allow_communism_generic_medals: "Родовой коммунизм - §RFalse§!" #NT!
+ BI_disallow_communism_generic_medals: "Родовой коммунизм - §GTrue§!" #NT!
+ BI_allow_democracy_generic_medals: "Общая демократия - §RFalse§!" #NT!
+ BI_disallow_democracy_generic_medals: "Общая демократия - §GTrue§!" #NT!
+ BI_allow_neutrality_generic_medals: "Общий нейтралитет - §RFalse§!" #NT!
+ BI_disallow_neutrality_generic_medals: "Общий нейтралитет - §GTrue§!" #NT!

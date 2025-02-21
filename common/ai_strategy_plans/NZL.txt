@@ -1,0 +1,30 @@
+NZL_historical = {
+	name = "New Zealand historical plan"
+	desc = "Essentially historical behaviour for New Zealand"
+
+	allowed = { tag = NZL }
+	enable = {
+		original_tag = NZL
+		is_historical_focus_on = yes
+	}
+
+	ai_national_focuses = {
+		NZL_industrial
+		NZL_bi_enact_social_policy
+		NZL_bi_pass_social_security_act
+		NZL_factories
+		NZL_forest_works
+		NZL_bi_public_works_department
+		ANZAC_treaty
+		NZL_wairarapa_sheep_farms
+		NZL_bi_early_rearmament
+		NZL_bi_cool_storage
+		NZL_bi_meat_focus
+		CW_caledonia
+	}
+	
+	weight = {
+		factor = 1.0
+	}
+}
+### EOF ###

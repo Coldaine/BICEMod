@@ -1,0 +1,598 @@
+BI_medals_from_countries = {
+
+
+ #####  ####### ######  #     #    #    #     # #     # 
+#     # #       #     # ##   ##   # #   ##    #  #   #  
+#       #       #     # # # # #  #   #  # #   #   # #   
+#  #### #####   ######  #  #  # #     # #  #  #    #    
+#     # #       #   #   #     # ####### #   # #    #    
+#     # #       #    #  #     # #     # #    ##    #    
+ #####  ####### #     # #     # #     # #     #    #    
+
+
+	BI_allow_GER_medals = {
+		icon = mfe_GER_flag
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_GER_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_GER_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_GER_medals
+			}
+		}
+	}
+	BI_disallow_GER_medals = {
+		icon = mfe_GER_flag
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_GER_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_GER_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_GER_medals
+			}
+		}
+	}
+
+
+#     # #     # ### ####### ####### ######      #####  #######    #    ####### #######  ##### 
+#     # ##    #  #     #    #       #     #    #     #    #      # #      #    #       #     #
+#     # # #   #  #     #    #       #     #    #          #     #   #     #    #       #      
+#     # #  #  #  #     #    #####   #     #     #####     #    #     #    #    #####    ##### 
+#     # #   # #  #     #    #       #     #          #    #    #######    #    #             #
+#     # #    ##  #     #    #       #     #    #     #    #    #     #    #    #       #     #
+ #####  #     # ###    #    ####### ######      #####     #    #     #    #    #######  ##### 
+
+
+	BI_allow_USA_medals = {
+		icon = mfe_USA_flag
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_USA_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_USA_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_USA_medals
+			}
+		}
+	}
+	BI_disallow_USA_medals = {
+		icon = mfe_USA_flag
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_USA_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_USA_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_USA_medals
+			}
+		}
+	}
+
+
+ #####  ####### #     # ### ####### #######    #     # #     # ### ####### #     # 
+#     # #     # #     #  #  #          #       #     # ##    #  #  #     # ##    # 
+#       #     # #     #  #  #          #       #     # # #   #  #  #     # # #   # 
+ #####  #     # #     #  #  #####      #       #     # #  #  #  #  #     # #  #  # 
+      # #     #  #   #   #  #          #       #     # #   # #  #  #     # #   # # 
+#     # #     #   # #    #  #          #       #     # #    ##  #  #     # #    ## 
+ #####  #######    #    ### #######    #        #####  #     # ### ####### #     # 
+
+
+	BI_allow_SOV_medals = {
+		icon = mfe_SOV_flag
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_SOV_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_SOV_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_SOV_medals
+			}
+		}
+	}
+	BI_disallow_SOV_medals = {
+		icon = mfe_SOV_flag
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_SOV_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_SOV_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_SOV_medals
+			}
+		}
+	}
+
+
+#     # #     # ### ####### ####### ######     #    # ### #     #  #####  ######  ####### #     # 
+#     # ##    #  #     #    #       #     #    #   #   #  ##    # #     # #     # #     # ##   ## 
+#     # # #   #  #     #    #       #     #    #  #    #  # #   # #       #     # #     # # # # # 
+#     # #  #  #  #     #    #####   #     #    ###     #  #  #  # #  #### #     # #     # #  #  # 
+#     # #   # #  #     #    #       #     #    #  #    #  #   # # #     # #     # #     # #     # 
+#     # #    ##  #     #    #       #     #    #   #   #  #    ## #     # #     # #     # #     # 
+ #####  #     # ###    #    ####### ######     #    # ### #     #  #####  ######  ####### #     # 
+
+
+	BI_allow_ENG_medals = {
+		icon = mfe_ENG_flag
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_ENG_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_ENG_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_ENG_medals
+			}
+		}
+	}
+	BI_disallow_ENG_medals = {
+		icon = mfe_ENG_flag
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_ENG_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_ENG_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_ENG_medals
+			}
+		}
+	}
+
+
+####### ######     #    #     #  #####  ####### 
+#       #     #   # #   ##    # #     # #       
+#       #     #  #   #  # #   # #       #       
+#####   ######  #     # #  #  # #       #####   
+#       #   #   ####### #   # # #       #       
+#       #    #  #     # #    ## #     # #       
+#       #     # #     # #     #  #####  ####### 
+
+
+	BI_allow_FRA_medals = {
+		icon = mfe_FRA_flag
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_FRA_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_FRA_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_FRA_medals
+			}
+		}
+	}
+	BI_disallow_FRA_medals = {
+		icon = mfe_FRA_flag
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_FRA_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_FRA_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_FRA_medals
+			}
+		}
+	}
+
+
+### #######    #    #       #     # 
+ #     #      # #   #        #   #  
+ #     #     #   #  #         # #   
+ #     #    #     # #          #    
+ #     #    ####### #          #    
+ #     #    #     # #          #    
+###    #    #     # #######    #    
+
+
+	BI_allow_ITA_medals = {
+		icon = mfe_ITA_flag
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_ITA_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_ITA_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_ITA_medals
+			}
+		}
+	}
+	BI_disallow_ITA_medals = {
+		icon = mfe_ITA_flag
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_ITA_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_ITA_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_ITA_medals
+			}
+		}
+	}
+
+
+      #    #    ######     #    #     # 
+      #   # #   #     #   # #   ##    # 
+      #  #   #  #     #  #   #  # #   # 
+      # #     # ######  #     # #  #  # 
+#     # ####### #       ####### #   # # 
+#     # #     # #       #     # #    ## 
+ #####  #     # #       #     # #     # 
+
+
+	BI_allow_JAP_medals = {
+		icon = mfe_JAP_flag
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_JAP_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_JAP_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_JAP_medals
+			}
+		}
+	}
+	BI_disallow_JAP_medals = {
+		icon = mfe_JAP_flag
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_JAP_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_JAP_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_JAP_medals
+			}
+		}
+	}
+
+	
+#######    #     #####   #####  ###  #####  #     #              #####  ####### #     # ####### ######  ###  #####  
+#         # #   #     # #     #  #  #     # ##   ##             #     # #       ##    # #       #     #  #  #     # 
+#        #   #  #       #        #  #       # # # #             #       #       # #   # #       #     #  #  #       
+#####   #     #  #####  #        #   #####  #  #  #    #####    #  #### #####   #  #  # #####   ######   #  #       
+#       #######       # #        #        # #     #             #     # #       #   # # #       #   #    #  #       
+#       #     # #     # #     #  #  #     # #     #             #     # #       #    ## #       #    #   #  #     # 
+#       #     #  #####   #####  ###  #####  #     #              #####  ####### #     # ####### #     # ###  #####  
+
+
+	BI_allow_fascism_generic_medals = {
+		icon = mfe_fascism_generic
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_fascism_generic_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_fascism_generic_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_fascism_generic_medals
+			}
+		}
+	}
+	BI_disallow_fascism_generic_medals = {
+		icon = mfe_fascism_generic
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_fascism_generic_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_fascism_generic_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_fascism_generic_medals
+			}
+		}
+	}
+
+
+ #####  ####### #     # #     # #     # #     # ###  #####  #     #              #####  ####### #     # ####### ######  ###  #####  
+#     # #     # ##   ## ##   ## #     # ##    #  #  #     # ##   ##             #     # #       ##    # #       #     #  #  #     # 
+#       #     # # # # # # # # # #     # # #   #  #  #       # # # #             #       #       # #   # #       #     #  #  #       
+#       #     # #  #  # #  #  # #     # #  #  #  #   #####  #  #  #    #####    #  #### #####   #  #  # #####   ######   #  #       
+#       #     # #     # #     # #     # #   # #  #        # #     #             #     # #       #   # # #       #   #    #  #       
+#     # #     # #     # #     # #     # #    ##  #  #     # #     #             #     # #       #    ## #       #    #   #  #     # 
+ #####  ####### #     # #     #  #####  #     # ###  #####  #     #              #####  ####### #     # ####### #     # ###  #####  
+
+
+	BI_allow_communism_generic_medals = {
+		icon = mfe_communism_generic
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_communism_generic_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_communism_generic_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_communism_generic_medals
+			}
+		}
+	}
+	BI_disallow_communism_generic_medals = {
+		icon = mfe_communism_generic
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_communism_generic_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_communism_generic_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_communism_generic_medals
+			}
+		}
+	}
+
+
+
+######  ####### #     # #######  #####  ######     #     #####  #     #              #####  ####### #     # ####### ######  ###  #####  
+#     # #       ##   ## #     # #     # #     #   # #   #     #  #   #              #     # #       ##    # #       #     #  #  #     # 
+#     # #       # # # # #     # #       #     #  #   #  #         # #               #       #       # #   # #       #     #  #  #       
+#     # #####   #  #  # #     # #       ######  #     # #          #       #####    #  #### #####   #  #  # #####   ######   #  #       
+#     # #       #     # #     # #       #   #   ####### #          #                #     # #       #   # # #       #   #    #  #       
+#     # #       #     # #     # #     # #    #  #     # #     #    #                #     # #       #    ## #       #    #   #  #     # 
+######  ####### #     # #######  #####  #     # #     #  #####     #                 #####  ####### #     # ####### #     # ###  #####  
+
+
+	BI_allow_democracy_generic_medals = {
+		icon = mfe_democracy_generic
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_democracy_generic_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_democracy_generic_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_democracy_generic_medals
+			}
+		}
+	}
+	BI_disallow_democracy_generic_medals = {
+		icon = mfe_democracy_generic
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_democracy_generic_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_democracy_generic_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_democracy_generic_medals
+			}
+		}
+	}
+
+
+
+#     # ####### #     # ####### ######     #    #       ### ####### #     #              #####  ####### #     # ####### ######  ###  #####  
+##    # #       #     #    #    #     #   # #   #        #     #     #   #              #     # #       ##    # #       #     #  #  #     # 
+# #   # #       #     #    #    #     #  #   #  #        #     #      # #               #       #       # #   # #       #     #  #  #       
+#  #  # #####   #     #    #    ######  #     # #        #     #       #       #####    #  #### #####   #  #  # #####   ######   #  #       
+#   # # #       #     #    #    #   #   ####### #        #     #       #                #     # #       #   # # #       #   #    #  #       
+#    ## #       #     #    #    #    #  #     # #        #     #       #                #     # #       #    ## #       #    #   #  #     # 
+#     # #######  #####     #    #     # #     # ####### ###    #       #                 #####  ####### #     # ####### #     # ###  #####  
+
+
+	BI_allow_neutrality_generic_medals = {
+		icon = mfe_neutrality_generic
+		allowed = {
+		}
+		visible = {
+			
+			NOT = {
+				has_country_flag = BI_mfe_neutrality_generic_medals
+			}
+		}
+		available = {
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = BI_mfe_neutrality_generic_medals
+				}
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = BI_mfe_neutrality_generic_medals
+			}
+		}
+	}
+	BI_disallow_neutrality_generic_medals = {
+		icon = mfe_neutrality_generic
+		allowed = {
+
+		}
+		visible = {
+			
+			has_country_flag = BI_mfe_neutrality_generic_medals
+		}
+		available = {
+			hidden_trigger = {
+				has_country_flag = BI_mfe_neutrality_generic_medals
+			}
+		}
+		complete_effect = {
+			hidden_effect = {
+				clr_country_flag = BI_mfe_neutrality_generic_medals
+			}
+		}
+	}
+}

@@ -1,0 +1,2413 @@
+### United States
+HSD_USA_CV_yorktown_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CV_wasp
+		}
+		set_temp_variable = { xp_cost = 12 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = improved_ship_hull_carrier
+	has_tech = open_hangar
+	has_tech = improved_engine
+	has_tech = improved_carrier_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_USA_CV_wasp_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CV_yorktown
+		}
+		set_temp_variable = { xp_cost = 10 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = improved_ship_hull_carrier
+	has_tech = open_hangar
+	has_tech = improved_engine
+	has_tech = improved_carrier_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+#HSD_USA_CV_wasp_refit_button_trigger = {
+#	always = no
+#}
+HSD_USA_CV_essex_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_4 }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = advanced_ship_hull_carrier
+	has_tech = open_hangar
+	has_tech = advanced_engine
+	has_tech = improved_carrier_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_improved_heavy_antiair
+	has_tech = basic_naval_radar
+}
+HSD_USA_CV_midway_button_trigger = {
+	set_temp_variable = { role_icon_index = 62 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_super }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = advanced_ship_hull_carrier_super
+	has_tech = advanced_hangar
+	has_tech = advanced_engine
+	has_tech = advanced_carrier_armor_scheme
+	has_tech = damage_control_3
+	has_tech = semimodern_fire_control_system
+	has_tech = nrm_battery_advanced_dp_5
+	has_tech = nrm_advanced_antiair
+	has_tech = nrm_advanced_heavy_antiair
+	has_tech = improved_naval_radar
+}
+
+HSD_USA_BB_north_carolina_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_BB_south_dakota
+		}
+		set_temp_variable = { xp_cost = 8 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 48 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_3
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_16
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_USA_BB_south_dakota_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_BB_north_carolina
+		}
+		set_temp_variable = { xp_cost = 8 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = advanced_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_3
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_16
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+HSD_USA_BB_iowa_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_BB_montana
+		}
+		set_temp_variable = { xp_cost = 21 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = advanced_ship_hull_heavy
+	has_tech = advanced_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_16
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = basic_naval_radar
+}
+HSD_USA_BB_montana_button_trigger = {
+	set_temp_variable = { role_icon_index = 107 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_BB_iowa
+		}
+		set_temp_variable = { xp_cost = 21 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = advanced_ship_hull_heavy
+	has_tech = advanced_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = super_heavy_armor_plates
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_16
+	has_tech = nrm_battery_advanced_dp_5
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_improved_heavy_antiair
+	has_tech = improved_naval_radar
+}
+HSD_USA_CB_alaska_button_trigger = {
+	set_temp_variable = { role_icon_index = 80 }
+	set_temp_variable = { icon = token:nrm_ship_hull_large_cruiser_4 }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = large_cruiser_hull
+	OR = {
+		has_tech = advanced_ship_hull_heavy
+		has_tech = advanced_ship_hull_cruiser
+	}
+	has_tech = advanced_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_12
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_improved_heavy_antiair
+	has_tech = basic_naval_radar
+}
+
+HSD_USA_CA_wichita_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_stlouis
+		}
+		set_temp_variable = { xp_cost = 7 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_brooklyn
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_atlanta
+		}
+		set_temp_variable = { xp_cost = 33 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 36 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_8
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+}
+HSD_USA_CA_baltimore_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_cleveland
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_oregon_city
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_des_moines
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_fargo
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_worcester
+		}
+		set_temp_variable = { xp_cost = 28 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = advanced_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_8
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_improved_heavy_antiair
+	has_tech = basic_naval_radar
+}
+HSD_USA_CA_oregon_city_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_fargo
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_baltimore
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_des_moines
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_worcester
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_cleveland
+		}
+		set_temp_variable = { xp_cost = 23 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = advanced_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = semimodern_fire_control_system
+	has_tech = nrm_battery_advanced_8
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_advanced_antiair
+	has_tech = nrm_advanced_heavy_antiair
+	has_tech = advanced_naval_radar
+}
+HSD_USA_CA_des_moines_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_worcester
+		}
+		set_temp_variable = { xp_cost = 10 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_oregon_city
+		}
+		set_temp_variable = { xp_cost = 12 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_baltimore
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_fargo
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_cleveland
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = advanced_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = modern_fire_control_system
+	has_tech = nrm_battery_modern_8
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = nrm_advanced_antiair
+	has_tech = nrm_modern_heavy_antiair
+	has_tech = semimodern_naval_radar
+}
+
+HSD_USA_CL_brooklyn_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_stlouis
+		}
+		set_temp_variable = { xp_cost = 4 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_wichita
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_atlanta
+		}
+		set_temp_variable = { xp_cost = 33 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 36 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+}
+HSD_USA_CL_stlouis_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_brooklyn
+		}
+		set_temp_variable = { xp_cost = 6 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_wichita
+		}
+		set_temp_variable = { xp_cost = 6 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_atlanta
+		}
+		set_temp_variable = { xp_cost = 35 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 39 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+}
+HSD_USA_CL_atlanta_button_trigger = {
+	set_temp_variable = { role_icon_index = 69 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_stlouis
+		}
+		set_temp_variable = { xp_cost = 37 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_brooklyn
+		}
+		set_temp_variable = { xp_cost = 39 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_wichita
+		}
+		set_temp_variable = { xp_cost = 39 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 48 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = advanced_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = basic_depth_charges
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = improved_sonar_2
+	has_tech = early_naval_radar
+}
+HSD_USA_CL_cleveland_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_baltimore
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_fargo
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_oregon_city
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_des_moines
+		}
+		set_temp_variable = { xp_cost = 31 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_worcester
+		}
+		set_temp_variable = { xp_cost = 34 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = advanced_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_improved_heavy_antiair
+	has_tech = basic_naval_radar
+}
+HSD_USA_CL_fargo_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_cleveland
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_oregon_city
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_baltimore
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_des_moines
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_worcester
+		}
+		set_temp_variable = { xp_cost = 28 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = advanced_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = semimodern_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_advanced_antiair
+	has_tech = nrm_advanced_heavy_antiair
+	has_tech = advanced_naval_radar
+}
+HSD_USA_CL_worcester_button_trigger = {
+	set_temp_variable = { role_icon_index = 69 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_des_moines
+		}
+		set_temp_variable = { xp_cost = 11 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_oregon_city
+		}
+		set_temp_variable = { xp_cost = 15 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CA_baltimore
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_fargo
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_USA_CL_cleveland
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = advanced_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = modern_fire_control_system
+	has_tech = nrm_battery_modern_dp_6
+	has_tech = nrm_advanced_antiair
+	has_tech = nrm_modern_heavy_antiair
+	has_tech = semimodern_naval_radar
+}
+
+### United Kingdom
+HSD_ENG_CV_ark_royal_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_3 }
+
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CV_illustrious
+		}
+		set_temp_variable = { xp_cost = 23 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CV_implacable
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = improved_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = improved_carrier_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_ENG_CV_illustrious_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CV_ark_royal
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CV_implacable
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 42 }
+	}
+	
+	has_tech = improved_ship_hull_carrier
+	has_tech = armoured_hangar
+	has_tech = improved_engine
+	has_tech = improved_carrier_armor_scheme
+	has_tech = damage_control_3
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_ENG_CV_implacable_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CV_illustrious
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CV_ark_royal
+		}
+		set_temp_variable = { xp_cost = 29 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = improved_ship_hull_carrier
+	has_tech = armoured_hangar
+	has_tech = improved_engine
+	has_tech = improved_carrier_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+HSD_ENG_CV_audacious_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_4 }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = advanced_ship_hull_carrier
+	has_tech = armoured_hangar
+	has_tech = improved_engine
+	has_tech = advanced_carrier_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = basic_naval_radar
+}
+HSD_ENG_CV_malta_button_trigger = {
+	set_temp_variable = { role_icon_index = 62 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_4 }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = advanced_ship_hull_carrier_super
+	has_tech = open_hangar
+	has_tech = advanced_engine
+	has_tech = advanced_carrier_armor_scheme
+	has_tech = damage_control_3
+	has_tech = semimodern_fire_control_system
+	has_tech = nrm_battery_advanced_dp_4
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_improved_heavy_antiair
+	has_tech = improved_naval_radar
+}
+
+HSD_ENG_BB_king_george_v_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_BB_lion
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_3
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_14
+	has_tech = nrm_battery_improved_dp_5h
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_ENG_BB_lion_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_BB_king_george_v
+		}
+		set_temp_variable = { xp_cost = 14 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_16
+	has_tech = nrm_battery_improved_dp_5h
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+HSD_ENG_BB_vanguard_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_4 }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = advanced_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_16
+	has_tech = nrm_battery_improved_dp_5h
+	has_tech = airplane_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = basic_naval_radar
+}
+
+HSD_ENG_CA_benbow_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_fiji
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_swiftsure
+		}
+		set_temp_variable = { xp_cost = 28 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_dido
+		}
+		set_temp_variable = { xp_cost = 32 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_southampton
+		}
+		set_temp_variable = { xp_cost = 33 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_edinburgh
+		}
+		set_temp_variable = { xp_cost = 35 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_8
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+HSD_ENG_CL_southampton_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_edinburgh
+		}
+		set_temp_variable = { xp_cost = 12 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_fiji
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_dido
+		}
+		set_temp_variable = { xp_cost = 23 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_swiftsure
+		}
+		set_temp_variable = { xp_cost = 28 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CA_benbow
+		}
+		set_temp_variable = { xp_cost = 35 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_ENG_CL_edinburgh_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_southampton
+		}
+		set_temp_variable = { xp_cost = 12 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_fiji
+		}
+		set_temp_variable = { xp_cost = 19 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_dido
+		}
+		set_temp_variable = { xp_cost = 24 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_swiftsure
+		}
+		set_temp_variable = { xp_cost = 27 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CA_benbow
+		}
+		set_temp_variable = { xp_cost = 39 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 48 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_ENG_CL_dido_button_trigger = {
+	set_temp_variable = { role_icon_index = 69 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_edinburgh
+		}
+		set_temp_variable = { xp_cost = 24 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_southampton
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_fiji
+		}
+		set_temp_variable = { xp_cost = 27 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CA_benbow
+		}
+		set_temp_variable = { xp_cost = 34 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_swiftsure
+		}
+		set_temp_variable = { xp_cost = 40 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 48 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_dp_5h
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_ENG_CL_fiji_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_edinburgh
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_swiftsure
+		}
+		set_temp_variable = { xp_cost = 20 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_southampton
+		}
+		set_temp_variable = { xp_cost = 21 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CA_benbow
+		}
+		set_temp_variable = { xp_cost = 26 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_dido
+		}
+		set_temp_variable = { xp_cost = 29 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 48 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+HSD_ENG_CL_swiftsure_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_fiji
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_southampton
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_edinburgh
+		}
+		set_temp_variable = { xp_cost = 26 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CA_benbow
+		}
+		set_temp_variable = { xp_cost = 28 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_ENG_CL_dido
+		}
+		set_temp_variable = { xp_cost = 34 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_3
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = basic_naval_radar
+}
+
+### Japan
+HSD_JAP_CV_soryu_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CV_hiryu
+		}
+		set_temp_variable = { xp_cost = 6 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 36 }
+	}
+	
+	has_tech = improved_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = basic_carrier_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_5
+	has_tech = nrm_basic_antiair
+}
+
+HSD_JAP_CV_hiryu_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CV_soryu
+		}
+		set_temp_variable = { xp_cost = 6 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 36 }
+	}
+	
+	has_tech = improved_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = improved_carrier_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_5
+	has_tech = nrm_basic_antiair
+}
+
+HSD_JAP_CV_shokaku_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CV_taiho
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CV_unryu
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 42 }
+	}
+	
+	has_tech = advanced_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = improved_carrier_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_5
+	has_tech = nrm_basic_antiair
+}
+
+HSD_JAP_CV_junyo_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_liner }
+	set_temp_variable = { xp_cost = 36 }
+	
+	has_tech = basic_ship_hull_carrier
+	has_tech = improved_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_5
+	has_tech = nrm_basic_antiair
+}
+
+HSD_JAP_CV_shinano_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_capital }
+	set_temp_variable = { xp_cost = 51 }
+	
+	has_tech = basic_ship_hull_carrier
+	has_tech = advanced_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_5
+	has_tech = nrm_basic_antiair
+}
+
+HSD_JAP_CV_taiho_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CV_unryu
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CV_shokaku
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = advanced_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = advanced_carrier_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = nrm_basic_antiair
+}
+
+HSD_JAP_CV_unryu_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CV_taiho
+		}
+		set_temp_variable = { xp_cost = 24 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CV_shokaku
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = advanced_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = advanced_carrier_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_5
+	has_tech = nrm_improved_antiair
+	has_tech = basic_naval_radar
+}
+
+HSD_JAP_CV_kokuryu_button_trigger = {
+	set_temp_variable = { role_icon_index = 62 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_super }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = advanced_ship_hull_carrier_super
+	has_tech = improved_engine
+	has_tech = advanced_carrier_armor_scheme
+	has_tech = damage_control_2
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = nrm_improved_antiair
+	has_tech = basic_naval_radar
+}
+
+HSD_JAP_BB_yamato_button_trigger = {
+	set_temp_variable = { role_icon_index = 107 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_BB_settsu
+		}
+		set_temp_variable = { xp_cost = 26 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = super_heavy_armor_plates
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_18
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_5
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_basic_antiair
+}
+
+HSD_JAP_BB_settsu_button_trigger = {
+	set_temp_variable = { role_icon_index = 107 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_BB_yamato
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = super_heavy_armor_plates
+	has_tech = damage_control_2
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_20
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_improved_antiair
+}
+
+HSD_JAP_CB_fuji_button_trigger = {
+	set_temp_variable = { role_icon_index = 80 }
+	set_temp_variable = { icon = token:nrm_ship_hull_large_cruiser_4 }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = large_cruiser_hull
+	OR = {
+		has_tech = advanced_ship_hull_heavy
+		has_tech = advanced_ship_hull_cruiser
+	}
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_12
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = basic_naval_radar
+}
+
+HSD_JAP_CA_ibuki_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CL_sakai
+		}
+		set_temp_variable = { xp_cost = 19 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CA_agano
+		}
+		set_temp_variable = { xp_cost = 26 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CL_oyodo
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_8
+	has_tech = nrm_battery_improved_5
+	has_tech = improved_airplane_launcher
+	has_tech = advanced_heavy_ship_torpedo_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = basic_naval_radar
+}
+
+HSD_JAP_CL_agano_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CL_oyodo
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CA_ibuki
+		}
+		set_temp_variable = { xp_cost = 33 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CL_sakai
+		}
+		set_temp_variable = { xp_cost = 35 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 48 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_advanced_4
+	has_tech = improved_airplane_launcher
+	has_tech = advanced_heavy_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+}
+
+HSD_JAP_CL_oyodo_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CL_agano
+		}
+		set_temp_variable = { xp_cost = 24 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CL_sakai
+		}
+		set_temp_variable = { xp_cost = 39 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CA_ibuki
+		}
+		set_temp_variable = { xp_cost = 40 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_dp_4
+	has_tech = improved_airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = early_naval_radar
+}
+
+HSD_JAP_CL_sakai_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CA_ibuki
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CL_agano
+		}
+		set_temp_variable = { xp_cost = 27 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_JAP_CL_oyodo
+		}
+		set_temp_variable = { xp_cost = 28 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = advanced_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_advanced_4
+	has_tech = improved_airplane_launcher
+	has_tech = advanced_heavy_ship_torpedo_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = basic_naval_radar
+}
+
+### Italy
+HSD_ITA_CV_aquila_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_liner }
+	set_temp_variable = { xp_cost = 42 }
+	
+	has_tech = basic_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_5h
+	has_tech = nrm_battery_improved_4
+	has_tech = nrm_basic_antiair
+}
+
+HSD_ITA_BB_vittorio_veneto_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ITA_BB_roma
+		}
+		set_temp_variable = { xp_cost = 7 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_15
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_ITA_BB_roma_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ITA_BB_vittorio_veneto
+		}
+		set_temp_variable = { xp_cost = 9 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 48 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_15
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_ITA_CL_duca_degli_abruzzi_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ITA_CL_capitani_romani
+		}
+		set_temp_variable = { xp_cost = 35 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 42 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_4
+	has_tech = basic_naval_mines
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = airplane_launcher
+	has_tech = nrm_early_antiair
+	has_tech = nrm_improved_heavy_antiair
+}
+
+HSD_ITA_CL_capitani_romani_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_ITA_CL_duca_degli_abruzzi
+		}
+		set_temp_variable = { xp_cost = 32 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 42 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_5h
+	has_tech = improved_depth_charges
+	has_tech = basic_naval_mines
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_improved_heavy_antiair
+}
+
+### Germany
+HSD_GER_CV_graf_zeppelin_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_2 }
+
+	set_temp_variable = { xp_cost = 42 }
+	
+	has_tech = early_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_CV_elbe_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_liner }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_CV_europa
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = basic_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_4
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_CV_europa_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_liner }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_CV_elbe
+		}
+		set_temp_variable = { xp_cost = 26 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = basic_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = basic_carrier_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_4
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+HSD_GER_BB_scharnhorst_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst_38cm
+		}
+		set_temp_variable = { xp_cost = 3 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_bismarck
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_hindenburg
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BC_derfflinger
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_ulrich_von_hutten
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 42 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_advanced_11
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_BB_scharnhorst_38cm_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst_38cm
+		}
+		set_temp_variable = { xp_cost = 3 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_bismarck
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BC_derfflinger
+		}
+		set_temp_variable = { xp_cost = 27 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_hindenburg
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_ulrich_von_hutten
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 42 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_15
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_BB_bismarck_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst_38cm
+		}
+		set_temp_variable = { xp_cost = 16 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_hindenburg
+		}
+		set_temp_variable = { xp_cost = 23 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BC_derfflinger
+		}
+		set_temp_variable = { xp_cost = 29 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_ulrich_von_hutten
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_15
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_BB_hindenburg_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_BC_derfflinger
+		}
+		set_temp_variable = { xp_cost = 21 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_bismarck
+		}
+		set_temp_variable = { xp_cost = 23 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_ulrich_von_hutten
+		}
+		set_temp_variable = { xp_cost = 26 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst_38cm
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_diesel
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_16
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+HSD_GER_BC_derfflinger_button_trigger = {
+	set_temp_variable = { role_icon_index = 89 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_hindenburg
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_ulrich_von_hutten
+		}
+		set_temp_variable = { xp_cost = 29 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_bismarck
+		}
+		set_temp_variable = { xp_cost = 32 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst_38cm
+		}
+		set_temp_variable = { xp_cost = 33 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst
+		}
+		set_temp_variable = { xp_cost = 36 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_diesel
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_15
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+HSD_GER_BB_ulrich_von_hutten_button_trigger = {
+	set_temp_variable = { role_icon_index = 107 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_hindenburg
+		}
+		set_temp_variable = { xp_cost = 22 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BC_derfflinger
+		}
+		set_temp_variable = { xp_cost = 25 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_bismarck
+		}
+		set_temp_variable = { xp_cost = 28 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst_38cm
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_GER_BB_scharnhorst
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 54 }
+	}
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_diesel
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = advanced_fire_control_system
+	has_tech = nrm_battery_advanced_16
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_improved_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = basic_naval_radar
+}
+
+HSD_GER_PS_graf_spee_button_trigger = {
+	set_temp_variable = { role_icon_index = 71 }
+	set_temp_variable = { icon = token:nrm_ship_hull_panzerschiff_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_PS_roon
+		}
+		set_temp_variable = { xp_cost = 33 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 42 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = panzerschiffe
+	has_tech = improved_diesel
+	has_tech = basic_cruiser_armor_scheme
+	has_tech = damage_control_1
+	has_tech = early_fire_control_system
+	has_tech = nrm_battery_improved_11
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_PS_roon_button_trigger = {
+	set_temp_variable = { role_icon_index = 71 }
+	set_temp_variable = { icon = token:nrm_ship_hull_panzerschiff_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_PS_graf_spee
+		}
+		set_temp_variable = { xp_cost = 31 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = panzerschiffe
+	has_tech = improved_diesel
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_11
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_CA_admiral_hipper_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_CL_munchen
+		}
+		set_temp_variable = { xp_cost = 29 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 42 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_8
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_CL_munchen_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_GER_CA_admiral_hipper
+		}
+		set_temp_variable = { xp_cost = 27 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 45 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = basic_naval_mines
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_GER_CL_dresden_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	set_temp_variable = { xp_cost = 51 }
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+### France
+HSD_FRA_CV_joffre_button_trigger = {
+	set_temp_variable = { role_icon_index = 53 }
+	set_temp_variable = { icon = token:nrm_ship_hull_carrier_3 }
+	set_temp_variable = { xp_cost = 42 }
+	
+	has_tech = improved_ship_hull_carrier
+	has_tech = improved_engine
+	has_tech = basic_carrier_armor_scheme
+	has_tech = damage_control_1
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_5
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_FRA_BB_richelieu_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	set_temp_variable = { xp_cost = 42 }
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_15
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_FRA_BB_alsace_button_trigger = {
+	set_temp_variable = { role_icon_index = 98 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_4 }
+	set_temp_variable = { xp_cost = 54 }
+	
+	has_tech = advanced_ship_hull_heavy
+	has_tech = improved_engine
+	has_tech = improved_heavy_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_15
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+HSD_FRA_CA_algerie_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CL_la_galissonniere
+		}
+		set_temp_variable = { xp_cost = 15 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CA_saint_louis
+		}
+		set_temp_variable = { xp_cost = 26 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CL_de_grasse
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 36 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_8
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_FRA_CA_saint_louis_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CL_de_grasse
+		}
+		set_temp_variable = { xp_cost = 18 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CL_algerie
+		}
+		set_temp_variable = { xp_cost = 34 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CL_la_galissonniere
+		}
+		set_temp_variable = { xp_cost = 39 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_8
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+HSD_FRA_CL_la_galissonniere_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CA_algerie
+		}
+		set_temp_variable = { xp_cost = 15 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CL_de_grasse
+		}
+		set_temp_variable = { xp_cost = 30 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CA_saint_louis
+		}
+		set_temp_variable = { xp_cost = 33 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 39 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+}
+
+HSD_FRA_CL_de_grasse_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CA_saint_louis
+		}
+		set_temp_variable = { xp_cost = 20 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CL_la_galissonniere
+		}
+		set_temp_variable = { xp_cost = 38 }
+	}
+	else_if = { 
+		limit = {
+			has_country_flag = HSD_FRA_CA_algerie
+		}
+		set_temp_variable = { xp_cost = 40 }
+	}
+	else = {
+		set_temp_variable = { xp_cost = 51 }
+	}
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+### Soviet Union
+HSD_SOV_BB_sovetskiy_soyuz_button_trigger = {
+	set_temp_variable = { role_icon_index = 107 }
+	set_temp_variable = { icon = token:nrm_ship_hull_capital_3 }
+	set_temp_variable = { xp_cost = 42 }
+	
+	has_tech = improved_ship_hull_heavy
+	has_tech = early_engine
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_improved_16
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_SOV_CB_kronshtadt_button_trigger = {
+	set_temp_variable = { role_icon_index = 80 }
+	set_temp_variable = { icon = token:nrm_ship_hull_large_cruiser_3 }
+	set_temp_variable = { xp_cost = 48 }
+	
+	has_tech = large_cruiser_hull
+	has_tech = improved_engine
+	has_tech = basic_heavy_armor_scheme
+	has_tech = damage_control_1
+	has_tech = basic_fire_control_system
+	has_tech = nrm_battery_advanced_12
+	has_tech = nrm_battery_improved_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = nrm_early_antiair
+	has_tech = nrm_basic_heavy_antiair
+}
+
+HSD_SOV_CA_stalingrad_button_trigger = {
+	set_temp_variable = { role_icon_index = 51 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_4 }
+	set_temp_variable = { xp_cost = 51 }
+	
+	has_tech = advanced_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_8
+	has_tech = nrm_battery_improved_dp_5
+	has_tech = airplane_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_improved_heavy_antiair
+	has_tech = early_naval_radar
+}
+
+HSD_SOV_CL_chapaev_button_trigger = {
+	set_temp_variable = { role_icon_index = 42 }
+	set_temp_variable = { icon = token:nrm_ship_hull_cruiser_3 }
+	set_temp_variable = { xp_cost = 51 }
+	
+	has_tech = improved_ship_hull_cruiser
+	has_tech = improved_engine
+	has_tech = improved_cruiser_armor_scheme
+	has_tech = damage_control_2
+	has_tech = improved_fire_control_system
+	has_tech = nrm_battery_advanced_6
+	has_tech = nrm_battery_improved_4
+	has_tech = airplane_launcher
+	has_tech = advanced_ship_torpedo_launcher
+	has_tech = nrm_basic_antiair
+	has_tech = nrm_basic_heavy_antiair
+	has_tech = basic_naval_radar
+}

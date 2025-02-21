@@ -1,0 +1,25 @@
+SPR_historical = {
+	name = "Spain historical plan"
+	desc = "Essentially historical behaviour for Spain"
+	allowed = { tag = SPR }
+
+	enable = {
+		original_tag = SPR
+		is_historical_focus_on = yes
+		has_civil_war = no
+	}
+	abort = {
+		has_civil_war = yes
+	}
+	ai_national_focuses = {
+		SPR_election
+		SPR_arm1
+		SPR_pol1
+		SPR_pol2
+	}
+	
+	weight = {
+		factor = 1.0
+	}
+}
+### EOF ###

@@ -1,0 +1,6 @@
+mfe_dynamic_modifiers = {
+	enable = {
+		always = yes
+	}
+	grant_medal_cost_factor = grant_medal_cost_factor_value
+}

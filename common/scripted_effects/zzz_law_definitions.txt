@@ -1,0 +1,3893 @@
+
+d_allowlaws = {
+	if = {
+		limit = {
+			has_global_flag = allow_laws
+		}
+		clr_global_flag = allow_laws
+		log = "allow_laws disabled"
+	}
+	else = {
+		set_global_flag = allow_laws
+		log = "allow_laws enabled"
+	}
+}
+
+ui_override_law_order = {
+
+	#override law order for these laws. it does not affect days to change, but cost and ui order
+	add_to_temp_array = { law_order_override = token:KMT_corrupted_government }
+	add_to_temp_array = { law_order_override_index = 0 }
+	
+	add_to_temp_array = { law_order_override = token:KMT_corrupted_government_lesser }
+	add_to_temp_array = { law_order_override_index = 0 }
+	
+	add_to_temp_array = { law_order_override = token:KMT_corrupted_government_wartime }
+	add_to_temp_array = { law_order_override_index = 0 }
+	
+	add_to_temp_array = { law_order_override = token:KMT_corrupted_government_wartime_lesser }
+	add_to_temp_array = { law_order_override_index = 0 }
+	
+	add_to_temp_array = { law_order_override = token:SWI_citizen_militia_1 }
+	add_to_temp_array = { law_order_override_index = 0 }
+	
+	add_to_temp_array = { law_order_override = token:SWI_citizen_militia_2 }
+	add_to_temp_array = { law_order_override_index = 0 }
+	
+	add_to_temp_array = { law_order_override = token:PRC_guerrilla_warfare }
+	add_to_temp_array = { law_order_override_index = 0 }
+	
+	add_to_temp_array = { law_order_override = token:propaganda_recruits }
+	add_to_temp_array = { law_order_override_index = 0 }
+	
+	add_to_temp_array = { law_order_override = token:edu_soviets }
+	add_to_temp_array = { law_order_override_index = 2 }
+	
+}
+
+ui_open_selected_laws = {
+
+	clear_variable = selected_laws_current
+	clear_variable = current_budget_cost
+	clear_array = selected_laws
+	clear_array = selected_laws_index
+	clear_array = selected_laws_cost
+	clear_array = selected_laws_budget_cost
+	
+	for_each_loop = {
+		array = global.law@var:law_category
+		
+		if = {
+			limit = {
+				OR = {
+					law_visible_trigger = yes
+					has_idea = var:v
+				}
+			}
+			
+			add_to_temp_array = { temp_selected_laws = v }
+			add_to_temp_array = { temp_selected_laws_index = i }
+			
+			set_temp_variable = { budget_cost = 0 }
+			if = {
+				limit = {
+					meta_trigger = {
+						text = { can_take_[Y] = yes } 
+						Y = "[?v.GetTokenKey]"
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					has_idea = var:v
+				}
+				set_variable = { current_budget_cost = budget_cost }
+			}
+			
+			set_temp_variable = { cost_actual = cost }
+			
+			set_temp_variable = { factor = 1 }
+			#add_to_temp_variable = { factor = modifier@law_cost_factor }
+			meta_effect = {
+				text = { 
+					add_to_temp_variable = { factor = modifier@[X]_cost_factor }
+				}
+				X = "[?law_category.GetTokenKey]"
+			}
+			multiply_temp_variable = { cost_actual = factor }
+			
+			if = {
+				limit = {
+					has_variable = law_cost_discount@var:law_category
+				}
+				#log = "HAS LAW DISCOUNT [?law_category.GetTokenKey]"
+				set_temp_variable = { discount = 1 }
+				add_to_temp_variable = { discount = law_cost_discount@var:law_category }
+				multiply_temp_variable = { cost_actual = discount }
+				#clear_variable = law_cost_discount@var:law_category
+			}
+			
+			add_to_temp_array = { temp_selected_laws_cost = cost_actual }
+			add_to_temp_array = { temp_selected_laws_budget_cost = budget_cost }
+		}
+	}
+	
+	ui_override_law_order = yes 
+	
+	for_each_loop = {
+		array = law_order_override
+		value = law_order
+		
+		for_each_loop = {
+			array = temp_selected_laws
+			
+				
+			if = {
+				limit = {
+					check_variable = { law_order = v }
+				}
+				if = {
+					limit = {
+						check_variable = { global.law@var:law_category^law_level@var:law_category = v }
+					}
+					set_variable = { selected_laws_current = selected_laws^num }
+				}
+				add_to_array = { selected_laws = v }
+				add_to_array = { selected_laws_index = temp_selected_laws_index^i }
+				add_to_array = { selected_laws_cost = temp_selected_laws_cost^i }
+				add_to_array = { selected_laws_budget_cost = temp_selected_laws_budget_cost^i }
+			}
+			
+		}
+	}
+	for_each_loop = {
+		array = temp_selected_laws
+			
+		if = {
+			limit = {
+				NOT = { is_in_array = { selected_laws = v } }
+			}
+			if = {
+				limit = {
+					check_variable = { global.law@var:law_category^law_level@var:law_category = v }
+				}
+				set_variable = { selected_laws_current = selected_laws^num }
+			}
+			add_to_array = { selected_laws = v }
+			add_to_array = { selected_laws_index = temp_selected_laws_index^i }
+			add_to_array = { selected_laws_cost = temp_selected_laws_cost^i }
+			add_to_array = { selected_laws_budget_cost = temp_selected_laws_budget_cost^i }
+		}
+		
+	}
+	
+	for_each_loop = {
+		array = selected_laws
+		value = sel
+		index = entry
+		
+		if = {
+			limit = {
+				NOT = { check_variable = { entry = selected_laws_current } }
+				
+			}  
+			  
+			if = {
+				limit = {
+					set_temp_variable = { t = entry } #3
+					subtract_from_temp_variable = { t = selected_laws_current } #0
+					add_to_temp_variable = { t = -1 }
+					
+					check_variable = { t > 0 } #t= 2
+				}
+				set_temp_variable = { final_cost = selected_laws_cost^entry } 
+				for_each_loop = {
+					array = selected_laws_cost
+					
+					if = {
+						limit = {
+							check_variable = { i > selected_laws_current }
+							check_variable = { t > 0 }
+						}
+						add_to_temp_variable = { t = -1 }
+						add_to_temp_variable = { final_cost = v }
+					
+					}
+				}
+				#log = "[?final_cost] cost for [?sel.GetTokenKey] index [?entry]"
+				
+				add_to_temp_array = { laws_final_cost = final_cost }
+				add_to_temp_array = { laws_final_cost_index = entry }
+				#set_variable = { selected_laws_cost^entry = final_cost }
+			}
+			else_if = {
+				limit = {
+					set_temp_variable = { t = entry } #0
+					subtract_from_temp_variable = { t = selected_laws_current } #-2
+					add_to_temp_variable = { t = 1 } #-1
+					
+					check_variable = { t < 0 }
+					multiply_temp_variable = { t = -1 }
+					
+				}
+				set_temp_variable = { final_cost = selected_laws_cost^entry } 
+				for_each_loop = {
+					array = selected_laws_cost
+					
+					if = {
+						limit = {
+							check_variable = { i > entry }
+							check_variable = { i < selected_laws_current }
+							check_variable = { t > 0 }
+						}
+						log = "yes [?selected_laws^i.GetTokenKey] index: [?i] v: [?v]"
+						add_to_temp_variable = { t = -1 }
+						add_to_temp_variable = { final_cost = v }
+					
+					}
+				}
+				log = "[?final_cost] cost for [?sel.GetTokenKey] index [?entry] | [?t] t"
+				
+				add_to_temp_array = { laws_final_cost = final_cost }
+				add_to_temp_array = { laws_final_cost_index = entry }
+			}
+		}
+			
+	}
+	
+	for_each_loop = {
+		array = laws_final_cost
+		
+		set_temp_variable = { entry = laws_final_cost_index^i }
+		
+		set_variable = { selected_laws_cost^entry = v }
+	}
+	
+	#add_to_array = { global.law@token:trade_laws = token:exploitation_export } #0
+	#add_to_array = { global.law@token:trade_laws = token:unrefined_export } #1
+	#add_to_array = { global.law@token:trade_laws = token:refined_export } #2
+	#add_to_array = { global.law@token:trade_laws = token:balanced_export } #3
+	#add_to_array = { global.law@token:trade_laws = token:low_volume_export } #4
+	
+	#add_to_array = { global.law@token:trade_laws = token:free_trade_export_focus } #4
+	#add_to_array = { global.law@token:trade_laws = token:free_trade_law } #4
+	#add_to_array = { global.law@token:trade_laws = token:free_trade_protectionist } #4
+	
+	#add_to_array = { global.law@token:trade_laws = token:protectionist_economy } #4
+	#add_to_array = { global.law@token:trade_laws = token:export_autarky } #4
+	#add_to_array = { global.law@token:trade_laws = token:autarky_economy } #4
+	
+	#add_to_array = { global.law@token:trade_laws = token:closed_economy_law } #4
+	
+	### TRADE LAWS
+	
+	if = {
+		limit = {
+			check_variable = { law_category = token:trade_laws }
+		}
+	
+		clear_array = selected_sublaws
+		resize_array = { selected_sublaws = selected_laws^num }
+		
+		set_temp_variable = { sublaw_cost = 50 }
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@trade_sublaw_cost_factor }
+		multiply_temp_variable = { sublaw_cost = factor }
+		
+		if = {
+			limit = {
+				check_variable = { law_level@var:law_category = 0 }
+			}
+			add_to_array = { array = selected_laws value = token:exploitation_export index = 1 }
+			add_to_array = { array = selected_laws_index value = -1 index = 1 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 1 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 1 }
+			add_to_array = { array = selected_sublaws value = -5 index = 1 }
+			
+			add_to_array = { array = selected_laws value = token:unrefined_export index = 2 }
+			add_to_array = { array = selected_laws_index value = -1 index = 2 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 2 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 2 }
+			add_to_array = { array = selected_sublaws value = -30 index = 2 }
+			
+			add_to_array = { array = selected_laws value = token:refined_export index = 3 }
+			add_to_array = { array = selected_laws_index value = -1 index = 3 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 3 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 3 }
+			add_to_array = { array = selected_sublaws value = -55 index = 3 }
+			
+			add_to_array = { array = selected_laws value = token:balanced_export index = 4 }
+			add_to_array = { array = selected_laws_index value = -1 index = 4 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 4 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 4 }
+			add_to_array = { array = selected_sublaws value = -80 index = 4 }
+			
+			add_to_array = { array = selected_laws value = token:low_volume_export index = 5 }
+			add_to_array = { array = selected_laws_index value = -1 index = 5 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 5 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 5 }
+			add_to_array = { array = selected_sublaws value = -105 index = 5 }
+			
+			add_to_array = { array = selected_sublaws value = -120 index = 6 }
+			add_to_array = { array = selected_sublaws value = -120 index = 7 }
+			add_to_array = { array = selected_sublaws value = -120 index = 8 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { law_level@var:law_category = 1 }
+			}
+			add_to_array = { array = selected_laws value = token:free_trade_export_focus index = 2 }
+			add_to_array = { array = selected_laws_index value = 0 index = 2 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 2 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 2 }
+			add_to_array = { array = selected_sublaws value = -5 index = 2 }
+			
+			add_to_array = { array = selected_laws value = token:free_trade_law index = 3 }
+			add_to_array = { array = selected_laws_index value = 0 index = 3 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 3 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 3 }
+			add_to_array = { array = selected_sublaws value = -30 index = 3 }
+			
+			add_to_array = { array = selected_laws value = token:free_trade_protectionist index = 4 }
+			add_to_array = { array = selected_laws_index value = 0 index = 4 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 4 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 4 }
+			add_to_array = { array = selected_sublaws value = -55 index = 4 }
+			
+			add_to_array = { array = selected_sublaws value = -70 index = 5 }
+			add_to_array = { array = selected_sublaws value = -70 index = 6 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { law_level@var:law_category = 2 }
+			}
+			add_to_array = { array = selected_laws value = token:protectionist_economy index = 3 }
+			add_to_array = { array = selected_laws_index value = 0 index = 3 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 3 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 3 }
+			add_to_array = { array = selected_sublaws value = -5 index = 3 }
+			
+			add_to_array = { array = selected_laws value = token:export_autarky index = 4 }
+			add_to_array = { array = selected_laws_index value = 0 index = 4 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 4 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 4 }
+			add_to_array = { array = selected_sublaws value = -30 index = 4 }
+			
+			add_to_array = { array = selected_laws value = token:autarky_economy index = 5 }
+			add_to_array = { array = selected_laws_index value = 0 index = 5 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 5 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 5 }
+			add_to_array = { array = selected_sublaws value = -55 index = 5 }
+			
+			add_to_array = { array = selected_sublaws value = -70 index = 6 }
+			
+		}
+		else_if = {
+			limit = {
+				check_variable = { law_level@var:law_category = 3 }
+			}
+			add_to_array = { array = selected_laws value = token:closed_economy_law index = 4 }
+			add_to_array = { array = selected_laws_index value = 0 index = 4 }
+			add_to_array = { array = selected_laws_cost value = sublaw_cost index = 4 }
+			add_to_array = { array = selected_laws_budget_cost value = 0 index = 4 }
+			add_to_array = { array = selected_sublaws value = -5 index = 4 }
+			
+		}
+	}
+
+}
+ui_close_selected_laws = {
+	clear_variable = law_category
+
+	clear_variable = selected_laws_current
+	clear_variable = current_budget_cost
+	clear_array = selected_laws
+	clear_array = selected_laws_index
+	clear_array = selected_laws_cost
+	clear_array = selected_laws_budget_cost
+	
+}
+
+d_fill_law_array = {
+	set_variable = { global.law_mod@token:economy = token:law_economy_switch_speed_factor }
+	set_variable = { global.law_mod@token:mobilization_laws = token:law_mobilization_switch_speed_factor }
+	set_variable = { global.law_mod@token:cadet_training_standards = token:law_cadet_training_switch_speed_factor }
+	set_variable = { global.law_mod@token:officer_training_standards = token:law_officer_training_switch_speed_factor }
+
+	clear_array = global.law_ui #dont ever use this anywhere ever
+	clear_array = global.law_type
+	clear_array = global.law_type_i
+	clear_array = global.law_default
+	clear_array = global.law_max
+	
+	#ROW 1
+	add_to_array = { global.law_ui = token:economy } #economy
+	add_to_array = { global.law_ui = token:nationalization }
+	add_to_array = { global.law_ui = token:fdi_regulations }
+	add_to_array = { global.law_ui = token:mobilization_laws } #army
+	add_to_array = { global.law_ui = token:cadet_training_standards }
+	add_to_array = { global.law_ui = token:officer_training_standards }	
+	add_to_array = { global.law_ui = token:press } #affairs
+	add_to_array = { global.law_ui = token:security }
+	add_to_array = { global.law_ui = token:education }
+	
+	#ROW 2
+	add_to_array = { global.law_ui = token:tariffs } #economy
+	add_to_array = { global.law_ui = token:trade_laws }
+	add_to_array = { global.law_ui = token:taxes }
+	add_to_array = { global.law_ui = token:recruitment_laws } #army
+	add_to_array = { global.law_ui = token:conscription_law }
+	add_to_array = { global.law_ui = token:age_laws }
+	add_to_array = { global.law_ui = token:labor_laws } #affairs
+	add_to_array = { global.law_ui = token:bonds }
+	add_to_array = { global.law_ui = token:foreign_policy } 
+	
+	#ROW 3
+	add_to_array = { global.law_ui = token:civ_fuel_usage }	
+	add_to_array = { global.law_ui = token:diet_laws }	
+	
+	add_to_array = { global.law_type = token:economy }
+	add_to_array = { global.law_type = token:nationalization }
+	add_to_array = { global.law_type = token:fdi_regulations }
+	add_to_array = { global.law_type = token:tariffs }
+	add_to_array = { global.law_type = token:trade_laws }
+	add_to_array = { global.law_type = token:taxes }
+	add_to_array = { global.law_type = token:press }
+	add_to_array = { global.law_type = token:security }
+	add_to_array = { global.law_type = token:education }
+	add_to_array = { global.law_type = token:foreign_policy }
+	add_to_array = { global.law_type = token:bonds }
+	add_to_array = { global.law_type = token:mobilization_laws }
+	add_to_array = { global.law_type = token:conscription_law }
+	add_to_array = { global.law_type = token:age_laws }
+	add_to_array = { global.law_type = token:labor_laws }
+	add_to_array = { global.law_type = token:recruitment_laws }
+	add_to_array = { global.law_type = token:cadet_training_standards }
+	add_to_array = { global.law_type = token:officer_training_standards }	
+	add_to_array = { global.law_type = token:civ_fuel_usage }	
+	add_to_array = { global.law_type = token:diet_laws }	
+	
+	add_to_array = { global.law_type_i@token:economy = 0 }
+	add_to_array = { global.law_type_i@token:nationalization = 1 }
+	add_to_array = { global.law_type_i@token:fdi_regulations = 2 }
+	add_to_array = { global.law_type_i@token:tariffs = 3 }
+	add_to_array = { global.law_type_i@token:trade_laws = 4 }
+	add_to_array = { global.law_type_i@token:taxes = 5 }
+	add_to_array = { global.law_type_i@token:press = 6 }
+	add_to_array = { global.law_type_i@token:security = 7 }
+	add_to_array = { global.law_type_i@token:education = 8 }
+	add_to_array = { global.law_type_i@token:foreign_policy = 9 }
+	add_to_array = { global.law_type_i@token:bonds = 10 }
+	add_to_array = { global.law_type_i@token:mobilization_laws = 11 }
+	add_to_array = { global.law_type_i@token:conscription_law = 12 }
+	add_to_array = { global.law_type_i@token:age_laws = 13 }
+	add_to_array = { global.law_type_i@token:labor_laws = 14 }
+	add_to_array = { global.law_type_i@token:recruitment_laws = 15 }
+	add_to_array = { global.law_type_i@token:cadet_training_standards = 16 }
+	add_to_array = { global.law_type_i@token:officer_training_standards = 17 }
+	add_to_array = { global.law_type_i@token:civ_fuel_usage = 18 }
+	add_to_array = { global.law_type_i@token:diet_laws = 19 }
+	
+	add_to_array = { global.law_default = token:civilian_economy }
+	add_to_array = { global.law_default = token:key_industries }
+	add_to_array = { global.law_default = token:fdi_regulated }
+	add_to_array = { global.law_default = token:tariffs_average }
+	add_to_array = { global.law_default = token:export_focus }
+	add_to_array = { global.law_default = token:tax_average }
+	add_to_array = { global.law_default = token:press_regulated }
+	add_to_array = { global.law_default = token:security_minor_restrictions }
+	add_to_array = { global.law_default = token:edu_low }
+	add_to_array = { global.law_default = token:foreign_cooperative }
+	add_to_array = { global.law_default = token:bonds_peace }
+	add_to_array = { global.law_default = token:mob_reserve }
+	add_to_array = { global.law_default = token:cons_volunteer }
+	add_to_array = { global.law_default = token:age_19 }
+	add_to_array = { global.law_default = token:labor_allowed }
+	add_to_array = { global.law_default = token:foreign_none }
+	add_to_array = { global.law_default = token:train_medium }
+	add_to_array = { global.law_default = token:officer_train_low }
+	add_to_array = { global.law_default = token:normal_civ_fuel_usage }
+	add_to_array = { global.law_default = token:basic_diet }
+	
+
+	clear_array = global.law@token:economy
+	add_to_array = { global.law@token:economy = token:undisturbed_isolation } #0
+	add_to_array = { global.law@token:economy = token:isolation } #1
+	add_to_array = { global.law@token:economy = token:civilian_economy } #2
+	add_to_array = { global.law@token:economy = token:low_economic_mobilisation } #3
+	add_to_array = { global.law@token:economy = token:partial_economic_mobilisation } #4
+	add_to_array = { global.law@token:economy = token:war_economy } #5
+	add_to_array = { global.law@token:economy = token:tot_economic_mobilisation } #6
+	
+	add_to_array = { global.law@token:economy = token:KMT_corrupted_government } #7
+	add_to_array = { global.law@token:economy = token:KMT_corrupted_government_lesser } #8
+	add_to_array = { global.law@token:economy = token:KMT_corrupted_government_wartime } #9
+	add_to_array = { global.law@token:economy = token:KMT_corrupted_government_wartime_lesser } #10
+	add_to_array = { global.law@token:economy = token:PRC_guerrilla_warfare } #11
+
+	clear_array = global.law@token:bonds
+	add_to_array = { global.law@token:bonds = token:bonds_peace } #0
+	add_to_array = { global.law@token:bonds = token:bonds_basic } #1
+	add_to_array = { global.law@token:bonds = token:bonds_war_domestic } #2
+	add_to_array = { global.law@token:bonds = token:bonds_war_international } #3
+	add_to_array = { global.law@token:bonds = token:bonds_war_public } #4
+	add_to_array = { global.law@token:bonds = token:bonds_state_requisition } #5
+	add_to_array = { global.law@token:bonds = token:bonds_print } #6
+	
+	clear_array = global.law@token:conscription_law
+	add_to_array = { global.law@token:conscription_law = token:cons_volunteer } #0
+	add_to_array = { global.law@token:conscription_law = token:cons_one } #1
+	add_to_array = { global.law@token:conscription_law = token:cons_two } #2
+	add_to_array = { global.law@token:conscription_law = token:cons_three } #3
+	add_to_array = { global.law@token:conscription_law = token:cons_expanded_draft } #4
+	add_to_array = { global.law@token:conscription_law = token:cons_extensive_draft } #5
+	add_to_array = { global.law@token:conscription_law = token:cons_barrel } #6
+	add_to_array = { global.law@token:conscription_law = token:SWI_citizen_militia_1 } #7
+	add_to_array = { global.law@token:conscription_law = token:SWI_citizen_militia_2 } #8
+	add_to_array = { global.law@token:conscription_law = token:propaganda_recruits } #9
+	
+	clear_array = global.law@token:education
+	add_to_array = { global.law@token:education = token:edu_minimal } #0
+	add_to_array = { global.law@token:education = token:edu_low } #1
+	add_to_array = { global.law@token:education = token:edu_high } #2
+	add_to_array = { global.law@token:education = token:edu_excellent } #3
+	add_to_array = { global.law@token:education = token:edu_soviets } #4
+	
+	clear_array = global.law@token:fdi_regulations
+	add_to_array = { global.law@token:fdi_regulations = token:fdi_encouraged } #0
+	add_to_array = { global.law@token:fdi_regulations = token:fdi_allowed } #1
+	add_to_array = { global.law@token:fdi_regulations = token:fdi_regulated } #2
+	add_to_array = { global.law@token:fdi_regulations = token:fdi_banned } #3
+	
+	clear_array = global.law@token:labor_laws
+	add_to_array = { global.law@token:labor_laws = token:labor_none } #0
+	add_to_array = { global.law@token:labor_laws = token:labor_allowed } #1
+	add_to_array = { global.law@token:labor_laws = token:labor_encouraged } #2
+	add_to_array = { global.law@token:labor_laws = token:labor_homefront } #3
+	
+	clear_array = global.law@token:age_laws
+	add_to_array = { global.law@token:age_laws = token:age_19 } #0
+	add_to_array = { global.law@token:age_laws = token:age_18 } #1
+	add_to_array = { global.law@token:age_laws = token:age_17 } #2
+	add_to_array = { global.law@token:age_laws = token:age_16 } #3
+	add_to_array = { global.law@token:age_laws = token:age_15 } #4
+	add_to_array = { global.law@token:age_laws = token:age_14 } #5
+	add_to_array = { global.law@token:age_laws = token:age_13 } #6
+	add_to_array = { global.law@token:age_laws = token:age_12 } #7
+	add_to_array = { global.law@token:age_laws = token:age_11 } #8
+	add_to_array = { global.law@token:age_laws = token:age_10 } #9
+	
+	clear_array = global.law@token:mobilization_laws
+	add_to_array = { global.law@token:mobilization_laws = token:mob_reserve } #0
+	add_to_array = { global.law@token:mobilization_laws = token:mob_standing } #1
+	add_to_array = { global.law@token:mobilization_laws = token:mob_limited } #2
+	add_to_array = { global.law@token:mobilization_laws = token:mob_general } #3
+	
+	clear_array = global.law@token:nationalization
+	add_to_array = { global.law@token:nationalization = token:private_control } #0
+	add_to_array = { global.law@token:nationalization = token:key_industries } #1
+	add_to_array = { global.law@token:nationalization = token:major_industries } #2
+	add_to_array = { global.law@token:nationalization = token:planned_economy } #3
+	add_to_array = { global.law@token:nationalization = token:stalin_economy } #4
+	
+	clear_array = global.law@token:press
+	add_to_array = { global.law@token:press = token:press_free } #0
+	add_to_array = { global.law@token:press = token:press_regulated } #1
+	add_to_array = { global.law@token:press = token:press_censored } #2
+	add_to_array = { global.law@token:press = token:press_state } #3
+	
+	clear_array = global.law@token:recruitment_laws
+	add_to_array = { global.law@token:recruitment_laws = token:foreign_none } #0
+	add_to_array = { global.law@token:recruitment_laws = token:foreign_volunteers } #1
+	add_to_array = { global.law@token:recruitment_laws = token:foreign_encouraged } #2
+	add_to_array = { global.law@token:recruitment_laws = token:foreign_legion } #3
+	add_to_array = { global.law@token:recruitment_laws = token:foreign_conscript } #4
+	
+	clear_array = global.law@token:security
+	add_to_array = { global.law@token:security = token:security_liberty_first } #0
+	add_to_array = { global.law@token:security = token:security_minor_restrictions } #1
+	add_to_array = { global.law@token:security = token:security_major_restrictions } #2
+	add_to_array = { global.law@token:security = token:security_police_state } #3
+	add_to_array = { global.law@token:security = token:security_martial_law } #4
+	
+	clear_array = global.law@token:tariffs
+	add_to_array = { global.law@token:tariffs = token:tariffs_none } #0
+	add_to_array = { global.law@token:tariffs = token:tariffs_low } #1
+	add_to_array = { global.law@token:tariffs = token:tariffs_average } #2
+	add_to_array = { global.law@token:tariffs = token:tariffs_high } #3
+	add_to_array = { global.law@token:tariffs = token:tariffs_extreme } #4
+	
+	clear_array = global.law@token:taxes
+	add_to_array = { global.law@token:taxes = token:tax_minimal } #0
+	add_to_array = { global.law@token:taxes = token:tax_low } #1
+	add_to_array = { global.law@token:taxes = token:tax_average } #2
+	add_to_array = { global.law@token:taxes = token:tax_high } #3
+	add_to_array = { global.law@token:taxes = token:tax_extreme } #4
+	
+	clear_array = global.law@token:trade_laws
+	add_to_array = { global.law@token:trade_laws = token:free_trade } #0
+	add_to_array = { global.law@token:trade_laws = token:export_focus } #1
+	add_to_array = { global.law@token:trade_laws = token:limited_exports } #2
+	add_to_array = { global.law@token:trade_laws = token:closed_economy } #3
+	
+	clear_array = global.law@token:cadet_training_standards
+	add_to_array = { global.law@token:cadet_training_standards = token:train_none } #0
+	add_to_array = { global.law@token:cadet_training_standards = token:train_low } #1
+	add_to_array = { global.law@token:cadet_training_standards = token:train_medium } #2
+	add_to_array = { global.law@token:cadet_training_standards = token:train_high } #3
+	add_to_array = { global.law@token:cadet_training_standards = token:train_elite } #4
+	
+	clear_array = global.law@token:officer_training_standards
+	add_to_array = { global.law@token:officer_training_standards = token:officer_train_none } #0
+	add_to_array = { global.law@token:officer_training_standards = token:officer_train_low } #1
+	add_to_array = { global.law@token:officer_training_standards = token:officer_train_high } #2
+	add_to_array = { global.law@token:officer_training_standards = token:officer_train_elite } #3
+	
+	clear_array = global.law@token:foreign_policy
+	add_to_array = { global.law@token:foreign_policy = token:foreign_isolationism } #0
+	add_to_array = { global.law@token:foreign_policy = token:foreign_neutral } #1
+	add_to_array = { global.law@token:foreign_policy = token:foreign_cooperative } #2
+	add_to_array = { global.law@token:foreign_policy = token:foreign_interventionism } #3
+	add_to_array = { global.law@token:foreign_policy = token:foreign_warmonger } #4
+	
+	clear_array = global.law@token:civ_fuel_usage
+	add_to_array = { global.law@token:civ_fuel_usage = token:very_low_civ_fuel_usage } #0
+	add_to_array = { global.law@token:civ_fuel_usage = token:low_civ_fuel_usage } #1
+	add_to_array = { global.law@token:civ_fuel_usage = token:normal_civ_fuel_usage } #2
+	add_to_array = { global.law@token:civ_fuel_usage = token:medium_civ_fuel_usage } #3
+	add_to_array = { global.law@token:civ_fuel_usage = token:high_civ_fuel_usage } #4
+	
+	clear_array = global.law@token:diet_laws
+	add_to_array = { global.law@token:diet_laws = token:subsistence_diet } #0
+	add_to_array = { global.law@token:diet_laws = token:poor_diet } #1
+	add_to_array = { global.law@token:diet_laws = token:basic_diet } #2
+	add_to_array = { global.law@token:diet_laws = token:modern_diet } #3
+	add_to_array = { global.law@token:diet_laws = token:extravagant_diet } #4
+	
+	clear_array = global.academy_spirit
+	clear_array = global.army_spirit
+	clear_array = global.division_command_spirit
+	clear_array = global.naval_academy_spirit
+	clear_array = global.navy_spirit
+	clear_array = global.naval_command_spirit
+	clear_array = global.air_force_spirit
+	clear_array = global.air_force_command_spirit
+	
+	
+	add_to_array = { global.academy_spirit = token:political_loyalty_spirit }
+	add_to_array = { global.academy_spirit = token:inventive_leadership_spirit }
+	add_to_array = { global.academy_spirit = token:theatre_training_spirit }
+	add_to_array = { global.academy_spirit = token:generic_academy }
+	add_to_array = { global.academy_spirit = token:officer_academy }
+	add_to_array = { global.academy_spirit = token:boot_academy }
+	add_to_array = { global.academy_spirit = token:research_academy }
+	add_to_array = { global.academy_spirit = token:aux_academy }
+	add_to_array = { global.academy_spirit = token:attack_academy }
+	add_to_array = { global.academy_spirit = token:defend_academy }
+	add_to_array = { global.academy_spirit = token:logistics_academy }
+	add_to_array = { global.academy_spirit = token:plans_academy }
+	add_to_array = { global.academy_spirit = token:Per_academy }
+	add_to_array = { global.academy_spirit = token:NZL_academy }
+	add_to_array = { global.academy_spirit = token:AST_duntroon }
+	add_to_array = { global.academy_spirit = token:AST_kapooka }
+	add_to_array = { global.academy_spirit = token:arab_academy }
+	
+	add_to_array = { global.army_spirit = token:professional_officer_corps_spirit }
+	add_to_array = { global.army_spirit = token:elevated_engineering_corps_spirit }
+	add_to_array = { global.army_spirit = token:proper_heritage_spirit }
+	add_to_array = { global.army_spirit = token:quick_improvisation_spirit }
+	add_to_array = { global.army_spirit = token:relief_of_command_spirit }
+	add_to_array = { global.army_spirit = token:ideological_loyalty_spirit }
+	add_to_array = { global.army_spirit = token:state_serves_the_military_spirit }
+	add_to_array = { global.army_spirit = token:mobile_warfare_army_spirit }
+	add_to_array = { global.army_spirit = token:superior_firepower_army_spirit }
+	add_to_array = { global.army_spirit = token:grand_battleplan_army_spirit }
+	add_to_array = { global.army_spirit = token:mass_assault_army_spirit }
+	
+	add_to_array = { global.division_command_spirit = token:static_warfare_spirit }
+	add_to_array = { global.division_command_spirit = token:flexible_organization_spirit }
+	add_to_array = { global.division_command_spirit = token:aggressive_reconnaisance_spirit }
+	add_to_array = { global.division_command_spirit = token:reserve_officers_spirit }
+	add_to_array = { global.division_command_spirit = token:victory_or_death_spirit }
+	add_to_array = { global.division_command_spirit = token:maneuver_warfare_spirit }
+	add_to_array = { global.division_command_spirit = token:smoke_and_fire_spirit }
+	add_to_array = { global.division_command_spirit = token:logistical_focus_spirit }
+	add_to_array = { global.division_command_spirit = token:operational_reserve_spirit }
+	
+	add_to_array = { global.naval_academy_spirit = token:instilled_aggression_spirit }
+	add_to_array = { global.naval_academy_spirit = token:calculated_restraint_spirit }
+	add_to_array = { global.naval_academy_spirit = token:signals_training_spirit }
+	add_to_array = { global.naval_academy_spirit = token:best_of_the_best_naval_academy_spirit }
+	add_to_array = { global.naval_academy_spirit = token:naval_academy_scholarships_spirit }
+	add_to_array = { global.naval_academy_spirit = token:fleet_in_being_academy_spirit }
+	add_to_array = { global.naval_academy_spirit = token:trade_interdiction_academy_spirit }
+	add_to_array = { global.naval_academy_spirit = token:base_strike_academy_spirit }
+	
+	add_to_array = { global.navy_spirit = token:jeune_ecole_spirit }
+	add_to_array = { global.navy_spirit = token:big_gun_club_spirit }
+	add_to_array = { global.navy_spirit = token:aviation_enthusiasts_spirit }
+	add_to_array = { global.navy_spirit = token:cruiser_warfare_spirit }
+	add_to_array = { global.navy_spirit = token:wolfpacks_spirit }
+	add_to_array = { global.navy_spirit = token:flexible_contracts_spirit }
+	add_to_array = { global.navy_spirit = token:integrated_designers_spirit }
+	add_to_array = { global.navy_spirit = token:naval_reform_spirit }
+	add_to_array = { global.navy_spirit = token:naval_refit_yards_spirit }
+	
+	add_to_array = { global.naval_command_spirit = token:close_combat_navy_spirit }
+	add_to_array = { global.naval_command_spirit = token:night_fighting_spirit }
+	add_to_array = { global.naval_command_spirit = token:surprise_attacks_spirit }
+	add_to_array = { global.naval_command_spirit = token:efficient_communications_spirit }
+	add_to_array = { global.naval_command_spirit = token:surface_raiders_spirit }
+	add_to_array = { global.naval_command_spirit = token:decisive_battle_spirit }
+	add_to_array = { global.naval_command_spirit = token:fleet_in_being_navy_spirit }
+	add_to_array = { global.naval_command_spirit = token:base_strike_navy_spirit }
+	add_to_array = { global.naval_command_spirit = token:inclimate_weather_experience_spirit }
+	add_to_array = { global.naval_command_spirit = token:brave_commanders_spirit }
+	
+	
+	add_to_array = { global.air_force_spirit = token:independent_air_force_spirit }
+	add_to_array = { global.air_force_spirit = token:industrial_destruction_spirit }
+	add_to_array = { global.air_force_spirit = token:dive_bombing_spirit }
+	add_to_array = { global.air_force_spirit = token:material_destruction_spirit }
+	add_to_array = { global.air_force_spirit = token:industry_liasons_spirit }
+	add_to_array = { global.air_force_spirit = token:effective_training_programs_spirit }
+	add_to_array = { global.air_force_spirit = token:air_crew_surveys_spirit }
+	
+	add_to_array = { global.air_force_command_spirit = token:battlefield_air_interdiction_spirit }
+	add_to_array = { global.air_force_command_spirit = token:cag_night_fighting_spirit }
+	add_to_array = { global.air_force_command_spirit = token:veteran_air_instructors_spirit }
+	add_to_array = { global.air_force_command_spirit = token:centralized_control_spirit }
+	add_to_array = { global.air_force_command_spirit = token:steel_wings_steel_hearts_spirit }
+	add_to_array = { global.air_force_command_spirit = token:home_defence_spirit }
+	add_to_array = { global.air_force_command_spirit = token:air_power_projection_spirit }
+	add_to_array = { global.air_force_command_spirit = token:massed_strike_spirit }
+	add_to_array = { global.air_force_command_spirit = token:continuous_strike_spirit }
+	add_to_array = { global.air_force_command_spirit = token:strategic_strike_spirit }
+	
+}
+
+law_change_on_add = {
+	if = {
+		limit = {
+			check_variable = { category = token:economy }
+			check_variable = { law_level@var:category > 6 }
+		}
+		set_variable = { law_change_complete = 1 }
+	}
+
+
+	if = { #law change complete
+		limit = {
+			OR = {
+				check_variable = { law_change_complete = 1 }
+				NOT = { has_variable = law_level@var:category }
+			}
+		}
+		
+		if = { #this fires if you add a law which normally uses timed change, but you previously had one that doesnt
+			limit = {
+				has_variable = law_level@var:category
+				NOT = { check_variable = { law_level@var:category = level } }
+			} #correct lvl and clear previous law
+			remove_ideas = var:global.law@var:category^law_level@var:category
+			set_variable = { law_level@var:category = level }
+		}
+		else_if = {
+			limit = {
+				NOT = { has_variable = law_level@var:category }
+			}
+			set_variable = { law_level@var:category = level }
+		}
+		clear_variable = law_change_complete
+	}
+	else_if = { #currently changing law, and add_ideas for this law fired from somewhere
+		limit = {
+			has_variable = law_change_days@var:category
+		}
+	
+		## set the target law level to change to to this law level
+		
+		#current 5
+		#num -1
+		#target 4
+		
+		set_temp_variable = { new_level_target = level } #4
+		subtract_from_temp_variable = { new_level_target = law_level@var:category } #5
+		subtract_from_temp_variable = { new_level_target = law_change_num@var:category } #-1
+		
+		#log = "[?new_level_target] new_level_target"
+		set_variable = { law_target_after_change@var:category = new_level_target }
+		
+		
+		#remove this idea
+		remove_ideas = var:global.law@var:category^level 
+		#log = "REMOVE REMOVE REMOVE [?global.law@var:category^level.GetTokenKey] KEY"
+	}
+	else_if = { #start law change to this law
+		limit = {
+			OR = {
+				check_variable = { category = token:economy }
+				check_variable = { category = token:mobilization_laws }
+				check_variable = { category = token:cadet_training_standards }
+				check_variable = { category = token:officer_training_standards }
+			}
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { law_level@var:category = level } }
+				NOT = { has_variable = law_change_days@var:category }
+			}
+			
+			set_temp_variable = { law_category = category }
+				 
+			start_law_change = yes
+		}
+		remove_ideas = var:global.law@var:category^level 
+		#log = "REMOVE REMOVE REMOVE [?global.law@var:category^level.GetTokenKey] KEY"
+	}
+}
+
+#requires "level" and "law_category" variables defined
+start_law_change = {
+	if = {
+		limit = {
+			check_variable = { law_change_days@var:v = 0 }
+		}
+		if = {
+			limit = { check_variable = { law_change_system = 0 } law_duration = yes }
+		}
+
+		set_temp_variable = { num_steps = level }
+		subtract_from_temp_variable = { num_steps = law_level@var:law_category }
+		
+		custom_effect_tooltip = Willtakedurationduration162
+		custom_effect_tooltip = numstepsnumsteps09911
+		
+		add_to_array = { law_change_category = law_category }
+		
+		if = {
+			limit = {
+				check_variable = { num_steps > 0 }
+			}
+			set_temp_variable = { start = law_level@var:law_category }
+			#log = "[?start] start | [?law_level@var:law_category] law_level | [?law_category] law_category"
+			
+			set_temp_variable = { start_idea = global.law@var:law_category^start }
+			meta_effect = {
+				text = {
+					set_temp_variable = { t = token:[X]_1 }
+				}
+				X = "[?start_idea.GetTokenKey]"
+			}
+			custom_effect_tooltip = addsideastartideaGetTokenKey16996
+		}
+		else = {
+			set_temp_variable = { start = law_level@var:law_category }
+			add_to_temp_variable = { start = -1 }
+			
+			set_temp_variable = { start_idea = global.law@var:law_category^start }
+			meta_effect = {
+				text = {
+					set_temp_variable = { t = token:[X]_4 }
+				}
+				X = "[?start_idea.GetTokenKey]"
+			}
+			custom_effect_tooltip = addsideastartideaGetTokenKey41716
+		}
+		
+		set_variable = { law_change_idea@var:law_category = t }
+		set_variable = { law_change_days@var:law_category = duration }
+		set_variable = { law_change_progress@var:law_category = 0 }
+		set_variable = { law_change_ratio@var:law_category = 0.2 }
+		
+		if = {
+			limit = {
+				check_variable = { law_change_num@var:law_category = 0 }
+			}
+			set_variable = { law_change_num@var:law_category = num_steps }
+			
+		}
+		
+		#log = " "
+		#log = "[This.GetTag] | QUEUE NEW LAW"
+		#log = "[?law_change_idea@var:law_category.GetTokenKey] law_change_idea@var:law_category"
+		#log = "[?law_change_days@var:law_category] law_change_days@var:law_category"
+		#log = "[?law_change_progress@var:law_category] law_change_progress@var:law_category"
+		#log = "[?law_change_ratio@var:law_category] law_change_ratio@var:law_category"
+		#log = "[?law_change_num@var:law_category] law_change_num@var:law_category"
+	}
+}
+d_update_law_changes = {
+	
+	for_each_loop = {
+		array = law_change_category
+		value = slot
+	
+		#log = "[This.GetTag] | [?slot.GetTokenKey] slot | [?law_change_progress@var:slot] progress "
+		set_temp_variable = { progress = 1 }
+		set_temp_variable = { mod_id = global.law_mod@var:slot }
+		add_to_temp_variable = { progress = modifier@var:mod_id }
+		
+		add_to_variable = { law_change_progress@var:slot = progress } #add to progress
+		
+		#log = "[?law_change_progress@var:slot] law_change_progress"
+		set_temp_variable = { ratio = law_change_progress@var:slot }
+		divide_temp_variable = { ratio = law_change_days@var:slot }
+	
+		if = { ### progress done, but not all steps run yet
+			limit = {
+				check_variable = { law_change_progress@var:slot > law_change_days@var:slot }
+			}
+			set_temp_variable = { ratio = 1.01 }
+			set_variable = { law_change_ratio@var:slot = 1 }
+		}
+		
+		if = {
+			limit = {
+				check_variable = { ratio > law_change_ratio@var:slot }
+			}
+			
+			if = { #this is the first upgrade
+				limit = {
+					check_variable = { law_change_ratio@var:slot = 0.2 }
+				}
+				set_temp_variable = { add = law_change_idea@var:slot }
+				
+				swap_ideas = {
+					remove_idea = var:global.law@var:slot^law_level@var:slot
+					add_idea = var:add
+				}
+					
+				if = { #leveling up
+					limit = {
+						check_variable = { law_change_num@var:slot > 0 }
+					}
+					add_to_variable = { law_change_idea@var:slot = 1 }
+				}
+				else = {
+					add_to_variable = { law_change_idea@var:slot = -1 }
+				}
+				#log = "FIRST upgrade to [?add] [?add.GetTokenKey]"
+				
+			}
+			else_if = {
+				limit = {
+					check_variable = { law_change_ratio@var:slot < 1 } #0.4
+				}
+				
+				if = { #leveling up
+					limit = {
+						check_variable = { law_change_num@var:slot > 0 }
+					}
+					
+					set_temp_variable = { add = law_change_idea@var:slot }
+					
+					set_temp_variable = { remove = add }
+					subtract_from_temp_variable = { remove = 1 }
+					
+					#log = "upgrade to [?add] [?add.GetTokenKey] Remove: [?remove] [?remove.GetTokenKey]"
+					
+					add_to_variable = { law_change_idea@var:slot = 1 }
+				}
+				else = {
+					set_temp_variable = { add = law_change_idea@var:slot }
+					
+					set_temp_variable = { remove = add }
+					add_to_temp_variable = { remove = 1 }
+					
+					#log = "downgrade to [?add] [?add.GetTokenKey] Remove: [?remove] [?remove.GetTokenKey]"
+					
+					add_to_variable = { law_change_idea@var:slot = -1 }
+				}
+				
+				swap_ideas = {
+					remove_idea = var:remove
+					add_idea = var:add
+				}
+			}
+			else = {
+				if = { #leveling up
+					limit = {
+						check_variable = { law_change_num@var:slot > 0 }
+					}
+					
+					set_temp_variable = { remove = law_change_idea@var:slot }
+					add_to_temp_variable = { remove = -1 }
+					
+					set_temp_variable = { l = law_level@var:slot }
+					add_to_temp_variable = { l = 1 }
+					
+					set_temp_variable = { add = global.law@var:slot^l }
+					
+					add_to_variable = { law_change_num@var:slot = -1 }
+					add_to_variable = { law_level@var:slot = 1 }
+					
+					#log = "FINISHED UPGRADE to [?add] [?add.GetTokenKey]"
+					#log = "Remove: [?remove] [?remove.GetTokenKey]"
+				}
+				else = {
+					
+					set_temp_variable = { remove = law_change_idea@var:slot }
+					add_to_temp_variable = { remove = 1 }
+					
+					set_temp_variable = { l = law_level@var:slot }
+					add_to_temp_variable = { l = -1 }
+					
+					set_temp_variable = { add = global.law@var:slot^l }
+					
+					add_to_variable = { law_change_num@var:slot = 1 }
+					add_to_variable = { law_level@var:slot = -1 }
+					
+					#log = "FINISHED DOWNGRADE to [?add] [?add.GetTokenKey]"
+					#log = "Remove: [?remove] [?remove.GetTokenKey]"
+				}
+					
+				set_variable = { law_change_complete = 1 }
+				
+				swap_ideas = {
+					remove_idea = var:remove
+					add_idea = var:add
+				}
+				
+				add_to_temp_array = { to_remove = slot }
+			}
+			
+			add_to_variable = { law_change_ratio@var:slot = 0.2 }
+		}
+	}
+	
+	
+	### remove if finished
+	for_each_loop = {
+		array = to_remove
+		
+		remove_from_array = { law_change_category = v }
+		
+		clear_variable = law_change_idea@var:v
+		clear_variable = law_change_days@var:v
+		clear_variable = law_change_progress@var:v
+		clear_variable = law_change_ratio@var:v
+		
+		#log = "[?law_change_num@var:slot] law_change_num BEFORE"
+	
+		if = {
+			limit = {
+				has_variable = law_target_after_change@var:v
+			}
+			add_to_variable = { law_change_num@var:v = law_target_after_change@var:v }
+			clear_variable = law_target_after_change@var:v
+		}
+		
+		#log = "[?law_change_num@var:slot] law_change_num AFTER"
+	
+		if = {
+			limit = {
+				check_variable = { law_change_num@var:v = 0 }
+			}
+			clear_variable = law_change_num@var:v	
+		}
+		else = {
+			### queue next law
+		
+			if = { #leveling up
+				limit = {
+					check_variable = { law_change_num@var:v > 0 }
+				}
+				
+				set_temp_variable = { level = law_level@var:v }
+				add_to_temp_variable = { level = 1 }
+				
+				set_temp_variable = { law_category = v }
+				
+				start_law_change = yes
+				#log = "QUEUE NEXT LAW"
+							
+			}
+			else = { #leveling down
+			
+				set_temp_variable = { level = law_level@var:v }
+				add_to_temp_variable = { level = -1 }
+				
+				set_temp_variable = { law_category = v }
+				
+				start_law_change = yes
+			}
+				
+			#log = "[?level] level"
+			#log = "[?law_change_num@var:law_category] law_change_num"
+			#log = "[?law_change_category@var:law_category] law_change_category"
+			#log = "[?law_change_idea@var:law_category] law_change_idea"	
+		}
+	}
+}
+
+d_check_country_law_num_all = {
+	every_country = {
+		d_check_country_law_num = yes
+	}
+}
+d_check_country_law_num = {
+	for_each_loop = {
+		array = global.law_type
+		value = law_cat
+		
+		set_temp_variable = { num_law = 0 }
+		for_each_loop = {
+			array = global.law@var:law_cat
+			
+			if = {
+				limit = {
+					has_idea = var:v
+				}
+				add_to_temp_variable = { num_law = 1 }
+			}
+		}
+		
+		if = {
+			limit = {
+				check_variable = { num_law > 1 }
+				NOT = { has_variable = law_change_num@var:law_cat }
+			}
+			#log = "[This.GetTag] | has too many [?law_cat.GetTokenKey] law! ([?num_law])"
+			
+			for_each_loop = {
+				array = global.law@var:law_cat
+				
+				if = {
+					limit = {
+						has_idea = var:v
+					}
+					#log = "[?v.GetTokenKey] law"
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = { num_law = 0 }
+			}
+			#log = "[This.GetTag] | has no [?law_cat.GetTokenKey] law!"
+		}
+	}
+}
+			
+d_set_country_law_default = {
+	set_country_law_default = yes
+}
+set_country_law_default = {
+	
+	if = {
+		limit = {
+			any_of = {
+				array = global.law_type
+				
+				NOT = { has_variable = law_level@var:v }
+			}
+		}
+		
+		#log = "[This.GetTag] LAWS SET TO DEFAULT"
+		
+		for_each_loop = {
+			array = global.law_type
+			
+			if = { #set to default 
+				limit = {
+					NOT = { has_variable = law_level@var:v }
+				}
+				for_each_loop = { #clear all ideas from this law category
+					array = global.law@var:v
+					value = law
+					index = law_i
+					
+					remove_ideas = var:law
+				} 
+				add_ideas = var:global.law_default^i
+			}
+		}
+	}
+	
+}
+		
+undisturbed_isolation_data ={
+	
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey04Y1873
+    custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey035Y14870
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0068238
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0102866
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey059051
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0656625
+    custom_effect_tooltip =tokenproductionspeeddummy3factorGetTokenLocalizedKey0404732
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0402431
+    custom_effect_tooltip =tokenproductionspeedshipyardfactorGetTokenLocalizedKey0402436
+    custom_effect_tooltip =tokenproductionspeedsubyardfactorGetTokenLocalizedKey0408058
+    custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey055781
+    custom_effect_tooltip =tokenconversioncostmiltocivfactorGetTokenLocalizedKey053283
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0026645
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0026569
+    custom_effect_tooltip =tokenairproductioncapacityGetTokenLocalizedKey109348
+    custom_effect_tooltip =tokentankproductioncapacityGetTokenLocalizedKey101932
+    custom_effect_tooltip =tokenartilleryproductioncapacityGetTokenLocalizedKey101387
+    custom_effect_tooltip =tokengeneratewargoaltensionGetTokenLocalizedKey100926
+    custom_effect_tooltip =tokenjoinfactiontensionGetTokenLocalizedKey0208325
+    custom_effect_tooltip =tokenlendleasetensionGetTokenLocalizedKey0509362
+    custom_effect_tooltip =tokensendvolunteerstensionGetTokenLocalizedKey0208429
+    custom_effect_tooltip =tokenguaranteetensionGetTokenLocalizedKey0753401
+    custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0101670
+    custom_effect_tooltip =tokenmaxfuelfactorGetTokenLocalizedKey0303507
+	custom_effect_tooltip =tokencicconstructionboostfactorGetTokenLocalizedKey0258464
+}
+isolation_data ={
+	
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey035Y12004
+    custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey03Y18944
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0068238
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey043339
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0459001
+    custom_effect_tooltip =tokenproductionspeeddummy3factorGetTokenLocalizedKey0358162
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0355864
+    custom_effect_tooltip =tokenproductionspeedshipyardfactorGetTokenLocalizedKey0352439
+    custom_effect_tooltip =tokenproductionspeedsubyardfactorGetTokenLocalizedKey0359843
+    custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey043096
+    custom_effect_tooltip =tokenconversioncostmiltocivfactorGetTokenLocalizedKey046219
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0026645
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0026569
+    custom_effect_tooltip =tokenairproductioncapacityGetTokenLocalizedKey109348
+    custom_effect_tooltip =tokentankproductioncapacityGetTokenLocalizedKey101932
+    custom_effect_tooltip =tokenartilleryproductioncapacityGetTokenLocalizedKey101387
+    custom_effect_tooltip =tokengeneratewargoaltensionGetTokenLocalizedKey100926
+    custom_effect_tooltip =tokenjoinfactiontensionGetTokenLocalizedKey0208325
+    custom_effect_tooltip =tokenlendleasetensionGetTokenLocalizedKey0209668
+    custom_effect_tooltip =tokensendvolunteerstensionGetTokenLocalizedKey0208429
+    custom_effect_tooltip =tokenguaranteetensionGetTokenLocalizedKey052689
+    custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0059663
+    custom_effect_tooltip =tokenmaxfuelfactorGetTokenLocalizedKey0303507
+}			
+
+civilian_economy_data = {
+	
+	custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey035Y12004
+	custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey03Y18944
+	custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0036889
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey006122
+	custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0057425
+	custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey01550
+	custom_effect_tooltip =tokenproductionspeeddummy3factorGetTokenLocalizedKey02521
+	custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey012309
+	custom_effect_tooltip =tokenproductionspeedshipyardfactorGetTokenLocalizedKey013682
+	custom_effect_tooltip =tokenproductionspeedsubyardfactorGetTokenLocalizedKey011408
+	custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey0103040
+	custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0026645
+	custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0026569
+	custom_effect_tooltip =tokenairproductioncapacityGetTokenLocalizedKey109348
+	custom_effect_tooltip =tokentankproductioncapacityGetTokenLocalizedKey101932
+    custom_effect_tooltip =tokenartilleryproductioncapacityGetTokenLocalizedKey101387
+	custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0014183
+	custom_effect_tooltip =tokenmaxfuelfactorGetTokenLocalizedKey0303507
+	
+}
+low_economic_mobilisation_data = {
+
+	custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey03Y13812
+	custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey025Y1808
+	custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0011563
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0028543
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+	custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0052261
+	custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0026923
+	custom_effect_tooltip =tokenproductionspeeddummy3factorGetTokenLocalizedKey0051150
+	custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey007818
+	custom_effect_tooltip =tokenproductionspeedshipyardfactorGetTokenLocalizedKey001005
+	custom_effect_tooltip =tokenproductionspeedsubyardfactorGetTokenLocalizedKey007836
+	custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0028515
+	custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey002353
+	custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0014183
+	custom_effect_tooltip =tokenmaxfuelfactorGetTokenLocalizedKey0101665
+
+	## on_add
+	
+	if = {
+		limit = {
+			tag = USA
+			has_completed_focus = USA_prepare_intervention
+			has_defensive_war = no
+		}
+		USA_congress_large_opposition = yes
+	}
+ 
+}
+partial_economic_mobilisation_data = {
+
+	custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey025Y18476
+	custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey02Y13212
+	custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0024274
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0066251
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+	custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey011869
+	custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0063619
+	custom_effect_tooltip =tokenproductionspeeddummy3factorGetTokenLocalizedKey0066435
+	custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0067356
+	custom_effect_tooltip =tokenproductionspeedshipyardfactorGetTokenLocalizedKey0065220
+	custom_effect_tooltip =tokenproductionspeedsubyardfactorGetTokenLocalizedKey0067996
+	custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey00756011
+	custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0046730
+	custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey004502
+	custom_effect_tooltip =tokenairproductioncapacityGetTokenLocalizedKey109640
+	custom_effect_tooltip =tokentankproductioncapacityGetTokenLocalizedKey103466
+    custom_effect_tooltip =tokenengineproductioncapacityGetTokenLocalizedKey103574
+    custom_effect_tooltip =tokenartilleryproductioncapacityGetTokenLocalizedKey10564
+	custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0031865
+	custom_effect_tooltip =tokenmaxfuelfactorGetTokenLocalizedKey0051555
+
+	## on_add
+	
+	custom_effect_tooltip = requires_25_ws_at_peace
+	
+	if = {
+		limit = {
+			tag = USA
+			has_completed_focus = USA_limited_intervention
+			has_defensive_war = no
+		}
+		USA_congress_large_opposition = yes
+	}
+ 
+}
+
+war_economy_data = {
+
+	custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey02Y15274
+	custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey015Y14515
+	custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0032253
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0102866
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00038626
+	custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0155634
+	custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0102060
+	custom_effect_tooltip =tokenproductionspeeddummy3factorGetTokenLocalizedKey0104470
+	custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0109605
+	custom_effect_tooltip =tokenproductionspeedshipyardfactorGetTokenLocalizedKey0101441
+	custom_effect_tooltip =tokenproductionspeedsubyardfactorGetTokenLocalizedKey0104724 
+	custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey0157136
+	custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey006319
+	custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0067840
+	custom_effect_tooltip =tokenairproductioncapacityGetTokenLocalizedKey204444
+	custom_effect_tooltip =tokentankproductioncapacityGetTokenLocalizedKey206876
+    custom_effect_tooltip =tokenengineproductioncapacityGetTokenLocalizedKey203327
+    custom_effect_tooltip =tokenartilleryproductioncapacityGetTokenLocalizedKey208912
+	custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey005783
+	custom_effect_tooltip =tokenmaxfuelfactorGetTokenLocalizedKey0101960
+
+	custom_effect_tooltip = WAR_ECONOMY_EQUIPMENT_BONUS
+	## on_add
+	if = {
+		limit = {
+			tag = USA
+			has_completed_focus = USA_total_mobilisation
+			has_defensive_war = no
+		}
+		USA_congress_large_opposition = yes
+	}
+
+	custom_effect_tooltip = requires_50_ws_at_peace
+}
+tot_economic_mobilisation_data = {
+
+	custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey015Y14325
+	custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey01Y11833
+	custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0057665
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0158908
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00054404
+	custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0254214
+	custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0163518
+	custom_effect_tooltip =tokenproductionspeeddummy3factorGetTokenLocalizedKey0162968
+	custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0169469
+	custom_effect_tooltip =tokenproductionspeedshipyardfactorGetTokenLocalizedKey0164782
+	custom_effect_tooltip =tokenproductionspeedsubyardfactorGetTokenLocalizedKey0166216
+	custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey0205798
+	custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0126968
+	custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0126802
+	custom_effect_tooltip =tokenairproductioncapacityGetTokenLocalizedKey305252
+	custom_effect_tooltip =tokentankproductioncapacityGetTokenLocalizedKey302617
+    custom_effect_tooltip =tokenengineproductioncapacityGetTokenLocalizedKey304114
+    custom_effect_tooltip =tokenartilleryproductioncapacityGetTokenLocalizedKey309408
+	custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey00754411
+	custom_effect_tooltip =tokenmaxfuelfactorGetTokenLocalizedKey0159675
+
+	custom_effect_tooltip = TOTAL_ECONOMY_EQUIPMENT_BONUS
+	## on_add
+	
+	custom_effect_tooltip = requires_50_ws_at_peace
+	
+	if = {
+		limit = {
+			tag = USA
+			has_completed_focus = USA_manifest_destiny
+			has_defensive_war = no
+		}
+		USA_congress_large_opposition = yes
+	}
+}
+KMT_corrupted_government_data ={
+   
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey02Y15274
+    custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey015Y14515
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey021821
+    custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey013361
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey029155
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey043339
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey042349
+    custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey151591
+    custom_effect_tooltip =tokenconversioncostmiltocivfactorGetTokenLocalizedKey157763
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey025Y6832
+	
+	## on_add
+	
+}
+KMT_corrupted_government_lesser_data ={
+   
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey02Y15274
+    custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey015Y14515
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0153684
+    custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey00755886
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey029155
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey027672
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey027828
+    custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey0754128
+    custom_effect_tooltip =tokenconversioncostmiltocivfactorGetTokenLocalizedKey0751036
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey02Y4175
+	
+	## on_add
+	
+}
+KMT_corrupted_government_wartime_data ={
+   
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey015Y14325
+    custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey01Y11833
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey012708
+    custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey0054824
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey029155
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey011869
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey01550
+    custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey0259031
+    custom_effect_tooltip =tokenconversioncostmiltocivfactorGetTokenLocalizedKey0252438
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey025Y6832
+	
+	## on_add
+	
+}
+KMT_corrupted_government_wartime_lesser_data ={
+   
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey015Y14325
+    custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey01Y11833
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0059746
+    custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey00258407
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey012308
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey011869
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey01550
+    custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey0259031
+    custom_effect_tooltip =tokenconversioncostmiltocivfactorGetTokenLocalizedKey0252438
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey02Y4175
+	## on_add
+	
+}
+PRC_guerrilla_warfare_data ={
+   
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+    custom_effect_tooltip =tokenminconsumergoodsfactorGetTokenLocalizedKey005Y14168
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0114591
+    custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey0051369
+    custom_effect_tooltip =tokenconversioncostcivtomilfactorGetTokenLocalizedKey0751236
+    custom_effect_tooltip =tokenconversioncostmiltocivfactorGetTokenLocalizedKey053283
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey025500
+    custom_effect_tooltip =tokenresistancegrowthonouroccupiedstatesGetTokenLocalizedKey0104952
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey05Y2622
+	## on_add
+	
+}
+
+
+
+bonds_peace_data ={
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey010413
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0036533
+
+	## on_add
+	
+	custom_effect_tooltip = bonds_no_downgrade_TT
+	
+}
+bonds_basic_data ={
+
+	## on_add
+	
+	custom_effect_tooltip = space_TT
+	add_timed_idea = {
+		idea = bonds_basic_temp
+		days = 270
+	}		
+	custom_effect_tooltip = bonds_no_downgrade_TT	
+	
+}
+bonds_war_domestic_data ={
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0028515
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey002353
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0026923
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0027799
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+
+	## on_add
+	custom_effect_tooltip = space_TT
+	add_timed_idea = {
+		idea = bonds_war_domestic_temp
+		days = 270
+	}
+	custom_effect_tooltip = bonds_no_downgrade_TT
+	hidden_effect = {
+		remove_ideas = {
+			bonds_basic_temp
+		}	
+	}
+}
+bonds_war_international_data ={
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0028515
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey002353
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0026923
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0027799
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+
+	## on_add
+
+	custom_effect_tooltip = space_TT
+	add_timed_idea = {
+		idea = bonds_war_international_temp
+		days = 270
+	}
+	custom_effect_tooltip = bonds_no_downgrade_TT
+	hidden_effect = {
+		remove_ideas = {
+			bonds_basic_temp
+		}
+	}
+}
+bonds_war_public_data ={
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0046730
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey004502
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0044242
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0046922
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00016831
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0059117
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+
+	## on_add
+	custom_effect_tooltip = space_TT
+	add_timed_idea = {
+		idea = bonds_war_public_temp
+		days = 270
+	}
+	custom_effect_tooltip = bonds_no_downgrade_TT
+	hidden_effect = {
+		remove_ideas = {
+			bonds_basic_temp
+			bonds_war_international_temp
+		}	
+	}
+}
+bonds_state_requisition_data ={
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0046730
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey004502
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0044242
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0046922
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00016831
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0059117
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00038626
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0013980
+
+	## on_add
+	custom_effect_tooltip = space_TT
+	add_timed_idea = {
+		idea = bonds_state_requisition_temp
+		days = 270
+	}
+	custom_effect_tooltip = bonds_no_downgrade_TT
+	hidden_effect = {
+		remove_ideas = {
+			bonds_basic_temp
+			bonds_war_domestic_temp
+		}		
+	}	
+}
+bonds_print_data ={
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0107361
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0107290
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0102060
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0109605
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey0025Y17750
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0044830
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0102866
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0303003
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00054404
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0029055
+
+	## on_add
+	custom_effect_tooltip = space_TT
+	add_timed_idea = {
+		idea = bonds_print_temp
+		days = 270
+	}
+	custom_effect_tooltip = bonds_no_downgrade_TT
+	hidden_effect = {
+		remove_ideas = {
+			bonds_basic_temp
+			bonds_war_domestic_temp
+			bonds_state_requisition_temp
+			bonds_war_public_temp
+			bonds_war_international_temp
+		}	
+	}	
+}
+cons_volunteer_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey0359610
+    custom_effect_tooltip =tokenminimumtraininglevelGetTokenLocalizedKey018216
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0022114
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey006122
+
+	## on_add
+	
+}
+cons_one_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey018222
+    custom_effect_tooltip =tokenindustrialcapacityfactoryfactorGetTokenLocalizedKey0023727
+    custom_effect_tooltip =tokenindustrialcapacitydockyardfactorGetTokenLocalizedKey0024644
+
+	## on_add
+	if = {
+		limit = {
+			NOT = {
+				is_chinese_nations/FLAG = yes 
+				tag = ENG 
+			}
+		}
+		custom_effect_tooltip = requires_10_ws_at_peace
+	}
+}
+cons_two_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey004599
+    custom_effect_tooltip =tokenindustrialcapacityfactoryfactorGetTokenLocalizedKey0053795
+    custom_effect_tooltip =tokenindustrialcapacitydockyardfactorGetTokenLocalizedKey0058277
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey001373
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0028543
+
+	## on_add
+	if = {
+		limit = {
+			NOT = {
+				is_chinese_nations/FLAG = yes 
+				tag = ENG 
+				tag = FRA
+				has_government = communism
+				has_government = fascism
+			}
+		}
+		custom_effect_tooltip = requires_25_ws_at_peace
+	}	
+}
+cons_three_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey014560
+    custom_effect_tooltip =tokenindustrialcapacityfactoryfactorGetTokenLocalizedKey0085642
+    custom_effect_tooltip =tokenindustrialcapacitydockyardfactorGetTokenLocalizedKey0087895
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey003484
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0059117
+
+	## on_add
+	if = {
+		limit = {
+			NOT = {
+				is_chinese_nations/FLAG = yes 
+				has_government = communism
+				has_government = fascism
+			}
+		}
+		custom_effect_tooltip = requires_40_ws_at_peace
+	}	
+}
+cons_expanded_draft_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey026040
+    custom_effect_tooltip =tokenindustrialcapacityfactoryfactorGetTokenLocalizedKey0124572
+    custom_effect_tooltip =tokenindustrialcapacitydockyardfactorGetTokenLocalizedKey012434
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00019550
+    custom_effect_tooltip =tokenminimumtraininglevelGetTokenLocalizedKey0059767
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0054645
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0053022
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0086899
+
+	## on_add
+	if = {
+		limit = {
+			NOT = {
+				is_chinese_nations/FLAG = yes 
+				has_government = communism
+				has_government = fascism
+			}
+		}
+		custom_effect_tooltip = requires_50_ws_at_peace
+	}
+}
+cons_extensive_draft_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey036998
+    custom_effect_tooltip =tokenindustrialcapacityfactoryfactorGetTokenLocalizedKey018209
+    custom_effect_tooltip =tokenindustrialcapacitydockyardfactorGetTokenLocalizedKey0188820
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00019550
+    custom_effect_tooltip =tokenminimumtraininglevelGetTokenLocalizedKey011015
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey018449
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0079529
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0115841
+
+	## on_add
+	custom_effect_tooltip = remove_law_on_peace
+}
+cons_barrel_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey045244
+    custom_effect_tooltip =tokenindustrialcapacityfactoryfactorGetTokenLocalizedKey025376
+    custom_effect_tooltip =tokenindustrialcapacitydockyardfactorGetTokenLocalizedKey0258207
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00029273
+    custom_effect_tooltip =tokenminimumtraininglevelGetTokenLocalizedKey0153669
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0153145
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey012308
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0158908
+
+	## on_add
+	custom_effect_tooltip = remove_law_on_peace
+}
+SWI_citizen_militia_1_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey0052535
+    
+	## on_add
+	custom_effect_tooltip ="SWI_army_limitations_TT"
+
+}
+SWI_citizen_militia_2_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey014560
+    custom_effect_tooltip =tokenindustrialcapacityfactoryfactorGetTokenLocalizedKey0053795
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0024720
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0059117
+
+	## on_add
+	
+}
+propaganda_recruits_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey005Y2656
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0052910
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0053022
+    custom_effect_tooltip =tokentrainingtimefactorGetTokenLocalizedKey0058316
+    custom_effect_tooltip =tokencommunismdriftGetTokenLocalizedKey00754789
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey018835
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey37720
+	
+	## on_add
+	
+}
+edu_minimal_data ={
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0048505
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0028515
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey002353
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey0034223
+    custom_effect_tooltip =tokenproductionfactorymaxefficiencyfactorGetTokenLocalizedKey0035080
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey003Y18535
+    custom_effect_tooltip =tokenexperiencegainnavyunitfactorGetTokenLocalizedKey003Y15995
+    custom_effect_tooltip =tokenairmissionxpgainfactorGetTokenLocalizedKey003Y15663
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0037632
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey01509
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0053022
+
+	## on_add
+	
+}
+edu_soviets_data ={
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0028515
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey002353
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0036889
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0027625
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey0057803
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y14741
+    custom_effect_tooltip =tokenmonthlypopulationGetTokenLocalizedKey0058014
+    custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey0035333
+    custom_effect_tooltip =tokencommunismdriftGetTokenLocalizedKey0015268
+
+	## on_add
+	
+}
+edu_low_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey001793
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+    custom_effect_tooltip =tokenmonthlypopulationGetTokenLocalizedKey005752
+    custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey0027516
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0024720
+
+	## on_add
+	
+}
+edu_high_data ={
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0047379
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0026645
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0026569
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey003946
+    custom_effect_tooltip =tokenproductionfactorymaxefficiencyfactorGetTokenLocalizedKey0038762
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey003Y19360
+    custom_effect_tooltip =tokenexperiencegainnavyunitfactorGetTokenLocalizedKey003Y12869
+    custom_effect_tooltip =tokenairmissionxpgainfactorGetTokenLocalizedKey003Y17903
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0019450
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey0057803
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y14741
+    custom_effect_tooltip =tokenmonthlypopulationGetTokenLocalizedKey0153491
+	custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey0064616
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+
+	## on_add
+	
+}
+edu_excellent_data ={
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0084886
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0049659
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey004995
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey005155
+    custom_effect_tooltip =tokenproductionfactorymaxefficiencyfactorGetTokenLocalizedKey0054126
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey003Y11482
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey005Y12613
+    custom_effect_tooltip =tokenexperiencegainnavyunitfactorGetTokenLocalizedKey005Y16977
+    custom_effect_tooltip =tokenairmissionxpgainfactorGetTokenLocalizedKey005Y14540
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0033354
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey016944
+    custom_effect_tooltip =tokenmonthlypopulationGetTokenLocalizedKey0254860
+	custom_effect_tooltip =tokenfoodresourcefactorGetTokenLocalizedKey0105748
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00019550
+
+	## on_add
+	
+}
+fdi_encouraged_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0066251
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0046730
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey004502
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0043298
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0044242
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0046922
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0024274
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0069512
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey010413
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y17548
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0038697
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0056000
+
+	## on_add
+	if = {#change foreign industry cost based on law
+		limit = {
+			tag = ROM
+		}
+		ROM = { 
+			set_variable = { ROM_german_civ_industries_cost = 50 }
+			set_variable = { ROM_british_civ_industries_cost = 50 }
+			set_variable = { ROM_french_civ_industries_cost = 50 }
+			set_variable = { ROM_american_civ_industries_cost = 50 }
+			set_variable = { ROM_italian_civ_industries_cost = 50 }
+		}
+	}
+}
+fdi_allowed_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0028543
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0028515
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey002353
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0023091
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0026923
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0027799
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0036366
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey005638
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y19915
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0011563
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0029055
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0031471
+
+    ## on_add
+	if = {#change foreign industry cost based on law
+		limit = {
+			tag = ROM
+		}
+		ROM = { 
+			set_variable = { ROM_german_civ_industries_cost = 60 }
+			set_variable = { ROM_british_civ_industries_cost = 60 }
+			set_variable = { ROM_french_civ_industries_cost = 60 }
+			set_variable = { ROM_american_civ_industries_cost = 60 }
+			set_variable = { ROM_italian_civ_industries_cost = 60 }
+		}
+	}
+}
+fdi_regulated_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0027625
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0026645
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0026569
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey002697
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0023690
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0029964
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey00109416
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0035864
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0056323
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0013980
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0017484
+    
+	## on_add
+	if = {#change foreign industry cost based on law
+		limit = {
+			tag = ROM
+		}
+		ROM = { 
+			set_variable = { ROM_german_civ_industries_cost = 70 }
+			set_variable = { ROM_british_civ_industries_cost = 70 }
+			set_variable = { ROM_french_civ_industries_cost = 70 }
+			set_variable = { ROM_american_civ_industries_cost = 70 }
+			set_variable = { ROM_italian_civ_industries_cost = 70 }
+		}
+	}
+}
+fdi_banned_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey006122
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0049659
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey004995
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0046315
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0042765
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0042344
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0022767
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0062958
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0107516
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00025636
+
+    ## on_add
+
+}
+labor_none_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey0068721
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y14741
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0058274
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+
+    ## on_add
+
+}
+labor_allowed_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey0015416
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey001793
+
+    ## on_add
+
+}
+labor_encouraged_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey0088789
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y17548
+    custom_effect_tooltip =tokenproductionfactorymaxefficiencyfactorGetTokenLocalizedKey0035080
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey0034223
+    custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0031738
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey004960
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+
+    ## on_add
+
+}
+labor_homefront_data ={
+    custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey0155720
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey004Y11003
+    custom_effect_tooltip =tokenproductionfactorymaxefficiencyfactorGetTokenLocalizedKey0063931
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey0062673
+    custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0066974
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0086899
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00019550
+    custom_effect_tooltip =tokenpartypopularitystabilityfactorGetTokenLocalizedKey0051509
+
+    ## on_add
+
+}
+age_19_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey0025Y3456
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0027625
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0043076
+
+    ## on_add
+
+}
+age_18_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey003Y3431
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey0054658
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0038729
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey001793
+
+    ## on_add
+	if = { 
+		limit = {
+			NOT = {
+				is_chinese_nations/FLAG = yes
+				tag = ENG 
+			}
+		}
+		custom_effect_tooltip = requires_15_ws_at_peace
+	}
+}
+age_17_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey004Y8330
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0047174
+    custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey0056202
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey013862
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0063731
+
+    ## on_add
+	if = { 
+		limit = {
+			NOT = {
+				is_chinese_nations/FLAG = yes
+				tag = ENG 
+				tag = FRA
+				has_government = communism
+				has_government = fascism
+			}
+		}
+		custom_effect_tooltip = requires_20_ws_at_peace
+	}
+}
+age_16_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey0044Y4514
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0019450
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0087634
+    custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey011352
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey0157705
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey017879
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+
+    ## on_add
+	if = { 
+		limit = {
+			NOT = {
+				is_chinese_nations/FLAG = yes
+				has_government = communism
+				has_government = fascism
+			}
+		}
+		custom_effect_tooltip = requires_25_ws_at_peace
+	}
+}
+age_15_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey0048Y3428
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0028543
+    custom_effect_tooltip =tokenarmyorgfactorGetTokenLocalizedKey0015215
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0127132
+    custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey0161400
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey024964
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0159895
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+
+    ## on_add
+	if = { 
+		limit = {
+			NOT = {
+				is_chinese_nations/FLAG = yes
+				has_government = communism
+				has_government = fascism
+			}
+		}
+		custom_effect_tooltip = requires_30_ws_at_peace
+	}
+}
+age_14_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey0052Y664
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0033354
+    custom_effect_tooltip =tokenarmyorgfactorGetTokenLocalizedKey0023788
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0161479
+    custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey0242660
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey0254962
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey021473
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+
+    ## on_add
+	custom_effect_tooltip = remove_law_on_peace
+}
+age_13_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey0056Y8303
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey004960
+    custom_effect_tooltip =tokenarmyorgfactorGetTokenLocalizedKey003101
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey027264
+    custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey0322837
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey0307600
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0254179
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+
+    ## on_add
+	custom_effect_tooltip = remove_law_on_peace
+}
+age_12_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey006Y8264
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0059117
+    custom_effect_tooltip =tokenarmyorgfactorGetTokenLocalizedKey0049510
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0255782
+    custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey047288
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey0357763
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey034418
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00038626
+
+    ## on_add
+	custom_effect_tooltip = remove_law_on_peace
+}
+age_11_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey0064Y3242
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0066251
+    custom_effect_tooltip =tokenarmyorgfactorGetTokenLocalizedKey005820
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey032070
+    custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey053891
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey048954
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0359369
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00038626
+
+    ## on_add
+	custom_effect_tooltip = remove_law_on_peace
+}
+age_10_data ={
+    custom_effect_tooltip =tokenconscriptionGetTokenLocalizedKey0068Y276
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0075109
+    custom_effect_tooltip =tokenarmyorgfactorGetTokenLocalizedKey0061239
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0356063
+    custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey0625243
+    custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey0457772
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey046554
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00044644
+
+    ## on_add
+	custom_effect_tooltip = remove_law_on_peace
+}
+mob_reserve_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0046195
+    custom_effect_tooltip =tokenattritionGetTokenLocalizedKey035110
+    custom_effect_tooltip =tokenfoodneedmilitaryGetTokenLocalizedKey084643
+    custom_effect_tooltip =tokenarmyattackfactorGetTokenLocalizedKey081866
+    custom_effect_tooltip =tokenarmydefencefactorGetTokenLocalizedKey085001
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey086770
+    custom_effect_tooltip =tokennavyorgfactorGetTokenLocalizedKey083225
+    custom_effect_tooltip =tokennavycapitalshipattackfactorGetTokenLocalizedKey031585
+    custom_effect_tooltip =tokennavyscreenattackfactorGetTokenLocalizedKey03215
+    custom_effect_tooltip =tokennavysubmarineattackfactorGetTokenLocalizedKey031094
+    custom_effect_tooltip =tokenexperiencegainnavyfactorGetTokenLocalizedKey051523
+    custom_effect_tooltip =tokennavyfuelconsumptionfactorGetTokenLocalizedKey0256976
+    custom_effect_tooltip =tokenairsuperiorityefficiencyGetTokenLocalizedKey0659653
+    custom_effect_tooltip =tokenaircasefficiencyGetTokenLocalizedKey0651772
+    custom_effect_tooltip =tokenairstrategicbomberbombingfactorGetTokenLocalizedKey0656907
+    custom_effect_tooltip =tokenairescortefficiencyGetTokenLocalizedKey0655509
+    custom_effect_tooltip =tokenairinterceptefficiencyGetTokenLocalizedKey065806
+    custom_effect_tooltip =tokenairnavefficiencyGetTokenLocalizedKey0659297
+    custom_effect_tooltip =tokenairacegenerationchancefactorGetTokenLocalizedKey0655364
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0153145
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey003855
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0032323
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0034446
+
+    ## on_add
+
+}
+mob_standing_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey001793
+    custom_effect_tooltip =tokenattritionGetTokenLocalizedKey0255879
+    custom_effect_tooltip =tokenfoodneedmilitaryGetTokenLocalizedKey054738
+    custom_effect_tooltip =tokenarmyattackfactorGetTokenLocalizedKey056127
+    custom_effect_tooltip =tokenarmydefencefactorGetTokenLocalizedKey051218
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey05829
+    custom_effect_tooltip =tokennavyorgfactorGetTokenLocalizedKey052785
+    custom_effect_tooltip =tokenexperiencegainnavyfactorGetTokenLocalizedKey025534
+    custom_effect_tooltip =tokennavyfuelconsumptionfactorGetTokenLocalizedKey0104441
+    custom_effect_tooltip =tokenairsuperiorityefficiencyGetTokenLocalizedKey0406972
+    custom_effect_tooltip =tokenaircasefficiencyGetTokenLocalizedKey0409877
+    custom_effect_tooltip =tokenairstrategicbomberbombingfactorGetTokenLocalizedKey0408578
+    custom_effect_tooltip =tokenairescortefficiencyGetTokenLocalizedKey0404033
+    custom_effect_tooltip =tokenairinterceptefficiencyGetTokenLocalizedKey0409195
+    custom_effect_tooltip =tokenairnavefficiencyGetTokenLocalizedKey0407408
+    custom_effect_tooltip =tokenairacegenerationchancefactorGetTokenLocalizedKey0401384
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0101883
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey002353
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0028515
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0022114
+
+    ## on_add
+
+}
+mob_limited_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0028543
+    custom_effect_tooltip =tokenattritionGetTokenLocalizedKey01255088
+    custom_effect_tooltip =tokenfoodneedmilitaryGetTokenLocalizedKey0252359
+    custom_effect_tooltip =tokenarmyattackfactorGetTokenLocalizedKey0256477
+    custom_effect_tooltip =tokenarmydefencefactorGetTokenLocalizedKey0258964
+    custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0255782
+    custom_effect_tooltip =tokennavyorgfactorGetTokenLocalizedKey0253143
+    custom_effect_tooltip =tokenairsuperiorityefficiencyGetTokenLocalizedKey0157031
+    custom_effect_tooltip =tokenaircasefficiencyGetTokenLocalizedKey0154899
+    custom_effect_tooltip =tokenairstrategicbomberbombingfactorGetTokenLocalizedKey0159102
+    custom_effect_tooltip =tokenairescortefficiencyGetTokenLocalizedKey0153995
+    custom_effect_tooltip =tokenairinterceptefficiencyGetTokenLocalizedKey0159767
+    custom_effect_tooltip =tokenairnavefficiencyGetTokenLocalizedKey0159786
+    custom_effect_tooltip =tokenairacegenerationchancefactorGetTokenLocalizedKey0155749
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0054645
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey001692
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0019216
+    custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0011974
+
+    ## on_add
+
+}
+mob_general_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0059117
+
+    ## on_add
+
+}
+private_control_data ={
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey006867
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0023690
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0063368
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0032253
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0059117
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey0121699
+    custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0128390
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey006983
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0067840
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey027127
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+
+    ## on_add
+
+}
+key_industries_data ={
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey002697
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0026923
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0029964
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0011563
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0019450
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey0066582
+    custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0068559
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0026645
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey002353
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey016944
+
+    ## on_add
+
+}
+major_industries_data ={
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0067004
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0063619
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0067356
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0015112
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0037632
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey006319
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0032301
+
+    ## on_add
+
+}
+planned_economy_data ={
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey018228
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey016519
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey014017
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0036889
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0076975
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey0062673
+    custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0066974
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey019166
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0054217
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey02658
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+
+    ## on_add
+
+}
+stalin_economy_data ={
+    custom_effect_tooltip =tokenproductionspeedtankassemblyfactorGetTokenLocalizedKey019087
+    custom_effect_tooltip =tokenproductionspeedsteelrefineryfactorGetTokenLocalizedKey015894
+    custom_effect_tooltip =tokenproductionspeedaluminiumrefineryfactorGetTokenLocalizedKey015067
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0036889
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0058274
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey008907
+    custom_effect_tooltip =tokenlinechangeproductionefficiencyfactorGetTokenLocalizedKey0101670
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0019216
+    custom_effect_tooltip =tokentankproductioncapacityGetTokenLocalizedKey103466
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0054217
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey0333975
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+
+    ## on_add
+
+}
+press_free_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0066251
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey017702
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey011337
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0105207
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00019550
+    custom_effect_tooltip =tokenwarstabilityfactorGetTokenLocalizedKey010610
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0029055
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y19915
+    custom_effect_tooltip =tokenencryptionfactorGetTokenLocalizedKey0055027
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey017450
+    custom_effect_tooltip =tokenarmyinteltoothersGetTokenLocalizedKey016096
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey016429
+    custom_effect_tooltip =tokenairforceinteltoothersGetTokenLocalizedKey013448
+
+    ## on_add
+
+}
+press_regulated_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0033354
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey0053959
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey005638
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0059740
+    custom_effect_tooltip =tokenwarstabilityfactorGetTokenLocalizedKey0058572
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0013980
+    custom_effect_tooltip =tokenencryptionfactorGetTokenLocalizedKey0017928
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0061120
+    custom_effect_tooltip =tokenarmyinteltoothersGetTokenLocalizedKey0068870
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey0068822
+    custom_effect_tooltip =tokenairforceinteltoothersGetTokenLocalizedKey0064393
+
+    ## on_add
+	custom_effect_tooltip = space_TT
+	unlock_decision_tooltip = heroic_tales
+	if = {
+		limit = {
+			tag = USA
+			has_defensive_war = no
+		}
+		USA_congress_large_opposition = yes
+	}
+}
+press_censored_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0037632
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey0059218
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0056323
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0057254
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00016831
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+    custom_effect_tooltip =tokenencryptionfactorGetTokenLocalizedKey0027436
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0031471
+    custom_effect_tooltip =tokenarmyinteltoothersGetTokenLocalizedKey0037381
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey0037885
+    custom_effect_tooltip =tokenairforceinteltoothersGetTokenLocalizedKey0037208
+
+    ## on_add
+	custom_effect_tooltip = space_TT
+	unlock_decision_tooltip = heroic_tales
+	unlock_decision_tooltip = demonise_opponents
+	if = {
+		limit = {
+			tag = USA
+			has_defensive_war = no
+		}
+		USA_congress_large_opposition = yes
+	}
+}
+press_state_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey006122
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey01992
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey011390
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey017072
+    custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00029950
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y14741
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00025636
+    custom_effect_tooltip =tokenencryptionfactorGetTokenLocalizedKey0056570
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0017484
+    custom_effect_tooltip =tokenarmyinteltoothersGetTokenLocalizedKey0012632
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey0015126
+    custom_effect_tooltip =tokenairforceinteltoothersGetTokenLocalizedKey0012135
+
+    ## on_add
+	custom_effect_tooltip = space_TT
+	unlock_decision_tooltip = heroic_tales
+	unlock_decision_tooltip = demonise_opponents
+	unlock_decision_tooltip = assured_victory
+	if = {
+		limit = {
+			tag = USA
+			has_defensive_war = no
+		}
+		USA_congress_large_opposition = yes
+	}
+}
+foreign_none_data ={
+
+
+    ## on_add
+	if = {
+		limit = {
+			check_variable = { subjects^num > 0 }
+		}
+		hidden_effect = {
+			for_each_scope_loop = {
+				array = subjects 
+				subject_update_overlord_foreign_recruitment = yes 
+			}
+		}
+	}
+}
+foreign_volunteers_data ={
+    custom_effect_tooltip =tokenautonomymanpowershareGetTokenLocalizedKey0029240
+    custom_effect_tooltip =tokensubjectsautonomygainGetTokenLocalizedKey001142
+
+    ## on_add
+	if = {
+		limit = {
+			check_variable = { subjects^num > 0 }
+		}
+		hidden_effect = {
+			for_each_scope_loop = {
+				array = subjects 
+				subject_update_overlord_foreign_recruitment = yes 
+			}
+		}
+	}
+
+}
+foreign_encouraged_data ={
+    custom_effect_tooltip =tokenautonomymanpowershareGetTokenLocalizedKey0051956
+    custom_effect_tooltip =tokensubjectsautonomygainGetTokenLocalizedKey001142
+    custom_effect_tooltip =tokennoncoremanpowerGetTokenLocalizedKey0019219
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y14741
+    custom_effect_tooltip =tokencivilianfactoryuseGetTokenLocalizedKey1R07595
+
+    ## on_add
+	if = {
+		limit = {
+			check_variable = { subjects^num > 0 }
+		}
+		hidden_effect = {
+			for_each_scope_loop = {
+				array = subjects 
+				subject_update_overlord_foreign_recruitment = yes 
+			}
+		}
+	}
+
+}
+foreign_legion_data ={
+    custom_effect_tooltip =tokenautonomymanpowershareGetTokenLocalizedKey0106754
+    custom_effect_tooltip =tokensubjectsautonomygainGetTokenLocalizedKey023106
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0023239
+
+    ## on_add
+	if = {
+		limit = {
+			check_variable = { subjects^num > 0 }
+		}
+		hidden_effect = {
+			for_each_scope_loop = {
+				array = subjects 
+				subject_update_overlord_foreign_recruitment = yes 
+			}
+		}
+	}
+
+}
+foreign_conscript_data ={
+    custom_effect_tooltip =tokenautonomymanpowershareGetTokenLocalizedKey0156957
+    custom_effect_tooltip =tokensubjectsautonomygainGetTokenLocalizedKey043916
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0054645
+
+    ## on_add
+	if = {
+		limit = {
+			check_variable = { subjects^num > 0 }
+		}
+		hidden_effect = {
+			for_each_scope_loop = {
+				array = subjects 
+				subject_update_overlord_foreign_recruitment = yes 
+			}
+		}
+	}
+
+}
+security_liberty_first_data ={
+    custom_effect_tooltip =tokencompliancegrowthGetTokenLocalizedKey0053097
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0058274
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0105207
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey0165533
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0056000
+    custom_effect_tooltip =tokenarmyinteltoothersGetTokenLocalizedKey0054868
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey0051424
+    custom_effect_tooltip =tokenairforceinteltoothersGetTokenLocalizedKey0055784
+
+    ## on_add
+
+}
+security_minor_restrictions_data ={
+    custom_effect_tooltip =tokencompliancegrowthGetTokenLocalizedKey00255213
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0027625
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0059740
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey008986
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0029055
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0031471
+    custom_effect_tooltip =tokenarmyinteltoothersGetTokenLocalizedKey0037381
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey0037885
+    custom_effect_tooltip =tokenairforceinteltoothersGetTokenLocalizedKey0037208
+    custom_effect_tooltip =tokenintelligenceagencydefenseGetTokenLocalizedKey024542
+
+    ## on_add
+
+}
+security_major_restrictions_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0028543
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey017072
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey0088432
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0038697
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0017484
+    custom_effect_tooltip =tokenarmyinteltoothersGetTokenLocalizedKey0012632
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey0015126
+    custom_effect_tooltip =tokenairforceinteltoothersGetTokenLocalizedKey0012135
+    custom_effect_tooltip =tokenintelligenceagencydefenseGetTokenLocalizedKey045436
+
+    ## on_add
+
+}
+security_police_state_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0059117
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey025396
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey016402
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0052086
+    custom_effect_tooltip =tokenintelligenceagencydefenseGetTokenLocalizedKey071673
+
+    ## on_add
+
+}
+security_martial_law_data ={
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey018604
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey025396
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey016402
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0052086
+    custom_effect_tooltip =tokenpartypopularitystabilityfactorGetTokenLocalizedKey0051509
+    custom_effect_tooltip =tokenintelligenceagencydefenseGetTokenLocalizedKey104365
+
+    ## on_add
+
+}
+tariffs_none_data ={
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0089733
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0082205
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0046315
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey0104997
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey004Y11003
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0107196
+    custom_effect_tooltip =tokenlicensepurchasecostGetTokenLocalizedKey0205497
+    custom_effect_tooltip =tokenlicenseproductionspeedGetTokenLocalizedKey0104854
+
+	custom_effect_tooltip =TARIFFS_NONE_RESEARCH_BONUS
+
+    ## on_add
+
+}
+tariffs_low_data ={
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0042344
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0042765
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey0053582
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y17548
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0052910
+    custom_effect_tooltip =tokenlicensepurchasecostGetTokenLocalizedKey0108331
+    custom_effect_tooltip =tokenlicenseproductionspeedGetTokenLocalizedKey0057616
+
+    ## on_add
+
+}
+tariffs_average_data ={
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0023091
+
+	custom_effect_tooltip =TARIFFS_AVERAGE_RESEARCH_BONUS
+    ## on_add
+
+}
+tariffs_high_data ={
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0046922
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0044242
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0083153
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey005155
+    custom_effect_tooltip =tokenproductionspeedfuelsilofactorGetTokenLocalizedKey0056886
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0055207
+    custom_effect_tooltip =tokenlicensepurchasecostGetTokenLocalizedKey0109664
+    custom_effect_tooltip =tokenlicenseproductionspeedGetTokenLocalizedKey0058334
+
+	custom_effect_tooltip =TARIFFS_HIGH_RESEARCH_BONUS
+    ## on_add
+
+}
+tariffs_extreme_data ={
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0081130
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0082798
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0128304
+    custom_effect_tooltip =tokenproductionfactoryefficiencygainfactorGetTokenLocalizedKey010730
+    custom_effect_tooltip =tokenproductionspeedfuelsilofactorGetTokenLocalizedKey0106411
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey003Y11482
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey019166
+    custom_effect_tooltip =tokenlicensepurchasecostGetTokenLocalizedKey0204629
+    custom_effect_tooltip =tokenlicenseproductionspeedGetTokenLocalizedKey011587
+
+	custom_effect_tooltip =TARIFFS_EXTREME_RESEARCH_BONUS
+    ## on_add
+
+}
+tax_minimal_data ={
+    custom_effect_tooltip =tokenmobilizationlawscostfactorGetTokenLocalizedKey1826
+    custom_effect_tooltip =tokeneducationcostfactorGetTokenLocalizedKey25349
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey103456
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0088379
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey013589
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey01935
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey018228
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0146866
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0067356
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y14741
+    custom_effect_tooltip =tokenrulingpartydriftGetTokenLocalizedKey0024294
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00047707
+	
+    custom_effect_tooltip ="TAX_MINIMAL_EQUIPMENT_BONUS"
+
+    ## on_add
+	custom_effect_tooltip = taxes_TT
+}
+tax_low_data ={
+    custom_effect_tooltip =tokenmobilizationlawscostfactorGetTokenLocalizedKey056038
+    custom_effect_tooltip =tokeneducationcostfactorGetTokenLocalizedKey16465
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey05777
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0046195
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0052910
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0054217
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0057425
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0075109
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0039391
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+    custom_effect_tooltip =tokenrulingpartydriftGetTokenLocalizedKey0017435
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00025636
+
+    custom_effect_tooltip ="TAX_LOW_EQUIPMENT_BONUS"
+	
+    ## on_add
+	custom_effect_tooltip = taxes_TT
+}
+tax_average_data ={
+    custom_effect_tooltip =tokeneducationcostfactorGetTokenLocalizedKey054936
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey0258780
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey001793
+
+    ## on_add
+	custom_effect_tooltip = taxes_TT
+}
+tax_high_data ={
+    custom_effect_tooltip =tokenmobilizationlawscostfactorGetTokenLocalizedKey0258483
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey004960
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0055207
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0056244
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey0052261
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey007932
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey003387
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y17548
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0048346
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+
+    custom_effect_tooltip ="TAX_HIGH_EQUIPMENT_BONUS"
+	
+    ## on_add
+	custom_effect_tooltip = taxes_TT
+}
+tax_extreme_data ={
+    custom_effect_tooltip =tokenmobilizationlawscostfactorGetTokenLocalizedKey054048
+    custom_effect_tooltip =tokeneducationcostfactorGetTokenLocalizedKey0201579
+    custom_effect_tooltip =tokenlaweconomyswitchspeedfactorGetTokenLocalizedKey0253201
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0086899
+    custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey019166
+    custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey018206
+    custom_effect_tooltip =tokenproductionspeedindustrialcomplexfactorGetTokenLocalizedKey011869
+    custom_effect_tooltip =tokenproductionspeedarmsfactoryfactorGetTokenLocalizedKey0143826
+    custom_effect_tooltip =tokenproductionspeeddockyardfactorGetTokenLocalizedKey0063368
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey004Y11003
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0087169
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00044644
+
+    custom_effect_tooltip ="TAX_EXTREME_EQUIPMENT_BONUS"
+	
+    ## on_add
+	custom_effect_tooltip = taxes_TT
+}
+free_trade_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey055Y0075Y05513
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey055Y0075Y01698
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey06Y007Y0184
+	custom_effect_tooltip = space_TT
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0037632
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y14741
+    custom_effect_tooltip =tokenrulingpartydriftGetTokenLocalizedKey0057902
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0055819
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0206914
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0032253
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey017450
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey0051424
+
+    ## on_add
+
+}
+export_focus_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey04Y006Y04240
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey04Y006Y04177
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey04Y0055Y07745
+	custom_effect_tooltip = space_TT
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+    custom_effect_tooltip =tokenrulingpartydriftGetTokenLocalizedKey0024294
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0036366
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey010413
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0011563
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0056000
+    custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey00254197
+
+    ## on_add
+
+}
+limited_exports_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey015Y0035Y03567
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey01Y0030Y01292
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey015Y0035Y01178
+	custom_effect_tooltip = space_TT
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0029055
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0028543
+    custom_effect_tooltip =tokenproductionspeedsteelrefineryfactorGetTokenLocalizedKey0069420
+    custom_effect_tooltip =tokenproductionspeedaluminiumrefineryfactorGetTokenLocalizedKey0067375
+    custom_effect_tooltip =tokenproductionspeedsyntheticrefineryfactorGetTokenLocalizedKey0061712
+    custom_effect_tooltip =tokenproductionspeedsyntheticrubberrefineryfactorGetTokenLocalizedKey0063064
+    custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0015708
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0107516
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0036889
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0031471
+
+    ## on_add
+
+}
+exploitation_export_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey075Y03125
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey075Y0369
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey070Y05411
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0057527
+
+    ## on_add
+
+}
+unrefined_export_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey055Y02538
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey075Y0369
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey065Y06689
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0041299
+
+    ## on_add
+
+}
+refined_export_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey075Y03125
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey055Y0971
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey060Y07052
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0041299
+
+    ## on_add
+
+}
+balanced_export_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey070Y03916
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey070Y07273
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey060Y07052
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0037354
+
+    ## on_add
+
+}
+low_volume_export_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey065Y09381
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey065Y02405
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey060Y07052
+    #custom_effect_tooltip =tokenpoliticalpowercostGetTokenLocalizedKey023858
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0022468
+
+    ## on_add
+
+}
+free_trade_export_focus_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey060Y02548
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey060Y06519
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey055Y09891
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0017851
+
+    ## on_add
+
+}
+free_trade_law_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey050Y0594
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey050Y07874
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey050Y08411
+
+    ## on_add
+
+}
+free_trade_protectionist_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey040Y04055
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey040Y01761
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey040Y01680
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0014372
+
+    ## on_add
+
+}
+protectionist_economy_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey035Y05886
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey030Y0147
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey035Y0142
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0023871
+
+    ## on_add
+
+}
+export_autarky_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey025Y07656
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey020Y03197
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey025Y0782
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0047356
+
+    ## on_add
+
+}
+autarky_economy_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey015Y01882
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey010Y06742
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey015Y09973
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey006349
+
+    ## on_add
+
+}
+closed_economy_law_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey00Y06967
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey00Y03349
+    custom_effect_tooltip =tokenminfoodexportGetTokenLocalizedKey00Y07799
+    custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey008879
+
+    ## on_add
+
+}
+closed_economy_data ={
+    custom_effect_tooltip =tokenminexportGetTokenLocalizedKey0Y08775
+    custom_effect_tooltip =tokenminoreexportGetTokenLocalizedKey0Y02890
+	custom_effect_tooltip = space_TT
+    custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0052086
+    custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0086899
+    custom_effect_tooltip =tokenproductionspeedsteelrefineryfactorGetTokenLocalizedKey0123785
+    custom_effect_tooltip =tokenproductionspeedaluminiumrefineryfactorGetTokenLocalizedKey0123684
+    custom_effect_tooltip =tokenproductionspeedsyntheticrefineryfactorGetTokenLocalizedKey0125178
+    custom_effect_tooltip =tokenproductionspeedsyntheticrubberrefineryfactorGetTokenLocalizedKey0122330
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0209784
+    custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey005945
+    custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+    custom_effect_tooltip =tokencivilianinteltoothersGetTokenLocalizedKey0017484
+
+    ## on_add
+
+}
+train_none_data ={
+    custom_effect_tooltip =tokentrainingtimefactorGetTokenLocalizedKey0203249
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0107614
+    custom_effect_tooltip =tokenminimumtraininglevelGetTokenLocalizedKey011015
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0054155
+
+    ## on_add
+
+	set_temp_variable = { factor = modifier@cadet_org_bonus_factor }
+	add_to_temp_variable = { factor = 1 }
+	
+	set_temp_variable = { bonus = -0.08 }
+	
+	if = {
+		limit = {
+			check_variable = { bonus > 0 }
+		}
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		add_to_temp_variable = { bonus = t }
+	}
+	else = {
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		subtract_from_temp_variable = { bonus = t }
+		multiply_temp_variable = { t = -1 }
+	}
+	
+	custom_effect_tooltip = FOLLOWING_MODIFIER_SCALED
+	custom_effect_tooltip = CADET_TRAINING_BONUS
+	
+}
+train_low_data ={
+    custom_effect_tooltip =tokentrainingtimefactorGetTokenLocalizedKey0159294
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0075679
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0021318
+
+    ## on_add
+
+	set_temp_variable = { factor = modifier@cadet_org_bonus_factor }
+	add_to_temp_variable = { factor = 1 }
+	
+	set_temp_variable = { bonus = -0.04 }
+	
+	if = {
+		limit = {
+			check_variable = { bonus > 0 }
+		}
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		add_to_temp_variable = { bonus = t }
+	}
+	else = {
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		subtract_from_temp_variable = { bonus = t }
+		multiply_temp_variable = { t = -1 }
+	}
+	
+	custom_effect_tooltip = FOLLOWING_MODIFIER_SCALED
+	custom_effect_tooltip = CADET_TRAINING_BONUS
+}
+train_medium_data ={
+    custom_effect_tooltip =tokentrainingtimefactorGetTokenLocalizedKey0078956
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0075944
+
+    ## on_add
+
+	set_temp_variable = { factor = modifier@cadet_org_bonus_factor }
+	add_to_temp_variable = { factor = 1 }
+	
+	set_temp_variable = { bonus = 0.02 }
+	
+	if = {
+		limit = {
+			check_variable = { bonus > 0 }
+		}
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		add_to_temp_variable = { bonus = t }
+	}
+	else = {
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		subtract_from_temp_variable = { bonus = t }
+		multiply_temp_variable = { t = -1 }
+	}
+	
+	custom_effect_tooltip = FOLLOWING_MODIFIER_SCALED
+	custom_effect_tooltip = CADET_TRAINING_BONUS
+}
+train_high_data ={
+    custom_effect_tooltip =tokentrainingtimefactorGetTokenLocalizedKey01256917
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey01256574
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0027090
+    custom_effect_tooltip =tokenminimumtraininglevelGetTokenLocalizedKey0053425
+
+    ## on_add
+
+	set_temp_variable = { factor = modifier@cadet_org_bonus_factor }
+	add_to_temp_variable = { factor = 1 }
+	
+	set_temp_variable = { bonus = 0.04 }
+	
+	if = {
+		limit = {
+			check_variable = { bonus > 0 }
+		}
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		add_to_temp_variable = { bonus = t }
+	}
+	else = {
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		subtract_from_temp_variable = { bonus = t }
+		multiply_temp_variable = { t = -1 }
+	}
+	
+	custom_effect_tooltip = FOLLOWING_MODIFIER_SCALED
+	custom_effect_tooltip = CADET_TRAINING_BONUS
+}
+train_elite_data ={
+    custom_effect_tooltip =tokentrainingtimefactorGetTokenLocalizedKey023601
+    custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey026023
+    custom_effect_tooltip =tokenexperiencegainarmyunitfactorGetTokenLocalizedKey0059508
+    custom_effect_tooltip =tokenminimumtraininglevelGetTokenLocalizedKey018216
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+
+    ## on_add
+
+	set_temp_variable = { factor = modifier@cadet_org_bonus_factor }
+	add_to_temp_variable = { factor = 1 }
+	
+	set_temp_variable = { bonus = 0.08 }
+	
+	if = {
+		limit = {
+			check_variable = { bonus > 0 }
+		}
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		add_to_temp_variable = { bonus = t }
+	}
+	else = {
+		set_temp_variable = { t = bonus }
+		set_temp_variable = { x = bonus }
+		multiply_temp_variable = { t = factor }
+		subtract_from_temp_variable = { t = x }
+		
+		subtract_from_temp_variable = { bonus = t }
+		multiply_temp_variable = { t = -1 }
+	}
+	
+	custom_effect_tooltip = FOLLOWING_MODIFIER_SCALED
+	custom_effect_tooltip = CADET_TRAINING_BONUS
+
+}
+officer_train_none_data ={
+    custom_effect_tooltip =tokenmaxarmyexperiencefactorGetTokenLocalizedKey0201469
+    custom_effect_tooltip =tokenmaxairexperiencefactorGetTokenLocalizedKey0206862
+    custom_effect_tooltip =tokenmaxnavyexperiencefactorGetTokenLocalizedKey0202226
+    custom_effect_tooltip =tokenlawmobilizationswitchspeedfactorGetTokenLocalizedKey0055821
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y19915
+    custom_effect_tooltip =tokenspecialforcescapGetTokenLocalizedKey0033485
+    custom_effect_tooltip =tokennavalcoordinationGetTokenLocalizedKey0058301
+
+    ## on_add
+
+}
+officer_train_low_data ={
+    custom_effect_tooltip =tokenmaxarmyexperiencefactorGetTokenLocalizedKey0052503
+    custom_effect_tooltip =tokenmaxairexperiencefactorGetTokenLocalizedKey0059880
+    custom_effect_tooltip =tokenmaxnavyexperiencefactorGetTokenLocalizedKey0053038
+    custom_effect_tooltip =tokenlawmobilizationswitchspeedfactorGetTokenLocalizedKey005675
+    custom_effect_tooltip =tokenmilitaryleadercostfactorGetTokenLocalizedKey0253317
+    custom_effect_tooltip =tokenmaxcommandpowerGetTokenLocalizedKey502092
+    custom_effect_tooltip =tokencommandpowergainGetTokenLocalizedKey000531923
+	custom_effect_tooltip =tokencadetorgbonusfactorGetTokenLocalizedKey019887
+
+    ## on_add
+
+}
+officer_train_high_data ={
+    custom_effect_tooltip =tokenmaxarmyexperiencefactorGetTokenLocalizedKey0102165
+    custom_effect_tooltip =tokenmaxairexperiencefactorGetTokenLocalizedKey0101079
+    custom_effect_tooltip =tokenmaxnavyexperiencefactorGetTokenLocalizedKey0107439
+    custom_effect_tooltip =tokenlawmobilizationswitchspeedfactorGetTokenLocalizedKey0155920
+    custom_effect_tooltip =tokenmilitaryleadercostfactorGetTokenLocalizedKey058128
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+    custom_effect_tooltip =tokenmaxcommandpowerGetTokenLocalizedKey1005750
+    custom_effect_tooltip =tokencommandpowergainGetTokenLocalizedKey00136484
+    custom_effect_tooltip =tokenspecialforcescapGetTokenLocalizedKey002106
+    custom_effect_tooltip =tokennavalcoordinationGetTokenLocalizedKey0056244
+	custom_effect_tooltip =tokencadetorgbonusfactorGetTokenLocalizedKey039644
+
+    ## on_add
+
+}
+officer_train_elite_data ={
+    custom_effect_tooltip =tokenmaxarmyexperiencefactorGetTokenLocalizedKey0256942
+    custom_effect_tooltip =tokenmaxairexperiencefactorGetTokenLocalizedKey0257408
+    custom_effect_tooltip =tokenmaxnavyexperiencefactorGetTokenLocalizedKey0254208
+    custom_effect_tooltip =tokenlawmobilizationswitchspeedfactorGetTokenLocalizedKey0253144
+    custom_effect_tooltip =tokenmilitaryleadercostfactorGetTokenLocalizedKey0759774
+    custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey002Y14741
+    custom_effect_tooltip =tokenmaxcommandpowerGetTokenLocalizedKey1509534
+    custom_effect_tooltip =tokencommandpowergainGetTokenLocalizedKey00236897
+    custom_effect_tooltip =tokenspecialforcescapGetTokenLocalizedKey0044934
+    custom_effect_tooltip =tokennavalcoordinationGetTokenLocalizedKey0108644
+	custom_effect_tooltip =tokencadetorgbonusfactorGetTokenLocalizedKey058532
+
+    ## on_add
+
+}
+foreign_isolationism_data ={
+    custom_effect_tooltip =tokenoffensivewarstabilityfactorGetTokenLocalizedKey0056797
+    custom_effect_tooltip =tokenmobilizationlawscostfactorGetTokenLocalizedKey056038
+    custom_effect_tooltip =tokenconscriptionlawcostfactorGetTokenLocalizedKey058377
+    custom_effect_tooltip =tokendriftdefencefactorGetTokenLocalizedKey01992
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey010506
+    custom_effect_tooltip =tokenjustifywargoaltimeGetTokenLocalizedKey0507084
+    custom_effect_tooltip =tokengeneratewargoaltensionGetTokenLocalizedKey0504135
+    custom_effect_tooltip =tokenjoinfactiontensionGetTokenLocalizedKey0706596
+    custom_effect_tooltip =tokenlendleasetensionGetTokenLocalizedKey0104839
+    custom_effect_tooltip =tokensendvolunteerstensionGetTokenLocalizedKey0706341
+    custom_effect_tooltip =tokenguaranteetensionGetTokenLocalizedKey0202283
+    custom_effect_tooltip =tokenopiniongainmonthlyfactorGetTokenLocalizedKey027287
+	custom_effect_tooltip =tokenembargocostfactorGetTokenLocalizedKey2334
+	custom_effect_tooltip =tokenembargothresholdfactorGetTokenLocalizedKey035495
+	
+    ## on_add
+
+}
+foreign_neutral_data ={
+    custom_effect_tooltip =tokenmobilizationlawscostfactorGetTokenLocalizedKey028685
+    custom_effect_tooltip =tokenconscriptionlawcostfactorGetTokenLocalizedKey024041
+    custom_effect_tooltip =tokenwarstabilityfactorGetTokenLocalizedKey0058572
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0057254
+    custom_effect_tooltip =tokenjustifywargoaltimeGetTokenLocalizedKey0251653
+    custom_effect_tooltip =tokenjoinfactiontensionGetTokenLocalizedKey0257393
+    custom_effect_tooltip =tokensendvolunteerstensionGetTokenLocalizedKey0258596
+    custom_effect_tooltip =tokenguaranteetensionGetTokenLocalizedKey025825
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey005638
+
+	custom_effect_tooltip =tokenembargocostfactorGetTokenLocalizedKey11814
+	custom_effect_tooltip =tokenembargothresholdfactorGetTokenLocalizedKey0157377
+    ## on_add
+
+}
+foreign_cooperative_data ={
+    custom_effect_tooltip =tokenoffensivewarstabilityfactorGetTokenLocalizedKey0056797
+    custom_effect_tooltip =tokendefensivewarstabilityfactorGetTokenLocalizedKey005448
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0057254
+    custom_effect_tooltip =tokenjoinfactiontensionGetTokenLocalizedKey0059405
+    custom_effect_tooltip =tokenlendleasetensionGetTokenLocalizedKey0059682
+    custom_effect_tooltip =tokensendvolunteerstensionGetTokenLocalizedKey0052922
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey011337
+    custom_effect_tooltip =tokenopiniongainmonthlyfactorGetTokenLocalizedKey028573
+
+	custom_effect_tooltip =tokenembargocostfactorGetTokenLocalizedKey012260
+    ## on_add
+
+}
+foreign_interventionism_data ={
+    custom_effect_tooltip =tokendefensivewarstabilityfactorGetTokenLocalizedKey005448
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0057254
+    custom_effect_tooltip =tokenjustifywargoaltimeGetTokenLocalizedKey017202
+    custom_effect_tooltip =tokengeneratewargoaltensionGetTokenLocalizedKey018008
+    custom_effect_tooltip =tokenjoinfactiontensionGetTokenLocalizedKey012213
+    custom_effect_tooltip =tokensendvolunteerstensionGetTokenLocalizedKey018953
+    custom_effect_tooltip =tokenguaranteetensionGetTokenLocalizedKey01311
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0056323
+    custom_effect_tooltip =tokenopiniongainmonthlyfactorGetTokenLocalizedKey018791
+
+    ## on_add
+
+}
+foreign_warmonger_data ={
+    custom_effect_tooltip =tokenoffensivewarstabilityfactorGetTokenLocalizedKey0054202
+    custom_effect_tooltip =tokenforeignsubversiveactivitesGetTokenLocalizedKey0057254
+    custom_effect_tooltip =tokenjustifywargoaltimeGetTokenLocalizedKey025654
+    custom_effect_tooltip =tokenjoinfactiontensionGetTokenLocalizedKey0252265
+    custom_effect_tooltip =tokensendvolunteerstensionGetTokenLocalizedKey0251046
+    custom_effect_tooltip =tokenguaranteetensionGetTokenLocalizedKey0251113
+    custom_effect_tooltip =tokentradeopinionfactorGetTokenLocalizedKey0158437
+    custom_effect_tooltip =tokenopiniongainmonthlyfactorGetTokenLocalizedKey016744
+
+    ## on_add
+
+}
+
+very_low_civ_fuel_usage_data ={
+	custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0013980
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0066251
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00021985
+	custom_effect_tooltip =tokenwarsupportweeklyGetTokenLocalizedKey00019550
+	custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0055819
+	custom_effect_tooltip =tokencivilianfuelusefactorGetTokenLocalizedKey0259476
+
+}
+low_civ_fuel_usage_data ={
+	custom_effect_tooltip =tokenoppositionpartydriftGetTokenLocalizedKey0013980
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0033354
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00015568
+	custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0036366
+	custom_effect_tooltip =tokencivilianfuelusefactorGetTokenLocalizedKey018505
+
+}
+normal_civ_fuel_usage_data ={
+	
+}
+medium_civ_fuel_usage_data ={
+	custom_effect_tooltip =tokenrulingpartydriftGetTokenLocalizedKey0017435
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0037632
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+	custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0035864
+	custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0022114
+	custom_effect_tooltip =tokencivilianfuelusefactorGetTokenLocalizedKey028733
+
+}
+high_civ_fuel_usage_data ={
+	custom_effect_tooltip =tokenrulingpartydriftGetTokenLocalizedKey0024294
+	custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey006122
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00025636
+	custom_effect_tooltip =tokenresourcesfactorGetTokenLocalizedKey0062958
+	custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey005894
+	custom_effect_tooltip =tokencivilianfuelusefactorGetTokenLocalizedKey044724
+
+}
+
+extravagant_diet_data ={
+
+	custom_effect_tooltip =tokenbasefoodneedcivilianGetTokenLocalizedKey0058Y33935
+	custom_effect_tooltip =tokensurrenderlimitGetTokenLocalizedKey011617
+	custom_effect_tooltip =tokenmonthlypopulationGetTokenLocalizedKey0058014
+	custom_effect_tooltip =tokenstabilityweeklyGetTokenLocalizedKey00011901
+	custom_effect_tooltip =tokenstabilityfactorGetTokenLocalizedKey015174
+	custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0032327
+}
+modern_diet_data ={
+	custom_effect_tooltip =tokenbasefoodneedcivilianGetTokenLocalizedKey0048Y34883
+	custom_effect_tooltip =tokensurrenderlimitGetTokenLocalizedKey0052935
+	custom_effect_tooltip =tokenmonthlypopulationGetTokenLocalizedKey0034694
+	custom_effect_tooltip =tokenpoliticalpowergainGetTokenLocalizedKey0022468
+	custom_effect_tooltip =tokenstabilityfactorGetTokenLocalizedKey0057688
+	custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey001594
+}
+basic_diet_data ={
+	custom_effect_tooltip =tokenbasefoodneedcivilianGetTokenLocalizedKey0044Y31458
+	custom_effect_tooltip =tokenmonthlypopulationGetTokenLocalizedKey0013154
+}
+poor_diet_data ={
+	custom_effect_tooltip =tokenbasefoodneedcivilianGetTokenLocalizedKey0035Y39415
+	custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey0053022
+	custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey0052910
+	custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey0054217
+	custom_effect_tooltip =tokenproductionfactorystartefficiencyfactorGetTokenLocalizedKey0027598
+}
+subsistence_diet_data ={
+	custom_effect_tooltip =tokenbasefoodneedcivilianGetTokenLocalizedKey0026Y37279
+	custom_effect_tooltip =tokenproductionspeedbuildingsfactorGetTokenLocalizedKey012308
+	custom_effect_tooltip =tokenindustrialcapacityfactoryGetTokenLocalizedKey013589
+	custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey01935
+	custom_effect_tooltip =tokenproductionfactorystartefficiencyfactorGetTokenLocalizedKey0056116
+	custom_effect_tooltip =tokenmonthlypopulationGetTokenLocalizedKey002469
+}
+
+
+
+##### SPIRITS
+
+
+political_loyalty_spirit_data={
+
+custom_effect_tooltip =tokenmilitaryleadercostfactorGetTokenLocalizedKey05624
+custom_effect_tooltip =tokenpartypopularitystabilityfactorGetTokenLocalizedKey0059330
+custom_effect_tooltip =political_loyalty_spirit_tt
+}
+
+inventive_leadership_spirit_data={
+
+custom_effect_tooltip =inventive_leadership_spirit_tt
+custom_effect_tooltip =tokentraitnavalinvaderxpgainfactorGetTokenLocalizedKey02641
+custom_effect_tooltip =tokentraitcommandotraitxpgainfactorGetTokenLocalizedKey026698
+custom_effect_tooltip =tokentraittricksterCCxpgainfactorGetTokenLocalizedKey021444
+}
+theatre_training_spirit_data={
+
+custom_effect_tooltip =theatre_training_academy_spirit_tt
+custom_effect_tooltip =tokenterraintraitxpgainfactorGetTokenLocalizedKey022519
+}
+generic_academy_data={
+
+custom_effect_tooltip =tokenarmyorgfactorGetTokenLocalizedKey0036565
+custom_effect_tooltip =tokenmaxcommandpowerGetTokenLocalizedKey502092
+custom_effect_tooltip =tokencommandpowergainmultGetTokenLocalizedKey0056287
+custom_effect_tooltip =tokenhighcommandcostfactorGetTokenLocalizedKey0057688
+
+if = {
+	limit = {
+		has_dynamic_modifier = {
+			modifier = officers_purged
+		}	
+	}
+	random_list = {
+		20 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_train = -0.01 tooltip = officers_purged_train_TT }
+		}
+		10 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_mobilization = 0.02 tooltip = officers_purged_mobilization_TT }
+		}
+		50 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_command = 0.04 tooltip = officers_purged_command_TT }
+		}
+		25 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_experience = 0.01 tooltip = officers_purged_experience_TT }
+		}
+		25 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_experience_cap = 2 tooltip = officers_purged_experience_cap_TT }
+		}
+	}
+}
+}
+officer_academy_data={
+
+custom_effect_tooltip =tokenarmyorgfactorGetTokenLocalizedKey0052593
+custom_effect_tooltip =tokenmaxcommandpowerGetTokenLocalizedKey1005750
+custom_effect_tooltip =tokencommandpowergainmultGetTokenLocalizedKey0084043
+custom_effect_tooltip =tokenhighcommandcostfactorGetTokenLocalizedKey014533		
+
+if = {
+	limit = {
+		has_dynamic_modifier = {
+			modifier = officers_purged
+		}	
+	}
+	random_list = {
+		20 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_train = -0.01 tooltip = officers_purged_train_TT }
+		}
+		10 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_mobilization = 0.02 tooltip = officers_purged_mobilization_TT }
+		}
+		50 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_command = 0.04 tooltip = officers_purged_command_TT }
+		}
+		25 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_experience = 0.01 tooltip = officers_purged_experience_TT }
+		}
+		25 = {
+			custom_effect_tooltip = officer_purge_change_TT
+			add_to_variable = { officers_purged_experience_cap = 2 tooltip = officers_purged_experience_cap_TT }
+		}
+	}
+}
+}
+boot_academy_data={
+
+custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey0151929
+custom_effect_tooltip =tokentrainingtimefactorGetTokenLocalizedKey0059051
+}
+research_academy_data={
+
+custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y8112
+custom_effect_tooltip =tokenresearchspeedfactorGetTokenLocalizedKey0047379
+custom_effect_tooltip =tokenairaccidentsfactorGetTokenLocalizedKey0056798
+custom_effect_tooltip =tokenequipmentconversionspeedGetTokenLocalizedKey011408
+
+}
+aux_academy_data={
+
+custom_effect_tooltip =tokenoutofsupplyfactorGetTokenLocalizedKey0056588
+custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y11333
+custom_effect_tooltip =tokenindustryfreerepairfactorGetTokenLocalizedKey0157346
+custom_effect_tooltip =tokenproductionspeedcoastalbunkerfactorGetTokenLocalizedKey0087106
+custom_effect_tooltip =tokenproductionspeedbunkerfactorGetTokenLocalizedKey008994
+custom_effect_tooltip =tokenproductionspeedsupplynodefactorGetTokenLocalizedKey0056847
+custom_effect_tooltip =tokenproductionspeedrailwayfactorGetTokenLocalizedKey0056581
+custom_effect_tooltip =tokenproductionspeednavalbasefactorGetTokenLocalizedKey0056676
+}
+attack_academy_data={
+
+custom_effect_tooltip =tokenarmyattackfactorGetTokenLocalizedKey003110
+custom_effect_tooltip =tokenattritionGetTokenLocalizedKey0037045
+custom_effect_tooltip =tokenarmyattackskillchanceGetTokenLocalizedKey053090
+
+}
+defend_academy_data={
+
+custom_effect_tooltip =tokenarmydefencefactorGetTokenLocalizedKey003844
+custom_effect_tooltip =tokenattritionGetTokenLocalizedKey0037182
+custom_effect_tooltip =tokenarmydefenseskillchanceGetTokenLocalizedKey051726
+}
+logistics_academy_data={
+
+custom_effect_tooltip =tokennosupplygraceGetTokenLocalizedKey6Hours2800
+custom_effect_tooltip =tokensupplynoderangeGetTokenLocalizedKey0059237
+custom_effect_tooltip =tokenplanningspeedGetTokenLocalizedKey0053826
+custom_effect_tooltip =tokenconsumergoodsexpectedvalueGetTokenLocalizedKey001Y8112
+custom_effect_tooltip =tokenlogisticsskillchanceGetTokenLocalizedKey053548
+custom_effect_tooltip =tokenfloatingharborsupplyGetTokenLocalizedKey019656
+}
+plans_academy_data={
+
+custom_effect_tooltip =tokenplanningspeedGetTokenLocalizedKey0156583	
+custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0059620
+custom_effect_tooltip =tokenreconfactorGetTokenLocalizedKey0055393
+custom_effect_tooltip =tokenencryptionfactorGetTokenLocalizedKey016696
+custom_effect_tooltip =tokenproductionspeedsupplynodefactorGetTokenLocalizedKey019497
+custom_effect_tooltip =tokenplanningskillchanceGetTokenLocalizedKey05825
+}
+
+
+professional_officer_corps_spirit_data={
+
+custom_effect_tooltip =tokenexperiencegainarmyGetTokenLocalizedKey0058393
+custom_effect_tooltip =tokenexperiencegainarmyfactorGetTokenLocalizedKey0012524
+custom_effect_tooltip =tokencommandpowergainGetTokenLocalizedKey0021277
+
+custom_effect_tooltip = professional_officer_corps_spirit_ww1_doctrine
+custom_effect_tooltip = professional_officer_corps_spirit_land_doctrine
+}
+elevated_engineering_corps_spirit_data={
+
+custom_effect_tooltip =tokentraitengineerxpgainfactorGetTokenLocalizedKey025501
+custom_effect_tooltip =tokendiginspeedfactorGetTokenLocalizedKey011437
+custom_effect_tooltip =tokenrailwaygunbombardmentfactorGetTokenLocalizedKey0056156
+
+set_temp_variable = { design_cost = -0.6 }
+custom_effect_tooltip = unit_design_cost_spirit_start_tt
+
+custom_effect_tooltip = engineer
+custom_effect_tooltip = engineer_mot
+custom_effect_tooltip = engineer_mech
+custom_effect_tooltip = engineer_arm
+custom_effect_tooltip = combat_engineer
+custom_effect_tooltip = combat_engineer_mot
+custom_effect_tooltip = combat_engineer_mech
+custom_effect_tooltip = combat_engineer_arm
+custom_effect_tooltip = airborne_engineer
+  
+custom_effect_tooltip = spirit_effect_end_tt
+}
+proper_heritage_spirit_data={
+
+custom_effect_tooltip =tokencavalryattackfactorGetTokenLocalizedKey0057923
+custom_effect_tooltip =tokensupplycombatpenaltiesoncorefactorGetTokenLocalizedKey019952
+
+set_temp_variable = { design_cost = -0.8 }
+custom_effect_tooltip = unit_design_cost_spirit_start_tt
+
+custom_effect_tooltip = cavalry
+custom_effect_tooltip = camelry
+custom_effect_tooltip = recon_cav
+  
+custom_effect_tooltip = spirit_effect_end_tt
+
+}
+quick_improvisation_spirit_data={
+
+custom_effect_tooltip =tokencommandabilitiescostfactorGetTokenLocalizedKey022844
+custom_effect_tooltip =tokencommandpowergainGetTokenLocalizedKey0056976
+custom_effect_tooltip =tokenplanningspeedGetTokenLocalizedKey014149
+}
+relief_of_command_spirit_data={
+
+custom_effect_tooltip =tokenarmyadvisorcostfactorGetTokenLocalizedKey054655
+}
+ideological_loyalty_spirit_data={
+
+custom_effect_tooltip =tokenpocketpenaltyGetTokenLocalizedKey018699
+custom_effect_tooltip =tokenconscriptionfactorGetTokenLocalizedKey0015416
+custom_effect_tooltip =tokenweeklymanpowerGetTokenLocalizedKey20001063
+}
+state_serves_the_military_spirit_data={
+
+custom_effect_tooltip =tokenpoliticalpowerfactorGetTokenLocalizedKey0076975
+custom_effect_tooltip =tokenmobilizationlawscostfactorGetTokenLocalizedKey0258483
+}
+mobile_warfare_army_spirit_data={
+
+custom_effect_tooltip =tokenexperiencegainsemimotorizedcombatfactorGetTokenLocalizedKey0055524
+custom_effect_tooltip =tokenexperiencegainsemimotorizedassaultcombatfactorGetTokenLocalizedKey0057759
+custom_effect_tooltip =tokenexperiencegainmotorizedcombatfactorGetTokenLocalizedKey0053573
+custom_effect_tooltip =tokenexperiencegainmotorizedassaultcombatfactorGetTokenLocalizedKey0052864
+custom_effect_tooltip =tokenexperiencegainmechanizedcombatfactorGetTokenLocalizedKey0054932
+custom_effect_tooltip =tokenexperiencegainmechanizedassaultcombatfactorGetTokenLocalizedKey0059094
+
+set_temp_variable = { design_cost = -0.6 }
+custom_effect_tooltip = unit_design_cost_spirit_start_tt
+
+custom_effect_tooltip = motorcycle_infantry
+custom_effect_tooltip = semi_motorized
+custom_effect_tooltip = semi_motorized_assault
+custom_effect_tooltip = motorized
+custom_effect_tooltip = motorized_assault
+custom_effect_tooltip = mechanized
+custom_effect_tooltip = mechanized_assault
+  
+custom_effect_tooltip = spirit_effect_end_tt
+}
+superior_firepower_army_spirit_data={
+set_temp_variable = { design_cost = -0.6 }
+custom_effect_tooltip = unit_design_cost_spirit_start_tt
+
+custom_effect_tooltip = artillery_brigade
+custom_effect_tooltip = artillery_brigade_med
+custom_effect_tooltip = artillery_brigade_mot
+custom_effect_tooltip = artillery_brigade_mot_med
+custom_effect_tooltip = artillery_heavy
+custom_effect_tooltip = artillery_heavy_mot
+custom_effect_tooltip = mountain_artillery_brigade
+custom_effect_tooltip = mountain_artillery_brigade_mot
+custom_effect_tooltip = airborne_artillery_brigade
+custom_effect_tooltip = rocket_artillery_brigade
+custom_effect_tooltip = motorized_rocket_brigade
+custom_effect_tooltip = rocket_artillery
+  
+custom_effect_tooltip = spirit_effect_end_tt
+}
+grand_battleplan_army_spirit_data={
+
+custom_effect_tooltip =tokenspecialforcescapGetTokenLocalizedKey002106
+custom_effect_tooltip =tokenspecialforcesnosupplygraceGetTokenLocalizedKey120Hours9104
+custom_effect_tooltip =tokennavalinvasionplanningbonusspeedGetTokenLocalizedKey017289
+
+set_temp_variable = { design_cost = -0.6 }
+custom_effect_tooltip = unit_design_cost_spirit_start_tt
+
+custom_effect_tooltip = mountaineers
+custom_effect_tooltip = gurkha
+custom_effect_tooltip = paratrooper
+custom_effect_tooltip = commando
+custom_effect_tooltip = marine
+custom_effect_tooltip = marine_assault
+custom_effect_tooltip = amphibious_mechanized
+custom_effect_tooltip = amphibious_mechanized_assault
+custom_effect_tooltip = american_amph_lv
+custom_effect_tooltip = american_amph_lv_assault
+  
+custom_effect_tooltip = spirit_effect_end_tt
+}
+mass_assault_army_spirit_data={
+
+custom_effect_tooltip =tokenexperiencegaininfantrycombatfactorGetTokenLocalizedKey0058372
+custom_effect_tooltip =tokenexperiencegaininfantryassaultcombatfactorGetTokenLocalizedKey0052508
+custom_effect_tooltip =tokenexperiencegainlightinfantrycombatfactorGetTokenLocalizedKey0056244
+custom_effect_tooltip =tokenexperiencegainconscriptscombatfactorGetTokenLocalizedKey0056197
+custom_effect_tooltip =tokenexperiencegainmilitiacombatfactorGetTokenLocalizedKey0056798
+custom_effect_tooltip =tokenexperiencegainirregularsunitcombatfactorGetTokenLocalizedKey0058925
+				
+set_temp_variable = { design_cost = -0.6 }
+custom_effect_tooltip = unit_design_cost_spirit_start_tt
+
+custom_effect_tooltip = infantry
+custom_effect_tooltip = infantry_assault
+custom_effect_tooltip = light_infantry
+custom_effect_tooltip = conscripts
+custom_effect_tooltip = militia
+custom_effect_tooltip = irregulars_unit
+  
+custom_effect_tooltip = spirit_effect_end_tt
+
+}
+
+
+static_warfare_spirit_data={
+
+custom_effect_tooltip =tokentacticoverwhelmingfirepreferredweightfactorGetTokenLocalizedKey11614
+custom_effect_tooltip =tokenmaxdiginfactorGetTokenLocalizedKey012720
+custom_effect_tooltip =tokendiginspeedfactorGetTokenLocalizedKey011437
+}
+flexible_organization_spirit_data={
+
+custom_effect_tooltip =tokentacticelasticdefensepreferredweightfactorGetTokenLocalizedKey11894
+custom_effect_tooltip =tokenorglosswhenmovingGetTokenLocalizedKey0051653
+custom_effect_tooltip =tokenarmyspeedfactorGetTokenLocalizedKey0027587
+custom_effect_tooltip =tokenchoosepreferredtacticscostGetTokenLocalizedKey150157
+}
+aggressive_reconnaisance_spirit_data={
+
+custom_effect_tooltip =tokentacticinfantrychargepreferredweightfactorGetTokenLocalizedKey1168
+custom_effect_tooltip =tokenintelfromcombatfactorGetTokenLocalizedKey016963
+custom_effect_tooltip =tokenreconfactorGetTokenLocalizedKey015706
+custom_effect_tooltip =tokenorglosswhenmovingGetTokenLocalizedKey015598
+}
+reserve_officers_spirit_data={
+
+custom_effect_tooltip =tokentacticdelaypreferredweightfactorGetTokenLocalizedKey13301
+custom_effect_tooltip =tokentrainingtimearmyfactorGetTokenLocalizedKey0157030
+custom_effect_tooltip =tokenexperiencegainarmyunitGetTokenLocalizedKey0026631
+custom_effect_tooltip =tokenarmymoraleGetTokenLocalizedKey0025708
+}
+victory_or_death_spirit_data={
+
+custom_effect_tooltip =tokentactichumanwavetacticspreferredweightfactorGetTokenLocalizedKey17882
+custom_effect_tooltip =tokenorglossatloworgfactorGetTokenLocalizedKey0151752
+}
+maneuver_warfare_spirit_data={
+
+custom_effect_tooltip =tokentacticunexpectedthrustpreferredweightfactorGetTokenLocalizedKey15792
+custom_effect_tooltip =tokenarmyspeedfactorGetTokenLocalizedKey0027587
+custom_effect_tooltip =tokencoordinationbonusGetTokenLocalizedKey0039402
+}
+smoke_and_fire_spirit_data={
+
+custom_effect_tooltip =tokentacticbarragepreferredweightfactorGetTokenLocalizedKey14593
+custom_effect_tooltip =tokenbreakthroughfactorGetTokenLocalizedKey0032831
+custom_effect_tooltip =tokenarmyattackfactorGetTokenLocalizedKey0017607
+}
+logistical_focus_spirit_data={
+
+custom_effect_tooltip =tokentacticplannedattackpreferredweightfactorGetTokenLocalizedKey14725
+custom_effect_tooltip =tokensupplyconsumptionfactorGetTokenLocalizedKey0025066
+custom_effect_tooltip =tokensupplynoderangeGetTokenLocalizedKey0059237
+}
+operational_reserve_spirit_data={
+
+custom_effect_tooltip =tokentacticrelentlessassaultpreferredweightfactorGetTokenLocalizedKey12847
+custom_effect_tooltip =tokenexperiencelossfactorGetTokenLocalizedKey0058784
+custom_effect_tooltip =tokenarmystrengthfactorGetTokenLocalizedKey018285
+}
+
+Per_academy_data={
+custom_effect_tooltip =tokenmonarchismdriftGetTokenLocalizedKey0013771
+custom_effect_tooltip =tokenspecialforcesattackfactorGetTokenLocalizedKey0055448
+custom_effect_tooltip =tokenspecialforcesdefencefactorGetTokenLocalizedKey008446
+custom_effect_tooltip =tokenairacegenerationchancefactorGetTokenLocalizedKey0052340
+custom_effect_tooltip =tokenheatattritionfactorGetTokenLocalizedKey0209355
+custom_effect_tooltip =tokenspecialforcesminGetTokenLocalizedKey63652
+}
+NZL_academy_data={
+custom_effect_tooltip =tokenplanningspeedGetTokenLocalizedKey0156583
+custom_effect_tooltip =tokenarmymoralefactorGetTokenLocalizedKey0059620
+custom_effect_tooltip =tokenreconfactorGetTokenLocalizedKey0093925
+custom_effect_tooltip =tokenencryptionfactorGetTokenLocalizedKey016696
+custom_effect_tooltip =tokenproductionspeedsupplynodefactorGetTokenLocalizedKey019497
+}
+AST_duntroon_data={
+custom_effect_tooltip =tokenarmyorgfactor015838
+custom_effect_tooltip =tokenmaxcommandpowerGetTokenLocalizedKey1509534
+custom_effect_tooltip =tokencommandpowergainmultGetTokenLocalizedKey0084043
+custom_effect_tooltip =tokenhighcommandcostfactorGetTokenLocalizedKey014533
+}
+AST_kapooka_data={
+custom_effect_tooltip =tokenmobilizationspeedGetTokenLocalizedKey0151929
+custom_effect_tooltip =tokentrainingtimefactorGetTokenLocalizedKey0059051
+}
+arab_academy_data={
+custom_effect_tooltip =tokenmonarchismdriftGetTokenLocalizedKey0013771
+custom_effect_tooltip =tokenspecialforcesattackfactorGetTokenLocalizedKey0055448
+custom_effect_tooltip =tokenspecialforcesdefencefactorGetTokenLocalizedKey0057673
+custom_effect_tooltip =tokenairacegenerationchancefactorGetTokenLocalizedKey0052340
+custom_effect_tooltip =tokenheatattritionfactorGetTokenLocalizedKey0209355
+custom_effect_tooltip =tokenspecialforcesminGetTokenLocalizedKey63652
+}
+
+
+
+
+instilled_aggression_spirit_data={
+custom_effect_tooltip =tokennavyattackskillchanceGetTokenLocalizedKey054202
+}
+calculated_restraint_spirit_data={
+custom_effect_tooltip =tokennavydefenseskillchanceGetTokenLocalizedKey056530
+}
+signals_training_spirit_data={
+custom_effect_tooltip =tokenmaneuverskillchanceGetTokenLocalizedKey032086
+custom_effect_tooltip =tokencoordinationskillchanceGetTokenLocalizedKey039137
+}
+best_of_the_best_naval_academy_spirit_data={
+custom_effect_tooltip =tokennavyleaderstartlevelGetTokenLocalizedKey201758
+custom_effect_tooltip =tokennavyleadercostfactorGetTokenLocalizedKey05782
+custom_effect_tooltip =tokennavyinteltoothersGetTokenLocalizedKey0058097
+custom_effect_tooltip =best_of_the_best_naval_academy_spirit_tt
+} 
+naval_academy_scholarships_spirit_data={
+custom_effect_tooltip =tokennavyleaderstartlevelGetTokenLocalizedKey105713
+custom_effect_tooltip =tokennavyleadercostfactorGetTokenLocalizedKey055755
+custom_effect_tooltip =naval_academy_scholarships_spirit_tt
+}
+fleet_in_being_academy_spirit_data={
+custom_effect_tooltip =fleet_in_being_academy_spirit_tt
+custom_effect_tooltip =tokentraitironsidexpgainfactorGetTokenLocalizedKey025529
+custom_effect_tooltip =tokentraitsuperiortacticianxpgainfactorGetTokenLocalizedKey0253495
+}
+trade_interdiction_academy_spirit_data={
+custom_effect_tooltip =trade_interdiction_academy_spirit_tt
+custom_effect_tooltip =tokentraitseawolfxpgainfactorGetTokenLocalizedKey0255373
+custom_effect_tooltip =tokentraitblockaderunnerxpgainfactorGetTokenLocalizedKey0253281
+}
+base_strike_academy_spirit_data={
+custom_effect_tooltip =base_strike_academy_spirit_tt
+custom_effect_tooltip =tokentraitaircontrollerxpgainfactorGetTokenLocalizedKey0259015
+custom_effect_tooltip =tokentraitfleetprotectorxpgainfactorGetTokenLocalizedKey0254808
+}
+
+jeune_ecole_spirit_data={
+custom_effect_tooltip =tokennrmshiphulllightdesigncostfactorGetTokenLocalizedKey0252493
+custom_effect_tooltip =tokennrmshiphulldestroyerescortdesigncostfactorGetTokenLocalizedKey0255544
+custom_effect_tooltip =tokennrmshiphulldestroyerdesigncostfactorGetTokenLocalizedKey0255892
+custom_effect_tooltip =tokennrmshiphulltorpedoboatdesigncostfactorGetTokenLocalizedKey0257468
+
+custom_effect_tooltip = jeune_ecole_spirit_dd_tech_tt
+custom_effect_tooltip = jeune_ecole_spirit_naval_battery_light_tt
+}
+big_gun_club_spirit_data={
+custom_effect_tooltip =tokennrmshiphullcapitaldesigncostfactorGetTokenLocalizedKey025470
+custom_effect_tooltip =tokennrmshiphulllargecruiserdesigncostfactorGetTokenLocalizedKey0258576
+
+custom_effect_tooltip = big_gun_club_spirit_bb_tech_tt
+custom_effect_tooltip = big_gun_club_spirit_bc_tech_tt
+custom_effect_tooltip = big_gun_club_spirit_naval_battery_heavy_tt
+}
+aviation_enthusiasts_spirit_data={
+custom_effect_tooltip =tokennrmshiphullcarrierescortdesigncostfactorGetTokenLocalizedKey0258407
+custom_effect_tooltip =tokennrmshiphullcarrierlightdesigncostfactorGetTokenLocalizedKey0258915
+custom_effect_tooltip =tokennrmshiphullcarrierdesigncostfactorGetTokenLocalizedKey0251038
+
+custom_effect_tooltip = aviation_enthusiasts_spirit_cv_tech_tt
+}
+cruiser_warfare_spirit_data={
+custom_effect_tooltip =tokennrmshiphullcruiserdesigncostfactorGetTokenLocalizedKey0258718
+custom_effect_tooltip =tokennrmshiphulllargecruiserdesigncostfactorGetTokenLocalizedKey0258576
+
+custom_effect_tooltip = cruiser_warfare_spirit_cl_tech_tt
+custom_effect_tooltip = cruiser_warfare_spirit_ca_tech_tt
+custom_effect_tooltip = cruiser_warfare_spirit_naval_battery_medium_tt
+}
+wolfpacks_spirit_data={
+custom_effect_tooltip =tokennrmshiphullsubmarinedesigncostfactorGetTokenLocalizedKey0253343
+
+custom_effect_tooltip = wolfpacks_spirit_ss_tech_tt
+custom_effect_tooltip = wolfpacks_spirit_naval_sub_equipment_tt
+}
+flexible_contracts_spirit_data={
+custom_effect_tooltip =tokennavalmanufacturercostfactorGetTokenLocalizedKey0253117
+}
+integrated_designers_spirit_data={
+custom_effect_tooltip =tokenindustrialcapacitydockyardGetTokenLocalizedKey003855
+
+custom_effect_tooltip = integrated_designers_spirit_naval_firecontrol_tt
+custom_effect_tooltip = integrated_designers_spirit_naval_engine_tt
+custom_effect_tooltip = integrated_designers_spirit_naval_antiair_tt
+custom_effect_tooltip = integrated_designers_spirit_naval_battery_light_tt
+custom_effect_tooltip = integrated_designers_spirit_naval_battery_medium_tt
+custom_effect_tooltip = integrated_designers_spirit_naval_battery_heavy_tt
+custom_effect_tooltip = integrated_designers_spirit_naval_shell_design_tt
+}
+naval_reform_spirit_data={
+custom_effect_tooltip =tokenexperiencegainnavyGetTokenLocalizedKey0058883
+custom_effect_tooltip =tokennavyadvisorcostfactorGetTokenLocalizedKey0256639
+}
+naval_refit_yards_spirit_data={
+custom_effect_tooltip =tokenrefitspeedGetTokenLocalizedKey0059084
+custom_effect_tooltip =tokenrepairspeedfactorGetTokenLocalizedKey014779
+}
+
+close_combat_navy_spirit_data={
+custom_effect_tooltip =tokennavyscreenattackfactorGetTokenLocalizedKey0057099
+custom_effect_tooltip =tokennavaltorpedoscreenpenetrationfactorGetTokenLocalizedKey0054292
+}
+night_fighting_spirit_data={
+custom_effect_tooltip =tokennightspottingchanceGetTokenLocalizedKey014972
+custom_effect_tooltip =tokennavalnightattackGetTokenLocalizedKey015567
+}
+surprise_attacks_spirit_data={
+custom_effect_tooltip =tokennavalretreatspeedafterinitialcombatGetTokenLocalizedKey017961
+custom_effect_tooltip =tokennavalretreatchanceafterinitialcombatGetTokenLocalizedKey021810
+}
+efficient_communications_spirit_data={
+custom_effect_tooltip =tokenpositioningGetTokenLocalizedKey0056936
+custom_effect_tooltip =tokennavalcoordinationGetTokenLocalizedKey017388
+}
+surface_raiders_spirit_data={
+custom_effect_tooltip =tokenscreeningwithoutscreensGetTokenLocalizedKey021756
+custom_effect_tooltip =tokennavalretreatspeedGetTokenLocalizedKey014420
+custom_effect_tooltip =tokennavalretreatchanceGetTokenLocalizedKey016697
+}
+decisive_battle_spirit_data={
+custom_effect_tooltip =tokennavalretreatchanceGetTokenLocalizedKey011715
+custom_effect_tooltip =tokennavaltorpedohitchancefactorGetTokenLocalizedKey0057554
+custom_effect_tooltip =tokennavalhitchanceGetTokenLocalizedKey0056542
+}
+fleet_in_being_navy_spirit_data={
+custom_effect_tooltip =tokenscreeningefficiencyGetTokenLocalizedKey0058573
+custom_effect_tooltip =tokenconvoyescortefficiencyGetTokenLocalizedKey0101592
+}
+base_strike_navy_spirit_data={
+custom_effect_tooltip =tokensortieefficiencyGetTokenLocalizedKey005536
+custom_effect_tooltip =tokenspottingchanceGetTokenLocalizedKey0052342
+}
+inclimate_weather_experience_spirit_data={
+custom_effect_tooltip =tokennavyweatherpenaltyGetTokenLocalizedKey0151453
+}
+brave_commanders_spirit_data={
+custom_effect_tooltip =tokennavalcriticalscorechancefactorGetTokenLocalizedKey0054589
+custom_effect_tooltip =tokennavalretreatchanceGetTokenLocalizedKey0059310
+}
+
+
+### AIR
+
+
+independent_air_force_spirit_data={
+custom_effect_tooltip =tokenexperiencegainairGetTokenLocalizedKey0055640
+custom_effect_tooltip =tokenairadvisorcostfactorGetTokenLocalizedKey0251722
+}
+industrial_destruction_spirit_data={
+custom_effect_tooltip = industrial_destruction_spirit_heavy_air_tt
+custom_effect_tooltip = industrial_destruction_spirit_cat_strategic_destruction_tt
+}
+dive_bombing_spirit_data={
+custom_effect_tooltip = dive_bombing_spirit_cas_bomber_tt
+custom_effect_tooltip = dive_bombing_spirit_cat_battlefield_support_tt
+}
+material_destruction_spirit_data={
+custom_effect_tooltip = material_destruction_spirit_tactical_bomber_tt
+custom_effect_tooltip = material_destruction_spirit_cat_operational_integrity_tt
+}
+industry_liasons_spirit_data={
+custom_effect_tooltip =tokenaircraftmanufacturerscostfactorGetTokenLocalizedKey0253737
+custom_effect_tooltip =tokenbigaircraftmanufacturerscostfactorGetTokenLocalizedKey0251761
+
+custom_effect_tooltip = industry_liasons_spirit_air_equipment_tt
+}
+effective_training_programs_spirit_data={
+custom_effect_tooltip =tokenairtrainingxpgainfactorGetTokenLocalizedKey0254089
+}
+air_crew_surveys_spirit_data={
+custom_effect_tooltip =tokenairequipmentupgradexpcostGetTokenLocalizedKey0051751
+custom_effect_tooltip =tokenairaccidentsfactorGetTokenLocalizedKey028229
+}
+
+battlefield_air_interdiction_spirit_data={
+custom_effect_tooltip =tokengroundattackfactorGetTokenLocalizedKey0054620
+custom_effect_tooltip =tokenairescortefficiencyGetTokenLocalizedKey0059214
+}
+cag_night_fighting_spirit_data={
+custom_effect_tooltip =tokenaircarriernightpenaltyreductionfactorGetTokenLocalizedKey0152625
+}
+veteran_air_instructors_spirit_data={
+custom_effect_tooltip =tokenairwingxplosswhenkilledfactorGetTokenLocalizedKey029086
+}
+centralized_control_spirit_data={
+custom_effect_tooltip =tokenairsuperioritydetectfactorGetTokenLocalizedKey011937
+custom_effect_tooltip =tokenairinterceptiondetectfactorGetTokenLocalizedKey017892
+custom_effect_tooltip =tokenairsuperiorityefficiencyGetTokenLocalizedKey0037296
+custom_effect_tooltip =tokenairinterceptefficiencyGetTokenLocalizedKey0038342
+}
+steel_wings_steel_hearts_spirit_data={
+custom_effect_tooltip =tokenairuntrainedpilotspenaltyfactorGetTokenLocalizedKey057950
+}
+home_defence_spirit_data={
+custom_effect_tooltip =tokenairhomedefencefactorGetTokenLocalizedKey0066163
+}
+air_power_projection_spirit_data={
+custom_effect_tooltip =tokenairpowerprojectionfactorGetTokenLocalizedKey0057811
+custom_effect_tooltip =tokenairrangefactorGetTokenLocalizedKey0023480
+}
+massed_strike_spirit_data={
+custom_effect_tooltip =tokenarmybonusairsuperiorityfactorGetTokenLocalizedKey0055958
+custom_effect_tooltip =tokenairnavefficiencyGetTokenLocalizedKey0025464
+}
+continuous_strike_spirit_data={
+custom_effect_tooltip =tokenaircasefficiencyGetTokenLocalizedKey011468
+custom_effect_tooltip =tokenaircaspresentfactorGetTokenLocalizedKey005949
+}
+strategic_strike_spirit_data={
+custom_effect_tooltip =tokenairstrategicbomberbombingfactorGetTokenLocalizedKey015214
+custom_effect_tooltip =tokenairbombingtargettingGetTokenLocalizedKey0059021
+}

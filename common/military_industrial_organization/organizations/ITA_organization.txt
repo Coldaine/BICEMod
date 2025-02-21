@@ -1,0 +1,109 @@
+#####################
+
+###  ##  #  # # #  ## 
+ #  #  # ## # # # #   
+ #  #### # ## ##   #  
+ #  #  # #  # # #   # 
+ #  #  # #  # # # ## 
+
+ #################### 
+
+
+#####################
+
+ ## #  # ### ###   ## 
+#   #  #  #  #  # #   
+ #  ####  #  ###   #  
+  # #  #  #  #      # 
+##  #  # ### #    ##  
+ 
+#####################
+
+
+###########################
+
+###  #    ##  #  # ###  ## 
+#  # #   #  # ## # #   #   
+###  #   #### # ## ##   #  
+#    #   #  # #  # #     # 
+#    ### #  # #  # ### ##  
+
+###########################
+
+################################### 
+
+#   #  ##  ### ### ###  ### ### #   
+## ## #  #  #  #   #  #  #  #   #   
+# # # ####  #  ##  ###   #  ##  #   
+#   # #  #  #  #   #  #  #  #   #   
+#   # #  #  #  ### #  # ### ### ### 
+
+
+###################################
+
+ITA_beretta_organization = {
+	include = generic_infantry_equipment_organization
+	icon = GFX_idea_beretta
+
+	allowed = {	 
+		OR = {
+			tag = ITA 
+			tag = ETH
+		}
+	}
+
+	visible = {
+	}
+
+	available = {
+		# When in a Foreign MIO, countries need to be at peace with original country
+		IF = {
+			limit = {
+				FROM = { NOT = { original_tag = ITA } }
+			}
+			FROM = { NOT = { has_war_with = ITA } }
+		}
+	}
+}
+
+ITA_lancia_organization = {
+	include = generic_motorized_mechanized_organization
+	icon = GFX_idea_lancia
+	
+	allowed = {	 
+		tag = ITA 
+	}
+}
+
+ITA_breda_organization = {
+	include = generic_artillery_organization
+	icon = GFX_idea_breda
+	allowed = {	 
+		OR = {
+			tag = ITA 
+			tag = ETH
+		}
+	}
+	
+	available = {
+		# When in a Foreign MIO, countries need to be at peace with original country
+		IF = {
+			limit = {
+				FROM = { NOT = { original_tag = ITA } }
+			}
+			FROM = { NOT = { has_war_with = ITA } }
+		}
+	}
+}
+
+ITA_brescia_arsenal_organization = {
+	include = generic_support_equipment_organization
+	icon = GFX_idea_ITA_brescia_arsenal
+	
+	allowed = {	 
+		tag = ITA
+	}
+	
+	available = {
+	}
+}

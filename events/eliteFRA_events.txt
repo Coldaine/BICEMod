@@ -1,0 +1,190 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.1
+
+###########################
+
+
+add_namespace = eliteFRA
+
+### 4.1
+
+############### EVENT 01   1938 ###############
+
+country_event = {
+
+	id = eliteFRA.1
+
+	title = "French Army Foreign Legion Infantry 1938" #eliteFRA.1.t
+
+	desc =  "The Légion Étrangère was created on 10 March 1831. In World War II the Foreign Legion was involved in many exterior theatres of operations, notably sea transport protection through to the Norwegian, Syria-Lebanon, and North African campaigns." #eliteFRA.1.d
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_FRA # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = FRA
+					date > 1938.01.01
+
+					date < 1938.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "13e Demi-Brigade de Légion Étrangère" #eliteFRA.1.a
+
+		#ai_chance = { base = 100 }  ########
+
+
+		FRA = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_fra_foreign_legion_infantry_1938"
+
+		} 	#end hidden
+		} 	#end NAZ
+
+
+		custom_effect_tooltip = "This option triggers a country-specific tech which unlocks the 'Légion étrangère Bataillon' unit and the 'Légion étrangère template' and deploys the '13e Demi-Brigade de Légion Étrangère' to Algeria." #eliteFRA.1.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 02   1939 ###############
+
+country_event = {
+
+	id = eliteFRA.2
+
+	title = "French Army Foreign Legion Infantry 1939"
+
+	desc =  "The 13th Demi-Brigade, formed for service in Norway, found itself in the UK at the time of the French Armistice, was deployed to the British 8th Army in North Africa. Part of the Foreign Legion joined the Free French movement while another served Vichy. 
+"
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_FRA # must write GFX_
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = FRA
+					date > 1939.01.01
+
+					date < 1939.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "3e Régiment étranger d'infanterie" #eliteFRA.2.a
+
+		ai_chance = { base = 100 }  ########
+
+
+		FRA = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_fra_foreign_legion_infantry_1939"
+
+		} 	#end hidden
+		} 	#end NAZ
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the '3e Régiment étranger d'infanterie' to Morocco." #eliteFRA.2.a_tt
+
+		} 	#end option
+
+
+} 	#end year
+
+
+############### EVENT 03   1940 ###############
+
+country_event = {
+
+	id = eliteFRA.3
+
+	title = "French Army Foreign Legion Infantry 1940"
+
+	desc =  "The Syria–Lebanon Campaign of June 1941 saw legionnaire fighting legionnaire as the 13e D.B.L.E clashed with the 6th Foreign Infantry Regiment 6e REI at Damascus.  Later, a thousand of the Vichy Legion unit joined the 13e D.B.L.E. of the Free French forces"
+
+						#desc= 255 max characters 
+
+	picture =  GFX_report_event_elite_FRA # must write GFX_
+
+
+	 fire_only_once = yes
+
+		# is_triggered_only = yes (only dont work)
+
+		# fire_only_once = yes (+ "is_triggered_only" dont work)
+		# is_triggered_only = yes  (+ "fire_only_once" dont work)
+
+
+	trigger = {TAG = FRA
+					date > 1940.01.01
+
+					date < 1940.01.31  
+		}
+
+	        mean_time_to_happen = { days = 1 } #dont work by only
+
+##### OPTION 1 ####
+
+
+	option = {
+
+		name = "5e et 6e Régiment étranger d'infanterie" #eliteFRA.3.a
+
+		ai_chance = { base = 100 }  ########
+
+		FRA = {
+
+		hidden_effect = {  
+
+		load_oob = "elite_fra_foreign_legion_infantry_1940"
+
+		} 	#end hidden
+		} 	#end NAZ
+
+
+
+		
+		custom_effect_tooltip = "This option triggers deploys the '5e et 6e Régiment étranger d'infanterie' to Morocco."
+
+		} 	#end option
+
+
+} 	#end year
+
+############### EVENT 04   1941 ###############
+
+
+###

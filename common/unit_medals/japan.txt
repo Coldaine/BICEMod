@@ -1,0 +1,256 @@
+# Valid unit modifiers are not exhaustive
+# Currently supported:
+# army_morale
+# army_morale_factor
+# army_org
+# army_org_factor
+# supply_consumption_factor
+# equipment_capture
+# equipment_capture_factor
+# army_fuel_capacity_factor
+# army_fuel_consumption_factor
+# recon_factor
+# recon_factor_while_entrenched
+# transport_capacity (?)
+# breakthrough_factor
+# armor_factor
+# army_strength_factor
+# experience_loss_factor
+# leader_modifier applies unit modifiers to all units under them as a general, similarly to traits.
+# army_attack_factor
+# army_defence_factor
+# max_dig_in
+# max_dig_in_factor
+
+@cost = 30
+
+unit_medals = {
+	
+	
+	### JAP
+	
+	Kyokujitsu_toka_daijusho = {
+		
+		available = { should_have_japanese_medals_trigger = yes }
+		frame = 1
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 200
+		
+		unit_modifiers = {
+			army_morale_factor = 0.075
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Kinshi_Kunsho_1st = {
+		
+		available = { should_have_japanese_medals_trigger = yes }
+		frame = 2
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 100		
+		unit_modifiers = {
+			army_morale_factor = 0.05
+			army_strength_factor = 0.05
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Kinshi_Kunsho_2nd = {
+		
+		available = { should_have_japanese_medals_trigger = yes }
+		frame = 3
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 50
+		
+		unit_modifiers = {
+			supply_consumption_factor = -0.1
+			army_attack_factor = 0.05
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+	}
+	
+	Kinshi_Kunsho_3rd = {
+		
+		available = { should_have_japanese_medals_trigger = yes }
+		frame = 4
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 30
+		
+		unit_modifiers = {
+			breakthrough_factor = 0.1
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+
+	Order_of_the_Rising_Sun = {
+		
+		available = { should_have_japanese_medals_trigger = yes }
+		frame = 5
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 30
+		
+		unit_modifiers = {
+			army_org_factor = 0.10
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Rikugun_Bukokisho = {
+		
+		available = { should_have_japanese_medals_trigger = yes 
+			has_casualties_war_support > 500000
+		}
+		frame = 6
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 15
+		
+		unit_modifiers = {
+			army_morale_factor = 0.08
+		}
+
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Gunjin_Shoi_Kisho = {
+		
+		available = { should_have_japanese_medals_trigger = yes }
+		frame = 7
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 5
+		
+		unit_modifiers = {
+			experience_loss_factor = -0.10
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+
+	}
+	
+	Kigen2600nen_Shukuten_Kinensho = {
+		
+		available = { should_have_japanese_medals_trigger = yes 
+			NOT = { has_government = communism
+			}
+			date > 1940.07.27
+		}
+		frame = 8
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_morale_factor = 0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+
+	Shinajihen_Jugun_Kisho = {
+		
+		available = { should_have_japanese_medals_trigger = yes 
+			has_war_with = CHI
+		}
+		frame = 9
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_attack_factor = 0.05
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Daitouasenso_Jugun_Kisho = {
+		
+		available = { should_have_japanese_medals_trigger = yes 
+				OR = { 
+					JAP = { has_war_with = USA}
+					JAP = { has_war_with = SOV}
+					JAP = { has_war_with = ENG}
+					JAP = { has_war_with = FRA}
+					JAP = { has_war_with = HOL}
+				}
+		}
+		frame = 10
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			supply_consumption_factor = -0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Kokkyojihen_Jugun_Kisho = {
+		
+		available = { should_have_japanese_medals_trigger = yes 
+			is_ally_with = MAN
+			MAN = { 
+				OR = { has_border_war = yes
+					has_war_with = SOV
+				}
+			}
+		}
+		frame = 11
+		icon = "GFX_medal_icon_jap"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_defence_factor = 0.10
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+	}
+	
+}

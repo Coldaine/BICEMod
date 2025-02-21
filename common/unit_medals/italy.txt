@@ -1,0 +1,219 @@
+# Valid unit modifiers are not exhaustive
+# Currently supported:
+# army_morale
+# army_morale_factor
+# army_org
+# army_org_factor
+# supply_consumption_factor
+# equipment_capture
+# equipment_capture_factor
+# army_fuel_capacity_factor
+# army_fuel_consumption_factor
+# recon_factor
+# recon_factor_while_entrenched
+# transport_capacity (?)
+# breakthrough_factor
+# armor_factor
+# army_strength_factor
+# experience_loss_factor
+# leader_modifier applies unit modifiers to all units under them as a general, similarly to traits.
+# army_attack_factor
+# army_defence_factor
+# max_dig_in
+# max_dig_in_factor
+
+@cost = 30
+
+unit_medals = {
+	
+	### ITA
+	
+	Military_Order_of_Savoy_Knight_Grand_Cross = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 1
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 200
+		
+		unit_modifiers = {
+			army_morale_factor = 0.20
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Military_Order_of_Savoy_Grand_Officer = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 2
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 150
+		
+		unit_modifiers = {
+			army_fuel_capacity_factor = 0.05
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Military_Order_of_Savoy_Commander = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 3
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 100
+		
+		unit_modifiers = {
+			army_attack_factor = 0.03
+			army_defence_factor = 0.03
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Military_Order_of_Savoy_Officer = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 4
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 80
+		
+		unit_modifiers = {
+			army_fuel_consumption_factor = -0.025
+			supply_consumption_factor = -0.025
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+
+	Military_Order_of_Savoy_Knight = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 5
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 50
+		
+		unit_modifiers = {
+			army_org_factor = 0.05
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Gold_Medal_of_Military_Valor = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 6
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 25
+		
+		unit_modifiers = {
+			recon_factor = 0.06
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Silver_Medal_of_Military_Valor = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 7
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 20
+		
+		unit_modifiers = {
+			breakthrough_factor = 0.04
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Bronze_Medal_of_Military_Valor = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 8
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 15
+		
+		unit_modifiers = {
+			army_morale_factor = 0.08
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	War_Merit_Cross = {
+		
+		available = { should_have_italian_medals_trigger = yes }
+		frame = 9
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 10
+		
+		unit_modifiers = {
+			army_org_factor = 0.1
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	German_Italian_Africa_Campaign_Medal = {
+		
+		available = { should_have_italian_medals_trigger = yes
+			has_war_with_major = yes
+			is_ally_with = GER
+			controls_state = 448
+		}
+		frame = 10
+		icon = "GFX_medal_icon_ita"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			supply_consumption_factor = -0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	
+}

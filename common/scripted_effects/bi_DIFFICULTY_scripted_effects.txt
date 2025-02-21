@@ -1,0 +1,602 @@
+bice_difficulty_adjustments = {
+	
+	if = {
+		limit = { 
+			# Civilian 0
+			difficulty < 1 
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = axis_ai
+					SOV = {
+						is_ai = no
+					}
+				}
+			}
+			easiest_PLAN = yes
+			easiest_congress = yes
+			easiest_purge = yes	
+			SOV = { set_variable = { border_cost_increase = 2 } }
+			MON = { set_variable = { border_cost_increase = 2 } }
+			if = {
+				limit = {
+					SOV = {
+						is_ai = no
+					}
+				}
+				easiest_5yr = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = commie_ai
+				}
+			}
+			hardest_purge = yes	
+			SOV = { set_variable = { border_cost_increase = 14 } }
+			MON = { set_variable = { border_cost_increase = 14 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = allied_ai
+				}
+			}
+			hardest_congress = yes	
+			hardest_PLAN = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = east_ai
+				}
+			}
+			JAP = { set_variable = { border_cost_increase = 14 } }
+			MAN = { set_variable = { border_cost_increase = 14 } }
+			MEN = { set_variable = { border_cost_increase = 14 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = chi_ai
+				}
+			}
+			JAP = { set_variable = { border_cost_increase = 2 } }
+			MAN = { set_variable = { border_cost_increase = 2 } }
+			MEN = { set_variable = { border_cost_increase = 2 } }
+		}
+	}
+	else_if = {
+		limit = {
+			# recruit 1
+			difficulty < 2
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = axis_ai
+					SOV = {
+						is_ai = no
+					}
+				}
+			}
+			easier_purge = yes
+			easier_congress = yes
+			easier_PLAN = yes
+			SOV = { set_variable = { border_cost_increase = 5 } }
+			MON = { set_variable = { border_cost_increase = 5 } }
+			if = {
+				limit = {
+					SOV = {
+						is_ai = no
+					}
+				}
+				easier_5yr = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = commie_ai
+				}
+			}
+			harder_purge = yes	
+			SOV = { set_variable = { border_cost_increase = 11 } }
+			MON = { set_variable = { border_cost_increase = 11 } }			
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = allied_ai
+				}
+			}
+			harder_congress = yes
+			harder_PLAN = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = east_ai
+				}
+			}
+			JAP = { set_variable = { border_cost_increase = 11 } }
+			MAN = { set_variable = { border_cost_increase = 11 } }
+			MEN = { set_variable = { border_cost_increase = 11 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = chi_ai
+				}
+			}
+			JAP = { set_variable = { border_cost_increase = 5 } }
+			MAN = { set_variable = { border_cost_increase = 5 } }
+			MEN = { set_variable = { border_cost_increase = 5 } }
+		}
+	}
+	else_if = {
+		limit = {
+			# regular 2
+			difficulty < 3
+		}
+		#do nothing this is just here to get out of the IF chain
+	}
+	else_if = {
+		limit = {
+			# veteran 3
+			difficulty < 4
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = axis_ai
+					SOV = {
+						is_ai = no
+					}
+				}
+			}
+			harder_purge = yes	
+			harder_congress = yes
+			harder_PLAN = yes
+			SOV = { set_variable = { border_cost_increase = 11 } }
+			MON = { set_variable = { border_cost_increase = 11 } }
+			if = {
+				limit = {
+					SOV = {
+						is_ai = no
+					}
+				}
+				harder_5yr = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = commie_ai
+				}
+			}
+			easier_purge = yes	
+			SOV = { set_variable = { border_cost_increase = 5 } }
+			MON = { set_variable = { border_cost_increase = 5 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = allied_ai
+				}
+			}
+			easier_congress = yes
+			easier_PLAN = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = east_ai
+				}
+			}
+			JAP = { set_variable = { border_cost_increase = 5 } }
+			MAN = { set_variable = { border_cost_increase = 5 } }
+			MEN = { set_variable = { border_cost_increase = 5 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = chi_ai
+				}
+			}
+			JAP = { set_variable = { border_cost_increase = 11 } }
+			MAN = { set_variable = { border_cost_increase = 11 } }
+			MEN = { set_variable = { border_cost_increase = 11 } }
+		}
+	}
+	else_if = {
+		limit = {
+			# BICE 4
+			difficulty > 3
+		}	
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = axis_ai
+					SOV = {
+						is_ai = no
+					}
+				}
+			}
+			hardest_purge = yes
+			hardest_congress = yes
+			hardest_PLAN = yes
+			SOV = { set_variable = { border_cost_increase = 14 } }
+			MON = { set_variable = { border_cost_increase = 14 } }
+			if = {
+				limit = {
+					SOV = {
+						is_ai = no
+					}
+				}
+				hardest_5yr = yes
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = commie_ai
+				}
+			}
+			easiest_purge = yes	
+			SOV = { set_variable = { border_cost_increase = 2 } }
+			MON = { set_variable = { border_cost_increase = 2 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = allied_ai
+				}
+			}
+			easiest_congress = yes	
+			easiest_PLAN = yes
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = east_ai
+				}
+			}
+			JAP = { set_variable = { border_cost_increase = 2 } }
+			MAN = { set_variable = { border_cost_increase = 2 } }
+			MEN = { set_variable = { border_cost_increase = 2 } }
+		}
+		if = {
+			limit = {
+				OR = {
+					has_global_flag = chi_ai
+				}
+			}
+			JAP = { set_variable = { border_cost_increase = 14 } }
+			MAN = { set_variable = { border_cost_increase = 14 } }
+			MEN = { set_variable = { border_cost_increase = 14 } }
+		}
+	}
+}
+easiest_purge = {
+	SOV = {		
+		add_to_variable = { officers_purged_train = -0.04 }
+		add_to_variable = { officers_purged_mobilization = 0.05 }
+		add_to_variable = { officers_purged_command = 0.02 }
+		add_to_variable = { officers_purged_experience = 0.03 }
+		add_to_variable = { officers_purged_experience_cap = 8 }
+	}
+	TAN = {		
+		add_to_variable = { officers_purged_train = -0.04 }
+		add_to_variable = { officers_purged_mobilization = 0.05 }
+		add_to_variable = { officers_purged_command = 0.02 }
+		add_to_variable = { officers_purged_experience = 0.03 }
+		add_to_variable = { officers_purged_experience_cap = 8 }
+	}
+	MON = {		
+		add_to_variable = { officers_purged_train = -0.04 }
+		add_to_variable = { officers_purged_mobilization = 0.05 }
+		add_to_variable = { officers_purged_command = 0.02 }
+		add_to_variable = { officers_purged_experience = 0.03 }
+		add_to_variable = { officers_purged_experience_cap = 8 }
+	}
+	SIK = {		
+		add_to_variable = { officers_purged_train = -0.04 }
+		add_to_variable = { officers_purged_mobilization = 0.05 }
+		add_to_variable = { officers_purged_command = 0.02 }
+		add_to_variable = { officers_purged_experience = 0.03 }
+		add_to_variable = { officers_purged_experience_cap = 8 }
+	}
+}
+easiest_5yr = {
+	SOV = {
+		subtract_from_variable = { moscov_build = 4 }
+		subtract_from_variable = { leningrad_build = 4 }
+		subtract_from_variable = { kiev_area_build = 4 }
+		subtract_from_variable = { saratov_build = 4 }
+		subtract_from_variable = { minsk_build = 4 }
+		subtract_from_variable = { stalingrad_build = 4 }
+		subtract_from_variable = { gorki_build = 4 }
+		subtract_from_variable = { crimea_build = 4 }
+		subtract_from_variable = { bryansk_build = 4 }
+		subtract_from_variable = { kharkov_build = 4 }
+		subtract_from_variable = { steel_ref_target = 4 }
+		subtract_from_variable = { civ_target = 20 }
+		subtract_from_variable = { fuel_target = 75000 }
+		subtract_from_variable = { iron_target = 200 }
+		subtract_from_variable = { coal_target = 45 }
+		subtract_from_variable = { oil_target = 35 }
+		subtract_from_variable = { focus_tractor = 20 }
+		subtract_from_variable = { army_learns = 1 }
+		multiply_variable = { part_econ_tractors_target = 0.9 }
+		multiply_variable = { war_economy_tractors_target = 0.9 }
+		multiply_variable = { farm_tractors = 0.9 }
+		multiply_variable = { resource_tractors = 0.9 }
+		multiply_variable = { fort_tractors = 0.9 }
+		multiply_variable = { fuel_target = 0.9 }
+		multiply_variable = { food_target = 0.9 }
+		add_to_variable = { tractor_plants = 2 }
+	}
+}
+easier_purge = {
+	SOV = {
+		add_to_variable = { officers_purged_train = -0.02 }
+		add_to_variable = { officers_purged_mobilization = 0.03 }
+		add_to_variable = { officers_purged_command = 0.01 }
+		add_to_variable = { officers_purged_experience = 0.01 }
+		add_to_variable = { officers_purged_experience_cap = 4 }
+	}
+	TAN = {
+		add_to_variable = { officers_purged_train = -0.02 }
+		add_to_variable = { officers_purged_mobilization = 0.03 }
+		add_to_variable = { officers_purged_command = 0.01 }
+		add_to_variable = { officers_purged_experience = 0.01 }
+		add_to_variable = { officers_purged_experience_cap = 4 }
+	}
+	MON = {
+		add_to_variable = { officers_purged_train = -0.02 }
+		add_to_variable = { officers_purged_mobilization = 0.03 }
+		add_to_variable = { officers_purged_command = 0.01 }
+		add_to_variable = { officers_purged_experience = 0.01 }
+		add_to_variable = { officers_purged_experience_cap = 4 }
+	}
+	SIK = {
+		add_to_variable = { officers_purged_train = -0.02 }
+		add_to_variable = { officers_purged_mobilization = 0.03 }
+		add_to_variable = { officers_purged_command = 0.01 }
+		add_to_variable = { officers_purged_experience = 0.01 }
+		add_to_variable = { officers_purged_experience_cap = 4 }
+	}
+}
+easier_5yr = {
+	SOV = {
+		subtract_from_variable = { moscov_build = 2 }
+		subtract_from_variable = { leningrad_build = 2 }
+		subtract_from_variable = { kiev_area_build = 2 }
+		subtract_from_variable = { saratov_build = 2 }
+		subtract_from_variable = { minsk_build = 2 }
+		subtract_from_variable = { stalingrad_build = 2 }
+		subtract_from_variable = { gorki_build = 2 }
+		subtract_from_variable = { crimea_build = 2 }
+		subtract_from_variable = { bryansk_build = 2 }
+		subtract_from_variable = { kharkov_build = 2 }
+		subtract_from_variable = { steel_ref_target = 2 }
+		subtract_from_variable = { civ_target = 10 }
+		subtract_from_variable = { fuel_target = 33000 }
+		subtract_from_variable = { iron_target = 100 }
+		subtract_from_variable = { coal_target = 22 }
+		subtract_from_variable = { oil_target = 17 }
+		subtract_from_variable = { focus_tractor = 10 }
+		multiply_variable = { part_econ_tractors_target = 0.95 }
+		multiply_variable = { war_economy_tractors_target = 0.95 }
+		multiply_variable = { farm_tractors = 0.95 }
+		multiply_variable = { resource_tractors = 0.95 }
+		multiply_variable = { fort_tractors = 0.95 }
+		multiply_variable = { fuel_target = 0.95 }
+		multiply_variable = { food_target = 0.95 }
+		add_to_variable = { tractor_plants = 1 }
+	}
+}
+harder_purge = {
+	SOV = {
+		add_to_variable = { officers_purged_train = 0.02 }
+		add_to_variable = { officers_purged_mobilization = -0.03 }
+		add_to_variable = { officers_purged_command = -0.01 }
+		add_to_variable = { officers_purged_experience = -0.01 }
+		add_to_variable = { officers_purged_experience_cap = -4 }
+	}
+	TAN = {
+		add_to_variable = { officers_purged_train = 0.02 }
+		add_to_variable = { officers_purged_mobilization = -0.03 }
+		add_to_variable = { officers_purged_command = -0.01 }
+		add_to_variable = { officers_purged_experience = -0.01 }
+		add_to_variable = { officers_purged_experience_cap = -4 }
+	}
+	MON = {
+		add_to_variable = { officers_purged_train = 0.02 }
+		add_to_variable = { officers_purged_mobilization = -0.03 }
+		add_to_variable = { officers_purged_command = -0.01 }
+		add_to_variable = { officers_purged_experience = -0.01 }
+		add_to_variable = { officers_purged_experience_cap = -4 }
+	}
+	SIK = {
+		add_to_variable = { officers_purged_train = 0.02 }
+		add_to_variable = { officers_purged_mobilization = -0.03 }
+		add_to_variable = { officers_purged_command = -0.01 }
+		add_to_variable = { officers_purged_experience = -0.01 }
+		add_to_variable = { officers_purged_experience_cap = -4 }
+	}
+}
+harder_5yr = {
+	SOV = {
+		multiply_variable = { part_econ_tractors_target = 1.1 }
+		round_variable = part_econ_tractors_target
+		multiply_variable = { war_economy_tractors_target = 1.1 }
+		round_variable = war_economy_tractors_target
+		multiply_variable = { farm_tractors = 1.05 }
+		round_variable = farm_tractors
+		multiply_variable = { resource_tractors = 1.05 }
+		round_variable = resource_tractors
+		multiply_variable = { fort_tractors = 1.05 }
+		round_variable = fort_tractors
+		add_to_variable = { focus_tractor = 25 }
+		add_to_variable = { moscov_build = 3 }
+		add_to_variable = { leningrad_build = 2 }
+		add_to_variable = { kiev_area_build = 2 }
+		add_to_variable = { saratov_build = 2 }
+		add_to_variable = { minsk_build = 2 }
+		add_to_variable = { stalingrad_build = 2 }
+		add_to_variable = { gorki_build = 2 }
+		add_to_variable = { crimea_build = 2 }
+		add_to_variable = { bryansk_build = 2 }
+		add_to_variable = { kharkov_build = 2 }
+		add_to_variable = { steel_ref_target = 2 }
+		add_to_variable = { civ_target = 12 }
+		add_to_variable = { fuel_target = 25000 }
+		add_to_variable = { iron_target = 100 }
+		add_to_variable = { coal_target = 30 }
+		add_to_variable = { oil_target = 20 }
+		multiply_variable = { fuel_target = 1.1 }
+		multiply_variable = { food_target = 1.1 }
+		subtract_from_variable = { tractor_plants = 1 }
+	}
+}
+hardest_purge = {
+	SOV = {
+		add_to_variable = { officers_purged_train = 0.04 }
+		add_to_variable = { officers_purged_mobilization = -0.05 }
+		add_to_variable = { officers_purged_command = -0.02 }
+		add_to_variable = { officers_purged_experience = -0.03 }
+		add_to_variable = { officers_purged_experience_cap = -8 }
+		add_to_variable = { army_learns = 1 }
+	}
+	TAN = {
+		add_to_variable = { officers_purged_train = 0.04 }
+		add_to_variable = { officers_purged_mobilization = -0.05 }
+		add_to_variable = { officers_purged_command = -0.02 }
+		add_to_variable = { officers_purged_experience = -0.03 }
+		add_to_variable = { officers_purged_experience_cap = -8 }
+		add_to_variable = { army_learns = 1 }
+	}
+	MON = {
+		add_to_variable = { officers_purged_train = 0.04 }
+		add_to_variable = { officers_purged_mobilization = -0.05 }
+		add_to_variable = { officers_purged_command = -0.02 }
+		add_to_variable = { officers_purged_experience = -0.03 }
+		add_to_variable = { officers_purged_experience_cap = -8 }
+		add_to_variable = { army_learns = 1 }
+	}
+	SIK = {
+		add_to_variable = { officers_purged_train = 0.04 }
+		add_to_variable = { officers_purged_mobilization = -0.05 }
+		add_to_variable = { officers_purged_command = -0.02 }
+		add_to_variable = { officers_purged_experience = -0.03 }
+		add_to_variable = { officers_purged_experience_cap = -8 }
+		add_to_variable = { army_learns = 1 }
+	}
+}
+hardest_5yr = {
+	SOV = {
+		multiply_variable = { part_econ_tractors_target = 1.25 }
+		round_variable = part_econ_tractors_target
+		multiply_variable = { war_economy_tractors_target = 1.25 }
+		round_variable = war_economy_tractors_target
+		multiply_variable = { farm_tractors = 1.15 }
+		round_variable = farm_tractors
+		multiply_variable = { fort_tractors = 1.1 }
+		round_variable = fort_tractors
+		multiply_variable = { resource_tractors = 1.1 }
+		round_variable = resource_tractors
+		multiply_variable = { stab_tractors = 1.05 }
+		add_to_variable = { focus_tractor = 50 }
+		add_to_variable = { moscov_build = 5 }
+		add_to_variable = { leningrad_build = 4 }
+		add_to_variable = { kiev_area_build = 5 }
+		add_to_variable = { saratov_build = 3 }
+		add_to_variable = { minsk_build = 5 }
+		add_to_variable = { stalingrad_build = 3 }
+		add_to_variable = { gorki_build = 3 }
+		add_to_variable = { crimea_build = 3 }
+		add_to_variable = { bryansk_build = 2 }
+		add_to_variable = { kharkov_build = 3 }
+		add_to_variable = { steel_ref_target = 5 }
+		add_to_variable = { civ_target = 25 }
+		add_to_variable = { fuel_target = 60000 }
+		add_to_variable = { iron_target = 200 }
+		add_to_variable = { coal_target = 60 }
+		add_to_variable = { oil_target = 30 }
+		multiply_variable = { fuel_target = 1.25 }
+		multiply_variable = { food_target = 1.25 }
+		subtract_from_variable = { tractor_plants = 1 }
+	}
+}
+easiest_congress = {
+	USA = {
+		add_to_variable = { senators_support = 24 }
+		add_to_variable = { representatives_support = 100 }
+	}
+}
+easier_congress = {
+	USA = {
+		add_to_variable = { senators_support = 12 }
+		add_to_variable = { representatives_support = 50 }
+	}
+}
+harder_congress = {
+	USA = {
+		add_to_variable = { senators_support = -12 }
+		add_to_variable = { representatives_support = -50 }
+	}
+}
+hardest_congress = {
+	USA = {
+		add_to_variable = { senators_support = -24 }
+		add_to_variable = { representatives_support = -100 }
+	}
+}
+easiest_PLAN = {
+	ENG = {
+		add_to_variable = { PLAN_training_time = -8 }
+		add_to_variable = { PLAN_accident_rate = -0.01 }
+		multiply_variable = { PLAN_level_1 = 0.9 }
+		multiply_variable = { PLAN_level_2 = 0.9 }
+		multiply_variable = { PLAN_level_3 = 0.9 }
+		multiply_variable = { PLAN_level_4 = 0.9 }
+		multiply_variable = { PLAN_level_5 = 0.9 }
+	}
+}
+easier_PLAN = {
+	ENG = {
+		add_to_variable = { PLAN_training_time = -4 }
+		add_to_variable = { PLAN_accident_rate = -0.005 }
+		multiply_variable = { PLAN_level_1 = 0.95 }
+		multiply_variable = { PLAN_level_2 = 0.95 }
+		multiply_variable = { PLAN_level_3 = 0.95 }
+		multiply_variable = { PLAN_level_4 = 0.95 }
+		multiply_variable = { PLAN_level_5 = 0.95 }
+	}
+}
+harder_PLAN = {
+	ENG = {
+		add_to_variable = { PLAN_training_time = 4 }
+		add_to_variable = { PLAN_accident_rate = 0.005 }
+		multiply_variable = { PLAN_level_1 = 1.05 }
+		multiply_variable = { PLAN_level_2 = 1.05 }
+		multiply_variable = { PLAN_level_3 = 1.05 }
+		multiply_variable = { PLAN_level_4 = 1.05 }
+		multiply_variable = { PLAN_level_5 = 1.05 }
+	}
+}
+hardest_PLAN = {
+	ENG = {
+		add_to_variable = { PLAN_training_time = 8 }
+		add_to_variable = { PLAN_accident_rate = 0.01 }
+		multiply_variable = { PLAN_level_1 = 1.1 }
+		multiply_variable = { PLAN_level_2 = 1.1 }
+		multiply_variable = { PLAN_level_3 = 1.1 }
+		multiply_variable = { PLAN_level_4 = 1.1 }
+		multiply_variable = { PLAN_level_5 = 1.1 }
+	}
+}

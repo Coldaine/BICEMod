@@ -1,0 +1,192 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.1
+
+###########################
+
+#GER
+
+# options for map_icon_category:
+# For land units: infantry,armored,other
+# For sea units: ship,transport,uboat
+
+sub_units = {
+
+	brandenburg_brigade = {
+		sprite = infantry
+		map_icon_category = infantry
+
+		priority = 601
+		ai_priority = 2
+		active = no
+
+		type = {
+			infantry
+		}
+		
+		group = infantry
+		
+		categories = {
+			category_front_line
+			category_light_infantry
+			category_all_infantry
+			category_army
+			category_special_forces ## VKs
+		}
+		
+		combat_width = 1			## VK era 2
+
+
+### BOOLEAN		
+
+		can_be_parachuted = yes
+		special_forces = yes			## VK
+		mountaineers = yes
+		marines = yes 				## VK
+		can_exfiltrate_from_coast = yes		## VK
+
+
+#SIZE DEFINITIONS
+		max_strength = 26               # HP - Strength represents how much damage this unit can suffer before it is destroyed
+		max_organisation = 95		# Organisation indicates combat readiness and how organized a unit is
+						# Units with no organisation can't fight or move effectively.		
+		default_morale = 0.5
+		manpower = 600                  # Manpower - Cost in manpower to produce
+		weight = 0.4                    # Weight controls how many transports a unit needs to embark.
+
+		
+
+
+### BASE MISC ABILITIES
+
+		training_time = 150             # Training time - Time in days to train this unit
+		#reliability = 0.9       	# Reliability controls how often equipment will suffer random failures.
+
+		#maximum_speed = 0.6           	# Maximum speed acts as a "bonus" mulitipler to the speed determined by the unit equipment in km/h. 
+                               			# The formula for the calculated speed is <base speed> * (1 + maximum_speed)km/h; thus a maximum_speed
+                               		 	# of 0.5 gives a movement speed 50% faster, a maximum_speed of 2 equals 200% faster, etc.
+	
+		supply_consumption = 0.05       # Supply consumption determmines how much supply a unit consumes per day
+		#default_morale = 0.3           # Default morale determines how much extra organisation can be regained hourly when not in combat
+		suppression = 3
+
+
+### COST
+		#lend_lease_cost = 1            # Space taken up in convoy
+		#build_cost_ic = 0.4            # Production Cost - How much factory output this piece of equipment needs
+
+
+
+### OFFENSIVE
+		#attack = 0.1               	# Firepower - Amount of damage done per attack
+		soft_attack = 0.2 		# Soft Attack - How many attacks the unit can make versus enemies with low hardness.
+							 #(In this example here, this would mean that the unit would get 10% less Soft #Attack than they would usually get from its equipment
+		#hard_attack = -0.5             # Hard Attack - How many attacks the unit can make versus enemies with high hardness
+		#air_attack = 1                 # Air Attack - How much damage we can do against airplanes. High Air Attack also helps to counter enemy Air Superiority effects
+		#ap_attack = 1        		# Piercing - Having equal or greater Piercing to the targets Armor value allows you to do more damage.
+		breakthrough = 0.5 #0.2         # Breakthrough - How many enemy attacks a unit can attempt to avoid while on the offensive, effectively allowing it to stay on the offense longer.
+
+
+
+### DEFENSIVE
+		defense = 0.2 #0.1                   # Defense - How many enemy attacks a unit can avoid whilst on the defensive, effectively allowing it to stay on the defensive longer.
+		#max_strength = 2               # HP - Strength represents how much damage this unit can suffer before it is destroyed
+		#armor_value = 0                # Armor - Armor that is higher than the opponents Piercing value reduces damage taken and allows more attacks to occur
+		#hardness = 0.5                 # Hardness - Represents how much of your divsion is made up of armoured vehicles. High Hardness = High Hard Attacks, Low Soft Attack
+		entrenchment = 5                # Entrenchment - The ability to make proper defensive entrenchments before a hostile attack
+
+
+### UNIQUE		
+		#movement = 0.1                  # Movement - Changes the unit's speed
+		#experience_loss_factor = 0.1    # Exp. Loss - How much experience is lost in a division when they take casualities and have to replace them
+		#casualty_trickleback = 0.2      # Trickleback - The proportion of losses in combat that can be saved and returned to the manpower pool
+		#suppression_factor = 0.1        # Suppression bonus - Ability to supress local resistance
+		#reliability_factor = 0.05       # Reliability - Applies to an equipment type's reliability and reduces the chance of breakdowns and accidents
+		#recon = 1                       # Reconnaissance - Increases the chance that this unit can pick better tactics in battle
+		#initiative = 0.2                # Initiative - The higher the initiative, the quicker it can reinforce into battle, and the quick is completes its planning
+
+
+
+### EQUIPMENT		
+
+		need = {
+			infantry_equipment = 120 #90
+		}
+
+
+### TERRAIN		
+
+
+		Amphibious = {
+			attack = 0
+			defence = 0
+			movement = 0
+		}
+
+
+		desert = {
+			attack = 0.1
+			defence = 0.1
+			movement = 0
+		}
+
+
+		forest = {
+			attack = 0.20		#VK
+			defence = 0.2		#VK
+			movement = 0
+		}
+
+
+		fort = {
+			attack = 0.4
+			defence = 0.4
+			movement = 0
+		}		
+
+
+		hills = {
+			attack = 0.2
+			defence = 0.2
+			movement = 0
+		}
+
+
+		mountain = {
+			attack = 0
+			defence = 0
+			movement = 0
+		}
+
+
+		marsh = {
+			attack = 0
+			defence = 0
+			movement = 0
+		}
+
+
+		jungle = {
+			attack = 0
+			defence = 0
+			movement = 0
+		}
+
+
+		river = {
+			attack = 0.5
+			defence = 0.5
+			movement = 0.2		#VK
+		}
+
+
+		urban = {
+			attack = 0.1
+			defence = 0.2
+			movement = 0
+		}
+		
+	}
+
+}

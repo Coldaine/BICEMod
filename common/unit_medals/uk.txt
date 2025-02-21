@@ -1,0 +1,167 @@
+# Valid unit modifiers are not exhaustive
+# Currently supported:
+# army_morale
+# army_morale_factor
+# army_org
+# army_org_factor
+# supply_consumption_factor
+# equipment_capture
+# equipment_capture_factor
+# army_fuel_capacity_factor
+# army_fuel_consumption_factor
+# recon_factor
+# recon_factor_while_entrenched
+# transport_capacity (?)
+# breakthrough_factor
+# armor_factor
+# army_strength_factor
+# experience_loss_factor
+# leader_modifier applies unit modifiers to all units under them as a general, similarly to traits.
+# army_attack_factor
+# army_defence_factor
+# max_dig_in
+# max_dig_in_factor
+
+@cost = 30
+
+unit_medals = {
+	
+	### ENG
+	
+	Victoria_Cross_ = {
+		
+		available = { should_have_english_medals_trigger = yes }
+		frame = 1
+		icon = "GFX_medal_icon_eng"
+		
+		cost = 200
+		
+		unit_modifiers = {
+			army_morale_factor = 0.02
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Distinguished_Service_Order = {
+		
+		available = { should_have_english_medals_trigger = yes }
+		frame = 2
+		icon = "GFX_medal_icon_eng"
+		
+		cost = 100
+		
+		unit_modifiers = {
+			army_attack_factor = 0.03
+			army_defence_factor = 0.03
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Order_of_the_British_Empire = {
+		
+		available = { should_have_english_medals_trigger = yes }
+		frame = 3
+		icon = "GFX_medal_icon_eng"
+		
+		cost = 50
+		
+		unit_modifiers = {
+			army_org_factor = 0.05
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Mentioned_in_Dispatches = {
+		
+		available = { should_have_english_medals_trigger = yes }
+		frame = 4
+		icon = "GFX_medal_icon_eng"
+		
+		cost = 10
+		
+		unit_modifiers = {
+			army_morale_factor = 0.08
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+
+	Wound_Stripes = {
+		
+		available = { should_have_english_medals_trigger = yes }
+		frame = 5
+		icon = "GFX_medal_icon_eng"
+		
+		cost = 5
+		
+		unit_modifiers = {
+			experience_loss_factor = -0.10
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	A1939_1945_Star = {
+		
+		available = { should_have_english_medals_trigger = yes
+			has_war_with_major = yes
+		}
+		frame = 6
+		icon = "GFX_medal_icon_eng"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_attack_factor = 0.08
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	Africa_Star = {
+		
+		available = { should_have_english_medals_trigger = yes 
+			has_war_with_major = yes
+		}
+		frame = 7
+		icon = "GFX_medal_icon_eng"
+		
+		cost = 3
+		
+		unit_modifiers = {
+			army_strength_factor = 0.08
+
+		}
+		
+		one_time_effect = {
+			add_divisional_commander_xp = 100
+		}
+		
+	}
+	
+	
+}

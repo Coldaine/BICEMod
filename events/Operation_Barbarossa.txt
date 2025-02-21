@@ -1,0 +1,660 @@
+﻿##### Operation Barbarossa #####
+add_namespace = barbarossa
+add_namespace = puppets
+
+#Info for infra changes
+country_event = {
+	id = barbarossa.999
+	title = barbarossa.999.t
+	desc = barbarossa.999.desc
+	picture = GFX_report_event_german_war_locomotive_gfxaddon
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		#tag = GER #EOA
+		has_war_with = SOV
+	}
+	option = {
+		name = barbarossa.999.a
+	}
+}
+#Return of Romanian Lands if captured by axis forces
+country_event = {
+	id = barbarossa.1
+	title = barbarossa.1.t
+	desc = barbarossa.1.d
+	picture = GFX_report_event_romanian_soldiers_gfxaddon
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		#tag = GER #EOA
+		is_in_faction_with = ROM
+		has_war_with = SOV
+		ROM = { has_war_with = SOV }
+		939 = {
+			is_fully_controlled_by_ROOT_or_ally = yes
+		}
+		80 = {
+			is_fully_controlled_by_ROOT_or_ally = yes
+		}
+		78 = {
+			is_fully_controlled_by_ROOT_or_ally = yes
+		}
+	}
+	option = {
+		name = barbarossa.1.a
+		ai_chance = { factor = 100 }
+		
+		ROM = { 
+			transfer_state = 80 
+			transfer_state = 78 
+			transfer_state = 939 
+		}
+		
+		80 = { remove_claim_by = GER }
+		78 = { remove_claim_by = GER }
+		939 = { remove_claim_by = GER }
+	}
+	option = {
+		name = barbarossa.1.b
+		
+		add_political_power = -40
+		
+		ROM = { 
+			add_opinion_modifier = {
+				target = GER
+				modifier = embargo
+			} 
+		}
+	}
+}
+country_event = {
+	id = barbarossa.2
+	title = barbarossa.2.t
+	desc = barbarossa.2.d
+	picture = GFX_report_event_romanian_soldiers_gfxaddon
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		#tag = GER #EOA
+		is_in_faction_with = ROM
+		has_war_with = SOV
+		ROM = { has_war_with = SOV }
+		192 = {
+			is_fully_controlled_by_ROOT_or_ally = yes
+		}
+		198 = {
+			is_fully_controlled_by_ROOT_or_ally = yes
+		}
+	}
+	option = {
+		name = barbarossa.2.a
+		ai_chance = { factor = 100 }
+		
+		ROM = { 
+			transfer_state	= 192 
+			transfer_state = 198 
+		}
+		192 = { remove_claim_by = GER }
+		198 = { remove_claim_by = GER }
+	}
+	option = {
+		name = barbarossa.2.b
+	}
+}
+
+country_event = {
+	id = barbarossa.3
+	title = barbarossa.3.t
+	desc = {
+		text = barbarossa.3.dr
+		trigger = {
+			tag = ROM
+		}
+	}
+	desc = {
+		text = barbarossa.3.df
+		trigger = {
+			tag = FIN
+		}
+	}
+	desc = {
+		text = barbarossa.3.dh
+		trigger = {
+			tag = HUN
+		}
+	}
+	desc = {
+		text = barbarossa.3.db
+		trigger = {
+			tag = BUL
+		}
+	}
+	picture = GFX_report_event_generic_sign_treaty1
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #Ask for Peace
+		name = barbarossa.3.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				tag = ROM
+			}
+			SOV = { 
+				custom_effect_tooltip = needs_approval 
+				country_event = { id = puppets.1 days = 1 } 
+			}
+		}
+		if = {
+			limit = {
+				tag = FIN
+			}
+			SOV = { 
+				custom_effect_tooltip = needs_approval 
+				country_event = { id = puppets.6 days = 1 } 
+			}
+		}
+		if = {
+			limit = {
+				tag = BUL
+			}
+			SOV = { 
+				custom_effect_tooltip = needs_approval 
+				country_event = { id = puppets.4 days = 1 } 
+			}
+		}
+		if = {
+			limit = {
+				tag = HUN
+			}
+			SOV = { 
+				custom_effect_tooltip = needs_approval 
+				country_event = { id = puppets.3 days = 1 } 
+			}
+		}
+		effect_tooltip = {
+			white_peace = SOV
+			white_peace = ENG 
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				SOV = {
+					set_autonomy = {
+						target = ROOT
+						autonomous_state = autonomy_integrated_puppet
+					}	
+				}
+			}
+			else = {
+				SOV = { puppet = ROOT }
+			}
+			ROOT = {
+				add_to_war = {
+					targeted_alliance = SOV
+					enemy = GER
+				}
+			}
+		}
+	}
+	option = { #Stay in Axis
+		name = barbarossa.3.b
+		ai_chance = { factor = 0 }
+		add_ideas = {
+			GRE_communist_agitation
+			GRE_army_collapse
+		}
+	}
+}
+
+
+
+
+#Romania
+country_event = {
+	id = puppets.1
+	title = puppets.1.t
+	desc = puppets.1.desc
+	picture = GFX_report_event_romanian_officers
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	immediate = { set_global_flag = romanian_ssr }
+	
+	option = {
+		name = puppets.1.a
+		ai_chance = { factor = 100 }
+		
+		white_peace = ROM
+		
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = ROM
+				autonomous_state = autonomy_integrated_puppet
+			}
+		}
+		else = {
+			puppet = ROM
+		}
+		
+		ROM = {
+			load_focus_tree = generic_focus
+			transfer_state = 938
+			transfer_state = 79
+			transfer_state = 937
+			transfer_state = 76
+			transfer_state = 83
+			transfer_state = 82
+			transfer_state = 81
+			transfer_state = 84
+			transfer_state = 46
+			transfer_state = 855
+			transfer_state = 931
+			transfer_state = 77
+		}
+		SOV = {
+			transfer_state = 80 
+			transfer_state = 78
+			transfer_state = 939
+			transfer_state = 198
+			transfer_state = 192
+		}
+		
+		ROM = {
+			add_to_war = {
+				targeted_alliance = SOV
+				enemy = GER
+			}
+		}
+	}
+	option = {
+		name = puppets.1.b
+		ai_chance = { factor = 0 }
+		add_ideas = {
+			GRE_army_collapse
+			GRE_communist_agitation
+		}
+	}
+}
+#Hungary
+country_event = {
+	id = puppets.2
+	title = puppets.2.t
+	desc = puppets.2.desc
+	picture = GFX_report_event_hungarian_toldi_tank
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = SOV
+		#has_global_flag = allied_invasion_persia
+		has_war_with = GER
+		has_war_with = HUN
+		GER = { is_in_faction_with = HUN }
+	}
+	
+	option = {
+		name = puppets.1.a
+		ai_chance = { factor = 100 }
+		white_peace = HUN
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = HUN
+				autonomous_state = autonomy_integrated_puppet
+			}
+		}
+		else = {
+			puppet = HUN
+		}
+		SOV = {
+			transfer_state = 73
+		}		
+		HUN = {
+			load_focus_tree = generic_focus
+			transfer_state = 155
+			transfer_state = 940
+			transfer_state = 856
+			transfer_state = 43
+			transfer_state = 154
+			add_to_war = {
+				targeted_alliance = SOV
+				enemy = GER
+			}
+		}
+	}
+	option = {
+		name = puppets.1.b
+		ai_chance = { factor = 0 }
+	}
+}
+#Poland
+country_event = {
+	id = puppets.3
+	title = puppets.3.t
+	desc = puppets.3.desc
+	picture = GFX_report_event_polish_resistance2
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = SOV
+		#has_global_flag = allied_invasion_persia
+		has_war_with = GER
+	}
+	
+	#mean_time_to_happen = {
+	#	days = 5
+	#}
+	
+	option = {
+		name = puppets.1.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = POL
+				autonomous_state = autonomy_integrated_puppet
+			}
+		}
+		else = {
+			puppet = POL
+		}
+		POL = {
+			load_focus_tree = generic_focus
+			transfer_state = 63
+			transfer_state = 97
+			transfer_state = 98
+			transfer_state = 839
+			transfer_state = 85
+			transfer_state = 86
+			transfer_state = 87
+			transfer_state = 10
+			transfer_state = 862
+			transfer_state = 92
+			transfer_state = 90
+			transfer_state = 88
+			transfer_state = 67
+			transfer_state = 66
+			transfer_state = 893
+			transfer_state = 894
+			transfer_state = 762
+			transfer_state = 471
+			transfer_state = 842
+		}
+		SOV = {
+			transfer_state = 5
+			transfer_state = 188
+			transfer_state = 840
+			transfer_state = 96
+			transfer_state = 95
+			transfer_state = 94
+			transfer_state = 93
+			transfer_state = 91
+			transfer_state = 89
+		}
+		
+		POL = {
+			add_to_war = {
+				targeted_alliance = SOV
+				enemy = GER
+			}
+			hidden_effect = {
+				set_technology = { partisans = 1 } 
+				division_template = {
+					name = "Polish Militia"
+					template_counter = 512
+
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 0 y = 2 }
+
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
+						militia = { x = 1 y = 2 }
+
+						partisan = { x = 2 y = 0 }
+						partisan = { x = 2 y = 1 }
+						partisan = { x = 2 y = 2 }
+											
+					}
+					support = {
+						DIV_HQ = { x = 0 y = 0 }
+					}
+				}
+				capital_scope = {
+					create_unit = {
+						division = "division_template = \"Polish Militia\" start_experience_factor = 0.3 start_manpower_factor = 0.5 start_equipment_factor = 0.8"
+						owner = POL
+						count = 5
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = puppets.1.b
+		ai_chance = { factor = 0 }
+	}
+}	
+#Bulgaria
+	country_event = {
+	id = puppets.4
+	title = puppets.4.t
+	desc = puppets.4.desc
+	picture = GFX_report_event_bulgarian_flag
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = SOV
+		#has_global_flag = allied_invasion_persia
+		has_war_with = GER
+		has_war_with = BUL
+		GER = { is_in_faction_with = BUL }
+		854 = { is_fully_controlled_by_ROOT_or_ally = yes }
+		48 = { is_fully_controlled_by_ROOT_or_ally = yes }
+		212 = { is_fully_controlled_by_ROOT_or_ally = yes }
+		211 = { is_fully_controlled_by_ROOT_or_ally = yes }
+	}
+	
+	#mean_time_to_happen = {
+	#	days = 5
+	#}
+	
+	option = {
+		name = puppets.1.a
+		ai_chance = { factor = 100 }
+		white_peace = BUL
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = BUL
+				autonomous_state = autonomy_integrated_puppet
+			}
+		}
+		else = {
+			puppet = BUL
+		}
+		BUL = {	
+			load_focus_tree = generic_focus
+			transfer_state = 854
+			transfer_state = 48
+			transfer_state = 212
+			transfer_state = 211
+			add_to_war = {
+				targeted_alliance = SOV
+				enemy = GER
+			}
+		}
+	}
+	option = {
+		name = puppets.1.b
+		ai_chance = { factor = 0 }
+	}
+}
+#Czechoslovakia
+country_event = {
+	id = puppets.5
+	title = puppets.5.t
+	desc = puppets.5.desc
+	picture = GFX_report_event_czech_soldiers_01
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = SOV
+		#has_global_flag = allied_invasion_persia
+		has_war_with = GER
+	}
+	
+	option = {
+		name = puppets.1.a
+		ai_chance = { factor = 100 }
+		white_peace = CZE
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = CZE
+				autonomous_state = autonomy_integrated_puppet
+			}
+		}
+		else = {
+			puppet = CZE
+		}
+		CZE = {
+			load_focus_tree = generic_focus
+			transfer_state = 664
+			transfer_state = 71
+			transfer_state = 70
+			transfer_state = 941
+			transfer_state = 72
+			transfer_state = 75
+			transfer_state = 843
+			transfer_state = 74
+			transfer_state = 9
+			transfer_state = 69
+			transfer_state = 831
+			drop_cosmetic_tag = yes
+		}
+		
+		CZE = {
+			add_to_war = {
+				targeted_alliance = SOV
+				enemy = GER
+			}
+			hidden_effect = {
+				set_technology = { partisans = 1 } 
+				division_template = {
+					name = "Czecho Militia"
+					template_counter = 512
+
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+						militia = { x = 0 y = 2 }
+
+						militia = { x = 1 y = 0 }
+						militia = { x = 1 y = 1 }
+						militia = { x = 1 y = 2 }
+
+						partisan = { x = 2 y = 0 }
+						partisan = { x = 2 y = 1 }
+						partisan = { x = 2 y = 2 }
+											
+					}
+					support = {
+						DIV_HQ = { x = 0 y = 0 }
+					}
+				}
+				capital_scope = {
+					create_unit = {
+						division = "division_template = \"Czecho Militia\" start_experience_factor = 0.3 start_manpower_factor = 0.5 start_equipment_factor = 0.8"
+						owner = CZE
+						count = 5
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = puppets.1.b
+		ai_chance = { factor = 0 }
+	}
+}
+#Finland
+country_event = {
+	id = puppets.6
+	title = puppets.6.t
+	desc = puppets.6.desc
+	picture = GFX_report_event_czech_soldiers_01
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		tag = SOV
+		#has_global_flag = allied_invasion_persia
+		has_war_with = GER
+		has_war_with = FIN
+	}
+	
+	
+	option = {
+		name = puppets.1.a
+		ai_chance = { factor = 100 }
+		white_peace = FIN
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = FIN
+				autonomous_state = autonomy_integrated_puppet
+			}
+		}
+		else = {
+			puppet = FIN
+		}
+		FIN = {
+			load_focus_tree = generic_focus
+			transfer_state = 111
+			transfer_state = 150
+			transfer_state = 149
+			transfer_state = 148
+			transfer_state = 878
+			drop_cosmetic_tag = yes
+			add_to_war = {
+				targeted_alliance = SOV
+				enemy = GER
+			}
+		}
+	}
+	option = {
+		name = puppets.1.b
+		ai_chance = { factor = 0 }
+	}
+}
+### EOF ###
