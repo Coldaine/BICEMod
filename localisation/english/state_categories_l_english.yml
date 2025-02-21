@@ -1,0 +1,13 @@
+﻿l_english:
+ megalopolis_industry_dynamic_modifier:0 "Industrial Heartland Area"
+ metropolis_industry_dynamic_modifier:0 "Major Industrial Area"
+ large_city_industry_dynamic_modifier:0 "Emerging Industrial Area"
+ city_industry_dynamic_modifier:0 "Urbanised Area"
+ large_town_industry_dynamic_modifier:0 "Urbanising Area"
+ town_industry_dynamic_modifier:0 "Developed Rural Area"
+ rural_industry_dynamic_modifier:0 "Rural Area"
+ pastoral_industry_dynamic_modifier:0 "Peripheral Area"
+ wasteland_industry_dynamic_modifier:0 "Undeveloped Area"
+ 
+ refresh_category:0 "Refresh State Bonuses"
+ refresh_decision:0 "Refresh State Category Bonuses (WARNING : Your game will slow down for a bit)"

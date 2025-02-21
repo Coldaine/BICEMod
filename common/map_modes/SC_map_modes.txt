@@ -1,0 +1,87 @@
+scripted_map_modes = {
+	MAPMODE_DEVELOPMENT = {
+		top = {
+			type = state
+			color = {
+				FROM = {
+					set_temp_variable = { alpha = 1.0 }
+					if = {
+						limit = {
+							is_megalopolis_state = yes
+						}
+						set_temp_variable = { red = 0.84 }
+						set_temp_variable = { green = 0.39 }
+						set_temp_variable = { blue = 0.94 }
+					}
+					else_if = {
+						limit = {
+							is_metropolis_state = yes
+						}
+						set_temp_variable = { red = 0.0 }
+						set_temp_variable = { green = 0.60 }
+						set_temp_variable = { blue = 0.75 }
+					}
+					else_if = {
+						limit = {
+							is_large_city_state = yes
+						}
+						set_temp_variable = { red = 0.0 }
+						set_temp_variable = { green = 0.55 }
+						set_temp_variable = { blue = 0.31 }
+					}
+					else_if = {
+						limit = {
+							is_city_state = yes
+						}
+						set_temp_variable = { red = 0.0 }
+						set_temp_variable = { green = 0.76 }
+						set_temp_variable = { blue = 0.46 }
+					}
+					else_if = {
+						limit = {
+							is_large_town_state = yes
+						}
+						set_temp_variable = { red = 0.80 }
+						set_temp_variable = { green = 1.0 }
+						set_temp_variable = { blue = 0.0 }
+					}
+					else_if = {
+						limit = {
+							is_town_state = yes
+						}
+						set_temp_variable = { red = 1.0 }
+						set_temp_variable = { green = 0.81 }
+						set_temp_variable = { blue = 0.11 }
+					}
+					else_if = {
+						limit = {
+							is_rural_state = yes
+						}
+						set_temp_variable = { red = 0.80 }
+						set_temp_variable = { green = 0.38 }
+						set_temp_variable = { blue = 0.08 }
+					}
+					else_if = {
+						limit = {
+							is_pastoral_state = yes
+						}
+						set_temp_variable = { red = 0.91 }
+						set_temp_variable = { green = 0.19 }
+						set_temp_variable = { blue = 0.13 }
+					}
+					else_if = {
+						limit = {
+							is_wasteland_state = yes
+						}
+						set_temp_variable = { red = 0.72 }
+						set_temp_variable = { green = 0.14 }
+						set_temp_variable = { blue = 0.14 }
+					}
+				}
+			}
+		}
+		near_text = state
+
+		update_daily = yes
+	}
+}

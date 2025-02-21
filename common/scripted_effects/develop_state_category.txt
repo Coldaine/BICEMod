@@ -1,0 +1,304 @@
+develop_state_category = {
+	FROM = {
+		if = {
+			limit = {
+				has_state_category = wasteland
+			}
+			set_state_category = pastoral
+			
+			remove_dynamic_modifier = {
+				modifier = wasteland_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = pastoral_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = enclave
+			}
+			set_state_category = pastoral
+			
+			remove_dynamic_modifier = {
+				modifier = wasteland_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = pastoral_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = tiny_island
+			}
+			set_state_category = small_island
+		}
+		else_if = {
+			limit = {
+				has_state_category = pastoral
+			}
+			set_state_category = rural
+			
+			remove_dynamic_modifier = {
+				modifier = pastoral_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = rural_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = rural
+			}
+			set_state_category = town
+			
+			remove_dynamic_modifier = {
+				modifier = rural_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = town_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = town
+			}
+			set_state_category = large_town
+			
+			remove_dynamic_modifier = {
+				modifier = town_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = large_town_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = large_town
+			}
+			set_state_category = city
+			
+			remove_dynamic_modifier = {
+				modifier = large_town_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = city_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = city
+			}
+			set_state_category = large_city
+			
+			remove_dynamic_modifier = {
+				modifier = city_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = large_city_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = large_city
+			}
+			set_state_category = metropolis
+			
+			remove_dynamic_modifier = {
+				modifier = large_city_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = metropolis_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = metropolis
+			}
+			set_state_category = megalopolis
+			
+			remove_dynamic_modifier = {
+				modifier = metropolis_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = megalopolis_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = wasteland
+			}
+			set_state_category = one
+			
+			remove_dynamic_modifier = {
+				modifier = wasteland_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = pastoral_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = zero_island
+			}
+			set_state_category = one_island
+		}
+		else_if = {
+			limit = {
+				has_state_category = one_island
+			}
+			set_state_category = minor_port
+			
+			remove_dynamic_modifier = {
+				modifier = wasteland_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = town_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = minor_port
+			}
+			set_state_category = port
+			
+			remove_dynamic_modifier = {
+				modifier = town_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = large_town_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = port
+			}
+			set_state_category = major_port
+			
+			remove_dynamic_modifier = {
+				modifier = large_town_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = city_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = one
+			}
+			set_state_category = two
+			
+			remove_dynamic_modifier = {
+				modifier = pastoral_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = rural_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = two
+			}
+			set_state_category = three
+		}
+		else_if = {
+			limit = {
+				has_state_category = three
+			}
+			set_state_category = four
+			
+			remove_dynamic_modifier = {
+				modifier = rural_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = town_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = four
+			}
+			set_state_category = five
+			
+			remove_dynamic_modifier = {
+				modifier = town_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = large_town_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = five
+			}
+			set_state_category = six
+			
+			remove_dynamic_modifier = {
+				modifier = large_town_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = city_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = six
+			}
+			set_state_category = seven
+		}
+		else_if = {
+			limit = {
+				has_state_category = seven
+			}
+			set_state_category = eight
+			
+			remove_dynamic_modifier = {
+				modifier = city_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = large_city_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = eight
+			}
+			set_state_category = nine
+		}
+		else_if = {
+			limit = {
+				has_state_category = nine
+			}
+			set_state_category = ten
+			
+			remove_dynamic_modifier = {
+				modifier = large_city_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = metropolis_industry_dynamic_modifier
+			}
+		}
+		else_if = {
+			limit = {
+				has_state_category = ten
+			}
+			set_state_category = eleven
+		}
+		else_if = {
+			limit = {
+				has_state_category = eleven
+			}
+			set_state_category = twelve
+			
+			remove_dynamic_modifier = {
+				modifier = metropolis_industry_dynamic_modifier
+			}
+			add_dynamic_modifier = {
+				modifier = megalopolis_industry_dynamic_modifier
+			}
+		}
+		remove_building = {
+			type = infrastructure
+			level = 2
+		}
+	}
+}

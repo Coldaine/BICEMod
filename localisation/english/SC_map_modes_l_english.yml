@@ -1,0 +1,7 @@
+﻿l_english:
+
+ MAPMODE_MAPMODE_DEVELOPMENT:0 "Development"
+ MAPMODE_MAPMODE_DEVELOPMENT_NAME:0 "Development"
+ MAPMODE_MAPMODE_DEVELOPMENT_DESCRIPTION:0 "State Development Map Mode"
+ MAPMODE_DEVELOPMENT_tooltip:0 "State Development"
+ MAPMODE_DEVELOPMENT_tooltip_delayed:0 "Greener states are more developed. Blue and Purple are the top developped ones"

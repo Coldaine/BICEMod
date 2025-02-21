@@ -1,0 +1,80 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_state = {
+				if = {
+					limit = {
+						is_megalopolis_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = megalopolis_industry_dynamic_modifier
+					}
+				}
+				else_if = {
+					limit = {
+						is_metropolis_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = metropolis_industry_dynamic_modifier
+					}
+				}
+				else_if = {
+					limit = {
+						is_large_city_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = large_city_industry_dynamic_modifier
+					}
+				}
+				else_if = {
+					limit = {
+						is_city_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = city_industry_dynamic_modifier
+					}
+				}
+				else_if = {
+					limit = {
+						is_large_town_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = large_town_industry_dynamic_modifier
+					}
+				}
+				else_if = {
+					limit = {
+						is_town_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = town_industry_dynamic_modifier
+					}
+				}
+				else_if = {
+					limit = {
+						is_rural_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = rural_industry_dynamic_modifier
+					}
+				}
+				else_if = {
+					limit = {
+						is_pastoral_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = pastoral_industry_dynamic_modifier
+					}
+				}
+				else_if = {
+					limit = {
+						is_wasteland_state = yes
+					}
+					add_dynamic_modifier = {
+						modifier = wasteland_industry_dynamic_modifier
+					}
+				}
+			}
+		}
+	}
+}

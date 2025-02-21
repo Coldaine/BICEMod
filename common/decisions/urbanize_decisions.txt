@@ -1,0 +1,514 @@
+urbanize_category = {
+	
+	urbanize_hide = {
+		icon = infiltrate_state
+		
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+		}
+		
+		complete_effect = {
+			set_country_flag = urbanize_hidden
+		}
+	}
+	
+	urbanize_show = {
+		icon = infiltrate_state
+		
+		visible = {
+			has_country_flag = urbanize_hidden
+		}
+		
+		complete_effect = {
+			clr_country_flag = urbanize_hidden
+		}
+	}
+
+	
+	urbanize_target5 = {
+		
+		icon = generic_construction
+		state_target = any_owned_state
+		on_map_mode = map_only
+		target_array = core_states
+		fire_only_once = no
+		
+		days_remove = 70 #70
+		cost = urbanize_ppcost
+		
+		modifier = {
+			civilian_factory_use = 5
+		}
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_category = wasteland
+					has_state_category = tiny_island
+					has_state_category = enclave
+					has_state_category = pastoral
+					has_state_category = rural
+#					has_state_category = three
+				}
+				impassable = no
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+		}
+		available = {
+			num_of_civilian_factories_available_for_projects > 5
+			FROM = {
+				if = {
+					limit = {
+						has_state_category = wasteland
+					}
+					set_temp_variable = { urbanize_ppcost = 50 }
+					set_temp_variable = { urbanize_statepop = 10000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = tiny_island
+					}
+					set_temp_variable = { urbanize_ppcost = 50 }
+					set_temp_variable = { urbanize_statepop = 10000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = enclave
+					}
+					set_temp_variable = { urbanize_ppcost = 50 }
+					set_temp_variable = { urbanize_statepop = 20000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = pastoral
+					}
+					set_temp_variable = { urbanize_ppcost = 50 }
+					set_temp_variable = { urbanize_statepop = 40000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = rural
+					}
+					set_temp_variable = { urbanize_ppcost = 50 }
+					set_temp_variable = { urbanize_statepop = 160000 }
+				}
+
+				hidden_trigger = {
+					OR = {
+						has_state_category = wasteland
+						has_state_category = tiny_island
+						has_state_category = enclave
+						has_state_category = pastoral
+						has_state_category = rural
+					}
+				}
+				state_population > urbanize_statepop
+				infrastructure > 3
+			}
+		}
+		remove_trigger = {
+			
+		}
+		remove_effect = {
+			develop_state_category = yes
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	urbanize_target7 = {
+		
+		icon = generic_construction
+		state_target = any_owned_state
+		on_map_mode = map_only
+		target_array = core_states
+		fire_only_once = no
+		
+		days_remove = 140 #140
+		cost = urbanize_ppcost
+		
+		modifier = {
+			civilian_factory_use = 10
+		}
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_category = town
+					has_state_category = large_town
+				}
+			}
+		}
+		
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+		}
+		available = {
+			num_of_civilian_factories_available_for_projects > 10
+			FROM = {
+				if = {
+					limit = {
+						has_state_category = town
+					}
+					set_temp_variable = { urbanize_ppcost = 50 }
+					set_temp_variable = { urbanize_statepop = 350000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = four
+					}
+					set_temp_variable = { urbanize_ppcost = 50 }
+					set_temp_variable = { urbanize_statepop = 350000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = minor_port
+					}
+					set_temp_variable = { urbanize_ppcost = 50 }
+					set_temp_variable = { urbanize_statepop = 350000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = large_town
+					}
+					set_temp_variable = { urbanize_ppcost = 100 }
+					set_temp_variable = { urbanize_statepop = 800000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = five
+					}
+					set_temp_variable = { urbanize_ppcost = 100 }
+					set_temp_variable = { urbanize_statepop = 800000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = port
+					}
+					set_temp_variable = { urbanize_ppcost = 100 }
+					set_temp_variable = { urbanize_statepop = 800000 }
+				}
+				hidden_trigger = {
+					OR = {
+						has_state_category = town
+						has_state_category = large_town
+						has_state_category = minor_port
+						has_state_category = four
+						has_state_category = port
+						has_state_category = five
+					}
+				}
+				state_population > urbanize_statepop
+				infrastructure > 3
+			}
+			
+		}
+		remove_trigger = {
+			
+		}
+		remove_effect = {
+			develop_state_category = yes
+		}
+		ai_will_do = {
+			factor = 2
+		}
+	}
+
+	urbanize_target9 = {
+		
+		icon = generic_construction
+		state_target = yes
+		on_map_mode = map_only
+		target_array = core_states
+		fire_only_once = no
+		
+		days_remove = 210 
+		cost = urbanize_ppcost
+		
+		modifier = {
+			civilian_factory_use = 15
+		}
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_category = city
+					has_state_category = large_city
+				}
+			}
+		}
+		
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+		}
+		available = {
+			num_of_civilian_factories_available_for_projects > 15
+			FROM = {
+				if = {
+					limit = {
+						has_state_category = city
+					}
+					set_temp_variable = { urbanize_ppcost = 100 }
+					set_temp_variable = { urbanize_statepop = 1200000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = six
+					}
+					set_temp_variable = { urbanize_ppcost = 100 }
+					set_temp_variable = { urbanize_statepop = 1200000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = seven
+					}
+					set_temp_variable = { urbanize_ppcost = 100 }
+					set_temp_variable = { urbanize_statepop = 1200000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = major_port
+					}
+					set_temp_variable = { urbanize_ppcost = 100 }
+					set_temp_variable = { urbanize_statepop = 1200000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = large_city
+					}
+					set_temp_variable = { urbanize_ppcost = 150 }
+					set_temp_variable = { urbanize_statepop = 2000000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = eight
+					}
+					set_temp_variable = { urbanize_ppcost = 150 }
+					set_temp_variable = { urbanize_statepop = 2000000 }
+				}
+				else_if = {
+					limit = {
+						has_state_category = nine
+					}
+					set_temp_variable = { urbanize_ppcost = 150 }
+					set_temp_variable = { urbanize_statepop = 2000000 }
+				}
+				hidden_trigger = {
+					OR = {
+						has_state_category = city
+						has_state_category = large_city
+						has_state_category = metropolis
+					}
+				}
+				state_population > urbanize_statepop
+				infrastructure > 3
+			}
+		}
+		remove_trigger = {
+			
+		}
+		remove_effect = {
+			develop_state_category = yes
+		}
+		
+		ai_will_do = {
+			factor = 4
+		}
+	}
+	
+	urbanize_target10 = {
+		
+		icon = generic_construction
+		state_target = yes
+		on_map_mode = map_only
+		target_array = core_states
+		fire_only_once = no
+		
+		days_remove = 300 
+		cost = 200
+		
+		modifier = {
+			civilian_factory_use = 20
+		}
+		
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_category = metropolis
+					has_state_category = ten
+					has_state_category = eleven
+				}
+			}
+		}
+		
+		visible = {
+			NOT = {
+				has_country_flag = urbanize_hidden
+			}
+		}
+		available = {
+			num_of_civilian_factories_available_for_projects > 20
+			FROM = {
+				if = {
+					limit = {
+						OR = {
+							has_state_category = metropolis
+						}
+					}
+				}
+				hidden_trigger = {
+					OR = {
+						has_state_category = metropolis
+					}
+				}
+				state_population > 5000000
+				infrastructure > 3
+			}
+		}
+		remove_trigger = {
+			
+		}
+		remove_effect = {
+			develop_state_category = yes
+		}
+		
+		ai_will_do = {
+			factor = *
+		}
+	}
+	
+	refresh_decision = {
+		icon = infiltrate_state
+		
+		visible = {
+			always = yes 
+		}
+		
+		complete_effect = {
+				
+				every_state = {
+				
+					remove_dynamic_modifier = {
+							modifier = megalopolis_industry_dynamic_modifier
+					}
+					
+					remove_dynamic_modifier = {
+							modifier = metropolis_industry_dynamic_modifier
+					}
+					
+					remove_dynamic_modifier = {
+							modifier = large_city_industry_dynamic_modifier
+					}
+					
+					remove_dynamic_modifier = {
+							modifier = city_industry_dynamic_modifier
+					}
+					
+					remove_dynamic_modifier = {
+							modifier = large_town_industry_dynamic_modifier
+					}
+					
+					remove_dynamic_modifier = {
+							modifier = town_industry_dynamic_modifier
+					}
+					
+					remove_dynamic_modifier = {
+							modifier = rural_industry_dynamic_modifier
+					}
+					
+					remove_dynamic_modifier = {
+							modifier = pastoral_industry_dynamic_modifier
+					}
+					
+					remove_dynamic_modifier = {
+							modifier = wasteland_industry_dynamic_modifier
+					}
+					
+					if = {
+						limit = {
+							is_megalopolis_state = yes
+						}
+						add_dynamic_modifier = {
+							modifier = megalopolis_industry_dynamic_modifier
+						}
+					}
+					else_if = {
+						limit = {
+							is_metropolis_state = yes
+						}	
+						add_dynamic_modifier = {
+							modifier = metropolis_industry_dynamic_modifier
+						}
+					}
+					else_if = {
+						limit = {
+							is_large_city_state = yes
+						}
+						add_dynamic_modifier = {
+							modifier = large_city_industry_dynamic_modifier
+						}
+					}
+					else_if = {
+						limit = {
+							is_city_state = yes
+						}
+						add_dynamic_modifier = {
+							modifier = city_industry_dynamic_modifier
+						}
+					}
+					else_if = {
+						limit = {
+							is_large_town_state = yes
+						}
+						add_dynamic_modifier = {
+							modifier = large_town_industry_dynamic_modifier
+						}
+					}
+					else_if = {
+						limit = {
+							is_town_state = yes
+						}
+						add_dynamic_modifier = {
+							modifier = town_industry_dynamic_modifier
+						}
+					}
+					else_if = {
+						limit = {
+							is_rural_state = yes
+						}
+						add_dynamic_modifier = {
+							modifier = rural_industry_dynamic_modifier
+						}
+					}	
+					else_if = {
+						limit = {
+							is_pastoral_state = yes
+						}
+						add_dynamic_modifier = {
+							modifier = pastoral_industry_dynamic_modifier
+						}
+					}
+					else_if = {
+						limit = {
+							is_wasteland_state = yes
+						}
+						add_dynamic_modifier = {
+							modifier = wasteland_industry_dynamic_modifier
+						}
+					}
+				}
+			}
+		}
+}

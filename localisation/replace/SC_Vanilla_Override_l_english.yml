@@ -1,0 +1,14 @@
+﻿l_english:
+
+### state_l_english
+ megalopolis: "Industrial Heartland"
+ metropolis: "Major Industrial Centre"
+ large_city: "Emerging Industrial Region"
+ city: "Urbanised Region"
+ large_town: "Urbanising Region"
+ town: "Developed Rural Region"
+ rural: "Undeveloped Rural Region"
+ pastoral: "Peripheral Region"
+ wasteland: "Wasteland"
+ small_island: "Overseas Territory"
+ tiny_island: "Remote Island(s)"

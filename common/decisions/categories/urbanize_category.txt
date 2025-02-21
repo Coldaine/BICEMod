@@ -1,0 +1,10 @@
+urbanize_category = {
+	priority = 2
+	icon = generic_economy
+	allowed = {
+		always = yes
+	}
+	visible = {
+		always = yes
+	}
+}
