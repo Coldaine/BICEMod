@@ -24,7 +24,7 @@ is_large_city_state = {
 is_city_state = {
 	OR = {
 		has_state_category = city
-		has_state_category = major_port
+#		has_state_category = major_port
 #		has_state_category = six
 #		has_state_category = seven
 	}
@@ -33,7 +33,7 @@ is_city_state = {
 is_large_town_state = {
 	OR = {
 		has_state_category = large_town
-		has_state_category = port
+#		has_state_category = port
 #		has_state_category = five
 	}
 }
@@ -41,7 +41,7 @@ is_large_town_state = {
 is_town_state = {
 	OR = {
 		has_state_category = town
-		has_state_category = minor_port
+#		has_state_category = minor_port
 #		has_state_category = four
 	}
 }
