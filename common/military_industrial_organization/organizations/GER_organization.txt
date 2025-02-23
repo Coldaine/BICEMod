@@ -1534,7 +1534,9 @@ GER_messerschmitt_organization = {
 GER_junkers_organization = {
 	include = generic_cas_aircraft_organization
 	icon = GFX_idea_junkers
-	
+	equipment_type = {
+		junkers_air
+	}
 	allowed = {	 
 		OR = {
 			tag = GER 
@@ -1901,6 +1903,10 @@ GER_heinkel_organization = {
 	include = generic_heavy_aircraft_organization
 	icon = GFX_idea_heinkel
 	
+	equipment_type = {
+		heinkel_air
+	}
+
 	allowed = {	
 		OR = {
 			tag = GER 
@@ -2130,6 +2136,9 @@ GER_dornier_organization = {
 	include = generic_medium_aircraft_organization
 	icon = GFX_idea_dornier
 	
+	equipment_type = {
+		dornier_air
+	}
 	allowed = {	
 		tag = GER 
 	}

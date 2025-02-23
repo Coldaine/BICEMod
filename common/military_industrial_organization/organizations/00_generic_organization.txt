@@ -3035,6 +3035,7 @@ generic_submarine_organization = {
 	research_categories = {
 		mio_cat_tech_all_submarine_and_modules
 		naval_equipment
+		naval_sub_equipment
 	}
 	
 	tree_header_text = {
