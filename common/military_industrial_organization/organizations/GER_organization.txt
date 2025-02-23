@@ -1443,21 +1443,7 @@ GER_messerschmitt_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				mio:GER_blohm_und_voss_organization = {
-					has_mio_size > 4
-				}
-				NOT = { has_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag
-			}
-		}
 
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -1479,19 +1465,7 @@ GER_messerschmitt_organization = {
 		position = { x = 2 y = 0 }  
 		
 
-		available = {
-			FROM = {
-				has_completed_focus = GER_aerodynamic_research_institute
-				NOT = { has_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag
-			}
-		}
 
 		organization_modifier = {
 		    military_industrial_organization_research_bonus = 0.1
@@ -1619,21 +1593,7 @@ GER_junkers_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				mio:GER_blohm_und_voss_organization = {
-					has_mio_size > 4
-				}
-				NOT = { has_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag
-			}
-		}
 
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -1654,19 +1614,7 @@ GER_junkers_organization = {
 
 		position = { x = 2 y = 1 }  
 		
-		available = {
-			FROM = {
-				has_completed_focus = GER_aerodynamic_research_institute
-				NOT = { has_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag
-			}
-		}
 
 		organization_modifier = {
 		    military_industrial_organization_research_bonus = 0.1
@@ -1753,19 +1701,7 @@ GER_focke_wulf_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				has_completed_focus = GER_aerodynamic_research_institute
-				NOT = { has_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag
-			}
-		}
 
 		organization_modifier = {
 		    military_industrial_organization_research_bonus = 0.1
@@ -1845,21 +1781,7 @@ GER_focke_wulf_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				mio:GER_blohm_und_voss_organization = {
-					has_mio_size > 4
-				}
-				NOT = { has_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag
-			}
-		}
 
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -2040,21 +1962,7 @@ GER_heinkel_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				mio:GER_blohm_und_voss_organization = {
-					has_mio_size > 4
-				}
-				NOT = { has_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag
-			}
-		}
 
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -2079,19 +1987,7 @@ GER_heinkel_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				has_completed_focus = GER_aerodynamic_research_institute
-				NOT = { has_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag
-			}
-		}
 
 		organization_modifier = {
 		    military_industrial_organization_research_bonus = 0.1
@@ -2190,21 +2086,7 @@ GER_dornier_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				mio:GER_blohm_und_voss_organization = {
-					has_mio_size > 4
-				}
-				NOT = { has_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag
-			}
-		}
 
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -2229,19 +2111,7 @@ GER_dornier_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				has_completed_focus = GER_aerodynamic_research_institute
-				NOT = { has_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag
-			}
-		}
 
 		organization_modifier = {
 		    military_industrial_organization_research_bonus = 0.1
@@ -2295,21 +2165,7 @@ GER_arado_flugzeugwerke_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				mio:GER_blohm_und_voss_organization = {
-					has_mio_size > 4
-				}
-				NOT = { has_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag
-			}
-		}
 
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -2334,19 +2190,7 @@ GER_arado_flugzeugwerke_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				has_completed_focus = GER_aerodynamic_research_institute
-				NOT = { has_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag
-			}
-		}
 
 		organization_modifier = {
 		    military_industrial_organization_research_bonus = 0.1
@@ -2378,21 +2222,7 @@ GER_fieseler_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				mio:GER_blohm_und_voss_organization = {
-					has_mio_size > 4
-				}
-				NOT = { has_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag
-			}
-		}
 
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -2417,19 +2247,7 @@ GER_fieseler_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				has_completed_focus = GER_aerodynamic_research_institute
-				NOT = { has_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag
-			}
-		}
 
 		organization_modifier = {
 		    military_industrial_organization_research_bonus = 0.1
@@ -2463,21 +2281,7 @@ GER_focke_achgelis_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				mio:GER_blohm_und_voss_organization = {
-					has_mio_size > 4
-				}
-				NOT = { has_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_hamburger_flugzeugbau_trait_taken_flag
-			}
-		}
 
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -2502,19 +2306,7 @@ GER_focke_achgelis_organization = {
 			FROM = { tag = GER }
 		}
 
-		available = {
-			FROM = {
-				has_completed_focus = GER_aerodynamic_research_institute
-				NOT = { has_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag }
-			}
-		}
 
-		on_complete = {
-			custom_effect_tooltip = generic_trait_will_not_be_available_in_other_organizations
-			FROM = {
-				set_country_flag = GER_mio_trait_aerodynamic_research_insitute_taken_flag
-			}
-		}
 
 		organization_modifier = {
 		    military_industrial_organization_research_bonus = 0.1
