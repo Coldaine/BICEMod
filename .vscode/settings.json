@@ -1,0 +1,10 @@
+{
+
+"search.exclude": {
+    "**/events/**": true,
+    "**/national_focus/**": true,
+     "**/ai_strategy_plans/**" : true,
+     "**/decisions/**" : true
+}
+
+}

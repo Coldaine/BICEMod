@@ -3034,6 +3034,7 @@ generic_submarine_organization = {
 	}
 	research_categories = {
 		mio_cat_tech_all_submarine_and_modules
+		naval_equipment
 	}
 	
 	tree_header_text = {
@@ -3064,7 +3065,6 @@ generic_submarine_organization = {
 
 		position = { x=2 y=0 }
 
-		mutually_exclusive = { generic_mio_trait_decalin_fueled_torpedo }
 
 		equipment_bonus = {
 			sub_visibility = -0.03
@@ -3079,8 +3079,6 @@ generic_submarine_organization = {
 
 		position = { x=3 y=0 }
 		relative_position_id = generic_mio_trait_long_range_raiding
-
-		mutually_exclusive = { generic_mio_trait_long_range_raiding }
 
 		equipment_bonus = {
 			torpedo_attack = 0.05
@@ -3671,6 +3669,7 @@ generic_refurbishment_repair_organization = {
 	research_categories = {
 		mio_cat_tech_all_capital_ship_and_modules
 		mio_cat_tech_all_cruiser_and_modules
+		naval_equipment
 	}
 
 	tree_header_text = {
@@ -4972,6 +4971,15 @@ generic_heavy_aircraft_organization = {
 		large_plane_airframe
 		large_plane_maritime_patrol_plane_airframe
 		transport_plane_equipment
+		_airframe_flying_boats
+		_airframe_heavy_cas
+		_airframe_heavy_fighter
+		_airframe_heavy_nav_bomber
+		_airframe_nav_bomber
+		_airframe_nav_bomber_guided
+		_airframe_night_fighter
+		_airframe_stratbomber
+		_airframe_transport_plane
 	}
 
 	research_categories = { mio_cat_all_heavy_aircraft_and_modules }

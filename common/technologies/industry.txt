@@ -1954,7 +1954,7 @@ technologies = {
 			building = shipyard
 			level = 1
 		}
-		max_shipyard = 5
+		max_shipyard = 10
 		
 		on_research_complete = {
 			set_temp_variable = { tech = token:ship_industry }
@@ -2200,7 +2200,7 @@ technologies = {
 			building = shipyard
 			level = 2
 		}
-		max_shipyard = 5
+		max_shipyard = 10
 
 		on_research_complete = {
 			set_temp_variable = { tech = token:ship_industry2 }
@@ -2449,7 +2449,7 @@ technologies = {
 			building = shipyard
 			level = 3
 		}
-		max_shipyard = 5
+		max_shipyard = 10
 		
 		on_research_complete = {
 			set_temp_variable = { tech = token:ship_industry3 }
