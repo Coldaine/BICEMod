@@ -8,7 +8,7 @@ on_actions = {
 					limit = { has_government = liberalism }
 					add_ideas = PB_Govidea_Mixed_Market_Capitalism
 					add_ideas = PB_Limited_Disenfranchisement
-					add_ideas = PB_Universal_Basic
+
 					add_ideas = PB_Trinket_Healthcare
 					add_ideas = PB_8_Hour_Workday
 					add_ideas = PB_Significant_Autonomy
@@ -71,7 +71,6 @@ on_actions = {
 					limit = { has_government = communism }
 					add_ideas = PB_Govidea_Planned_Economy
 					add_ideas = PB_Limited_Disenfranchisement
-					add_ideas = PB_Universal_Basic
 					add_ideas = PB_Trinket_Healthcare
 					add_ideas = PB_8_Hour_Workday
 					add_ideas = PB_Significant_Autonomy
@@ -93,7 +92,7 @@ on_actions = {
 					limit = { original_tag = USA }
 					add_ideas = PB_Govidea_Mixed_Market_Capitalism
 					add_ideas = PB_Limited_Disenfranchisement
-					add_ideas = PB_Universal_Basic
+
 					add_ideas = PB_Trinket_Healthcare
 					add_ideas = PB_8_Hour_Workday
 					add_ideas = PB_Significant_Autonomy

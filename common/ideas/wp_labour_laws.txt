@@ -53,7 +53,7 @@ ideas = {
                 }
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 100
                 }
             }
@@ -134,7 +134,7 @@ ideas = {
                 modifier = {
                     
                     NOT = {
-                        has_government = libralism
+                        has_government = liberalism
                     }
                     OR = {
                         has_idea = laisezz_faire
@@ -148,7 +148,7 @@ ideas = {
 
                     NOT = {
 
-                          has_government = libralism
+                          has_government = liberalism
                           has_government = communism
                         
                     }
@@ -173,7 +173,7 @@ ideas = {
                 NOT = {
 
                     has_government = communism
-                    has_government = libralism
+                    has_government = liberalism
                 }
             }
 

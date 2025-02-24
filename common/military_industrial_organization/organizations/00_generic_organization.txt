@@ -34,7 +34,6 @@ generic_tank_organization = {
 		NOT = {
 			AND = {
 				OR = {
-					is_literally_china = yes
 					tag = MAN
 				}
 				has_dlc = "Waking the Tiger"
@@ -618,6 +617,7 @@ generic_assault_guns_organization = {
 	equipment_type = { light_tank_artillery_chassis medium_tank_artillery_chassis heavy_tank_artillery_chassis }
 	research_categories = { mio_cat_tech_all_armor_and_modules mio_cat_all_artillery_equipment 
 	armor_tech
+	land_doctrine
 }
 
 	tree_header_text = {
@@ -1393,7 +1393,9 @@ generic_heavy_tank_organization = {
 
 	equipment_type = { mio_cat_eq_all_heavy_tank }
 	research_categories = { mio_cat_tech_heavy_armor_and_modules 
-	armor_tech}
+	armor_tech
+    land_doctrine
+    }
 
 	tree_header_text = {
 		text = mio_header_engine_and_drive_system
@@ -1941,9 +1943,8 @@ generic_task_force_ship_organization = {
 		mio_cat_eq_all_destroyer
 	}
 	research_categories = {
-		mio_cat_tech_all_carrier_and_modules
-		mio_cat_tech_all_cruiser_and_modules
-		mio_cat_tech_all_destroyer_and_modules
+		naval_doctrine
+		naval_equipment
 	}
 
 	
@@ -2200,8 +2201,8 @@ generic_battle_line_ship_organization = {
 		mio_cat_eq_all_cruiser
 	}
 	research_categories = {
-		mio_cat_tech_all_capital_ship_and_modules
-		mio_cat_tech_all_cruiser_and_modules
+		naval_equipment
+		naval_doctrine
 	}
 
 	tree_header_text = {
@@ -2535,6 +2536,8 @@ generic_escort_ship_organization = {
 	}
 	research_categories = {
 		mio_cat_tech_all_screen_ship_and_modules
+		naval_doctrine
+		naval_equipment
 	}
 	
 	tree_header_text = {
@@ -2751,6 +2754,8 @@ generic_raider_ship_organization = {
 		mio_cat_tech_all_capital_ship_and_modules
 		mio_cat_tech_all_screen_ship_and_modules
 		mio_cat_tech_all_submarine_and_modules
+		naval_doctrine
+		naval_equipment
 	}
 	
 	tree_header_text = {
@@ -3048,6 +3053,7 @@ generic_submarine_organization = {
 		mio_cat_tech_all_submarine_and_modules
 		naval_equipment
 		naval_sub_equipment
+		naval_doctrine
 	}
 	
 	tree_header_text = {
@@ -3683,6 +3689,7 @@ generic_refurbishment_repair_organization = {
 		mio_cat_tech_all_capital_ship_and_modules
 		mio_cat_tech_all_cruiser_and_modules
 		naval_equipment
+		naval_doctrine
 	}
 
 	tree_header_text = {
@@ -4050,7 +4057,8 @@ generic_general_aircraft_organization = {
 		mio_cat_eq_all_large_plane
 	}
 
-	research_categories = { air_equipment }
+	research_categories = { air_equipment
+air_doctrine }
 	
 	tree_header_text = {
 		text = mio_header_fighter_aircraft
@@ -4324,6 +4332,7 @@ generic_light_aircraft_organization = {
 	research_categories = {	
 		mio_cat_all_light_fighter_and_modules 
 		mio_cat_all_cas_and_modules 
+		air_doctrine
 	}
 	
 	tree_header_text = {
@@ -4662,7 +4671,9 @@ generic_medium_aircraft_organization = {
 		transport_plane_equipment
 	}
 
-	research_categories = { mio_cat_all_medium_aircraft_and_modules }
+	research_categories = { mio_cat_all_medium_aircraft_and_modules
+	air_doctrine 
+	}
 	
 	tree_header_text = {
 		text = mio_header_production
@@ -4995,7 +5006,9 @@ generic_heavy_aircraft_organization = {
 		_airframe_transport_plane
 	}
 
-	research_categories = { mio_cat_all_heavy_aircraft_and_modules }
+	research_categories = { mio_cat_all_heavy_aircraft_and_modules
+	air_doctrine 
+}
 	
 	tree_header_text = {
 		text = mio_header_design_department
@@ -5289,7 +5302,9 @@ generic_cas_aircraft_organization = {
 		cv_small_plane_cas_airframe
 	}
 
-	research_categories = {	mio_cat_all_cas_and_modules }
+	research_categories = {	mio_cat_all_cas_and_modules 
+	air_doctrine
+	}
 	
 	tree_header_text = {
 		text = mio_header_production

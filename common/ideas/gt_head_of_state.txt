@@ -17,7 +17,7 @@ ideas = {
                     
                     }
                     AND = {
-                        has_government = libralism
+                        has_government = moderatism
                         OR = {
                         tag = ENG
                         tag = CAN
@@ -65,7 +65,7 @@ ideas = {
                 base = 20
 
                 modifier = {
-                    has_government = libralism
+                    has_government = conservatism
                     tag = ENG
                     add = 100
                 }
@@ -88,7 +88,7 @@ ideas = {
                 }
 
                 modifier = {
-                    has_government = libralism
+                    has_government = conservatism
                     
                     OR = {
                         tag = DEN
@@ -133,7 +133,7 @@ ideas = {
                 }
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
 
                     OR = {
                       
@@ -165,7 +165,7 @@ ideas = {
                 }
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 20
                 }
 
@@ -202,7 +202,7 @@ ideas = {
                 base = 40
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     tag = USA
                     add = 200
                 }
@@ -213,7 +213,7 @@ ideas = {
                 }
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     
                     OR = {
                         tag = BRA
@@ -250,7 +250,7 @@ ideas = {
 
             available = {
                 NOT = {
-                    has_government = libralism
+                    has_government = liberalism
                 }
             }
 

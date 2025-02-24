@@ -144,7 +144,7 @@ ideas = {
 
                     OR = {
                         has_government = communism
-                        has_government = libralism
+                        has_government = liberalism
                     }
                     add = 20
                 }

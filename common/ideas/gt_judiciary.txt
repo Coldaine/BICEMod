@@ -40,7 +40,7 @@ ideas = {
                     has_idea = communal_council
                     has_idea = workers_council
                     has_idea = federal_council
-                    has_government = libralism
+                    has_government = liberalism
                     }
                     add = 100
                 }

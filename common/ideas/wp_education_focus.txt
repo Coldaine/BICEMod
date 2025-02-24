@@ -132,7 +132,7 @@ ideas = {
                 base = 40
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 20
                 }
             }
@@ -145,7 +145,7 @@ ideas = {
             available = {
 
                 NOT = {
-                    has_government = libralism
+                    has_government = liberalism
                     has_idea = prime_minister
                     has_idea = president
                     has_idea = communal_council

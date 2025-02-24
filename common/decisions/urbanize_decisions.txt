@@ -247,7 +247,7 @@ urbanize_category = {
 				}
 				else_if = {
 					limit = {
-						has_state_category = major_port
+						has_state_category = city
 					}
 					set_temp_variable = { urbanize_ppcost = 100 }
 					set_temp_variable = { urbanize_statepop = 1200000 }

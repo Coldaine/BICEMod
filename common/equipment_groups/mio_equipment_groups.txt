@@ -261,23 +261,20 @@ mio_cat_eq_all_tank_destroyers = { #Includes Super Heavy Tank Chassis
 
 mio_cat_eq_all_carrier = { #Includes all CV --- Used due to custom loc capabilities
 	equipment_type = {
-		naval_equipment
 	carriers
 carriers_armored
 carriers_escort
 
 carriers_light
-
 nrm_ship_hull_carrier
 
 nrm_ship_hull_carrier_escort
 
 nrm_ship_hull_carrier_light
 
-nrm_ship_zgeneric_cv
+nrm_ship_generic_cv
 
-ship_hull_carrier
-	ship_hull_carrier
+	
 
 			nrm_ship_hull_carrier_2
 			nrm_ship_hull_carrier_light_2	
@@ -286,7 +283,7 @@ ship_hull_carrier
 
 mio_cat_eq_all_cruiser = { #Includes all Cruiser (CA, CL, Coastal Defense, Torpedo Cruiser, Panzerschiff) --- Used due to custom loc capabilities
 	equipment_type = {
-		naval_equipment
+		
 	nrm_ship_hull_capital
 	nrm_ship_hull_capital_g1
 	nrm_ship_hull_capital_g2
@@ -375,7 +372,7 @@ mio_cat_eq_all_cruiser = { #Includes all Cruiser (CA, CL, Coastal Defense, Torpe
 
 mio_cat_eq_all_destroyer = { #Includes all Destroyers --- Used due to custom loc capabilities (loc for ship_hull_light just sucks)
 	equipment_type = {
-		naval_equipment
+		
 	destroyer_early_ww1
 destroyer_late_ww1
 destroyer_1
@@ -397,7 +394,7 @@ ITA_destroyer_leader_3
 
 mio_cat_eq_all_battleship = { #Includes all Battleships (BB, BC, SHBB, Pre-Dreadnought)
 	equipment_type = {
-	
+		
 	battleship_pdn
 battleship_dn
 battleship_adv_dn

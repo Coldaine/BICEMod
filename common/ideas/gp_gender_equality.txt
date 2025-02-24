@@ -33,7 +33,7 @@ ideas = {
                 base = 10
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 20
                 }
 
@@ -73,7 +73,7 @@ ideas = {
                 base = 20
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 40
                 }
 
@@ -112,7 +112,7 @@ ideas = {
                 base = 30
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 15
                 }
 

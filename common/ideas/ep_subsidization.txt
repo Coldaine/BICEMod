@@ -76,7 +76,7 @@ ideas = {
                 modifier = {
 
                     OR = {
-                        has_government = libralism
+                        has_government = liberalism
                         has_government = communism
                     }
                     add = 20

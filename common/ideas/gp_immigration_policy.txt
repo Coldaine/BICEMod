@@ -28,7 +28,7 @@ ideas = {
             base = 10
            
             modifier = {
-                has_government = libralism 
+                has_government = liberalism 
                 add = 40
             }
             
@@ -69,7 +69,7 @@ ideas = {
             base = 20
 
             modifier = {
-                has_government = libralism
+                has_government = liberalism
                 add = 40
             }
 
@@ -116,7 +116,7 @@ ideas = {
        strict_immigration_controls = {
         available = {
             NOT = {
-             has_government = libralism
+             has_government = liberalism
             }
         }
 
@@ -157,7 +157,7 @@ ideas = {
         available = {
             NOT = { 
                 OR = {
-                    has_government = libralism
+                    has_government = liberalism
                     has_government = communism
                 }
             }

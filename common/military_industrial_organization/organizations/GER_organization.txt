@@ -1836,7 +1836,6 @@ GER_heinkel_organization = {
 				tag = BUL
 				has_dlc = "Battle for the Bosporus"
 			}
-			NOR_AAT = yes
 		}
 	}
 
@@ -2260,63 +2259,64 @@ GER_fieseler_organization = {
 
 }
 
-GER_focke_achgelis_organization = {
-	include = generic_helicopter_organization
-	icon = GFX_idea_GER_focke_achgelis
+#No helicopers in the game
+# GER_focke_achgelis_organization = {
+# 	include = generic_helicopter_organization
+# 	icon = GFX_idea_GER_focke_achgelis
 	
-	allowed = {	
-		tag = GER 
-		has_dlc = "Gotterdammerung"		
-	}
+# 	allowed = {	
+# 		tag = GER 
+# 		has_dlc = "Gotterdammerung"		
+# 	}
 
-	add_trait = {
-		token = GER_mio_trait_hamburger_flugzeugbau
-		name = GER_mio_trait_hamburger_flugzeugbau
-		icon = GFX_generic_mio_trait_icon_production_capacity
-		special_trait_background = yes
+# 	add_trait = {
+# 		token = GER_mio_trait_hamburger_flugzeugbau
+# 		name = GER_mio_trait_hamburger_flugzeugbau
+# 		icon = GFX_generic_mio_trait_icon_production_capacity
+# 		special_trait_background = yes
 
-		position = { x=@aircraft_hamburger_X y=@aircraft_hamburger_Y }  
+# 		position = { x=@aircraft_hamburger_X y=@aircraft_hamburger_Y }  
 		
-		visible = {
-			FROM = { tag = GER }
-		}
+# 		visible = {
+# 			FROM = { tag = GER }
+# 		}
 
 
 
-		production_bonus = {
-			production_capacity_factor = 0.05
-		}
+# 		production_bonus = {
+# 			production_capacity_factor = 0.05
+# 		}
 
-		ai_will_do = {
-			base = 2
-		}
-	}
+# 		ai_will_do = {
+# 			base = 2
+# 		}
+# 	}
 
-	add_trait = {
-		token = GER_mio_trait_aerodynamic_research_insitute
-		name = GER_mio_trait_aerodynamic_research_insitute
-		icon = GFX_generic_mio_department_icon_facilities
-		special_trait_background = yes
+# 	add_trait = {
+# 		token = GER_mio_trait_aerodynamic_research_insitute
+# 		name = GER_mio_trait_aerodynamic_research_insitute
+# 		icon = GFX_generic_mio_department_icon_facilities
+# 		special_trait_background = yes
 
-		relative_position_id = GER_mio_trait_hamburger_flugzeugbau
+# 		relative_position_id = GER_mio_trait_hamburger_flugzeugbau
 
-		position = { x = 0 y = 1 }  
+# 		position = { x = 0 y = 1 }  
 		
-		visible = {
-			FROM = { tag = GER }
-		}
+# 		visible = {
+# 			FROM = { tag = GER }
+# 		}
 
 
 
-		organization_modifier = {
-		    military_industrial_organization_research_bonus = 0.1
-		}
+# 		organization_modifier = {
+# 		    military_industrial_organization_research_bonus = 0.1
+# 		}
 
-		ai_will_do = {
-			base = 2
-		}
-	}
-}
+# 		ai_will_do = {
+# 			base = 2
+# 		}
+# 	}
+# }
 
 
 ################################### 

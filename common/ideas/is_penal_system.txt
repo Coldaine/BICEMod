@@ -44,7 +44,7 @@
             available = {
 
                 NOT = {
-                    has_government = libralism
+                    has_government = liberalism
                 }
             }
 
@@ -111,7 +111,7 @@
                 base = 20
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 40
                 }
 

@@ -29,13 +29,12 @@
                         tag = VEN
                         tag = IRQ
                         tag = PER
-                        tag = AZR
+
                         tag = MAL
                         tag = INS
                         tag = SAU
                         tag = OMA
                         tag = YEM
-                        tag = CRC
                      }
                   } 
                 }
@@ -159,7 +158,7 @@
                 base = 30
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 40
                 }
 
@@ -170,13 +169,13 @@
 
                 modifier = {
                     tag = USA
-                    has_government = libralism
+                    has_government = liberalism
                     add = 100
                 }
 
                 modifier = {
                     tag = ENG
-                    has_government = libralism
+                    has_government = liberalism
                     add = 100
                 } 
 
@@ -220,7 +219,7 @@
 
             available = {
                 NOT = {
-                    has_government = libralism
+                    has_government = liberalism
                 }
             }
 
@@ -273,7 +272,7 @@
             available = {
                 NOT = {
                     
-                    has_government = libralism  
+                    has_government = liberalism  
                 }
             }
 

@@ -83,7 +83,7 @@ ideas = {
                 }
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
                     add = 10
                 }
             }

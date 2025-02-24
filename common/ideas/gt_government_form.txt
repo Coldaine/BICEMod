@@ -66,13 +66,13 @@ ideas = {
 
                 modifier = {
                     tag = ITA
-                    has_government = libralism
+                    has_government = liberalism
                     add = 40
                 }
 
                 modifier = {
                     tag = SPR
-                    has_government = libralism
+                    has_government = liberalism
                     add = 40
                 }
 
@@ -109,7 +109,7 @@ ideas = {
                 base = 40
 
                 modifier = {
-                    has_government = libralism
+                    has_government = liberalism
 
                     OR = {
                         tag = USA

@@ -11,7 +11,6 @@ ideas = {
 				
 				NOT = {
 				has_government = communism
-				has_country_leader_ideology = anarchism
 				}
 			}
 			
@@ -36,7 +35,6 @@ ideas = {
 			available = {
 				NOT = {
 				has_government = communism
-				has_country_leader_ideology = anarchism
 				}
 			}
 			
@@ -44,7 +42,7 @@ ideas = {
 			removal_cost = -1
 			level = 2
 			
-			modifier = {
+			modifier = {	
 				consumer_goods_factor = -0.1
 				political_power_factor = 0.1
 				research_speed_factor = -0.05
@@ -59,8 +57,7 @@ ideas = {
 		
 			available = {
 				NOT = {
-				has_government = communism
-				has_country_leader_ideology = anarchism
+				has_government = liberalism
 				}
 			}
 			
@@ -83,7 +80,6 @@ ideas = {
 			available = {
 				NOT = {
 				has_government = communism
-				has_country_leader_ideology = anarchism
 				}
 			}
 			
@@ -107,8 +103,6 @@ ideas = {
 			available = {
 				NOT = {
 				has_government = communism
-				has_country_leader_ideology = anarchism
-				has_government = fascism
 				}
 			}
 			
