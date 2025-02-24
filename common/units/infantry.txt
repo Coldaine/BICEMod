@@ -94,6 +94,8 @@ sub_units = {
 		combat_width = 2
 		
 		suppression = 0.7
+		maximum_speed = 0.5		
+		
 		
 		##OTHER
 		training_time = 90
@@ -134,23 +136,23 @@ sub_units = {
 			defence = -0.05
 		}
 		forest = {
-			attack = 0.05
-			defence = 0.05
+			attack = 0.07
+			defence = 0.07
 		}
 		urban = {
-			attack = 0.1
-			defence = 0.1
+			attack = 0.12
+			defence = 0.12
 		}
 		densecity = {
-			attack = 0.1
-			defence = 0.1
+			attack = 0.12
+			defence = 0.12
 		}
 		capital = {
-			attack = 0.1
-			defence = 0.1
+			attack = 0.12
+			defence = 0.12
 		}
 		fort = {
-			attack = 0.05
+			attack = 0.09
 		}
 	}
 	light_infantry = {
@@ -175,7 +177,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		max_strength = 20
+		max_strength = 22.5
 		max_organisation = 30
 		default_morale = 0.1
 		weight = 0.35
@@ -194,7 +196,7 @@ sub_units = {
 		
 		suppression = 0.65
 		
-		maximum_speed = 0.2
+		maximum_speed = 0.9
 		
 		need = {
 			infantry_equipment = 100
@@ -218,26 +220,26 @@ sub_units = {
 		}
 		marsh = {
 			attack = 0.05
-			movement = 0.05
+			movement = 0.08
 		}
 		jungle = {
 			attack = 0.05
-			movement = 0.05
+			movement = 0.08
 		}
 		hills = {
 			attack = 0.1
 			defence = 0.05
-			movement = 0.05
+			movement = 0.08
 		}
 		mountain = {
 			attack = 0.1
 			defence = 0.05
-			movement = 0.05
+			movement = 0.1
 		}
 		forest = {
 			attack = 0.1
 			defence = 0.05
-			movement = 0.05
+			movement = 0.10
 		}
 		urban = {
 			attack = -0.05
@@ -924,7 +926,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		max_strength = 20
+		max_strength = 22.5
 		max_organisation = 25
 		default_morale = 0.05
 		weight = 0.35
@@ -976,7 +978,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		max_strength = 20
+		max_strength = 22.5
 		max_organisation = 40
 		default_morale = 0.2
 		weight = 0.3
@@ -1045,7 +1047,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		max_strength = 18
+		max_strength = 20
 		max_organisation = 40
 		default_morale = 0.2
 		weight = 0.3
@@ -1148,7 +1150,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		max_strength = 20
+		max_strength = 22.5
 		max_organisation = 40
 		default_morale = 0.2
 		weight = 0.5
@@ -1217,7 +1219,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		max_strength = 20
+		max_strength = 22.5
 		max_organisation = 40
 		default_morale = 0.2
 		weight = 0.5
@@ -1281,7 +1283,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		max_strength = 20
+		max_strength = 22.5
 		max_organisation = 40
 		default_morale = 0.2
 		supply_consumption = 0.16
@@ -1297,7 +1299,7 @@ sub_units = {
 		
 		suppression = 0.8
 		
-		maximum_speed = 0.1
+		maximum_speed = 0.6
 		
 		transport = infantry_equipment
 

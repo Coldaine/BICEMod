@@ -1941,6 +1941,7 @@ generic_task_force_ship_organization = {
 		mio_cat_eq_all_carrier
 		mio_cat_eq_all_cruiser
 		mio_cat_eq_all_destroyer
+		screen_ship
 	}
 	research_categories = {
 		naval_doctrine
@@ -5566,13 +5567,15 @@ generic_naval_aircraft_organization = {
 	}
 
 	equipment_type = {
-		small_plane_naval_bomber_airframe
-		cv_small_plane_airframe
-		cv_small_plane_cas_airframe
-		cv_small_plane_naval_bomber_airframe
+		cv_fighter_equipment
+		cv_CAS_equipment
+		cv_nav_bomber_equipment
+		nav_bomber_equipment		
 	}
 
-	research_categories = { mio_cat_all_naval_bomber_and_modules }
+	research_categories = { mio_cat_all_naval_bomber_and_modules 
+	air_doctrine
+}
 
 	tree_header_text = {
 		text = mio_header_operational_department

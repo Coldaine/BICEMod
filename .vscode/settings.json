@@ -4,7 +4,12 @@
     "**/events/**": true,
     "**/national_focus/**": true,
      "**/ai_strategy_plans/**" : true,
-     "**/decisions/**" : true
-}
+     "**/decisions/**" : true,
+     "**/ai_templates/**" : true,
+     "**/*_ai*": true
+},
+"cwtools.debug_mode": false,
+"cwtools.errors.ignore": [],
+"cwtools.experimental": false
 
 }
