@@ -3048,6 +3048,7 @@ generic_submarine_organization = {
 
 	equipment_type = {
 		ship_hull_submarine
+		submarine
 	}
 	research_categories = {
 		mio_cat_tech_all_submarine_and_modules
@@ -4327,6 +4328,8 @@ generic_light_aircraft_organization = {
 		mio_cat_eq_only_light_fighter
 		small_plane_cas_airframe
 		cv_small_plane_cas_airframe
+		cv_mr_fighter_equipment
+
 	}
 
 	research_categories = {	
@@ -4995,18 +4998,17 @@ generic_heavy_aircraft_organization = {
 		large_plane_airframe
 		large_plane_maritime_patrol_plane_airframe
 		transport_plane_equipment
-		_airframe_flying_boats
-		_airframe_heavy_cas
-		_airframe_heavy_fighter
-		_airframe_heavy_nav_bomber
-		_airframe_nav_bomber
-		_airframe_nav_bomber_guided
-		_airframe_night_fighter
-		_airframe_stratbomber
-		_airframe_transport_plane
+		twin_cas_equipment
+		heavy_nav_bomber_equipment
+		jet_strat_bomber_equipment
+		light_bomber_equipment
+		flying_boat_equipment
+		
 	}
 
 	research_categories = { mio_cat_all_heavy_aircraft_and_modules
+	heinkel_air
+	flying_boat_equipment
 	air_doctrine 
 }
 	
@@ -5298,12 +5300,19 @@ generic_cas_aircraft_organization = {
 	}
 
 	equipment_type = {
+		mio_cat_eq_only_light_fighter
 		small_plane_cas_airframe
 		cv_small_plane_cas_airframe
+		twin_cas_equipment
+		CAS_equipment
+		cv_mr_fighter_equipment
 	}
 
-	research_categories = {	mio_cat_all_cas_and_modules 
-	air_doctrine
+	research_categories = {	
+		mio_cat_all_light_fighter_and_modules 
+		mio_cat_all_cas_and_modules 
+		air_doctrine
+		junkers_air
 	}
 	
 	tree_header_text = {
@@ -5834,6 +5843,7 @@ generic_multi_role_aircraft_organization = {
 		mio_cat_eq_all_small_plane
 		mio_cat_eq_all_medium_plane
 		transport_plane_equipment
+		cv_mr_fighter_equipment
 	}
 
 	research_categories = { mio_cat_all_light_aircraft_and_modules mio_cat_all_medium_aircraft_and_modules }
