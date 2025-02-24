@@ -54,7 +54,7 @@ unit_medals = {
 		available = {
 			should_have_norwegian_medals_trigger = yes
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 				has_government = neutrality
 			}
 		}
@@ -100,7 +100,7 @@ unit_medals = {
 		available = {
 			should_have_norwegian_medals_trigger = yes
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 				has_government = neutrality
 			}
 		}
@@ -190,7 +190,7 @@ unit_medals = {
 		available = {
 			should_have_norwegian_medals_trigger = yes
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 				has_government = neutrality
 			}
 			date > 1942.8.3
@@ -216,7 +216,7 @@ unit_medals = {
 		available = {
 			should_have_norwegian_medals_trigger = yes
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 				has_government = neutrality
 			}
 		}
@@ -557,7 +557,7 @@ unit_medals = {
 		available = { 
 			should_have_ethiopian_medals_trigger = yes 
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 				has_government = communism
 			}			
 		}
@@ -1150,7 +1150,7 @@ unit_medals = {
 	democratic_gallantry = {
 		
 		available = { 
-			has_government = democratic 
+			has_government = liberalism 
 			should_have_any_unique_medals_trigger = no
 		}
 		frame = 1
@@ -1171,7 +1171,7 @@ unit_medals = {
 	democratic_honor = {
 		
 		available = { 
-			has_government = democratic 
+			has_government = liberalism 
 			should_have_any_unique_medals_trigger = no
 		}
 		frame = 2
@@ -1192,7 +1192,7 @@ unit_medals = {
 	democratic_war_cross = {
 		
 		available = { 
-			has_government = democratic
+			has_government = liberalism
 			should_have_any_unique_medals_trigger = no	
 		}
 		frame = 3
@@ -1214,7 +1214,7 @@ unit_medals = {
 	democratic_lion = {
 		
 		available = { 
-			has_government = democratic
+			has_government = liberalism
 			should_have_any_unique_medals_trigger = no
 		}
 		frame = 4

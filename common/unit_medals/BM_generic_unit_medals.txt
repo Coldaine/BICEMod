@@ -3,7 +3,7 @@ unit_medals = {
 	bm_generic_democratic_1 = {
 		available = {
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 			}
 			should_have_any_unique_medals_trigger = yes
 		}
@@ -22,7 +22,7 @@ unit_medals = {
 	bm_generic_democratic_2 = {
 		available = {
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 			}
 			should_have_any_unique_medals_trigger = yes
 		}
@@ -41,7 +41,7 @@ unit_medals = {
 	bm_generic_democratic_3 = {
 		available = {
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 			}
 			should_have_any_unique_medals_trigger = yes
 		}
@@ -61,7 +61,7 @@ unit_medals = {
 	bm_generic_democratic_4 = {
 		available = {
 			OR = {
-				has_government = democratic
+				has_government = liberalism
 			}
 			should_have_any_unique_medals_trigger = yes
 		}

@@ -401,16 +401,7 @@ calculate_GDP = {
 			multiply_temp_variable = { temp_civ = 0.9 }
 			multiply_temp_variable = { temp_mil = 0.9 }
 			multiply_temp_variable = { temp_doc = 0.9 }
-		}
-		else_if = {
-			limit = {
-				has_idea = uncontrolled_exports
-			}
-			multiply_temp_variable = { temp_civ = 0.95 }
-			multiply_temp_variable = { temp_mil = 0.95 }
-			multiply_temp_variable = { temp_doc = 0.95 }
-		}
-	
+		}	
 		if = {
 			limit = {
 				has_idea = tot_economic_mobilisation
