@@ -5567,10 +5567,13 @@ generic_naval_aircraft_organization = {
 	}
 
 	equipment_type = {
-		cv_fighter_equipment
-		cv_CAS_equipment
-		cv_nav_bomber_equipment
-		nav_bomber_equipment		
+flying_boat_equipment
+nav_bomber_equipment
+fighter_navy_equipment
+interceptor_navy_equipment
+		small_plane_naval_bomber_airframe
+		cv_small_plane_naval_bomber_airframe
+			
 	}
 
 	research_categories = { mio_cat_all_naval_bomber_and_modules 

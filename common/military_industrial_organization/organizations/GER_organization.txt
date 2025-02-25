@@ -513,7 +513,7 @@ GER_alkett_organization = {
 #Benz 
 GER_daimler_benz_organization = {
 	include = generic_tank_organization
-	icon = GFX_idea_GER_daimler_benz
+	icon = GFX_idea_daimler_Benz_AG
 	
 	allowed = {	
 		OR = {
@@ -1151,7 +1151,7 @@ GER_hdw_organization = {
 
 GER_deutsche_werke_organization = {
 	include = generic_task_force_ship_organization
-	icon = GFX_idea_GER_deutsche_werke
+	icon = GFX_idea_deutsche_werke_kiel
 
 	override_trait = {
 		token = generic_mio_trait_primary_fire_director_control
@@ -1384,12 +1384,6 @@ GER_messerschmitt_organization = {
 			FROM = { NOT = { has_war_with = GER } }
 		}
 		
-		if = {
-			limit = {
-				FROM = { tag = NOR }
-			}
-			FROM = { has_completed_focus = NOR_invite_german_engineers }
-		}
 	}
 
 	add_trait = {
@@ -1490,13 +1484,6 @@ GER_messerschmitt_organization = {
 			has_dlc = "Gotterdammerung"
 		}
 
-		available = {
-			owner = {
-				has_completed_focus = GER_amerikabomber
-				has_country_flag = GER_amerikabomber_messerschmitt_flag
-			}
-		}
-
 		limit_to_equipment_type = { mio_cat_eq_only_light_fighter }
 
 		equipment_bonus = {
@@ -1518,12 +1505,6 @@ GER_junkers_organization = {
 		}
 	}
 	
-	visible = {
-		IF = {
-			limit = { FROM = { tag = ETH } }
-			FROM = { has_completed_focus = ETH_invite_foreign_industrialists }
-		}
-	}
 
 	available = {
 		# When in a Foreign MIO, countries need to be at peace with original country
@@ -1634,13 +1615,6 @@ GER_junkers_organization = {
 
 		visible = {
 			has_dlc = "Gotterdammerung"
-		}
-
-		available = {
-			owner = {
-				has_completed_focus = GER_amerikabomber
-				has_country_flag = GER_amerikabomber_junkers_flag
-			}
 		}
 
 		limit_to_equipment_type = { small_plane_cas_airframe }
@@ -1803,12 +1777,7 @@ GER_focke_wulf_organization = {
 			has_dlc = "Gotterdammerung"
 		}
 
-		available = {
-			owner = {
-				has_completed_focus = GER_amerikabomber
-				has_country_flag = GER_amerikabomber_focke_wulf_flag
-			}
-		}
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -2004,12 +1973,6 @@ GER_heinkel_organization = {
 			has_dlc = "Gotterdammerung"
 		}
 
-		available = {
-			owner = {
-				has_completed_focus = GER_amerikabomber
-				has_country_flag = GER_amerikabomber_heinkel_flag
-			}
-		}
 
 		limit_to_equipment_type = { large_plane_airframe }
 
@@ -2114,7 +2077,7 @@ GER_dornier_organization = {
 
 GER_arado_flugzeugwerke_organization = {
 	include = generic_multi_role_aircraft_organization
-	icon = GFX_idea_GER_arado_flugzeugwerke
+	icon = GFX_idea_arado
 	
 	allowed = {	
 		tag = GER 

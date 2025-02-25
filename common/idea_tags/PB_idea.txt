@@ -58,8 +58,7 @@ policyspacer2 = {
 		slot = quality_of_training
 		slot = extent_of_conscription
 		slot = draft_exemptions
-		slot = tank_manufacturers
-		slot = aircraft_manufacturers
+
 
 		ledger = civilian
 
@@ -67,20 +66,6 @@ policyspacer2 = {
 		removal_cost = -1
 	}
 
-
-	policies4 = {
-		slot = citizenship_laws
-		slot = press_laws
-		slot = public_meetings
-		slot = womens_rights
-		slot = minority_rights
-		slot = security_services
-		
-		ledger = civilian
-		
-		cost = 100
-		removal_cost = -1
-	}
 
 	
 }
