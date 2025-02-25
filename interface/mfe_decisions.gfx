@@ -1,0 +1,437 @@
+spriteTypes = {
+
+
+#     #    #    #     # ### #       #          #    
+#     #   # #   ##    #  #  #       #         # #   
+#     #  #   #  # #   #  #  #       #        #   #  
+#     # #     # #  #  #  #  #       #       #     # 
+ #   #  ####### #   # #  #  #       #       ####### 
+  # #   #     # #    ##  #  #       #       #     # 
+   #    #     # #     # ### ####### ####### #     # 
+
+
+	spriteType = {
+		name = "GFX_decision_mfe_GER_flag"
+		texturefile = "gfx/interface/decisions/mfe_GER_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_SOV_flag"
+		texturefile = "gfx/interface/decisions/mfe_SOV_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_USA_flag"
+		texturefile = "gfx/interface/decisions/mfe_USA_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ENG_flag"
+		texturefile = "gfx/interface/decisions/mfe_ENG_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_FRA_flag"
+		texturefile = "gfx/interface/decisions/mfe_FRA_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ITA_flag"
+		texturefile = "gfx/interface/decisions/mfe_ITA_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_JAP_flag"
+		texturefile = "gfx/interface/decisions/mfe_JAP_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ETH_flag"
+		texturefile = "gfx/interface/decisions/mfe_ETH_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_FIN_flag"
+		texturefile = "gfx/interface/decisions/mfe_FIN_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_NOR_flag"
+		texturefile = "gfx/interface/decisions/mfe_NOR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_DEN_flag"
+		texturefile = "gfx/interface/decisions/mfe_DEN_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_SWE_flag"
+		textureFile = "gfx/interface/decisions/mfe_SWE_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_YUG_flag"
+		textureFile = "gfx/interface/decisions/mfe_YUG_flag.tga"
+	}
+
+
+#######  #####  #     # #######  #####  ####### ######  ###    #          #    #######    #     #    #    ######  
+#       #     # #     # #       #     #    #    #     #  #    # #        # #      #       #  #  #   # #   #     # 
+#       #     # #     # #       #          #    #     #  #   #   #      #   #     #       #  #  #  #   #  #     # 
+#####   #     # #     # #####    #####     #    ######   #  #     #    #     #    #       #  #  # #     # ######  
+#       #   # # #     # #             #    #    #   #    #  #######    #######    #       #  #  # ####### #   #   
+#       #    #  #     # #       #     #    #    #    #   #  #     #    #     #    #       #  #  # #     # #    #  
+#######  #### #  #####  #######  #####     #    #     # ### #     #    #     #    #        ## ##  #     # #     # 
+
+
+	spriteType = {
+		name = "GFX_decision_mfe_CHN_flag"
+		textureFile = "gfx/interface/decisions/mfe_CHN_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_EQS_flag"
+		textureFile = "gfx/interface/decisions/mfe_EQS_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_FAT_flag"
+		textureFile = "gfx/interface/decisions/mfe_FAT_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_GRI_flag"
+		textureFile = "gfx/interface/decisions/mfe_GRI_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_HIP_flag"
+		textureFile = "gfx/interface/decisions/mfe_HIP_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_JER_flag"
+		textureFile = "gfx/interface/decisions/mfe_JER_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_KIR_flag"
+		textureFile = "gfx/interface/decisions/mfe_KIR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_RCT_flag"
+		textureFile = "gfx/interface/decisions/mfe_RCT_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_WNG_flag"
+		textureFile = "gfx/interface/decisions/mfe_WNG_flag.tga"
+	}
+
+
+####### #     # #######    ######  #######    #    ######     ####### #######    #######  #####  
+   #    #     # #          #     # #     #   # #   #     #       #    #     #    #       #     # 
+   #    #     # #          #     # #     #  #   #  #     #       #    #     #    #       #       
+   #    ####### #####      ######  #     # #     # #     #       #    #     #    ######  ######  
+   #    #     # #          #   #   #     # ####### #     #       #    #     #          # #     # 
+   #    #     # #          #    #  #     # #     # #     #       #    #     #    #     # #     # 
+   #    #     # #######    #     # ####### #     # ######        #    #######     #####   #####  
+
+
+	spriteType = {
+		name = "GFX_decision_mfe_BEL_flag"
+		textureFile = "gfx/interface/decisions/mfe_BEL_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_CZE_flag"
+		textureFile = "gfx/interface/decisions/mfe_CZE_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_HUN_flag"
+		textureFile = "gfx/interface/decisions/mfe_HUN_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_POL_flag"
+		textureFile = "gfx/interface/decisions/mfe_POL_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_PRU_flag"
+		textureFile = "gfx/interface/decisions/mfe_PRU_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ROM_flag"
+		textureFile = "gfx/interface/decisions/mfe_ROM_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_TUR_flag"
+		textureFile = "gfx/interface/decisions/mfe_TUR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_RT56_generic"
+		textureFile = "gfx/interface/decisions/mfe_RT56_logo.tga"
+	}
+
+
+#    #    #    ###  #####  ####### ######  ######  ####### ###  #####  #     # 
+#   #    # #    #  #     # #       #     # #     # #        #  #     # #     # 
+#  #    #   #   #  #       #       #     # #     # #        #  #       #     # 
+###    #     #  #   #####  #####   ######  ######  #####    #  #       ####### 
+#  #   #######  #        # #       #   #   #   #   #        #  #       #     # 
+#   #  #     #  #  #     # #       #    #  #    #  #        #  #     # #     # 
+#    # #     # ###  #####  ####### #     # #     # ####### ###  #####  #     # 
+
+	spriteType = {
+		name = "GFX_decision_mfe_GER_KR_flag"
+		textureFile = "gfx/interface/decisions/mfe_GER_KR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_RUS_KR_flag"
+		textureFile = "gfx/interface/decisions/mfe_RUS_KR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ENG_KR_flag"
+		textureFile = "gfx/interface/decisions/mfe_ENG_KR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_FRA_KR_flag"
+		textureFile = "gfx/interface/decisions/mfe_FRA_KR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ITA_KR_flag"
+		textureFile = "gfx/interface/decisions/mfe_ITA_KR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_JAP_KR_flag"
+		textureFile = "gfx/interface/decisions/mfe_JAP_KR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_SIA_flag"
+		textureFile = "gfx/interface/decisions/mfe_SIA_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_UKR_flag"
+		textureFile = "gfx/interface/decisions/mfe_UKR_flag.tga"
+	}
+
+
+#    #    #    ###  #####  ####### ######  ######  ####### ######  #     # #     # 
+#   #    # #    #  #     # #       #     # #     # #       #     # #     #  #   #  
+#  #    #   #   #  #       #       #     # #     # #       #     # #     #   # #   
+###    #     #  #   #####  #####   ######  ######  #####   #     # #     #    #    
+#  #   #######  #        # #       #   #   #   #   #       #     # #     #   # #   
+#   #  #     #  #  #     # #       #    #  #    #  #       #     # #     #  #   #  
+#    # #     # ###  #####  ####### #     # #     # ####### ######   #####  #     # 
+
+
+	spriteType = {
+		name = "GFX_decision_mfe_GER_KX_flag"
+		textureFile = "gfx/interface/decisions/mfe_GER_KX_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ENG_KX_flag"
+		textureFile = "gfx/interface/decisions/mfe_ENG_KX_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_FRA_KX_flag"
+		textureFile = "gfx/interface/decisions/mfe_FRA_KX_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ITA_KX_flag"
+		textureFile = "gfx/interface/decisions/mfe_ITA_KX_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_POL_KX_flag"
+		textureFile = "gfx/interface/decisions/mfe_POL_KX_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_RUS_flag"
+		textureFile = "gfx/interface/decisions/mfe_RUS_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_OTT_flag"
+		textureFile = "gfx/interface/decisions/mfe_OTT_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_SIB_flag"
+		textureFile = "gfx/interface/decisions/mfe_SIB_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_DKB_flag"
+		textureFile = "gfx/interface/decisions/mfe_DKB_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_TXS_flag"
+		textureFile = "gfx/interface/decisions/mfe_TXS_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ALA_flag"
+		textureFile = "gfx/interface/decisions/mfe_ALA_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_IRE_flag"
+		textureFile = "gfx/interface/decisions/mfe_IRE_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_MEX_flag"
+		textureFile = "gfx/interface/decisions/mfe_MEX_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_KIV_flag"
+		textureFile = "gfx/interface/decisions/mfe_KIV_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_POL_flag"
+		textureFile = "gfx/interface/decisions/mfe_POL_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_NYC_flag"
+		textureFile = "gfx/interface/decisions/mfe_NYC_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_BBR_flag"
+		textureFile = "gfx/interface/decisions/mfe_BBR_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_SKM_flag"
+		textureFile = "gfx/interface/decisions/mfe_SKM_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_LIB_flag"
+		textureFile = "gfx/interface/decisions/mfe_LIB_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_TRK_flag"
+		textureFile = "gfx/interface/decisions/mfe_TRK_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_GEO_flag"
+		textureFile = "gfx/interface/decisions/mfe_GEO_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_WHR_flag"
+		textureFile = "gfx/interface/decisions/mfe_WHR_flag.tga"
+	}
+
+
+#     # ### #       #       ####### #     # ### #     # #     #    ######     #    #     # #     # 
+##   ##  #  #       #       #       ##    #  #  #     # ##   ##    #     #   # #   #  #  # ##    # 
+# # # #  #  #       #       #       # #   #  #  #     # # # # #    #     #  #   #  #  #  # # #   # 
+#  #  #  #  #       #       #####   #  #  #  #  #     # #  #  #    #     # #     # #  #  # #  #  # 
+#     #  #  #       #       #       #   # #  #  #     # #     #    #     # ####### #  #  # #   # # 
+#     #  #  #       #       #       #    ##  #  #     # #     #    #     # #     # #  #  # #    ## 
+#     # ### ####### ####### ####### #     # ###  #####  #     #    ######  #     #  ## ##  #     # 
+
+
+	spriteType = {
+		name = "GFX_decision_mfe_GER_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_GER_MD_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_SOV_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_SOV_MD_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_USA_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_USA_MD_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ENG_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_ENG_MD_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_FRA_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_FRA_MD_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_ITA_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_ITA_MD_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_JAP_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_JAP_MD_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_CHI_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_CHI_MD_flag.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_PER_MD_flag"
+		texturefile = "gfx/interface/decisions/mfe_PER_MD_flag.tga"
+	}
+
+	
+### ######  ####### ####### #       #######  #####  #     # 
+ #  #     # #       #     # #       #     # #     #  #   #  
+ #  #     # #       #     # #       #     # #         # #   
+ #  #     # #####   #     # #       #     # #  ####    #    
+ #  #     # #       #     # #       #     # #     #    #    
+ #  #     # #       #     # #       #     # #     #    #    
+### ######  ####### ####### ####### #######  #####     #   
+
+
+	spriteType = {
+		name = "GFX_decision_mfe_communism_generic"
+		texturefile = "gfx/interface/decisions/mfe_communism_generic.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_democracy_generic"
+		texturefile = "gfx/interface/decisions/mfe_democracy_generic.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_fascism_generic"
+		texturefile = "gfx/interface/decisions/mfe_fascism_generic.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_neutrality_generic"
+		texturefile = "gfx/interface/decisions/mfe_neutrality_generic.tga"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_nationalism_generic"
+		texturefile = "gfx/interface/decisions/mfe_nationalism_generic.tga"
+	}
+
+
+####### ####### #     # ####### ######  
+#     #    #    #     # #       #     # 
+#     #    #    #     # #       #     # 
+#     #    #    ####### #####   ######  
+#     #    #    #     # #       #   #   
+#     #    #    #     # #       #    #  
+#######    #    #     # ####### #     # 
+
+
+	spriteType = {
+		name = "GFX_decision_mfe_medals_for_everyone"
+		texturefile = "gfx/interface/decisions/mfe_medals_for_everyone.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_medals_for_everyone_small"
+		texturefile = "gfx/interface/decisions/mfe_medals_for_everyone_small.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_medal"
+		texturefile = "gfx/interface/decisions/mfe_medal.dds"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_green_1"
+		texturefile = "gfx/interface/decisions/mfe_green_1.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_green_5"
+		texturefile = "gfx/interface/decisions/mfe_green_5.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_green_10"
+		texturefile = "gfx/interface/decisions/mfe_green_10.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_green_25"
+		texturefile = "gfx/interface/decisions/mfe_green_25.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_green_50"
+		texturefile = "gfx/interface/decisions/mfe_green_50.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_red_1"
+		texturefile = "gfx/interface/decisions/mfe_red_1.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_red_5"
+		texturefile = "gfx/interface/decisions/mfe_red_5.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_red_10"
+		texturefile = "gfx/interface/decisions/mfe_red_10.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_red_25"
+		texturefile = "gfx/interface/decisions/mfe_red_25.png"
+	}
+	spriteType = {
+		name = "GFX_decision_mfe_red_50"
+		texturefile = "gfx/interface/decisions/mfe_red_50.png"
+	}
+}

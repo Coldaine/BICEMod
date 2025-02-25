@@ -396,7 +396,6 @@ GER_alkett_organization = {
 	override_trait = {
 		token = generic_mio_medium_assault_gun_rocket_tubes
 
-		mutually_exclusive = { GER_mio_trait_panzerjager }	
 	}
 
 	add_trait = {
@@ -447,7 +446,6 @@ GER_alkett_organization = {
 			}
 		}
 
-		mutually_exclusive = { generic_mio_medium_assault_gun_rocket_tubes }
 
 		limit_to_equipment_type = { medium_tank_artillery_chassis heavy_tank_artillery_chassis }
 

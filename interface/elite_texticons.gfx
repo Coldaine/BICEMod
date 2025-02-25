@@ -1,0 +1,235 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.2
+
+###########################
+
+###### Elite Forces ###### 
+
+spriteTypes = {		
+
+### GER - brandenburg
+
+	spriteType = {
+		name = "GFX_unit_brandenburg_brigade_icon_small"
+		texturefile = "gfx/texticons/unit_brandenburg_brigade_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_brandenburg_brigade_icon_small"
+		texturefile = "gfx/texticons/nato_unit_brandenburg_brigade_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	
+###### 
+	
+### ENG - royal_naval_commandos
+
+	spriteType = {
+		name = "GFX_unit_royal_naval_commandos_brigade_icon_small"
+		texturefile = "gfx/texticons/unit_royal_naval_commandos_brigade_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_royal_naval_commandos_brigade_icon_small"
+		texturefile = "gfx/texticons/nato_unit_royal_naval_commandos_brigade_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	
+
+###### 
+
+
+	
+### FRA - foreign_legion_infantry
+
+	spriteType = {
+		name = "GFX_unit_foreign_legion_infantry_brigade_icon_small"
+		texturefile = "gfx/texticons/unit_foreign_legion_infantry_brigade_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_foreign_legion_infantry_brigade_icon_small"
+		texturefile = "gfx/texticons/nato_unit_foreign_legion_infantry_brigade_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	
+
+###### 
+
+
+### ITA - 80th_infantry_division_la_spezia
+
+	spriteType = {
+		name = "GFX_unit_marine_paratroopers_brigade_icon_small"
+		texturefile = "gfx/texticons/unit_bersaglieri_brigade_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_marine_paratroopers_brigade_icon_small"
+		texturefile = "gfx/texticons/nato_unit_bersaglieri_brigade_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	
+
+
+###### 
+
+
+### SOV - soviet_naval_scouts
+
+	spriteType = {
+		name = "GFX_unit_soviet_naval_scouts_brigade_icon_small"
+		texturefile = "gfx/texticons/unit_soviet_naval_scouts_brigade_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_soviet_naval_scouts_brigade_icon_small"
+		texturefile = "gfx/texticons/nato_unit_soviet_naval_scouts_brigade_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	
+
+
+###### 
+
+
+### USA - army_rangers
+
+	spriteType = {
+		name = "GFX_unit_army_rangers_brigade_icon_small"
+		texturefile = "gfx/texticons/unit_army_rangers_brigade_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_army_rangers_brigade_icon_small"
+		texturefile = "gfx/texticons/nato_unit_army_rangers_brigade_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	
+
+###### 
+
+
+### JAP - Tokubetsu_Rikusentai  (takasago_giyutai)
+
+	spriteType = {
+		name = "GFX_unit_Tokubetsu_Rikusentai_brigade_icon_small"
+		texturefile = "gfx/texticons/unit_takasago_giyutai_brigade_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_Tokubetsu_Rikusentai_brigade_icon_small"
+		texturefile = "gfx/texticons/nato_unit_takasago_giyutai_brigade_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	
+
+###### 
+
+
+### brigade - pack_howitzers
+
+	spriteType = {
+		name = "GFX_unit_pack_howitzers_brigade_icon_small"
+		texturefile = "gfx/texticons/unit_pack_howitzers_brigade_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_pack_howitzers_brigade_icon_small"
+		texturefile = "gfx/texticons/nato_unit_pack_howitzers_brigade_icon_small.dds"
+		legacy_lazy_load = no
+	}
+
+###### 
+
+
+### support - flamethrower
+
+	spriteType = {
+		name = "GFX_unit_flamethrower_EF_icon_small"
+		texturefile = "gfx/texticons/unit_flamethrower_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_flamethrower_EF_icon_small"
+		texturefile = "gfx/texticons/nato_unit_flamethrower_icon_small.dds"
+		legacy_lazy_load = no
+	}
+	
+###### 
+
+
+### support - sniper
+
+	spriteType = {
+		name = "GFX_unit_sniper_EF_icon_small"
+		texturefile = "gfx/texticons/unit_sniper_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_sniper_EF_icon_small"
+		texturefile = "gfx/texticons/nato_unit_sniper_icon_small.dds"
+		legacy_lazy_load = no
+	}
+
+
+###### 
+
+
+### support - mortar
+
+	spriteType = {
+		name = "GFX_unit_mortar_EF_icon_small"
+		texturefile = "gfx/texticons/unit_mortar_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_nato_unit_mortar_EF_icon_small"
+		texturefile = "gfx/texticons/nato_unit_mortar_icon_small.dds"
+		legacy_lazy_load = no
+	}
+
+
+###### 
+
+
+### support - commandHQ
+
+	spriteType = {
+		name = "GFX_unit_commandHQ_EF_icon_small"
+		texturefile = "gfx/texticons/unit_command_icon_small.dds"
+		legacy_lazy_load = no
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_natounit_commandHQ_EF_icon_small"
+		texturefile = "gfx/texticons/nato_unit_command_icon_small.dds"
+		legacy_lazy_load = no
+	}
+
+}

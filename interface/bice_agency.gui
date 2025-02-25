@@ -1,0 +1,3073 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "BI_intel_agency_container" 
+		position = { x = 0 y = 0 }
+		size = { width = 1092 height = 300 } # uses max_window_size for clamping
+
+		containerWindowType = { 
+			name = "upgrade_economy_civilian"
+			position = { x = 84 y = 199 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_economy_civilian_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_economy_civilian_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_economy_civilian_level_3"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_army_department"
+			position = { x = 289 y = 199 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_army_department_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_army_department_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_army_department_level_3"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_naval_department"
+			position = { x = 494 y = 199 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_naval_department_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_naval_department_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_naval_department_level_3"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_airforce_department"
+			position = { x = 700 y = 199 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_airforce_department_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_airforce_department_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_airforce_department_level_3"
+			}
+		}
+		
+		
+		containerWindowType = { 
+			name = "upgrade_passive_defense"
+			position = { x = 76 y = 336 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_passive_defense_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_passive_defense_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_passive_defense_level_3"
+			}
+			iconType = {   
+				name = "level_4"   
+				position = { x = 56 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_passive_defense_level_4"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_anti_partisan"
+			position = { x = 289 y = 336 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_anti_partisan_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_anti_partisan_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_anti_partisan_level_3"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_expand_operations"
+			position = { x = 708 y = 336 } 	   
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_expand_operations_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_expand_operations_level_2"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_underground_contacts"
+			position = { x = 904 y = 336 } 	  
+			size = { width = 100 height = 20 }
+			    
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_underground_contacts_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_underground_contacts_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_underground_contacts_level_3"
+			}
+		}
+		
+		
+		containerWindowType = { 
+			name = "upgrade_blueprint_stealing"
+			position = { x = 94 y = 473 } 	   
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_blueprint_stealing_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_blueprint_stealing_level_2"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_portable_radios"
+			position = { x = 298 y = 473 } 	   
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_portable_radios_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_portable_radios_level_2"
+			}
+		}
+		containerWindowType = {   
+			name = "upgrade_invisible_ink"
+			position = { x = 504 y = 473 } 	   
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_invisible_ink_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_invisible_ink_level_2"
+			}
+		}
+		containerWindowType = {   
+			name = "upgrade_plastic_explosives"
+			position = { x = 708 y = 473 } 	   
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_plastic_explosives_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_plastic_explosives_level_2"
+			}
+		}
+		
+		
+		containerWindowType = {   
+			name = "upgrade_interrogation_techniques"
+			position = { x = 504 y = 610 } 	   
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_interrogation_techniques_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_interrogation_techniques_level_2"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_diplo_training"
+			position = { x = 700 y = 610 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_diplo_training_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_diplo_training_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_diplo_training_level_3"
+			}
+		}
+		containerWindowType = {   
+			name = "upgrade_psycho_warfare"
+			position = { x = 913 y = 610 } 	   
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_psycho_warfare_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_psycho_warfare_level_2"
+			}
+		}
+		
+		containerWindowType = { 
+			name = "upgrade_decryption_boost"
+			position = { x = 289 y = 747 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_decryption_boost_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_decryption_boost_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_decryption_boost_level_3"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_decryption_boost_2"
+			position = { x = 494 y = 747 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_decryption_boost_2_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_decryption_boost_2_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_decryption_boost_2_level_3"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_crypto_strength"
+			position = { x = 700 y = 747 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_crypto_strength_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_crypto_strength_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_crypto_strength_level_3"
+			}
+		}
+		containerWindowType = { 
+			name = "upgrade_crypto_strength_2"
+			position = { x = 906 y = 747 } 	  
+			size = { width = 100 height = 20 }
+			
+			iconType = { 
+				name = "level_1"
+				position = { x = 2 y = 3 } 
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1 
+				pdx_tooltip = "upgrade_crypto_strength_2_level_1"
+			}
+			iconType = { 
+				name = "level_2" 
+				position = { x = 20 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_crypto_strength_2_level_2"
+			}
+			iconType = {   
+				name = "level_3"   
+				position = { x = 38 y = 3 }
+				spriteType = "GFX_transparent_11_10"
+				scale = 1.1
+				pdx_tooltip = "upgrade_crypto_strength_2_level_3"
+			}
+		}
+	}
+	containerWindowType = {
+		name = "BI_foreign_agency_container" 
+		position = { x = 0 y = 0 }
+		size = { width = 1092 height = 789 } # uses max_window_size for clamping
+		moveable = yes
+		fade_time = 500
+		fade_type = linear
+		orientation = CENTER
+		origo = center
+		#show_sound = Spy_Agency_Branch_Upgrade_Window_Show_Sound
+		
+		
+		background = {
+			name = "header_bg"
+			spriteType = "GFX_agency_branch_upgrades_popup_bg"
+			position = { x = 0 y = 0 }
+		}
+
+		instantTextboxType = {
+			name = "branch_upgrades_title"
+			position = { x = 265 y = 6 }
+			textureFile = ""
+			font = "hoi_36header"
+			borderSize = {x = 0 y = 0}
+			text = "AGENCY_BRANCHE_UPGRADES"
+			maxWidth = 560
+			maxHeight = 36
+			format = centre
+			truncate = yes
+			fixedsize = yes
+		}
+
+		buttonType = {
+			name = "btn_close"
+			position = { x = -44 y = 6 }
+			quadTextureSprite ="GFX_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+
+		instantTextboxType = {
+			name = "upgrade_duration_title"
+			position = { x = 146 y = 54 }
+			font = "hoi_18mbs"
+			maxWidth = 800
+			text = "[?ledger_target.GetNameWithFlag]"
+			format = center
+		}
+
+		containerWindowType = {
+			name = "branches"
+			position = { x = 7 y = 75 }	
+			size = { width = 1084 height = 716 }  
+			margin = { top = 8 bottom = 8 }
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "Background"
+				spriteType ="GFX_tiled_window_1b_thin_border"
+			}
+			containerWindowType = {
+				name = "upgrade_branch_intelligence_entry"
+				position = { x = 12 y = 3 }	
+				size = { width = 1040 height = 140 } 
+			
+				background = {
+					name = "Background"
+					spriteType = "GFX_agency_branch_upgrade_entry_bg"
+				}
+				
+				instantTextboxType = {
+					name = "upgrade_branch_name"
+					position = { x = 10 y = 8 }
+					font = "hoi_18mbs"
+					text = "Intelligence"
+					format = left
+					maxWidth = 900	
+				}
+				containerWindowType = {
+					name = "upgrade_economy_civilian"
+					position = { x = 5 y = 45 }	 
+					size = { width = 200 height = 115 }
+					 
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_economy_civilian_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_economy_department"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_economy_civilian"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_economy_civilian_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_economy_civilian_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_economy_civilian_level_2"
+						}
+						iconType = {   
+							name = "level_3"   
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_economy_civilian_level_3"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_army_department"
+					position = { x = 205 y = 45 }	 
+					size = { width = 200 height = 115 }
+					 
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_army_department_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_army_department"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_army_department"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_army_department_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_army_department_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_army_department_level_2"
+						}
+						iconType = {   
+							name = "level_3"   
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_army_department_level_3"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_naval_department"
+					position = { x = 405 y = 45 }	 
+					size = { width = 200 height = 115 }
+					 
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_naval_department_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_naval_department"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_naval_department"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_naval_department_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_naval_department_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_naval_department_level_2"
+						}
+						iconType = {   
+							name = "level_3"   
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_naval_department_level_3"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_airforce_department"
+					position = { x = 605 y = 45 }	 
+					size = { width = 200 height = 115 }
+					 
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_airforce_department_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+						pdx_tooltip_delayed = "upgrade_airforce_department_desc"
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_airforce_department"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_airforce_department"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_airforce_department_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_airforce_department_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_airforce_department_level_2"
+						}
+						iconType = {   
+							name = "level_3"   
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_airforce_department_level_3"
+						}
+					}
+				}
+			} 
+			containerWindowType = {
+				name = "upgrade_branch_defense_entry"
+				position = { x = 12 y = 142 }	
+				size = { width = 1040 height = 140 }
+			
+				background = {
+					name = "Background"
+					spriteType = "GFX_agency_branch_upgrade_entry_bg"
+				}
+				
+				instantTextboxType = {
+					name = "upgrade_branch_name"
+					position = { x = 10 y = 8 }
+					font = "hoi_18mbs"
+					text = "Branch Development"
+					format = left
+					maxWidth = 900	
+				}
+				
+				containerWindowType = {
+					name = "upgrade_passive_defense"
+					position = { x = 5 y = 45 }	 
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_passive_defense_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_defense_department"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_passive_defense"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_passive_defense_progress"
+						position = { x = 56 y = 66 }
+						spriteType = "GFX_checkbox_four_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 56 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_passive_defense_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_passive_defense_level_2"
+						}
+						iconType = {   
+							name = "level_3"    
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_passive_defense_level_3"
+						}
+						iconType = {   
+							name = "level_4"   
+							position = { x = 56 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_passive_defense_level_4"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_anti_partisan"
+					position = { x = 205 y = 45 }	 
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_anti_partisan_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_anti_partisan"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_anti_partisan"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_anti_partisan_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 } 
+						 
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_anti_partisan_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_anti_partisan_level_2" 
+						}
+						iconType = {   
+							name = "level_3"    
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_anti_partisan_level_3"
+						}
+					}
+				}
+				
+				containerWindowType = {
+					name = "upgrade_form_operations"
+					position = { x = 405 y = 45 }	 
+					size = { width = 200 height = 115 }
+					 
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_form_operations_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_diplomatic_training"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "6"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_form_operations"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_expand_operations"
+					position = { x = 605 y = 45 }	 
+					size = { width = 200 height = 115 }
+					 
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_expand_operations_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_localized_training_center"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "12"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_expand_operations"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_expand_operations_progress"
+						position = { x = 75 y = 66 }
+						spriteType = "GFX_checkbox_two_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = {
+						name = "operation_progress_tooltip"
+						position = { x = 75 y = 66 }	 
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_expand_operations_level_1"
+						}
+						iconType = { 
+							name = "level_2"
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_expand_operations_level_2"
+						}
+					}
+						 
+					
+				}
+				containerWindowType = {
+					name = "upgrade_underground_contacts"
+					position = { x = 805 y = 45 }	 
+					size = { width = 200 height = 115 }
+					 
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_underground_contacts_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_localized_training_center"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "6"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_underground_contacts"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_underground_contacts_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = {
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	 
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_underground_contacts_level_1"
+						}
+						iconType = { 
+							name = "level_2"
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_underground_contacts_level_2"
+						}
+						iconType = { 
+							name = "level_3"
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_underground_contacts_level_3"
+						}
+					}
+				}
+			}
+			containerWindowType = {
+				name = "upgrade_branch_operation_entry"
+				position = { x = 12 y = 282 }	
+				size = { width = 1040 height = 140 }
+			
+				background = {
+					name = "Background"
+					spriteType = "GFX_agency_branch_upgrade_entry_bg"
+				}
+				
+				instantTextboxType = {
+					name = "upgrade_branch_name"
+					position = { x = 10 y = 8 }
+					font = "hoi_18mbs"
+					text = "Operations"
+					format = left
+					maxWidth = 900	
+				}
+				
+				containerWindowType = {
+					name = "upgrade_blueprint_stealing"
+					position = { x = 5 y = 45 }	 
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_blueprint_stealing_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_steal_blueprints"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_blueprint_stealing"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_blueprint_stealing_progress"
+						position = { x = 75 y = 66 }
+						spriteType = "GFX_checkbox_two_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = {
+						name = "operation_progress_tooltip"
+						position = { x = 75 y = 66 } 	 
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_blueprint_stealing_level_1"
+						}
+						iconType = { 
+							name = "level_2"
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_blueprint_stealing_level_2"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_portable_radios"
+					position = { x = 205 y = 45 }	 
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_portable_radios_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_portable_radios"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "8"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_portable_radios"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_portable_radios_progress"
+						position = { x = 75 y = 66 }
+						spriteType = "GFX_checkbox_two_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = {
+						name = "operation_progress_tooltip"
+						position = { x = 75 y = 66 } 	 
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_portable_radios_level_1"
+						}
+						iconType = { 
+							name = "level_2"
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_portable_radios_level_2"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_invisible_ink"
+					position = { x = 405 y = 45 }	 
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_invisible_ink_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_invisible_ink"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_invisible_ink"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_invisible_ink_progress"
+						position = { x = 75 y = 66 }
+						spriteType = "GFX_checkbox_two_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 75 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_invisible_ink_level_1"
+						}
+						iconType = { 
+							name = "level_2"
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_invisible_ink_level_2"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_plastic_explosives"
+					position = { x = 605 y = 45 }	 
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_plastic_explosives_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_plastic_explosives"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "8"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_plastic_explosives"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_plastic_explosives_progress"
+						position = { x = 75 y = 66 }
+						spriteType = "GFX_checkbox_two_off"
+						alwaystransparent = yes 
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 75 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_plastic_explosives_level_1"
+						}
+						iconType = { 
+							name = "level_2"
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_plastic_explosives_level_2"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_suicide_pills"
+					position = { x = 805 y = 45 }	 
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_suicide_pills_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_suicide_pills"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_suicide_pills"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+				}
+			}
+			containerWindowType = {
+				name = "upgrade_branch_operative_entry"
+				position = { x = 12 y = 422 }	
+				size = { width = 1040 height = 140 }
+			
+				background = {
+					name = "Background"
+					spriteType = "GFX_agency_branch_upgrade_entry_bg"
+				}
+				
+				instantTextboxType = {
+					name = "upgrade_branch_name"
+					position = { x = 10 y = 8 }
+					font = "hoi_18mbs"
+					text = "Operative Training"
+					format = left
+					maxWidth = 900	
+				}
+				containerWindowType = {
+					name = "upgrade_training_centers"
+					position = { x = 5 y = 45 }	
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_training_centers_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_localized_training_center"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "10"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_training_centers"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_commando_training"
+					position = { x = 205 y = 45 }	
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_commando_training_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_commando_training"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_commando_training"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_interrogation_techniques"
+					position = { x = 405 y = 45 }	
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_interrogation_techniques_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_interrogation_techniques"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_interrogation_techniques"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_interrogation_techniques_progress"
+						position = { x = 75 y = 66 }
+						spriteType = "GFX_checkbox_two_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 75 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_interrogation_techniques_level_1"
+						}
+						iconType = { 
+							name = "level_2"
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_interrogation_techniques_level_2"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_diplo_training"
+					position = { x = 605 y = 45 }	
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_diplo_training_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_diplomatic_training"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_diplo_training"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_diplo_training_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_diplo_training_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_diplo_training_level_2"
+						}
+						iconType = { 
+							name = "level_3"
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_diplo_training_level_3"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_psycho_warfare"
+					position = { x = 805 y = 45 }	
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_psycho_warfare_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_psychological_warfare"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "8"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_psycho_warfare"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_psycho_warfare_progress"
+						position = { x = 75 y = 66 }
+						spriteType = "GFX_checkbox_two_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 75 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_psycho_warfare_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_psycho_warfare_level_2"
+						}
+					}
+				}
+			}
+			containerWindowType = {
+				name = "upgrade_branch_crypto_entry"
+				position = { x = 12 y = 560 }	
+				size = { width = 1040 height = 140 }
+			
+				background = {
+					name = "Background"
+					spriteType = "GFX_agency_branch_upgrade_entry_bg"
+				}
+				
+				instantTextboxType = {
+					name = "upgrade_branch_name"
+					position = { x = 10 y = 8 }
+					font = "hoi_18mbs"
+					text = "Cryptology Department"
+					format = left
+					maxWidth = 900	
+				}
+				
+				containerWindowType = {
+					name = "upgrade_form_department"
+					position = { x = 5 y = 45 }	
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_form_department_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_form_department"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "8"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_form_department"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_decryption_boost"
+					position = { x = 205 y = 45 }	
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_decryption_boost_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_decryption_boost_1"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_decryption_boost"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_decryption_boost_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_decryption_boost_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_decryption_boost_level_2"
+						}
+						iconType = {   
+							name = "level_3"   
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_decryption_boost_level_3"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_decryption_boost_2"
+					position = { x = 405 y = 45 }	   
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_decryption_boost_2_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_decryption_boost_2"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "12"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_decryption_boost_2"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					} 
+					iconType = {
+						name = "upgrade_decryption_boost_2_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_decryption_boost_2_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_decryption_boost_2_level_2"
+						}
+						iconType = {   
+							name = "level_3"   
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_decryption_boost_2_level_3"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_crypto_strength"
+					position = { x = 605 y = 45 }	   
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_crypto_strength_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_cryptology_2"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "5"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_crypto_strength"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_crypto_strength_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_crypto_strength_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_crypto_strength_level_2"
+						}
+						iconType = {   
+							name = "level_3"   
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_crypto_strength_level_3"
+						}
+					}
+				}
+				containerWindowType = {
+					name = "upgrade_crypto_strength_2"
+					position = { x = 805 y = 45 }	   
+					size = { width = 200 height = 115 }
+					
+					#iconType = {
+					#	name = "continuous_glow"
+					#	position = { x = 23 y = -40 }
+					#	quadTextureSprite = "GFX_ongoing_focus_goal"
+					#}
+					
+					iconType ={
+						name = "agency_upgrade_cost_background"
+						spriteType = "GFX_agency_upgrade_cost_background"
+						position = { x = 162 y = 27 }
+					}
+					iconType = {
+						name = "upgrade_crypto_strength_2_bg"
+						spriteType = "GFX_agency_upgrade_btn_can_start"
+						position = { x = 10 y = 24 }
+					}
+					
+					iconType = {
+						name = "upgrade_icon_frame"
+						spriteType = "GFX_upgrade_frame_1_unavailable"
+						position = { x = 23 y = -26 }
+					}
+					iconType = {
+						name = "upgrade_icon" 
+						spriteType = "GFX_agency_cryptology_1"
+						position = { x = 58 y = -22 }
+					}
+
+ 
+					iconType = {
+						name = "civilian_factory_icon"
+						position = { x = 173 y = 35 }
+						spriteType = "GFX_non_available_factory_icon"
+						alwaystransparent = yes
+						scale = 0.8
+					}
+					
+					instantTextboxType = { 
+						name = "num_factories"
+						position = { x = 163 y = 50 }
+						font = "hoi_18mbs"
+						text = "15"
+						maxWidth = 40  
+						maxHeight = 20
+						#format = center
+						vertical_alignment = center 			
+						format = center
+						alwaystransparent = yes
+					}
+		
+					instantTextboxType = { 
+						name = "upgrade_name"
+						position = { x = 21 y = 32 }
+						font = "hoi_16mbs"
+						text = "upgrade_crypto_strength_2"
+						format = center
+						maxWidth = 140
+						maxHeight = 42 
+						vertical_alignment = center 
+						alwaystransparent = yes
+					}
+					iconType = {
+						name = "upgrade_crypto_strength_2_progress"
+						position = { x = 65 y = 66 }
+						spriteType = "GFX_checkbox_three_off"
+						alwaystransparent = yes
+					}
+					containerWindowType = { 
+						name = "operation_progress_tooltip"
+						position = { x = 65 y = 66 } 	  
+						size = { width = 100 height = 20 }
+						
+						iconType = { 
+							name = "level_1"
+							position = { x = 2 y = 3 } 
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1 
+							pdx_tooltip = "upgrade_crypto_strength_2_level_1"
+						}
+						iconType = { 
+							name = "level_2" 
+							position = { x = 20 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_crypto_strength_2_level_2"
+						}
+						iconType = {   
+							name = "level_3"   
+							position = { x = 38 y = 3 }
+							spriteType = "GFX_transparent_11_10"
+							scale = 1.1
+							pdx_tooltip = "upgrade_crypto_strength_2_level_3"
+						}
+					}
+				}
+			}
+
+		}
+	}
+	
+	containerWindowType = {
+		name = "BI_intel_tab_container"   
+		position = { x=0 y=1 }
+		size = { width = 100% height = 100% }
+		
+		buttonType = {
+			name = "expand_button"
+			position = {x=450 y=8}
+			spriteType = "GFX_production_line_arrow_right"
+			pdx_tooltip = "CONSTRUCTION_EXPAND"
+		}
+		buttonType = {
+			name = "minimize_button"
+			position = {x=450 y=8}
+			spriteType = "GFX_production_line_arrow_left"
+			pdx_tooltip = "CONSTRUCTION_MINIMIZE"
+		}
+	}
+	containerWindowType = {
+		name = "BI_operation_token_container"   
+		position = { x=545 y=1 }	
+		size = { width = 398 height = 100%% }
+		Orientation = UPPER_LEFT
+		clipping = yes		
+		 
+		show_sound = event_popup
+		hide_sound = menu_close_window
+		
+		background = {
+			name = "Background"	
+			spriteType ="GFX_tiled_window_1b_border"
+		}
+		iconType = {
+			name = "header"
+			position = {x=1 y=4}
+			spriteType = "GFX_template_header_bg_380"
+			alwaystransparent = no
+		}
+		instantTextBoxType = { 
+			name = "Description"
+			position = { x = 0 y = 4 }
+			font = "hoi_36header"
+			borderSize = {x = 0 y = 0}
+			text = "Foreign Assets"	
+			maxWidth = 380
+			maxHeight = 350
+			format = centre 
+			alwaystransparent = yes
+		}	
+		buttonType = {
+			name = "close_button"
+			position = {x=345 y=6}
+			spriteType = "GFX_closebutton" 
+			clicksound = click_close
+			pdx_tooltip = "CLOSE"
+		}
+		
+		containerWindowType = {     
+			name = "BI_operation_token_country_list_container"
+			position = {x = 11 y = 87 }      
+			size = {width = 389 height = 100%% }   
+            margin = { bottom = 10 }
+			Orientation = upper_left
+  
+			verticalScrollbar = "right_vertical_slider"
+			
+			background = {
+				name = "Background"	 
+				spriteType ="GFX_tiled_window_transparent"
+			}
+			instantTextBoxType = { 
+				name = "empty"
+				position = { x = 12 y = 14 }
+				font = "hoi_18mbs"
+				borderSize = {x = 0 y = 0}
+				text = "FOREIGN_ASSETS_EMPTY_TOOLTIP"	
+				maxWidth = 340
+				maxHeight = 350
+				format = centre 
+				alwaystransparent = yes
+			}
+			# this grid will be dynamically populated
+			gridboxtype = { 
+				name = "BI_operation_token_country_list"  
+				position = { x = 0 y = 0 }
+				size = { width = 504 height = 63 }
+				slotsize = { width = 504 height = 61 } #if width or height is 1, it will use slot element's dimension
+				  
+				max_slots_horizontal = 1
+			}  
+		}
+
+	}
+	containerWindowType = {
+		name = "BI_operation_token_country_list_container"   
+		position = { x=0 y=0 }	
+		size = { width = 522 height = 63 }
+		
+		buttonType = {
+			name = "background"
+			position = {x=0 y=0}
+			spriteType = "GFX_intel_network_background" 
+			pdx_tooltip = "GET_NAME"
+		}
+		
+		buttonType = {
+			name = "checkbox"
+			position = {x=2 y=3}
+			spriteType = "GFX_checkbox_small4" 
+			pdx_tooltip = "OPERATION_VISIBILITY_TOGGLE"
+		}
+		
+		iconType = {
+			name = "flag"
+			quadTextureSprite = "GFX_flag_small2"   
+			position = { x = 8 y = 28 }    
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}	
+		iconType = {
+			name = "frame"
+			quadTextureSprite = "GFX_small_flag_frame_thin"   
+			position = { x = 5 y = 26 }    
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}	
+		
+		instantTextBoxType = {   
+			name = "name" 
+			position = { x = 25 y = 3 }
+			font = "hoi_20bs"
+			text = "[This.GetName]"	
+			maxWidth = 160
+			maxHeight = 20
+			fixedsize = yes
+			format = left
+			alwaystransparent = yes
+		}	
+		
+		iconType = {
+			name = "operatives_icon"
+			quadTextureSprite = "GFX_operatives_required_bg"   
+			position = { x = 212 y = 20 }    
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}	
+		instantTextBoxType = {   
+			name = "operatives" 
+			position = { x = 247 y = 23 }
+			font = "hoi_20bs"
+			text = "[GetNumOperatives]"	
+			maxWidth = 50
+			maxHeight = 20
+			format = left 
+			alwaystransparent = yes
+		}	
+		instantTextBoxType = {   
+			name = "operatives_tooltip" 
+			position = { x = 212 y = 15 }
+			font = "hoi_20bs"
+			text = ""	
+			maxWidth = 68
+			maxHeight = 45
+			format = left 
+			pdx_tooltip = NETWORK_OPERATIVES_ASSIGNED_TOOLTIP
+		}	
+		iconType = {
+			name = "strength_icon"
+			quadTextureSprite = "GFX_network_strength_bg"   
+			position = { x = 280 y = 20 }    
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}	
+		instantTextBoxType = {   
+			name = "strength" 
+			position = { x = 315 y = 23 }
+			font = "hoi_20bs"
+			text = "[GetNetworkStrength]%"	
+			maxWidth = 50
+			maxHeight = 20
+			format = left 
+			alwaystransparent = yes
+		}	
+		instantTextBoxType = {   
+			name = "strength_tooltip" 
+			position = { x = 276 y = 15 }
+			font = "hoi_20bs"
+			text = ""	
+			maxWidth = 78
+			maxHeight = 45
+			format = left 
+			pdx_tooltip = NETWORK_STRENGTH_TOOLTIP
+		}	
+		
+		containerWindowType = {     
+			name = "intel_network_asset_entry"
+			position = {x = 50 y = 28 }      
+			size = {width = 200 height = 100%% }   
+  
+			# this grid will be dynamically populated
+			gridboxtype = { 
+				name = "intel_network_assets"  
+				position = { x = 0 y = 0 }
+				size = { width = 33 height = 33 }
+				slotsize = { width = 30 height = 33 } #if width or height is 1, it will use slot element's dimension
+				  
+				max_slots_horizontal = 5
+				max_slots_vertical = 1
+			}  
+		}
+	}
+		
+		
+	containerWindowType = {
+		name = "intel_network_asset_entry"   
+		position = { x=0 y=0 }
+		 
+		buttonType = {
+			name = "asset"
+			position = {x=0 y=0}
+			spriteType = "GFX_infiltrate_army_bg"
+			pdx_tooltip = "OPERATION_TOKEN_NAME_TOOLTIP"
+		}
+	}
+}

@@ -1,0 +1,17 @@
+spriteTypes = {	
+
+
+#MIO sprites
+	spriteType = {
+		name = "GFX_idea_GER_hdw"
+		texturefile = "gfx/interface/ideas/idea_GER_hdw.dds"
+	}
+	
+	
+		spriteType = {
+		name = "GFX_idea_GER_deschimag"
+		texturefile = "gfx/interface/ideas/idea_GER_deschimag.dds"
+	}
+	
+	
+}

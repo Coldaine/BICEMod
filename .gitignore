@@ -1,9 +1,6 @@
 # Include the .gitignore file itself
 !.gitignore
 
-# Ignore all subfolders and files in the gfx directory
-gfx/**
-
 # Ignore all subfolders and files in the history directory
 history/**
 
@@ -21,12 +18,6 @@ music/**
 
 # Ignore all subfolders and files in the map directory
 map/**
-
-# Ignore all subfolders and files in the localization directory
-localization/**
-
-# Ignore all subfolders and files in the gfx directory
-interface/**
 
 # Ignore all subfolders and files in the gfx directory
 tutorial/**

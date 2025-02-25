@@ -1,0 +1,47 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_idea_city"
+		texturefile = "gfx/interface/city.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_large_city"
+		texturefile = "gfx/interface/large_city.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_large_town"
+		texturefile = "gfx/interface/large_town.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_megalopolis"
+		texturefile = "gfx/interface/megalopolis.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_metropolis"
+		texturefile = "gfx/interface/metropolis.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_pastoral"
+		texturefile = "gfx/interface/pastoral.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_rural"
+		texturefile = "gfx/interface/rural.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_town"
+		texturefile = "gfx/interface/town.png"
+	}
+
+	spriteType = {
+		name = "GFX_idea_wasteland"
+		texturefile = "gfx/interface/wasteland.png"
+	}
+}

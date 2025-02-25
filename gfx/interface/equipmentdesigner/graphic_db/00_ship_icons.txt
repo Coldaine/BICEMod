@@ -1,0 +1,61 @@
+default = {
+	# these carriers need definitions here since they have less NIC allowed than normal carriers
+	
+	nrm_ship_hull_carrier_escort_1 = {
+		pool = {
+			icons = {
+				GFX_nrm_ship_hull_carrier_escort_1_medium
+			}
+		}
+	}
+	nrm_ship_hull_carrier_escort_2 = {
+		pool = {
+			icons = {
+				GFX_nrm_ship_hull_carrier_escort_1_medium
+				GFX_nrm_ship_hull_carrier_escort_2_medium
+			}
+		}
+	}
+	nrm_ship_hull_carrier_escort_3 = {
+		pool = {
+			icons = {
+				GFX_nrm_ship_hull_carrier_escort_1_medium
+				GFX_nrm_ship_hull_carrier_escort_2_medium
+				GFX_nrm_ship_hull_carrier_escort_3_medium
+			}
+		}
+	}
+	
+	nrm_ship_hull_carrier_light_2 = {
+		pool = {
+			icons = {
+				GFX_nrm_ship_hull_carrier_light_2_medium
+			}
+		}
+	}
+	nrm_ship_hull_carrier_light_3 = {
+		pool = {
+			icons = {
+				GFX_nrm_ship_hull_carrier_light_2_medium
+				GFX_nrm_ship_hull_carrier_light_3_medium
+			}
+		}
+	}
+	nrm_ship_hull_carrier_light_4 = {
+		pool = {
+			icons = {
+				GFX_nrm_ship_hull_carrier_light_2_medium
+				GFX_nrm_ship_hull_carrier_light_3_medium
+				GFX_nrm_ship_hull_carrier_light_4_medium
+			}
+		}
+	}
+	
+	nrm_ship_hull_carrier_cruiser = {
+		pool = {
+			icons = {
+				GFX_nrm_ship_hull_carrier_cruiser_medium
+			}
+		}
+	}
+}

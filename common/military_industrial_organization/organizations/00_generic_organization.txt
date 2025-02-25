@@ -212,7 +212,7 @@ generic_tank_organization = {
 		
 		any_parent = { generic_mio_trait_improved_tooling }
 		
-		mutually_exclusive = { generic_mio_trait_quality_improvements }
+
 		
 		production_bonus = {
 			production_cost_factor = -0.05
@@ -230,7 +230,7 @@ generic_tank_organization = {
 		
 		any_parent = { generic_mio_trait_improved_tooling }
 		
-		mutually_exclusive = { generic_mio_trait_mass_production}
+
 		
 		equipment_bonus = {
 			armor_value = 0.1
@@ -278,7 +278,7 @@ generic_tank_organization = {
 		
 		any_parent = { generic_mio_trait_long_barreled_guns }
 		
-		mutually_exclusive = { generic_mio_trait_infantry_support_tanks }
+
 		
 		equipment_bonus = {
 			armor_value = 0.05
@@ -296,7 +296,7 @@ generic_tank_organization = {
 		
 		any_parent = { generic_mio_trait_long_barreled_guns }
 		
-		mutually_exclusive = { generic_mio_trait_anti_tank_specialization }
+
 		
 		equipment_bonus = {
 			soft_attack = 0.05
@@ -360,7 +360,7 @@ generic_infantry_tank_organization = {
 
 		position = { x=0 y=0 }
 
-		mutually_exclusive = { generic_mio_trait_dual_engine_redundancy }
+
 		
 		equipment_bonus = {
 			breakthrough = 0.05
@@ -376,7 +376,7 @@ generic_infantry_tank_organization = {
 
 		position = { x=2 y=0 }
 
-		mutually_exclusive = { generic_mio_trait_single_engine }
+
 		
 		equipment_bonus = {
 			reliability = 0.05
@@ -395,7 +395,7 @@ generic_infantry_tank_organization = {
 
 		any_parent = { generic_mio_trait_single_engine generic_mio_trait_dual_engine_redundancy }
 
-		mutually_exclusive = { generic_mio_trait_overlapped_track_wheels }
+
 
 		equipment_bonus = {
 			maximum_speed = 0.1
@@ -416,7 +416,7 @@ generic_infantry_tank_organization = {
 		
 		any_parent = { generic_mio_trait_single_engine generic_mio_trait_dual_engine_redundancy }
 
-		mutually_exclusive = { generic_mio_trait_interleaved_track_wheels }
+
 
 		equipment_bonus = {
 			defense = 0.05
@@ -480,7 +480,7 @@ generic_infantry_tank_organization = {
 	
 		any_parent = { generic_mio_trait_battle_tank_specifications }
 		
-		mutually_exclusive = { generic_mio_trait_anti_tank_role }
+
 		
 		equipment_bonus = {
 			soft_attack = 0.1
@@ -497,7 +497,7 @@ generic_infantry_tank_organization = {
 		
 		any_parent = { generic_mio_trait_battle_tank_specifications }
 		
-		mutually_exclusive= { generic_mio_trait_close_support_role }
+
 
 		equipment_bonus = {
 		hard_attack = 0.1
@@ -530,7 +530,7 @@ generic_infantry_tank_organization = {
 		
 		any_parent = { generic_mio_trait_adaptable_chassis }
 		
-		mutually_exclusive= { generic_mio_trait_medium_tank_specialization generic_mio_trait_heavy_tank_specialization }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_light_tank }
 
@@ -548,7 +548,7 @@ generic_infantry_tank_organization = {
 
 		any_parent = { generic_mio_trait_adaptable_chassis }
 		
-		mutually_exclusive= { generic_mio_trait_light_tank_specialization generic_mio_trait_heavy_tank_specialization }
+
 		
 		limit_to_equipment_type = { mio_cat_eq_all_medium_tank }
 
@@ -567,7 +567,7 @@ generic_infantry_tank_organization = {
 
 		any_parent = { generic_mio_trait_adaptable_chassis }
 		
-		mutually_exclusive= { generic_mio_trait_light_tank_specialization generic_mio_trait_medium_tank_specialization }
+
 		
 		limit_to_equipment_type = { mio_cat_eq_all_heavy_tank }
 
@@ -676,7 +676,7 @@ generic_assault_guns_organization = {
 		
 		all_parents = { generic_mio_trait_light_assault_gun_improvements }
 
-		mutually_exclusive = { generic_mio_trait_light_assault_gun_improved_cannon_stabilization }
+
 
 		limit_to_equipment_type = { light_tank_artillery_chassis }
 
@@ -696,7 +696,7 @@ generic_assault_guns_organization = {
 		
 		all_parents = { generic_mio_trait_light_assault_gun_improvements }
 
-		mutually_exclusive = { generic_mio_trait_light_assault_gun_anti_tank_combo }
+
 
 		limit_to_equipment_type = { light_tank_artillery_chassis }
 
@@ -717,7 +717,7 @@ generic_assault_guns_organization = {
 		
 		all_parents = { generic_mio_trait_light_assault_gun_improvements }
 
-		#mutually_exclusive = { generic_mio_trait_light_assault_gun_anti_tank_combo }
+
 
 		limit_to_equipment_type = { light_tank_artillery_chassis }
 
@@ -738,7 +738,7 @@ generic_assault_guns_organization = {
 		
 		#all_parents = { generic_mio_trait_light_assault_gun_improvements }
 
-		#mutually_exclusive = { generic_mio_trait_light_assault_gun_improved_cannon_stabilization }
+
 
 		limit_to_equipment_type = { medium_tank_artillery_chassis }
 
@@ -758,7 +758,7 @@ generic_assault_guns_organization = {
 
 		any_parent = { generic_mio_trait_medium_assault_gun_improvements generic_mio_trait_light_assault_gun_improvements }
 
-		mutually_exclusive = { generic_mio_armor_hardening_process_assault_guns }
+
 		
 		production_bonus = {
 			production_resource_penalty_factor = -0.15
@@ -775,7 +775,7 @@ generic_assault_guns_organization = {
 
 		any_parent = { generic_mio_trait_medium_assault_gun_improvements generic_mio_trait_heavy_assault_gun_improvements }
 
-		mutually_exclusive = { generic_mio_lighter_materials_assault_guns }
+
 		
 		equipment_bonus = {
 			defense = 0.05
@@ -793,7 +793,7 @@ generic_assault_guns_organization = {
 
 		any_parent = { generic_mio_lighter_materials_assault_guns generic_mio_armor_hardening_process_assault_guns }
 
-		#mutually_exclusive = { generic_mio_armor_hardening_process_assault_guns }
+
 		
 		#production_bonus = {
 		#	production_resource_penalty_factor = -0.15
@@ -818,7 +818,7 @@ generic_assault_guns_organization = {
 
 		any_parent = { generic_mio_trait_medium_assault_gun_improvements generic_mio_trait_heavy_assault_gun_improvements }
 
-		#mutually_exclusive = { generic_mio_armor_hardening_process_assault_guns }
+
 		
 		#production_bonus = {
 		#	production_resource_penalty_factor = -0.15
@@ -842,7 +842,7 @@ generic_assault_guns_organization = {
 		
 		#all_parents = { generic_mio_trait_light_assault_gun_improvements }
 
-		#mutually_exclusive = { generic_mio_trait_light_assault_gun_improved_cannon_stabilization }
+
 
 		limit_to_equipment_type = { heavy_tank_artillery_chassis }
 
@@ -904,7 +904,7 @@ generic_assault_guns_organization = {
 			}
 		}
 
-		#mutually_exclusive = { generic_mio_armor_hardening_process_assault_guns }
+
 		
 		#production_bonus = {
 		#	production_resource_penalty_factor = -0.15
@@ -977,7 +977,7 @@ generic_mobile_tank_organization = {
 
 		all_parents = { generic_mio_trait_improved_boogies }
 
-		mutually_exclusive = { generic_mio_reduced_fuel_usage }
+
 		
 		equipment_bonus = {
 			maximum_speed = 0.05
@@ -994,7 +994,7 @@ generic_mobile_tank_organization = {
 
 		all_parents = { generic_mio_trait_improved_boogies }
 
-		mutually_exclusive = { generic_mio_engine_optimization }
+
 		
 		equipment_bonus = {
 			fuel_consumption = -0.05
@@ -1055,7 +1055,7 @@ generic_mobile_tank_organization = {
 
 		all_parents = { generic_mio_sloping_armor }
 
-		mutually_exclusive = { generic_mio_armor_hardening_process }
+
 		
 		production_bonus = {
 			production_resource_penalty_factor = -0.1
@@ -1072,7 +1072,7 @@ generic_mobile_tank_organization = {
 
 		all_parents = { generic_mio_sloping_armor }
 
-		mutually_exclusive = { generic_mio_lighter_materials }
+
 		
 		equipment_bonus = {
 			armor_value = 0.05
@@ -1295,7 +1295,7 @@ generic_medium_tank_organization = {
 
 		all_parents = { generic_mio_trait_armor_steel_working }
 
-		mutually_exclusive = { generic_mio_trait_crew_survival_layout generic_mio_trait_sloped_side_armor }
+
 		
 		equipment_bonus = {
 			armor_value = 0.05
@@ -1312,7 +1312,7 @@ generic_medium_tank_organization = {
 
 		all_parents = { generic_mio_trait_armor_steel_working }
 
-		mutually_exclusive = { generic_mio_trait_spaced_armor generic_mio_trait_sloped_side_armor }
+
 		
 		equipment_bonus = {
 			defense = 0.05
@@ -1329,7 +1329,7 @@ generic_medium_tank_organization = {
 
 		all_parents = { generic_mio_trait_armor_steel_working }
 
-		mutually_exclusive = { generic_mio_trait_spaced_armor generic_mio_trait_crew_survival_layout }
+
 		
 		equipment_bonus = {
 			breakthrough = 0.05
@@ -1344,7 +1344,7 @@ generic_medium_tank_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_armor_steel_working
 
-		mutually_exclusive = { generic_mio_trait_aircraft_engines }
+
 		
 		equipment_bonus = {
 			reliability = 0.05
@@ -1359,7 +1359,7 @@ generic_medium_tank_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_truck_engines
 
-		mutually_exclusive = { generic_mio_trait_truck_engines }
+
 		
 		equipment_bonus = {
 			maximum_speed = 0.05
@@ -1525,7 +1525,7 @@ generic_heavy_tank_organization = {
 
 		all_parents = { generic_mio_trait_sloping_armor }
 
-		mutually_exclusive = { generic_mio_trait_reinforced_construction }
+
 		
 		equipment_bonus = {
 			breakthrough = 0.05
@@ -1542,7 +1542,7 @@ generic_heavy_tank_organization = {
 
 		all_parents = { generic_mio_trait_sloping_armor }
 
-		mutually_exclusive = { generic_mio_trait_improved_crew_ergonomics }
+
 		
 		equipment_bonus = {
 			armor_value = 0.05
@@ -1573,7 +1573,7 @@ generic_heavy_tank_organization = {
 
 		all_parents = { generic_mio_trait_fully_cast_turret }
 
-		mutually_exclusive = { generic_mio_trait_simplified_layout }
+
 		
 		equipment_bonus = {
 			armor_value = 0.05
@@ -1591,7 +1591,7 @@ generic_heavy_tank_organization = {
 
 		all_parents = { generic_mio_trait_fully_cast_turret }
 
-		mutually_exclusive = { generic_mio_trait_commander_cupola }
+
 		
 		production_bonus = {
 			production_efficiency_gain_factor = 0.05
@@ -1609,7 +1609,7 @@ generic_heavy_tank_organization = {
 
 		any_parent = { generic_mio_trait_commander_cupola generic_mio_trait_simplified_layout }
 
-		mutually_exclusive = { generic_mio_trait_apcr_hvap_shells }
+
 		
 		equipment_bonus = {
 			soft_attack = 0.05
@@ -1627,7 +1627,7 @@ generic_heavy_tank_organization = {
 
 		any_parent = { generic_mio_trait_commander_cupola generic_mio_trait_simplified_layout }
 
-		mutually_exclusive = { generic_mio_trait_high_explosive_shells }
+
 		
 		equipment_bonus = {
 			ap_attack = 0.05
@@ -1979,7 +1979,7 @@ generic_task_force_ship_organization = {
 
 		position = { x=0 y=0 }
 		
-		mutually_exclusive = { generic_mio_trait_high_speed_cruising }
+
 
 		equipment_bonus = {
 			naval_range = 0.05
@@ -1995,7 +1995,7 @@ generic_task_force_ship_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_long_range_cruising
 		
-		mutually_exclusive = { generic_mio_trait_long_range_cruising }
+
 		
 		equipment_bonus = {
 			naval_speed = 0.05
@@ -2030,7 +2030,7 @@ generic_task_force_ship_organization = {
 		
 		any_parent = { generic_mio_trait_splinter_protection }
 
-		mutually_exclusive = { generic_mio_trait_underway_replenishment_equipment }
+
 
 		equipment_bonus = {
 			naval_speed = 0.05
@@ -2048,7 +2048,7 @@ generic_task_force_ship_organization = {
 		
 		any_parent = { generic_mio_trait_splinter_protection }
 
-		mutually_exclusive = { generic_mio_trait_transom_stern }
+
 
 		equipment_bonus = {
 			naval_range = 0.05
@@ -2115,7 +2115,7 @@ generic_task_force_ship_organization = {
 		
 		any_parent = { generic_mio_trait_secondary_fire_director_control }
 
-		mutually_exclusive = { generic_mio_trait_high_velocity_guns }
+
 
 		equipment_bonus = {
 			anti_air_attack = 0.05
@@ -2178,7 +2178,7 @@ generic_task_force_ship_organization = {
 		
 		any_parent = { generic_mio_trait_primary_fire_director_control }
 
-		mutually_exclusive = { generic_mio_trait_rapid_fire_guns }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_cruiser }
 
@@ -2234,7 +2234,7 @@ generic_battle_line_ship_organization = {
 
 		position = { x=0 y=0 }
 
-		mutually_exclusive = { generic_mio_trait_internal_armor_belt }
+
 
 		equipment_bonus = {
 			armor_value = 0.05
@@ -2249,7 +2249,7 @@ generic_battle_line_ship_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_external_armor_belt
 
-		mutually_exclusive = { generic_mio_trait_external_armor_belt }
+
 
 		equipment_bonus = {
 			armor_value = 0.15
@@ -2282,7 +2282,7 @@ generic_battle_line_ship_organization = {
 
 		any_parent = { generic_mio_trait_hardened_critical_components }
 
-		mutually_exclusive = { generic_mio_trait_advanced_armor_design }
+
 
 		equipment_bonus = {
 			naval_speed = 0.05
@@ -2299,7 +2299,7 @@ generic_battle_line_ship_organization = {
 
 		any_parent = { generic_mio_trait_hardened_critical_components }
 
-		mutually_exclusive = { generic_mio_trait_advanced_hydrodynamic_design }
+
 
 		equipment_bonus = {
 			armor_value = 0.05
@@ -2405,7 +2405,7 @@ generic_battle_line_ship_organization = {
 
 		any_parent = { generic_mio_trait_primary_battery_layout }
 
-		mutually_exclusive = { generic_mio_trait_semi_armor_piercing_shells generic_mio_trait_high_velocity_guns }
+
 
 		equipment_bonus = {
 			hg_attack = 0.05
@@ -2423,7 +2423,7 @@ generic_battle_line_ship_organization = {
 
 		any_parent = { generic_mio_trait_primary_battery_layout }
 
-		mutually_exclusive = { generic_mio_trait_super_heavy_shells generic_mio_trait_high_velocity_guns }
+
 
 		equipment_bonus = {
 			lg_attack = 0.05
@@ -2441,7 +2441,7 @@ generic_battle_line_ship_organization = {
 
 		any_parent = { generic_mio_trait_primary_battery_layout }
 
-		mutually_exclusive = { generic_mio_trait_super_heavy_shells generic_mio_trait_semi_armor_piercing_shells }
+
 
 		equipment_bonus = {
 			lg_armor_piercing = 0.1
@@ -2630,7 +2630,7 @@ generic_escort_ship_organization = {
 
 		any_parent = { generic_mio_trait_fleet_escorts }
 
-		mutually_exclusive = { generic_mio_trait_escort_in_force }
+
 
 		equipment_bonus = {
 			anti_air_attack = 0.05
@@ -2647,7 +2647,7 @@ generic_escort_ship_organization = {
 
 		any_parent = { generic_mio_trait_fleet_escorts }
 
-		mutually_exclusive = { generic_mio_trait_anti_air_ships }
+
 
 		equipment_bonus = {
 			lg_attack = 0.05
@@ -2787,7 +2787,7 @@ generic_raider_ship_organization = {
 
 		position = { x=1 y=0 }
 
-		mutually_exclusive = { generic_mio_trait_high_speed_raiding }
+
 
 		equipment_bonus = {
 			naval_range = 0.05
@@ -2803,7 +2803,7 @@ generic_raider_ship_organization = {
 		position = { x=6 y=0 }
 		relative_position_id = generic_mio_trait_long_range_raiding
 
-		mutually_exclusive = { generic_mio_trait_long_range_raiding }
+
 
 		equipment_bonus = {
 			naval_speed = 0.05
@@ -2911,7 +2911,7 @@ generic_raider_ship_organization = {
 
 		any_parent = { generic_mio_trait_raiding_capital_ships }
 
-		mutually_exclusive = { generic_mio_trait_spotting_tops }
+
 
 		equipment_bonus = {
 			surface_detection = 0.05
@@ -2998,7 +2998,7 @@ generic_raider_ship_organization = {
 
 		all_parents = { generic_mio_trait_raiding_cruisers generic_mio_trait_raiding_submarines }
 
-		mutually_exclusive = { generic_mio_trait_high_quality_optics }
+
 
 		limit_to_equipment_type = { capital_ship screen_ship }
 
@@ -3130,7 +3130,7 @@ generic_submarine_organization = {
 		relative_position_id = generic_mio_trait_efficient_fuel_engines
 
 		any_parent = { generic_mio_trait_high_powered_engines generic_mio_trait_efficient_fuel_engines }
-		mutually_exclusive = { generic_mio_trait_open_cycle_propulsion }
+
 
 		equipment_bonus = {
 			naval_range = 0.06
@@ -3162,7 +3162,7 @@ generic_submarine_organization = {
 		relative_position_id = generic_mio_trait_high_powered_engines
 
 		any_parent = { generic_mio_trait_high_powered_engines generic_mio_trait_efficient_fuel_engines }
-		mutually_exclusive = { generic_mio_trait_highly_efficient_diesel_electric_propulsion_systems }
+
 
 		equipment_bonus = {
 			naval_speed = 0.05
@@ -3615,7 +3615,7 @@ generic_black_sea_fleet_organization = {
 		
 		all_parents = { generic_mio_trait_state_sponsored_growth }
 
-		mutually_exclusive = { generic_mio_trait_24h_shifts }
+
 		
 		organization_modifier = {
 			military_industrial_organization_research_bonus = 0.1
@@ -3632,7 +3632,7 @@ generic_black_sea_fleet_organization = {
 		
 		all_parents = { generic_mio_trait_state_sponsored_growth }
 
-		mutually_exclusive = { generic_mio_trait_state_sponsored_research }
+
 		
 		production_bonus = {
 			production_capacity_factor = 0.05
@@ -3893,7 +3893,7 @@ generic_refurbishment_repair_organization = {
 		
 		all_parents = { generic_mio_trait_high_velocity_guns }
 		
-		mutually_exclusive = { generic_mio_trait_deck_guns generic_mio_trait_naval_all_purpose_defense_systems }
+
 
 		limit_to_equipment_type = { capital_ship }
 		
@@ -3915,7 +3915,7 @@ generic_refurbishment_repair_organization = {
 		
 		all_parents = { generic_mio_trait_high_velocity_guns }
 		
-		mutually_exclusive = { generic_mio_trait_capital_destroyer_shells generic_mio_trait_naval_all_purpose_defense_systems }
+
 
 		equipment_bonus = {
 			anti_air_attack = 0.06
@@ -3932,7 +3932,7 @@ generic_refurbishment_repair_organization = {
 		
 		all_parents = { generic_mio_trait_high_velocity_guns }
 		
-		mutually_exclusive = { generic_mio_trait_capital_destroyer_shells generic_mio_trait_deck_guns }
+
 
 		limit_to_equipment_type = { capital_ship }
 
@@ -4127,7 +4127,6 @@ air_doctrine }
 
 		all_parents = { generic_mio_trait_fighter_aircraft_specialists }
 
-		mutually_exclusive = { generic_mio_trait_agility_wing_design }
 
 		limit_to_equipment_type = { mio_cat_eq_only_light_fighter_no_cv medium_plane_fighter_airframe medium_plane_scout_plane_airframe }
 
@@ -4146,7 +4145,7 @@ air_doctrine }
 
 		all_parents = { generic_mio_trait_fighter_aircraft_specialists }
 
-		mutually_exclusive = { generic_mio_trait_high_speed_design }
+
 
 		limit_to_equipment_type = { mio_cat_eq_only_light_fighter_no_cv medium_plane_fighter_airframe medium_plane_scout_plane_airframe }
 
@@ -4198,7 +4197,7 @@ air_doctrine }
 
 		all_parents = { generic_mio_trait_bomber_aircraft_specialists }
 
-		mutually_exclusive = { generic_mio_trait_fast_bombers }
+
 
 		limit_to_equipment_type = { small_plane_cas_airframe mio_cat_eq_only_tactical_bomber mio_cat_eq_only_strategic_bomber }
 
@@ -4217,7 +4216,7 @@ air_doctrine }
 
 		all_parents = { generic_mio_trait_bomber_aircraft_specialists }
 
-		mutually_exclusive = { generic_mio_trait_bomb_trucks }
+
 
 		limit_to_equipment_type = { small_plane_cas_airframe mio_cat_eq_only_tactical_bomber mio_cat_eq_only_strategic_bomber }
 
@@ -4270,7 +4269,7 @@ air_doctrine }
 
 		all_parents = { generic_mio_trait_naval_aircraft_specialists }
 
-		mutually_exclusive = { generic_mio_trait_naval_air_patrol }
+
 
 		limit_to_equipment_type = { small_plane_naval_bomber_airframe mio_cat_eq_all_cv_aircraft large_plane_maritime_patrol_plane_airframe }
 
@@ -4289,7 +4288,7 @@ air_doctrine }
 
 		all_parents = { generic_mio_trait_naval_aircraft_specialists }
 
-		mutually_exclusive = { generic_mio_trait_naval_strike }
+
 
 		limit_to_equipment_type = { small_plane_naval_bomber_airframe mio_cat_eq_all_cv_aircraft large_plane_maritime_patrol_plane_airframe }
 
@@ -4505,7 +4504,7 @@ generic_light_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_ongoing_developmental_upgrades }
 
-		mutually_exclusive = { generic_mio_trait_maximum_wing_loads generic_mio_trait_gun_pods }
+
 
 		equipment_bonus = {
 			air_attack = 0.05
@@ -4525,7 +4524,7 @@ generic_light_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_ongoing_developmental_upgrades }
 
-		mutually_exclusive = { generic_mio_trait_heavier_airframe generic_mio_trait_gun_pods }
+
 
 		equipment_bonus = {
 			maximum_speed = 0.05
@@ -4543,7 +4542,7 @@ generic_light_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_ongoing_developmental_upgrades }
 
-		mutually_exclusive = { generic_mio_trait_heavier_airframe generic_mio_trait_maximum_wing_loads }
+
 
 		equipment_bonus = {
 			air_ground_attack = 0.1
@@ -4562,7 +4561,7 @@ generic_light_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_heavier_airframe generic_mio_trait_maximum_wing_loads generic_mio_trait_gun_pods }
 
-		mutually_exclusive = { generic_mio_trait_fighter_specialization generic_mio_trait_close_air_support_specialization }
+
 
 		equipment_bonus = {
 			air_attack = 0.05
@@ -4581,7 +4580,7 @@ generic_light_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_heavier_airframe generic_mio_trait_maximum_wing_loads generic_mio_trait_gun_pods }
 
-		mutually_exclusive = { generic_mio_trait_multi_purpose_aircraft generic_mio_trait_close_air_support_specialization }
+
 
 		equipment_bonus = {
 			air_attack = 0.05
@@ -4600,7 +4599,7 @@ generic_light_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_heavier_airframe generic_mio_trait_maximum_wing_loads generic_mio_trait_gun_pods }
 
-		mutually_exclusive = { generic_mio_trait_multi_purpose_aircraft generic_mio_trait_fighter_specialization }
+
 
 		equipment_bonus = {
 			air_ground_attack = 0.05
@@ -4786,7 +4785,7 @@ generic_medium_aircraft_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_mixed_material_construction
 
-		mutually_exclusive = { generic_mio_trait_reinforced_wing_braces }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -4803,7 +4802,7 @@ generic_medium_aircraft_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_twin_tail
 
-		mutually_exclusive = { generic_mio_trait_twin_tail }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -4822,7 +4821,7 @@ generic_medium_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_twin_tail generic_mio_trait_reinforced_wing_braces }
 
-		mutually_exclusive = { generic_mio_trait_metal_nose_replacement }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -4842,7 +4841,7 @@ generic_medium_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_twin_tail generic_mio_trait_reinforced_wing_braces }
 
-		mutually_exclusive = { generic_mio_trait_expanded_cockpit }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -4897,7 +4896,7 @@ generic_medium_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_streamlined_fuselage }
 
-		mutually_exclusive = { generic_mio_trait_heavy_fighter_specialization generic_mio_trait_tactical_bomber_specialization }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -4920,7 +4919,7 @@ generic_medium_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_streamlined_fuselage }
 
-		mutually_exclusive = { generic_mio_trait_adaptable_build generic_mio_trait_tactical_bomber_specialization }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -4941,7 +4940,7 @@ generic_medium_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_streamlined_fuselage }
 
-		mutually_exclusive = { generic_mio_trait_adaptable_build generic_mio_trait_heavy_fighter_specialization }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -5112,7 +5111,7 @@ generic_heavy_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_drop_hammer_alloy_straining }
 
-		mutually_exclusive = { generic_mio_trait_high_quality_aluminium_alloys }
+
 
 		limit_to_equipment_type = { large_plane_airframe large_plane_maritime_patrol_plane_airframe }
 
@@ -5132,7 +5131,7 @@ generic_heavy_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_drop_hammer_alloy_straining }
 
-		mutually_exclusive = { generic_mio_trait_refined_secondary_aluminium }
+
 
 		limit_to_equipment_type = { large_plane_airframe large_plane_maritime_patrol_plane_airframe }
 
@@ -5202,7 +5201,7 @@ generic_heavy_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_extended_rear_fuselage }
 
-		mutually_exclusive = { generic_mio_trait_air_deployed_sonobuoys }
+
 
 		limit_to_equipment_type = { large_plane_airframe large_plane_maritime_patrol_plane_airframe }
 
@@ -5221,7 +5220,7 @@ generic_heavy_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_extended_rear_fuselage }
 
-		mutually_exclusive = { generic_mio_trait_auto_levelled_bombsights }
+
 
 		limit_to_equipment_type = { large_plane_airframe large_plane_maritime_patrol_plane_airframe }
 
@@ -5258,7 +5257,7 @@ generic_heavy_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_cockpit_controlled_remote_gun_turrets }
 
-		mutually_exclusive = { generic_mio_trait_advanced_instruments }
+
 
 		limit_to_equipment_type = { large_plane_airframe large_plane_maritime_patrol_plane_airframe }
 
@@ -5280,7 +5279,7 @@ generic_heavy_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_cockpit_controlled_remote_gun_turrets }
 
-		mutually_exclusive = { generic_mio_trait_flying_fortress }
+
 
 		limit_to_equipment_type = { large_plane_airframe large_plane_maritime_patrol_plane_airframe }
 
@@ -5423,7 +5422,7 @@ generic_cas_aircraft_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_low_altitude_attacks
 
-		mutually_exclusive = { generic_mio_trait_reinforced_wings }
+
 
 		equipment_bonus = {
 			air_ground_attack = 0.1
@@ -5438,7 +5437,7 @@ generic_cas_aircraft_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_gull_wings
 
-		mutually_exclusive = { generic_mio_trait_gull_wings }
+
 
 		equipment_bonus = {
 			air_ground_attack = 0.03
@@ -5503,7 +5502,7 @@ generic_cas_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_air_brakes generic_mio_trait_wingborne_fuel_tanks }
 
-		mutually_exclusive = { generic_mio_trait_rockets }
+
 
 		equipment_bonus = {
 			air_ground_attack = 0.1
@@ -5520,7 +5519,7 @@ generic_cas_aircraft_organization = {
 
 		any_parent = { generic_mio_trait_wingborne_fuel_tanks generic_mio_trait_air_brakes }
 
-		mutually_exclusive = { generic_mio_trait_bombs }
+
 
 		equipment_bonus = {
 			air_ground_attack = 0.05
@@ -5629,7 +5628,7 @@ interceptor_navy_equipment
 
 		all_parents = { generic_mio_trait_navigation_equipment }
 
-		mutually_exclusive = { generic_mio_trait_internal_torpedo_mountings }
+
 
 		limit_to_equipment_type = { small_plane_naval_bomber_airframe cv_small_plane_naval_bomber_airframe }
 
@@ -5648,7 +5647,7 @@ interceptor_navy_equipment
 
 		all_parents = { generic_mio_trait_navigation_equipment }
 
-		mutually_exclusive = { generic_mio_trait_patrol_fuel_tanks }
+
 
 		limit_to_equipment_type = { small_plane_naval_bomber_airframe cv_small_plane_naval_bomber_airframe }
 
@@ -5700,7 +5699,7 @@ interceptor_navy_equipment
 
 		all_parents = { generic_mio_trait_reinforced_fuselage }
 
-		mutually_exclusive = { generic_mio_strength_wing_design }
+
 
 		equipment_bonus = {
 			air_range = 0.05
@@ -5718,7 +5717,7 @@ interceptor_navy_equipment
 
 		all_parents = { generic_mio_trait_reinforced_fuselage }
 
-		mutually_exclusive = { generic_mio_agility_wing_design }
+
 
 		equipment_bonus = {
 			air_range = 0.05
@@ -5917,7 +5916,7 @@ generic_multi_role_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_armored_cockpit generic_mio_trait_escort_designs }
 
-		mutually_exclusive = { generic_mio_trait_medium_airframe }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane }
 
@@ -5940,7 +5939,7 @@ generic_multi_role_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_armored_cockpit generic_mio_trait_escort_designs }
 
-		mutually_exclusive = { generic_mio_trait_light_airframe }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
@@ -6157,7 +6156,7 @@ generic_multi_role_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_lengthened_wings generic_mio_trait_bubble_canopy }
 
-		mutually_exclusive = { generic_mio_trait_bomber_specialization }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane mio_cat_eq_all_medium_plane }
 
@@ -6177,7 +6176,7 @@ generic_multi_role_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_lengthened_wings generic_mio_trait_bubble_canopy }
 
-		mutually_exclusive = { generic_mio_trait_fighter_specialization }
+
 
 		limit_to_equipment_type = { mio_cat_eq_all_small_plane mio_cat_eq_all_medium_plane }
 
@@ -6240,7 +6239,7 @@ generic_high_agility_fighter_aircraft_organization = {
 
 		position = { x=0 y=0 }
 
-		mutually_exclusive = { generic_mio_trait_metal_skin }
+
 
 		production_bonus = {
 			production_resource_penalty_factor = -0.05
@@ -6260,7 +6259,7 @@ generic_high_agility_fighter_aircraft_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_fabric_skin
 
-		mutually_exclusive = { generic_mio_trait_fabric_skin }
+
 
 		equipment_bonus = {
 			air_defence = 0.10
@@ -6330,7 +6329,7 @@ generic_high_agility_fighter_aircraft_organization = {
 			generic_mio_trait_fuel_injection_engines
 		}
 
-		mutually_exclusive = { generic_mio_trait_fighter_interceptors }
+
 
 		production_bonus = {
 			production_efficiency_cap_factor = 0.10
@@ -6399,7 +6398,7 @@ generic_high_agility_fighter_aircraft_organization = {
 			generic_mio_trait_shortened_wings
 		}
 
-		mutually_exclusive = { generic_mio_trait_gunboat }
+
 
 		equipment_bonus = {
 			air_attack = 0.05
@@ -6418,7 +6417,7 @@ generic_high_agility_fighter_aircraft_organization = {
 			generic_mio_trait_shortened_wings
 		}
 
-		mutually_exclusive = { generic_mio_trait_interceptor }
+
 
 		equipment_bonus = {
 			air_ground_attack = 0.10
@@ -6456,7 +6455,7 @@ generic_high_agility_fighter_aircraft_organization = {
 			generic_mio_trait_stiffened_wings
 		}
 
-		mutually_exclusive = { generic_mio_trait_subsidiary_suppliers }
+
 
 		equipment_bonus = {
 			air_range = 0.10
@@ -6847,7 +6846,7 @@ generic_artillery_organization = {
 		icon = GFX_generic_mio_trait_icon_breakthrough
 
 		position = { x=0 y=0 }
-		mutually_exclusive = { generic_mio_trait_stable_platforms }
+
 
 		equipment_bonus = {
 			breakthrough = 0.03
@@ -6863,7 +6862,7 @@ generic_artillery_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_mobile_limbers
 
-		mutually_exclusive = { generic_mio_trait_mobile_limbers }
+
 
 		equipment_bonus = {
 			defense = 0.05
@@ -6900,7 +6899,7 @@ generic_artillery_organization = {
 			 generic_mio_trait_improved_hydraulic_recoil_system
 		}
 
-		mutually_exclusive = { generic_mio_trait_advanced_anti_air_targeting generic_mio_trait_advanced_trajectory_calculations }
+
 		
 		limit_to_equipment_type = { 
 			mio_cat_eq_all_anti_tank
@@ -6924,7 +6923,7 @@ generic_artillery_organization = {
 			 generic_mio_trait_improved_hydraulic_recoil_system
 		}
 		
-		mutually_exclusive = {
+
 			generic_mio_trait_improved_direct_fire_targeting
 			generic_mio_trait_advanced_trajectory_calculations
 		}
@@ -6950,7 +6949,7 @@ generic_artillery_organization = {
 			 generic_mio_trait_improved_hydraulic_recoil_system
 		}
 
-		mutually_exclusive = { 
+
 			generic_mio_trait_improved_direct_fire_targeting
 			generic_mio_trait_advanced_anti_air_targeting
 		}
@@ -7400,7 +7399,7 @@ generic_infantry_equipment_organization = {
 
 		all_parents = { generic_mio_trait_gas_chamber }
 		
-		mutually_exclusive = { generic_mio_trait_rubber_cushioned_buttpad }
+
 
 		equipment_bonus = {
 			breakthrough = 0.05
@@ -7418,7 +7417,7 @@ generic_infantry_equipment_organization = {
 
 		all_parents = { generic_mio_trait_gas_chamber }
 		
-		mutually_exclusive = { generic_mio_trait_fire_rate }
+
 
 		equipment_bonus = {
 			defense = 0.02
@@ -7524,7 +7523,7 @@ generic_support_equipment_organization = {
 		
 		all_parents = { generic_mio_trait_material_recycling }
 		
-		mutually_exclusive = { generic_mio_trait_high_quality_material_blend }
+
 		
 		limit_to_equipment_type = { 
 			mio_cat_eq_radio_recon 
@@ -7550,7 +7549,7 @@ generic_support_equipment_organization = {
 		
 		all_parents = { generic_mio_trait_material_recycling }
 		
-		mutually_exclusive = { generic_mio_trait_scrap_melting }
+
 		
 		limit_to_equipment_type = { 
 			mio_cat_eq_radio_recon 
@@ -7592,7 +7591,7 @@ generic_support_equipment_organization = {
 		
 		all_parents = { generic_mio_trait_mass_production }
 
-		mutually_exclusive = { generic_mio_trait_research_program }
+
 		
 		limit_to_equipment_type = { 
 			mio_cat_eq_radio_recon 
@@ -7613,7 +7612,7 @@ generic_support_equipment_organization = {
 		
 		all_parents = { generic_mio_trait_mass_production }
 		
-		mutually_exclusive = { generic_mio_trait_efficient_scale_up }
+
 		
 		organization_modifier = {
 			military_industrial_organization_research_bonus = 0.06
@@ -7641,7 +7640,7 @@ generic_support_equipment_organization = {
 		
 		position = { x=-1 y=2 }
 		relative_position_id = generic_mio_trait_waterproofing
-		mutually_exclusive = { generic_mio_trait_cold_resistance }
+
 		
 		all_parents = { generic_mio_trait_waterproofing }
 
@@ -7662,7 +7661,7 @@ generic_support_equipment_organization = {
 		
 		position = { x=1 y=2 }
 		relative_position_id = generic_mio_trait_waterproofing
-		mutually_exclusive = { generic_mio_trait_heat_resistance }
+
 		
 		all_parents = { generic_mio_trait_waterproofing }
 
@@ -7752,7 +7751,7 @@ generic_support_equipment_organization = {
 		
 		all_parents = { generic_mio_trait_anti_tank_rounds }
 		
-		mutually_exclusive = { generic_mio_trait_light_mortar }
+
 		
 		limit_to_equipment_type = { handheld_at_equipment }
 
@@ -7792,7 +7791,7 @@ generic_support_equipment_organization = {
 		
 		all_parents = { generic_mio_trait_small_sidearms }
 
-		mutually_exclusive = { generic_mio_trait_single_shot_man_portable_anti_tank_system }
+
 
 		limit_to_equipment_type = { 
 			garrison_equipment 
@@ -7877,7 +7876,7 @@ generic_motorized_mechanized_organization = {
 		
 		position = { x=0 y=0 }
 		
-		mutually_exclusive = { generic_mio_trait_steel_cargo_bed }
+
 
 		limit_to_equipment_type = { 
 			motorized_rocket_equipment
@@ -7898,7 +7897,7 @@ generic_motorized_mechanized_organization = {
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_composite_cargo_bed
 		
-		mutually_exclusive = { generic_mio_trait_composite_cargo_bed }
+
 
 		limit_to_equipment_type = { 
 			motorized_rocket_equipment
@@ -7945,7 +7944,7 @@ generic_motorized_mechanized_organization = {
 		
 		all_parents = { generic_mio_trait_all_wheel_drive }
 		
-		mutually_exclusive = { generic_mio_trait_high_powered_engine }
+
 
 		limit_to_equipment_type = { 			
 			motorized_AC_equipment
@@ -7967,7 +7966,7 @@ generic_motorized_mechanized_organization = {
 		
 		all_parents = { generic_mio_trait_all_wheel_drive }
 		
-		mutually_exclusive = { generic_mio_trait_attached_wood_gas_generator }
+
 
 		limit_to_equipment_type = { 			
 			motorized_rocket_equipment
@@ -8024,7 +8023,7 @@ generic_motorized_mechanized_organization = {
 		
 		all_parents = { generic_mio_trait_armored_pulpit_mount }
 		
-		mutually_exclusive = { generic_mio_trait_heavy_machinegun_mount generic_mio_trait_mounted_light_anti_tank_gun }
+
 		
 		limit_to_equipment_type = { 
 			motorized_rocket_equipment 
@@ -8046,7 +8045,7 @@ generic_motorized_mechanized_organization = {
 		
 		all_parents = { generic_mio_trait_armored_pulpit_mount }
 		
-		mutually_exclusive = { generic_mio_trait_advanced_artillery_racks generic_mio_trait_mounted_light_anti_tank_gun }
+
 		
 		limit_to_equipment_type = { 
 			mechanized_hmg 
@@ -8068,7 +8067,7 @@ generic_motorized_mechanized_organization = {
 		position = { x=1 y=0 }
 		relative_position_id = generic_mio_trait_heavy_machinegun_mount
 		
-		mutually_exclusive = { generic_mio_trait_advanced_artillery_racks generic_mio_trait_heavy_machinegun_mount }
+
 		
 		all_parents = { generic_mio_trait_bulletproof_panels }
 		
@@ -8090,7 +8089,7 @@ generic_motorized_mechanized_organization = {
 		
 		limit_to_equipment_type = { mechanized_equipment }
 		
-		mutually_exclusive = { generic_mio_trait_closed_chassi }
+
 
 		equipment_bonus = {
 			defense = -0.02
@@ -8108,7 +8107,7 @@ generic_motorized_mechanized_organization = {
 		
 		limit_to_equipment_type = { mechanized_equipment }
 		
-		mutually_exclusive = { generic_mio_trait_open_chassi }
+
 
 		equipment_bonus = {
 			armor_value = 0.05
@@ -8239,7 +8238,7 @@ generic_horsey_organization = {
 		token = generic_mio_trait_hot_training
 		name = generic_mio_trait_hot_training
 		icon = GFX_generic_mio_trait_icon_defense
-		mutually_exclusive = { generic_mio_trait_cold_training }
+
 		position = { x=-1 y=2 }
 		
 		all_parents = { generic_mio_trait_training }
@@ -8253,7 +8252,7 @@ generic_horsey_organization = {
 		token = generic_mio_trait_cold_training
 		name = generic_mio_trait_cold_training
 		icon = GFX_generic_mio_trait_icon_defense
-		mutually_exclusive = { generic_mio_trait_hot_training }
+
 		position = { x=1 y=2 }
 		
 		all_parents = { generic_mio_trait_training }
@@ -8289,7 +8288,7 @@ generic_horsey_organization = {
 		all_parents = { generic_mio_trait_prefab }
 		relative_position_id = generic_mio_trait_prefab		
 		limit_to_equipment_type = { artyhorse_equipment }
-		mutually_exclusive = { generic_mio_trait_lightweight }
+
 		equipment_bonus = {
 			reliability = 0.03
 		}
@@ -8306,7 +8305,7 @@ generic_horsey_organization = {
 		all_parents = { generic_mio_trait_prefab }
 		relative_position_id = generic_mio_trait_prefab		
 		limit_to_equipment_type = { artyhorse_equipment }
-		mutually_exclusive = { generic_mio_trait_sturdy }
+
 		equipment_bonus = {
 			maximum_speed = 0.01
 		}

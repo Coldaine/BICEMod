@@ -1,0 +1,133 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.2
+
+###########################
+
+spriteTypes = {		
+
+### GER - brandenburg
+
+spriteType = { name = "GFX_unit_brandenburg_brigade_icon_medium"				textureFile = "gfx/interface/counters/divisions_large/unit_brandenburg_brigade_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_brandenburg_brigade_icon_medium_white"				textureFile = "gfx/interface/counters/divisions_small/onmap_unit_brandenburg_brigade_icon.dds" noOfFrames = 2}
+
+###### 
+
+	
+### ENG - royal_naval_commandos
+
+spriteType = { name = "GFX_unit_royal_naval_commandos_brigade_icon_medium"				textureFile = "gfx/interface/counters/divisions_large/unit_royal_naval_commandos_brigade_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_royal_naval_commandos_brigade_icon_medium_white"				textureFile = "gfx/interface/counters/divisions_small/onmap_unit_royal_naval_commandos_brigade_icon.dds" noOfFrames = 2}
+
+###### 
+
+	
+### FRA - foreign_legion_infantry
+
+spriteType = { name = "GFX_unit_foreign_legion_infantry_brigade_icon_medium"			textureFile = "gfx/interface/counters/divisions_large/unit_foreign_legion_infantry_brigade_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_foreign_legion_infantry_brigade_icon_medium_white"	textureFile = "gfx/interface/counters/divisions_small/onmap_unit_foreign_legion_infantry_brigade_icon.dds" noOfFrames = 2}
+
+
+
+###### 
+
+	
+### ITA - 80th_infantry_division_la_spezia
+
+spriteType = { name = "GFX_unit_marine_paratroopers_brigade_icon_medium"				textureFile = "gfx/interface/counters/divisions_large/unit_bersaglieri_brigade_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_marine_paratroopers_brigade_icon_medium_white"				textureFile = "gfx/interface/counters/divisions_small/onmap_unit_bersaglieri_brigade_icon.dds" noOfFrames = 2}
+	
+
+###### 
+	
+
+### SOV - soviet_naval_scouts
+
+
+spriteType = { name = "GFX_unit_soviet_naval_scouts_brigade_icon_medium"			textureFile = "gfx/interface/counters/divisions_large/unit_soviet_naval_scouts_brigade_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_soviet_naval_scouts_brigade_icon_medium_white"			textureFile = "gfx/interface/counters/divisions_small/onmap_unit_soviet_naval_scouts_brigade_icon.dds" noOfFrames = 2}
+
+
+###### 
+
+	
+### USA - army_rangers
+
+spriteType = { name = "GFX_unit_army_rangers_brigade_icon_medium"				textureFile = "gfx/interface/counters/divisions_large/unit_army_rangers_brigade_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_army_rangers_brigade_icon_medium_white"				textureFile = "gfx/interface/counters/divisions_small/onmap_unit_army_rangers_brigade_icon.dds" noOfFrames = 2}
+
+
+###### 
+
+	
+### JAP - Tokubetsu_Rikusentai (takasago_giyutai)
+
+spriteType = { name = "GFX_unit_Tokubetsu_Rikusentai_brigade_icon_medium"				textureFile = "gfx/interface/counters/divisions_large/unit_takasago_giyutai_brigade_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_Tokubetsu_Rikusentai_brigade_icon_medium_white"			textureFile = "gfx/interface/counters/divisions_small/onmap_unit_takasago_giyutai_brigade_icon.dds" noOfFrames = 2}
+
+
+###### 
+
+	
+### brigade - pack_howitzers
+
+spriteType = { name = "GFX_unit_pack_howitzers_brigade_icon_medium"				textureFile = "gfx/interface/counters/divisions_large/unit_pack_howitzers_brigade_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_pack_howitzers_brigade_icon_medium_white"			textureFile = "gfx/interface/counters/divisions_small/onmap_unit_pack_howitzers_brigade_icon.dds" noOfFrames = 2}
+
+
+###### 
+
+
+### support - flamethrower
+
+
+spriteType = { name = "GFX_unit_flamethrower_EF_icon_medium"			textureFile = "gfx/interface/counters/divisions_large/unit_flamethrower_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_flamethrower_EF_icon_medium_white"			textureFile = "gfx/interface/counters/divisions_small/onmap_unit_flamethrower_icon.dds" noOfFrames = 2}
+
+
+###### 
+
+
+### support - sniper
+
+
+spriteType = { name = "GFX_unit_sniper_EF_icon_medium"			textureFile = "gfx/interface/counters/divisions_large/unit_sniper_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_sniper_EF_icon_medium_white"			textureFile = "gfx/interface/counters/divisions_small/onmap_unit_sniper_icon.dds" noOfFrames = 2}
+
+###### 
+
+
+### support - mortar
+
+
+spriteType = { name = "GFX_unit_mortar_EF_icon_medium"			textureFile = "gfx/interface/counters/divisions_large/unit_mortar_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_mortar_EF_icon_medium_white"			textureFile = "gfx/interface/counters/divisions_small/onmap_unit_mortar_icon.dds" noOfFrames = 2}
+
+
+###### 
+
+
+### support - commandHQ
+
+
+spriteType = { name = "GFX_unit_commandHQ_EF_icon_medium"			textureFile = "gfx/interface/counters/divisions_large/unit_command_icon.dds" noOfFrames = 2 }
+
+spriteType = { name = "GFX_unit_commandHQ_EF_icon_medium_white"			textureFile = "gfx/interface/counters/divisions_small/onmap_unit_command_icon.dds" noOfFrames = 2}
+
+
+
+
+
+}

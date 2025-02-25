@@ -1,0 +1,78 @@
+###
+### BETTER MECHANICS: ELITE FORCE
+### By Von Kaja and Arcane Master
+### Version 4.3
+
+###########################
+spriteTypes = {		
+
+### GER - brandenburg
+
+	
+	spriteType = {
+		name = "GFX_report_event_elite_GER"
+		texturefile = "gfx/event_pictures/report_event_brandeburg.dds"
+	}
+
+###### 
+
+### ENG - commando
+
+	
+	spriteType = {
+		name = "GFX_report_event_elite_ENG"
+		texturefile = "gfx/event_pictures/report_event_commando.dds"
+	}
+
+###### 
+
+### FRA - foreign_legion
+
+	
+	spriteType = {
+		name = "GFX_report_event_elite_FRA"
+		texturefile = "gfx/event_pictures/report_event_foreign_legion.dds"
+	}
+
+###### 
+
+### ITA - la_spezia
+
+	
+	spriteType = {
+		name = "GFX_report_event_elite_ITA"
+		texturefile = "gfx/event_pictures/report_event_la_spezia.dds"
+	}
+
+###### 
+
+### SOV - soviet_scout
+
+	
+	spriteType = {
+		name = "GFX_report_event_elite_SOV"
+		texturefile = "gfx/event_pictures/report_event_soviet_scout.dds"
+	}
+
+###### 
+
+### USA - army_ranger
+
+	
+	spriteType = {
+		name = "GFX_report_event_elite_USA"
+		texturefile = "gfx/event_pictures/report_event_army_rangers.dds"
+	}
+
+###### 
+
+### JAP - takasago_giyutai
+
+	
+	spriteType = {
+		name = "GFX_report_event_elite_JAP"
+		texturefile = "gfx/event_pictures/report_event_takasago_giyutai.dds"
+	}
+
+###### 
+}
