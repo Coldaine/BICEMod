@@ -394,72 +394,15 @@ ITA_destroyer_leader_3
 
 mio_cat_eq_all_battleship = { #Includes all Battleships (BB, BC, SHBB, Pre-Dreadnought)
 	equipment_type = {
-		
-	battleship_pdn
-battleship_dn
-battleship_adv_dn
-battleship_1
-battleship_2
-battleship_3
-battleship_4
-SH_battleship_1
-SH_battleship_2
-JAP_battleship_1
-JAP_battleship_1b
-JAP_battleship_2b
-JAP_SH_battleship_1
-JAP_SH_battleship_2
-USA_battleship_1
-USA_battleship_1b
-USA_battleship_1c
-USA_battleship_1d
-USA_battleship_1e
-USA_battleship_1f
-USA_battleship_1g
-USA_battleship_2
-USA_battleship_2b
-USA_battleship_3
-USA_SH_battleship_1
-ENG_battleship_1
-ENG_battleship_1b
-ENG_battleship_1c
-ENG_battleship_2
-ENG_battleship_3
-ENG_battleship_3b
-ENG_SH_battleship_1
-GER_battleship_1
-GER_battleship_1a
-GER_battleship_1a_38
-GER_battleship_1b
-GER_battleship_2
-GER_SH_battleship_1
-GER_SH_battleship_2
-SOV_battleship_1
-SOV_battleship_1b
-SOV_battleship_1c
-SOV_battleship_2
-SOV_battleship_3
-SOV_battleship_4
-SOV_battleship_5
-ITA_battleship_1
-ITA_battleship_2
-ITA_battleship_3
-ITA_battleship_3b
-ITA_battleship_4
-FRA_battleship_1
-FRA_battleship_1b
-FRA_battleship_2
-FRA_battleship_2b
-FRA_battleship_3
-FRA_battleship_4
-FRA_battleship_4b
-JAP_fast_battleship_1
-ENG_fast_battleship_1
-FRA_fast_battleship_1
-FRA_fast_battleship_2
-FRA_fast_battleship_3
-GER_pocket_battleship_1
-pocket_battleship
+		nrm_ship_hull_capital
+		nrm_ship_hull_capital_g1
+		nrm_ship_hull_capital_g2
+		nrm_ship_hull_capital_g3
+		nrm_ship_hull_capital_0
+		nrm_ship_hull_capital_1
+		nrm_ship_hull_capital_2
+		nrm_ship_hull_capital_3
+		nrm_ship_hull_capital_4
 	
 	}
 }
