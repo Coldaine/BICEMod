@@ -3,6 +3,62 @@ ideas = {
 	trade_unions = {
 		law = yes
 		use_list_view = yes
+
+		slavery_allowed = {
+			picture = legal_slavery
+		
+			available = {
+				NOT = {
+				has_government = democratic
+				has_government = communism
+				}
+			}
+			
+	        cost = 100
+			removal_cost = -1
+			level = 6
+
+			modifier = {
+				industrial_capacity_dockyard = 0.25
+				industrial_capacity_factory = 0.25
+				stability_factor = -0.25
+				production_factory_max_efficiency_factor = -0.15
+				production_factory_efficiency_gain_factor = -0.20
+				war_support_weekly = -0.025
+				consumer_goods_factor = -0.10
+				local_resources_factor = 0.20
+			}
+			
+			cancel_if_invalid = yes
+		}
+
+		child_labour = {
+			picture = legal_child_labour
+		
+			available = {
+				NOT = {
+				has_government = democratic
+				has_government = communism
+				}
+			}
+			
+	        cost = 100
+			removal_cost = -1
+			level = 5
+
+			modifier = {
+				industrial_capacity_dockyard = 0.125
+				industrial_capacity_factory = 0.125
+				stability_factor = -0.15
+				production_factory_max_efficiency_factor = -0.1
+				production_factory_efficiency_gain_factor = -0.15
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.15
+			}
+			
+			cancel_if_invalid = yes
+		}
+
 		
 		trade_unions_banned = {
 			picture = trade_unions_banned
