@@ -177,9 +177,9 @@ on_actions = {
 	on_monthly = {
 		random_events = {
 			1000 = 0
-			20 = monuments_events.3
-			50 = monuments_events.4
-			1 = monuments_events.12 # very rare, if you get this you are lucky
+			50 = monuments_events.3
+			90 = monuments_events.4
+			10 = monuments_events.12 # very rare, if you get this you are lucky
 		}
 		effect = {
 			every_state = {

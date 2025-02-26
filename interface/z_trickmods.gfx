@@ -17,5 +17,16 @@ spriteTypes = {
 		name = "GFX_idea_GER_alkett"
 		texturefile = "gfx/interface/ideas/idea_GER_alkett.dds"
 		}
+	spriteType = {
+		name = "GFX_idea_GER_fieseler"
+		texturefile = "gfx/interface/ideas/idea_GER_fieseler.dds"
+	}
+
+	spriteType = {
+		name = "GFX_idea_GER_kriegsmarinewerft_wilhelmshaven"
+		texturefile = "gfx/interface/ideas/idea_GER_kriegsmarinewerft_wilhelmshaven.dds"
+	}
+
+
 	
 }

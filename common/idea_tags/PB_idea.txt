@@ -1,19 +1,6 @@
 idea_categories = {
 
 
-
-policyspacer = {
-		ledger = civilian
-		cost = 100
-		removal_cost = -1
-}
-
-policyspacer2 = {
-		ledger = civilian
-		cost = 100
-		removal_cost = -1
-}
-
 	policies = {
 		slot = citizenship_laws
 		
@@ -55,9 +42,9 @@ policyspacer2 = {
 		slot = supervision
 		slot = non_core_integration
 		slot = female_service
-		slot = quality_of_training
 		slot = extent_of_conscription
 		slot = draft_exemptions
+		slot = economic_system
 
 
 		ledger = civilian

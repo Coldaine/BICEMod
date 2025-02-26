@@ -2175,7 +2175,7 @@ GER_fieseler_organization = {
 
 
 		production_bonus = {
-			production_capacity_factor = 0.05
+			production_capacity_factor = 0.1
 		}
 
 		ai_will_do = {

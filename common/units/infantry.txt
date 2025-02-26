@@ -1234,7 +1234,7 @@ sub_units = {
 		manpower = 1000
 		
 		suppression = 0.8
-		
+		maximum_speed = 0.6
 		transport = infantry_equipment
 
 		need = {
@@ -1251,12 +1251,12 @@ sub_units = {
 		hills = {
 			attack = 0.25
 			defence = 0.25
-			movement = 0.15
+			movement = 0.2
 		}
 		mountain = {
 			attack = 0.3
 			defence = 0.3
-			movement = 0.2
+			movement = 0.25
 		}
 	}
 	paratrooper = {

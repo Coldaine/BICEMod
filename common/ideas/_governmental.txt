@@ -116,7 +116,7 @@ ideas = {
 				NOT = {
 				has_government = communism
 				has_government = fascism
-				has_country_leader_ideology = socialism
+				has_government = socialism
 				}
 			}
 			
@@ -291,7 +291,7 @@ ideas = {
 		
 			available = {
 				NOT = { 
-				has_country_leader_ideology = socialism
+					has_government = socialism
 				}
 			}
 			
@@ -355,8 +355,8 @@ ideas = {
 		
 			available = {
 				OR = {
-					has_country_leader_ideology = socialism
-					has_country_leader_ideology = liberalism
+					has_government = socialism
+					has_government = liberalism
 				}
 			}
 			

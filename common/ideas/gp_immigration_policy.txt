@@ -8,7 +8,7 @@ ideas = {
 
          available = {
             NOT = {
-                has_government = fascism
+                has_government = monarchism
             }
          }
 
@@ -49,7 +49,7 @@ ideas = {
        citizenship = {
         available = {
             NOT = {
-                has_government = fascism
+                has_government = monarchism
             }
         }
 

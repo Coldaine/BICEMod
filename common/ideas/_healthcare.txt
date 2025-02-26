@@ -15,7 +15,6 @@ ideas = {
             picture = PB_Universal_Healthcare
                   	level = 4
 			modifier = {
-				monthly_population = 0.10
 				experience_loss_factor = -0.05
 				consumer_goods_factor = 0.05
 				monthly_population = 0.2

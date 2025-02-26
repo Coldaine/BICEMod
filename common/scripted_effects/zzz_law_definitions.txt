@@ -1502,7 +1502,7 @@ bonds_basic_data ={
 	custom_effect_tooltip = space_TT
 	add_timed_idea = {
 		idea = bonds_basic_temp
-		days = 270
+		days = 365
 	}		
 	custom_effect_tooltip = bonds_no_downgrade_TT	
 	
@@ -1518,7 +1518,7 @@ bonds_war_domestic_data ={
 	custom_effect_tooltip = space_TT
 	add_timed_idea = {
 		idea = bonds_war_domestic_temp
-		days = 270
+		days = 365
 	}
 	custom_effect_tooltip = bonds_no_downgrade_TT
 	hidden_effect = {
@@ -1539,7 +1539,7 @@ bonds_war_international_data ={
 	custom_effect_tooltip = space_TT
 	add_timed_idea = {
 		idea = bonds_war_international_temp
-		days = 270
+		days = 365
 	}
 	custom_effect_tooltip = bonds_no_downgrade_TT
 	hidden_effect = {
@@ -1561,7 +1561,7 @@ bonds_war_public_data ={
 	custom_effect_tooltip = space_TT
 	add_timed_idea = {
 		idea = bonds_war_public_temp
-		days = 270
+		days = 365
 	}
 	custom_effect_tooltip = bonds_no_downgrade_TT
 	hidden_effect = {
@@ -1585,7 +1585,7 @@ bonds_state_requisition_data ={
 	custom_effect_tooltip = space_TT
 	add_timed_idea = {
 		idea = bonds_state_requisition_temp
-		days = 270
+		days = 365
 	}
 	custom_effect_tooltip = bonds_no_downgrade_TT
 	hidden_effect = {
@@ -1611,7 +1611,7 @@ bonds_print_data ={
 	custom_effect_tooltip = space_TT
 	add_timed_idea = {
 		idea = bonds_print_temp
-		days = 270
+		days = 365
 	}
 	custom_effect_tooltip = bonds_no_downgrade_TT
 	hidden_effect = {

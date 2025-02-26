@@ -143,28 +143,71 @@ leader_traits = {
 #		type = operative
 #	}
 
-	
-	
-	operative_manipulative_emissary = {
-		type = operative
+meticulous = { 
+		type = land
 		trait_type = personality_trait
-
-		cost = 500
-		gain_xp_leader = {
-			OR = {
-				operative_leader_operation = operation_collaboration_government
-				operative_leader_operation = operation_infiltrate_civilian
 		
-				
+		modifier = {
+			planning_speed = -0.25
+			max_planning = 0.25
+		}
+		planning_skill_factor = 1
+
+		new_commander_weight = {
+			factor = 1  
+			
+			modifier = {
+				is_army_leader = yes
+				FROM = { has_idea = best_of_the_best_spirit }
+				factor = 0
+			}
+			modifier = {
+				is_navy_leader = yes
+				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
+				factor = 0
+			}
+			modifier = {
+				FROM = { has_idea = academy_scholarships_spirit }
+				factor = 0
+			}
+			modifier = {
+				FROM = { has_idea = naval_academy_scholarships_spirit }
+				factor = 0
 			}
 		}
-
+		
+	}	
+	decided_planner = { 
+		type = land
+		trait_type = personality_trait
+		
 		modifier = {
-			diplomatic_pressure_mission_factor = 0.25
-			isolate_nation_risk = -0.25
-			isolate_nation_factor = 0.25
-			operation_install_friendly_leader_outcome = 0.25
-			operation_install_friendly_leader_risk = -0.25
+			max_planning = -0.15
+			planning_speed = 0.4
+		}
+		attack_skill_factor = 1
+
+		new_commander_weight = {
+			factor = 1  
+			
+			modifier = {
+				is_army_leader = yes
+				FROM = { has_idea = best_of_the_best_spirit }
+				factor = 0
+			}
+			modifier = {
+				is_navy_leader = yes
+				FROM = { has_idea = best_of_the_best_naval_academy_spirit }
+				factor = 0
+			}
+			modifier = {
+				FROM = { has_idea = academy_scholarships_spirit }
+				factor = 0
+			}
+			modifier = {
+				FROM = { has_idea = naval_academy_scholarships_spirit }
+				factor = 0
+			}
 		}
 	}
 	

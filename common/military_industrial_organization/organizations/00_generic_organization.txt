@@ -5568,7 +5568,9 @@ generic_naval_aircraft_organization = {
 cv_CAS_equipment
 cv_nav_bomber_equipment
 cv_fighter_equipment
-			
+nav_bomber_equipment
+heavy_nav_bomber_equipment
+
 	}
 
 	research_categories = { mio_cat_all_naval_bomber_and_modules 
@@ -6809,7 +6811,8 @@ generic_artillery_organization = {
 		artillery
 		anti_air
 		rocket
-
+		anti_tank
+		anti_tank_equipment
 	}
 
 	research_categories = {
@@ -7145,11 +7148,11 @@ generic_infantry_equipment_organization = {
 		name = generic_mio_initial_trait_infantry_manufacturer
 
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.01
+			military_industrial_organization_research_bonus = 0.03
 		}
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.01
+			production_efficiency_cap_factor = 0.04
 		}
 
 	}
@@ -7166,8 +7169,8 @@ generic_infantry_equipment_organization = {
 			HMG_equipment
 		}
 		equipment_bonus = {
-			defense = 0.01
-			soft_attack = 0.02
+			defense = 0.03
+			soft_attack = 0.05
 		}
 	}
 
@@ -7184,8 +7187,8 @@ generic_infantry_equipment_organization = {
 			HMG_equipment
 		}
 		equipment_bonus = {
-			breakthrough = 0.02
-			reliability = 0.01
+			breakthrough = 0.05
+			reliability = 0.04
 		}
 	}
 
@@ -7205,8 +7208,8 @@ generic_infantry_equipment_organization = {
 			infantry_equipment
 		}
 		equipment_bonus = {
-			soft_attack = 0.05
-			hard_attack = 0.15
+			soft_attack = 0.07
+			hard_attack = 0.20
 			reliability = -0.01
 			build_cost_ic = 0.02
 		}
@@ -7230,11 +7233,12 @@ generic_infantry_equipment_organization = {
 		}
 		
 		equipment_bonus = {
-			soft_attack = 0.02
-			defense = 0.02
+			soft_attack = 0.05
+			defense = 0.03
 		}
 
 		production_bonus = {
+			production_efficiency_cap_factor = 0.04
 		}
 	}
 
@@ -7266,8 +7270,8 @@ generic_infantry_equipment_organization = {
 		all_parents = { generic_mio_trait_advanced_barrel_forging }
 
 		production_bonus = {
-			production_efficiency_cap_factor = 0.02
-			production_cost_factor = -0.03
+			production_efficiency_cap_factor = 0.05
+			production_cost_factor = -0.04
 		}
 
 		organization_modifier = {
@@ -7287,7 +7291,7 @@ generic_infantry_equipment_organization = {
 		all_parents = { generic_mio_trait_scopes generic_mio_trait_reinforced_stocks }
 
 		equipment_bonus = {
-			reliability = 0.03
+			reliability = 0.06
 		}
 		production_bonus = {
 			production_resource_penalty_factor = 0.05
@@ -7307,11 +7311,11 @@ generic_infantry_equipment_organization = {
 
 
 		equipment_bonus = {
-			reliability = 0.01
-			ap_attack = 0.01
+			reliability = 0.04
+			ap_attack = 0.04
 		}
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.03
+			military_industrial_organization_research_bonus = 0.05
 		}
 	}
 
@@ -7331,8 +7335,8 @@ generic_infantry_equipment_organization = {
 		}
 
 		equipment_bonus = {
-			defense = 0.02
-			breakthrough = 0.03
+			defense = 0.05
+			breakthrough = 0.06
 		}
 	}
 	trait = { 
@@ -7349,8 +7353,8 @@ generic_infantry_equipment_organization = {
 
 
 		equipment_bonus = {
-			reliability = 0.01
-			defense = 0.02
+			reliability = 0.03
+			defense = 0.05
 		}
 	}
 	trait = { 
@@ -7367,8 +7371,8 @@ generic_infantry_equipment_organization = {
 		}
 
 		equipment_bonus = {
-			soft_attack = 0.02
-			breakthrough = 0.03
+			soft_attack = 0.04
+			breakthrough = 0.06
 		}
 	}
 	trait = { #gas chamber
@@ -7380,7 +7384,7 @@ generic_infantry_equipment_organization = {
 		relative_position_id = generic_mio_trait_reinforced_stocks
 
 		equipment_bonus = {
-			breakthrough = 0.02
+			breakthrough = 0.05
 		}
 	}
 
@@ -7397,8 +7401,8 @@ generic_infantry_equipment_organization = {
 
 
 		equipment_bonus = {
-			breakthrough = 0.05
-			reliability = -0.03
+			breakthrough = 0.1
+			reliability = -0.04
 		}
 	}
 
@@ -7416,8 +7420,8 @@ generic_infantry_equipment_organization = {
 
 		equipment_bonus = {
 			defense = 0.02
-			soft_attack = 0.02
-			reliability = 0.01
+			soft_attack = 0.05
+			reliability = 0.02
 		}
 	}
 
@@ -7432,8 +7436,8 @@ generic_infantry_equipment_organization = {
 		any_parent = { generic_mio_trait_rubber_cushioned_buttpad generic_mio_trait_fire_rate }
 
 		equipment_bonus = {
-			breakthrough = 0.04
-			soft_attack = 0.02
+			breakthrough = 0.08
+			soft_attack = 0.05
 
 		}
 	}
@@ -7484,10 +7488,10 @@ generic_support_equipment_organization = {
 		name = generic_mio_initial_trait_support_equipment_manufacturer
 
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.01
+			military_industrial_organization_research_bonus = 0.05
 		}
 		production_bonus = {
-			production_efficiency_gain_factor = 0.01
+			production_efficiency_gain_factor = 0.05
 		}
 	}
 
@@ -7552,7 +7556,7 @@ generic_support_equipment_organization = {
 		}
 		
 		production_bonus = {
-			production_efficiency_cap_factor = 0.05
+			production_efficiency_cap_factor = 0.1
 			production_resource_need_factor = 0.1
 		}
 	}
@@ -7572,7 +7576,7 @@ generic_support_equipment_organization = {
 		}
 
 		production_bonus = {
-			production_efficiency_gain_factor = 0.05
+			production_efficiency_gain_factor = 0.1
 		}
 	}
 
@@ -7593,7 +7597,7 @@ generic_support_equipment_organization = {
 		}
 
 		production_bonus = {
-			production_capacity_factor = 0.05
+			production_capacity_factor = 0.1
 		}
 	}
 	
@@ -7625,7 +7629,7 @@ generic_support_equipment_organization = {
 			mio_cat_eq_all_special_forces
 		}
 		equipment_bonus = {
-			reliability = 0.03
+			reliability = 0.09
 		}
 	}
 	trait = {
@@ -7646,7 +7650,7 @@ generic_support_equipment_organization = {
 			jungle_equipment
 		}
 		equipment_bonus = {
-			acclimatization_hot_climate_gain_factor = 0.1
+			acclimatization_hot_climate_gain_factor = 0.15
 		}
 	}	
 	trait = {
@@ -7667,7 +7671,7 @@ generic_support_equipment_organization = {
 			jungle_equipment
 		}
 		equipment_bonus = {
-			acclimatization_cold_climate_gain_factor = 0.1
+			acclimatization_cold_climate_gain_factor = 0.15
 		}
 	}
 	trait = {
@@ -7686,7 +7690,7 @@ generic_support_equipment_organization = {
 			jungle_equipment
 		}
 		equipment_bonus = {
-			default_morale = 0.01
+			default_morale = 0.04
 			build_cost_ic = 0.03
 		}
 	}
@@ -7699,7 +7703,7 @@ generic_support_equipment_organization = {
 		relative_position_id = generic_mio_trait_material_recycling
 
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.03
+			military_industrial_organization_research_bonus = 0.05
 		}
 	}
 
@@ -7715,7 +7719,7 @@ generic_support_equipment_organization = {
 		all_parents = { generic_mio_trait_private_scientists_program }
 
 		organization_modifier = {
-			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_funds_gain = 0.15
 		}
 	}
 
@@ -7732,7 +7736,7 @@ generic_support_equipment_organization = {
 		}
 
 		equipment_bonus = {
-			ap_attack = 0.1
+			ap_attack = 0.2
 		}
 	}
 
@@ -7751,7 +7755,7 @@ generic_support_equipment_organization = {
 		limit_to_equipment_type = { handheld_at_equipment }
 
 		equipment_bonus = {
-			hard_attack = 0.1
+			hard_attack = 0.15
 			build_cost_ic = 0.05
 		}
 	}
@@ -7772,7 +7776,7 @@ generic_support_equipment_organization = {
 		}
 
 		equipment_bonus = {
-			defense = 0.02
+			defense = 0.05
 		}
 	}
 
@@ -7793,9 +7797,9 @@ generic_support_equipment_organization = {
 		}
 
 		equipment_bonus = {
-			breakthrough = 0.05
-			soft_attack = 0.02
-			suppression = 0.03
+			breakthrough = 0.07
+			soft_attack = 0.03
+			suppression = 0.05
 		}
 	}
 
@@ -7813,7 +7817,7 @@ generic_support_equipment_organization = {
 		limit_to_equipment_type = { garrison_equipment }
 
 		equipment_bonus = {
-			maximum_speed = 0.05
+			maximum_speed = 0.1
 			build_cost_ic = 0.035
 		}
 	}

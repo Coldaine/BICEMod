@@ -196,7 +196,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE1 y = @1918 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -293,7 +294,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE1 y = @1938 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -303,7 +305,7 @@ technologies = {
 					
 				bonus = {
 					armor = {
-						build_cost_ic = -0.01 instant = yes
+						build_cost_ic = -0.03 instant = yes
 					}
 				}
 			}
@@ -364,7 +366,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_ATHICK y = @1918 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -409,7 +412,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_ATHICK y = @1934 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -465,7 +469,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_ATHICK y = @1938 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -517,7 +522,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_ATHICK y = @1942 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -555,7 +561,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE2 y = @1939 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -595,7 +602,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE2 y = @1945 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -635,7 +643,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE1 y = @1943 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -673,7 +682,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE2 y = @1944 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -711,7 +721,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE1 y = @1946 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -751,7 +762,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE1 y = @1941 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -789,7 +801,8 @@ technologies = {
 		folder = {
 			name = tank_techs_folder
 			position = { x = @TECH_MODULE1 y = @1944 }
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			factor = 0
 		}
@@ -844,7 +857,8 @@ technologies = {
 			support_tech
 			recon_tech
 			motorized_equipment	
-		}				special_project_specialization = { specialization_land }
+		}		
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -894,7 +908,8 @@ technologies = {
 			support_tech
 			recon_tech
 			motorized_equipment	
-		}			special_project_specialization = { specialization_land }
+		}	
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -942,7 +957,8 @@ technologies = {
 			support_tech
 			recon_tech
 			motorized_equipment	
-		}			special_project_specialization = { specialization_land }
+		}	
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -990,7 +1006,8 @@ technologies = {
 			support_tech
 			recon_tech
 			motorized_equipment	
-		}			special_project_specialization = { specialization_land }
+		}	
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -1034,7 +1051,8 @@ technologies = {
 			support_tech
 			recon_tech
 			motorized_equipment	
-		}			special_project_specialization = { specialization_land }
+		}	
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -1086,7 +1104,8 @@ technologies = {
 		categories = {
 			support_tech
 			motorized_equipment
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -1142,7 +1161,8 @@ technologies = {
 		categories = {
 			support_tech
 			motorized_equipment
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -1189,7 +1209,8 @@ technologies = {
 		categories = {
 			support_tech
 			motorized_equipment
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -1243,7 +1264,8 @@ technologies = {
 		categories = {
 			support_tech
 			armor_tech
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
@@ -1292,7 +1314,8 @@ technologies = {
 		categories = {
 			support_tech
 			armor_tech
-		}		special_project_specialization = { specialization_land }
+		}
+		special_project_specialization = { specialization_land }
 		ai_will_do = {
 			base = 0
 			modifier = { 
