@@ -6,27 +6,27 @@ modifiers = {
 		type = { fighter interceptor }
 		chance = 0.9
 		effect = {
-			air_attack_factor = 0.04
-			air_maximum_speed_factor = 0.01
-			air_agility_factor = 0.04
+			air_attack_factor = 0.08
+			air_maximum_speed_factor = 0.03
+			air_agility_factor = 0.08
 		}
 	}
 	fighter_unique = {
 		type = { fighter interceptor }
-		chance = 0.4
+		chance = 0.6
 		effect = {
-			air_attack_factor = 0.08
-			air_maximum_speed_factor = 0.02
-			air_agility_factor = 0.08
+			air_attack_factor = 0.12
+			air_maximum_speed_factor = 0.06
+			air_agility_factor = 0.12
 		}
 	}
 	fighter_genius = {
 		type = { fighter interceptor }
-		chance = 0.05
+		chance = 0.1
 		effect = {
-			air_attack_factor = 0.12
-			air_maximum_speed_factor = 0.03
-			air_agility_factor = 0.12
+			air_attack_factor = 0.2
+			air_maximum_speed_factor = 0.1
+			air_agility_factor = 0.2
 		}
 	}
 
@@ -35,24 +35,27 @@ modifiers = {
 		type = { tactical_bomber strategic_bomber }
 		chance = 0.9
 		effect = {
-			air_strategic_bomber_bombing_factor = 0.05
-			air_agility_factor = 0.05
+			air_strategic_bomber_bombing_factor = 0.1
+			air_agility_factor = 0.1
+			air_maximum_speed_factor = 0.03
 		}
 	}
 	bomber_unique = {
 		type = { tactical_bomber strategic_bomber }
-		chance = 0.4
+		chance = 0.6
 		effect = {
-			air_strategic_bomber_bombing_factor = 0.10
-			air_agility_factor = 0.1
+			air_strategic_bomber_bombing_factor = 0.15
+			air_agility_factor = 0.15
+			air_maximum_speed_factor = 0.06
 		}
 	}
 	bomber_genius = {
 		type = { tactical_bomber strategic_bomber }
-		chance = 0.05
+		chance = 0.15
 		effect = {
-			air_strategic_bomber_bombing_factor = 0.15
-			air_agility_factor = 0.15
+			air_strategic_bomber_bombing_factor = 0.25
+			air_agility_factor = 0.2
+			air_maximum_speed_factor = 0.15
 		}
 	}
 
@@ -61,15 +64,16 @@ modifiers = {
 		type = { cas tactical_bomber naval_bomber }
 		chance = 0.9
 		effect = {
-			naval_strike_targetting_factor = 0.05
-			ground_attack_factor = 0.03
-			air_strategic_bomber_bombing_factor = 0.03
-			air_agility_factor = 0.05
+			naval_strike_targetting_factor = 0.1
+			ground_attack_factor = 0.1
+			air_strategic_bomber_bombing_factor = 0.06
+			air_agility_factor = 0.1
+			air_maximum_speed_factor = 0.03
 		}
 	}
 	support_unique = {
 		type = { cas tactical_bomber naval_bomber }
-		chance = 0.4
+		chance = 0.6
 		effect = {
 			naval_strike_targetting_factor = 0.1
 			ground_attack_factor = 0.05
@@ -79,7 +83,7 @@ modifiers = {
 	}
 	support_genius = {
 		type = { cas tactical_bomber naval_bomber }
-		chance = 0.05
+		chance = 0.15
 		effect = {
 			naval_strike_targetting_factor = 0.15
 			ground_attack_factor = 0.08

@@ -844,7 +844,7 @@ NMilitary = {
 	MULTIPLE_COMBATS_PENALTY = -0.5,               					-- defender penalty if attacked from multiple directions
 	DIG_IN_FACTOR = 0.01,						   					-- bonus factor for each dug-in level
 	
-	BASE_LEADER_TRAIT_GAIN_XP = 0.60,		  					-- Base xp gain for traits per hour for armies
+	BASE_LEADER_TRAIT_GAIN_XP = 2.50,		  					-- Base xp gain for traits per hour for armies
 	ARMY_LEADER_XP_GAIN_PER_UNIT_IN_COMBAT = 0.15, 					-- XP gain per unit in combat
 	CONSTANT_XP_RATIO_FOR_MULTIPLE_LEADERS_IN_SAME_COMBAT = 0.5, 	-- if there are multiple leaders in same combat, each one gets thisratio + (1-thisratio)/num leaders. amount of xp each general gets scales 1 0.75 0.66 etc for 1 2 3 generals
 	DIVISION_SIZE_FOR_XP = 10,                  		-- how many battalions should a division have to count as a full divisions when calculating XP stuff
@@ -877,7 +877,7 @@ NMilitary = {
 	ARMY_EXP_BASE_LEVEL = 10,
 	UNIT_EXP_LEVELS = { 0.02, 0.04, 0.06, 0.08, 0.1, 0.14, 0.18, 0.22, 0.26, 0.3, 0.39, 0.48, 0.57, 0.66, 0.75, 0.78, 0.81, 0.84, 0.87, 0.9 },	-- Experience needed to progress to the next level
 	FIELD_EXPERIENCE_SCALE = 0.002,
-	FIELD_EXPERIENCE_MAX_PER_DAY = 3,				-- Most xp you can gain per day
+	FIELD_EXPERIENCE_MAX_PER_DAY = 5,				-- Most xp you can gain per day
 	EXPEDITIONARY_FIELD_EXPERIENCE_SCALE = 0.5,		-- reduction factor in Xp from expeditionary forces
 	LEND_LEASE_FIELD_EXPERIENCE_SCALE = 0.005,		-- Experience scale for lend leased equipment used in combat.
 	LEADER_EXPERIENCE_SCALE = 1.0,
@@ -1063,7 +1063,7 @@ NMilitary = {
 	
 	FIELD_MARSHAL_ARMY_BONUS_RATIO = 0.5,          	 -- ratio to apply regular bonuses FM bonuses to armies
 	
-	FIELD_MARSHAL_XP_RATIO = 0.25,						-- xp gain ratio for army group leaders
+	FIELD_MARSHAL_XP_RATIO = 0.35,						-- xp gain ratio for army group leaders
 	
 	GARRISON_ORDER_ARMY_CAP_FACTOR = 1.5,				-- armies gets increased cap when they are garrisoned
 	
@@ -1082,9 +1082,9 @@ NMilitary = {
 	}, 
 	
 	UNIT_LEADER_TRAIT_SLOT_PER_LEVEL = { 				-- num extra traits on each level
-		0.5, -- field marshal
-		0.5, -- corps commander
-		0.5, -- navy general
+		1.0, -- field marshal
+		1.0, -- corps commander
+		1.0, -- navy general
 		0.0, -- operative
 	}, 
 
@@ -1093,24 +1093,25 @@ NMilitary = {
 	HOURS_REQ_REJOIN_BORDER_WAR_FOR_INJURED_UNITS = 336, 	-- minimum hours required for units to rejoin border wars
 	
 	NEW_COMMANDER_RANDOM_PERSONALITY_TRAIT_CHANCES = {  	-- chances to gain a personality trait for new generals
-		0.5, -- 50% for first trait
-		0.15  -- 15% for second trait after that
+		0.85, -- 50% for first trait
+		0.55  -- 15% for second trait after that
 	},
 	
-	NEW_COMMANDER_RANDOM_BASIC_TRAIT_CHANCES = {  	-- chances to gain a basic trait for new generals
+	NEW_COMMANDER_RANDOM_BASIC_TRAIT_CHANCES = {
+		0.75  	-- chances to gain a basic trait for new generals
 	},
 	
 	NEW_COMMANDER_RANDOM_STATUS_TRAIT_CHANCES = {  	-- chances to gain a status trait for new generals
 	},
 	
 	NEW_OPERATIVE_RANDOM_PERSONALITY_TRAIT_CHANCES = {  -- chances to gain a personality trait for new operatives
-		0.5, -- 50% for first trait
-		0.1  -- 10% for second trait after that
+		0.75, -- 50% for first trait
+		0.35  -- 10% for second trait after that
 	},
 	
 	NEW_OPERATIVE_RANDOM_BASIC_TRAIT_CHANCES = {  -- chances to gain a basic trait for new operatives
-		0.25, -- 25% for first trait
-		0.05  -- 5% for second trait after that
+		0.55, -- 25% for first trait
+		0.25  -- 5% for second trait after that
 	},
 	
 	NEW_OPERATIVE_RANDOM_STATUS_TRAIT_CHANCES = {  -- chances to gain a status trait for new operatives
@@ -1546,7 +1547,7 @@ NNavy = {
 	EXPERIENCE_FACTOR_CARRIER_GAIN = 0.04,							-- Xp gain by carrier ships in the combat
 	FIELD_EXPERIENCE_SCALE = 0.150,
 	FIELD_EXPERIENCE_MAX_PER_DAY = 50,								-- Most xp you can gain per day
-	LEADER_EXPERIENCE_SCALE = 1.0,
+	LEADER_EXPERIENCE_SCALE = 1.65,
 	BATTLE_NAME_VP_FACTOR = 100,									-- Name is given by ((VP value) * BATTLE_NAME_VP_FACTOR) / (Distance VP -> battle)
 	BATTLE_NAME_VP_CUTOFF = 1.0,									-- If best score of above calculation is below this, name will be that of region.
 	AMPHIBIOUS_LANDING_PENALTY = -0.65,								-- amphibious landing penalty

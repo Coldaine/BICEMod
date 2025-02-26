@@ -8,6 +8,7 @@ is_megalopolis_state = {
 is_metropolis_state = {
 	OR = {
 		has_state_category = metropolis
+		has_state_category = berlin
 #		has_state_category = ten
 #		has_state_category = eleven
 	}

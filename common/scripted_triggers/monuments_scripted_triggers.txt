@@ -1353,9 +1353,6 @@ can_use_monument_bonuses_ignore_disabled_monument_condition = {
 		var:bonus_target = {
 			monument_ideology_trigger_fascism = yes
 		}
-		var:bonus_target = {
-			monument_character_trigger_has_character_heinrich_himmler = yes
-		}
 	}
 	else_if = {
 		limit = {

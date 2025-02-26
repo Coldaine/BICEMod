@@ -183,6 +183,7 @@ has_generic_horsey_organization = {
 	OR = {
 		is_muslim = yes
 		tag = MON
+		tag = GER
 		tag = MEN
 		tag = XSM
 	}

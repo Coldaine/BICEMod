@@ -45,7 +45,7 @@ leader_traits = {
 	################
 	german_training = {
 		sprite = 14
-		random = no
+		random = yes
 		
 		training_time_army_factor = -0.1
 		experience_gain_army_factor = 0.1

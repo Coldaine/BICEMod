@@ -85,6 +85,7 @@ generic_tank_organization = {
 
 	equipment_type = { mio_cat_eq_all_light_tank mio_cat_eq_all_medium_tank
 					armor_tech
+					anti_air_equipment
 					}
 	research_categories = { mio_cat_tech_light_armor_and_modules 
 	mio_cat_tech_medium_armor_and_modules 
@@ -4329,7 +4330,7 @@ generic_light_aircraft_organization = {
 		small_plane_cas_airframe
 		cv_small_plane_cas_airframe
 		cv_mr_fighter_equipment
-
+		fighter
 	}
 
 	research_categories = {	
@@ -5564,17 +5565,17 @@ generic_naval_aircraft_organization = {
 	}
 
 	equipment_type = {
-flying_boat_equipment
-nav_bomber_equipment
-fighter_navy_equipment
-interceptor_navy_equipment
-		small_plane_naval_bomber_airframe
-		cv_small_plane_naval_bomber_airframe
+cv_CAS_equipment
+cv_nav_bomber_equipment
+cv_fighter_equipment
 			
 	}
 
 	research_categories = { mio_cat_all_naval_bomber_and_modules 
 	air_doctrine
+	naval_air
+	fieseler_air
+	naval_bomber
 }
 
 	tree_header_text = {
@@ -6804,20 +6805,17 @@ generic_artillery_organization = {
 	allowed = {
 		has_generic_artillery_organization = yes
 	}
-
 	equipment_type = {
-		mio_cat_eq_all_artillery
-		mio_cat_eq_all_anti_tank
-		mio_cat_eq_all_anti_air
-		rocket_artillery_equipment
-		
-	}	equipment_type = {
 		artillery
+		anti_air
+		rocket
+
 	}
 
 	research_categories = {
 		armor_tech
 		artillery
+		anti_air_tech
 	}
 	
 	tree_header_text = {
@@ -6944,10 +6942,6 @@ generic_artillery_organization = {
 			 generic_mio_trait_improved_hydraulic_recoil_system
 		}
 
-		mutually_exclusive = { 
-			generic_mio_trait_improved_direct_fire_targeting
-			generic_mio_trait_advanced_anti_air_targeting
-		}
 
 		limit_to_equipment_type = { 
 			artillery_equipment
@@ -7123,8 +7117,11 @@ generic_infantry_equipment_organization = {
 	}
 
 	equipment_type = {
+		ss_infantry_uniforms
 		mio_cat_eq_all_infantry_weapons
 		mortar_equipment
+		mio_cat_horsey
+		anti_air_equipment
 	}
 	research_categories = { infantry_weapons }
 
