@@ -4752,8 +4752,6 @@ generic_medium_aircraft_organization = {
 
 		all_parents = { generic_mio_trait_mixed_material_construction }
 
-		limit_to_equipment_type = { transport_plane_equipment }
-
 		production_bonus = {
 			production_efficiency_gain_factor = 0.05
 			production_efficiency_cap_factor = 0.1
@@ -6813,9 +6811,12 @@ generic_artillery_organization = {
 		mio_cat_eq_all_anti_air
 		rocket_artillery_equipment
 		
+	}	equipment_type = {
+		artillery
 	}
 
 	research_categories = {
+		armor_tech
 		artillery
 	}
 	
@@ -6833,10 +6834,10 @@ generic_artillery_organization = {
 		name = generic_mio_initial_trait_artillery_manufacturer
 
 		organization_modifier = {
-			military_industrial_organization_research_bonus = 0.01
+			military_industrial_organization_research_bonus = 0.05
 		}
 		production_bonus = {
-			production_efficiency_cap_factor = 0.01
+			production_cost_factor = -0.03
 		}
 	}
 
@@ -6847,10 +6848,8 @@ generic_artillery_organization = {
 
 		position = { x=0 y=0 }
 
-
 		equipment_bonus = {
-			breakthrough = 0.03
-
+			breakthrough = 0.1
 		}
 	}
 
@@ -6863,9 +6862,8 @@ generic_artillery_organization = {
 		relative_position_id = generic_mio_trait_mobile_limbers
 
 
-
 		equipment_bonus = {
-			defense = 0.05
+			defense = 0.06
 		}
 	}
 
@@ -6883,7 +6881,7 @@ generic_artillery_organization = {
 		}
 
 		equipment_bonus = {
-			reliability = 0.03
+			reliability = 0.05
 		}
 	}
 
@@ -6899,9 +6897,8 @@ generic_artillery_organization = {
 			 generic_mio_trait_improved_hydraulic_recoil_system
 		}
 
-
-		
 		limit_to_equipment_type = { 
+			anti_tank_equipment
 			mio_cat_eq_all_anti_tank
 		}
 
@@ -6924,11 +6921,9 @@ generic_artillery_organization = {
 		}
 		
 
-			generic_mio_trait_improved_direct_fire_targeting
-			generic_mio_trait_advanced_trajectory_calculations
-		}
 		
 		limit_to_equipment_type = { 
+			anti_air_equipment
 			mio_cat_eq_all_anti_air
 		}
 
@@ -6949,18 +6944,19 @@ generic_artillery_organization = {
 			 generic_mio_trait_improved_hydraulic_recoil_system
 		}
 
-
+		mutually_exclusive = { 
 			generic_mio_trait_improved_direct_fire_targeting
 			generic_mio_trait_advanced_anti_air_targeting
 		}
 
 		limit_to_equipment_type = { 
+			artillery_equipment
 			mio_cat_eq_all_artillery
 			rocket_artillery_equipment
 		}
 
 		equipment_bonus = {
-			hard_attack = 0.1
+			hard_attack = 1
 			breakthrough = 0.05
 		}
 	}
@@ -6979,8 +6975,8 @@ generic_artillery_organization = {
 		}
 
 		equipment_bonus = {
-			soft_attack = 0.02
-			breakthrough = 0.01
+			soft_attack = 0.03
+			breakthrough = 0.03
 		}
 	}
 
@@ -6993,12 +6989,14 @@ generic_artillery_organization = {
 		relative_position_id = generic_mio_trait_mobile_limbers	
 
 		limit_to_equipment_type = { 
+			anti_tank_equipment
+			anti_air_equipment
 			mio_cat_eq_all_anti_tank
 			mio_cat_eq_all_anti_air
 		}
 
 		equipment_bonus = {
-			soft_attack = 0.02
+			soft_attack = 0.1
 			hard_attack = 0.04
 			air_attack = 0.04
 		}
@@ -7013,14 +7011,14 @@ generic_artillery_organization = {
 		relative_position_id = generic_mio_trait_rapid_fire
 
 		production_bonus = {
-			production_efficiency_gain_factor = 0.02
+			production_efficiency_gain_factor = 0.05
 		}
 	}
 
 	trait = {
 		token = generic_mio_trait_big_guns
 		name = generic_mio_trait_big_guns
-		icon = GFX_generic_mio_department_icon_artillery_production
+		icon = GFX_generic_mio_trait_icon_soft_attack
 
 		position = { x=2 y=0 }
 		relative_position_id = generic_mio_trait_advanced_barrel_forging
@@ -7049,8 +7047,8 @@ generic_artillery_organization = {
 		all_parents = {	generic_mio_trait_advanced_barrel_forging }
 
 		production_bonus = {
-			production_efficiency_gain_factor = 0.02
-			production_efficiency_cap_factor = 0.02
+			production_efficiency_gain_factor = 0.03
+			production_efficiency_cap_factor = 0.03
 		}
 
 		organization_modifier = {
@@ -7073,11 +7071,13 @@ generic_artillery_organization = {
 			Hvartillery_equipment
 			railartillery_equipment
 			rocket_artillery_equipment
+			artillery_equipment
+			rocket_artillery_equipment
 		}
 
 		production_bonus = {
 			production_efficiency_gain_factor = 0.03
-			production_efficiency_cap_factor = 0.02
+			production_efficiency_cap_factor = 0.03
 		}
 
 		organization_modifier = {
@@ -7101,17 +7101,15 @@ generic_artillery_organization = {
 		}
 
 		production_bonus = {
-			production_resource_need_factor = -0.05
+			production_cost_factor = -0.05
 		}
 
 		equipment_bonus = {
-			breakthrough = 0.03
-			defense = 0.05
+			breakthrough = 0.06
+			defense = 0.1
 		}
 	}
-
 }
-
 	
 ############################
 ###### Infantry Weapons ####

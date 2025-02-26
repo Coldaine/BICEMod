@@ -13,5 +13,9 @@ spriteTypes = {
 		texturefile = "gfx/interface/ideas/idea_GER_deschimag.dds"
 	}
 	
+	spriteType = {
+		name = "GFX_idea_GER_alkett"
+		texturefile = "gfx/interface/ideas/idea_GER_alkett.dds"
+		}
 	
 }
