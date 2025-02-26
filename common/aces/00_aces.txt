@@ -9,6 +9,7 @@ modifiers = {
 			air_attack_factor = 0.08
 			air_maximum_speed_factor = 0.03
 			air_agility_factor = 0.08
+			air_defence_factor = 0.05
 		}
 	}
 	fighter_unique = {
@@ -18,6 +19,7 @@ modifiers = {
 			air_attack_factor = 0.12
 			air_maximum_speed_factor = 0.06
 			air_agility_factor = 0.12
+			air_defence_factor = 0.1
 		}
 	}
 	fighter_genius = {
@@ -27,6 +29,7 @@ modifiers = {
 			air_attack_factor = 0.2
 			air_maximum_speed_factor = 0.1
 			air_agility_factor = 0.2
+			air_defence_factor = 0.15
 		}
 	}
 
@@ -38,6 +41,7 @@ modifiers = {
 			air_strategic_bomber_bombing_factor = 0.1
 			air_agility_factor = 0.1
 			air_maximum_speed_factor = 0.03
+			air_defence_factor = 0.05
 		}
 	}
 	bomber_unique = {
@@ -47,6 +51,7 @@ modifiers = {
 			air_strategic_bomber_bombing_factor = 0.15
 			air_agility_factor = 0.15
 			air_maximum_speed_factor = 0.06
+			air_defence_factor = 0.1
 		}
 	}
 	bomber_genius = {
@@ -56,6 +61,7 @@ modifiers = {
 			air_strategic_bomber_bombing_factor = 0.25
 			air_agility_factor = 0.2
 			air_maximum_speed_factor = 0.15
+			air_defence_factor = 0.18
 		}
 	}
 
@@ -69,6 +75,7 @@ modifiers = {
 			air_strategic_bomber_bombing_factor = 0.06
 			air_agility_factor = 0.1
 			air_maximum_speed_factor = 0.03
+			air_defence_factor = 0.1
 		}
 	}
 	support_unique = {
@@ -79,6 +86,7 @@ modifiers = {
 			ground_attack_factor = 0.05
 			air_strategic_bomber_bombing_factor = 0.05
 			air_agility_factor = 0.1
+			air_defence_factor = 0.15
 		}
 	}
 	support_genius = {
@@ -89,6 +97,7 @@ modifiers = {
 			ground_attack_factor = 0.08
 			air_strategic_bomber_bombing_factor = 0.08
 			air_agility_factor = 0.15
+			air_defence_factor = 0.15
 		}
 	}
 	#### War games Ace ###
@@ -96,10 +105,10 @@ modifiers = {
 		type = { cas tactical_bomber fighter interceptor }
 		chance = 0.00
 		effect = {
-			air_attack_factor = 0.015
-			air_agility_factor = 0.025
-			naval_strike_targetting_factor = 0.025
-			ground_attack_factor = 0.015
+			air_attack_factor = 0.045
+			air_agility_factor = 0.055
+			naval_strike_targetting_factor = 0.055
+			ground_attack_factor = 0.055
 		}		
 	}
 }
