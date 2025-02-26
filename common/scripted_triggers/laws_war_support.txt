@@ -3420,6 +3420,10 @@ can_brave_commanders_spirit = {
 
 }
 
+can_aa_experts_spirit = {
+	set_temp_variable = { navy_xp_cost = 75 }
+}
+
 
 ### AIR
 

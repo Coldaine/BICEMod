@@ -1,0 +1,65 @@
+ideas = {
+	hidden_ideas = {
+#	   air_force_spirit = {
+		   torpedo_bombers_spirit = {
+			  
+   
+			   research_bonus = {
+				   naval_air = 0.05
+			   }
+			   modifier = {
+				   custom_modifier_tooltip = torpedo_bombers_spirit_tt
+				   hidden_modifier = {
+				   small_plane_nav_airframe_design_cost_factor = -0.75
+				   cv_small_plane_airframe_design_cost_factor = -0.75
+				   }
+			   }
+			   
+		   }
+	   aeronautical_production_spirit = {
+	
+			   equipment_bonus = {
+				   mio_cat_eq_all_small_plane = {
+					   build_cost_ic = -0.05 instant = yes
+				   }
+				   mio_cat_eq_all_medium_plane = {
+					   build_cost_ic = -0.05 instant = yes
+				   }
+				   mio_cat_eq_all_heavy_plane = {
+					   build_cost_ic = -0.05 instant = yes
+				   }
+			   }
+			   modifier = {
+				   ###
+				   }
+			   
+		   }
+#	   }
+		   
+		   flight_plan_optimization_spirit = {
+			  
+   
+			   modifier = {
+				   air_range_factor = 0.05
+				   air_fuel_consumption_factor = -0.05
+			   }
+			   
+		   }
+		   experimental_rocketry_spirit = {
+			  
+			   available = { has_air_academy = yes has_tech = experimental_rockets }
+			   #visible = { has_tech = experimental_rockets }
+			   equipment_bonus = {
+				   guided_missile_equipment = {
+					   build_cost_ic = -0.05 instant = yes
+				   }
+			   }
+			   modifier = {
+				   rocket_attack_factor = 0.1
+				   production_speed_rocket_site_factor = 0.1
+			   }
+			   
+		   }
+	   
+	 }
+   }

@@ -672,6 +672,10 @@ d_fill_law_array = {
 	add_to_array = { global.academy_spirit = token:AST_duntroon }
 	add_to_array = { global.academy_spirit = token:AST_kapooka }
 	add_to_array = { global.academy_spirit = token:arab_academy }
+	add_to_array = { global.academy_spirit = token:street_sweepers_spirit }
+	add_to_array = { global.academy_spirit = token:seniority_spirit }
+
+
 	
 	add_to_array = { global.army_spirit = token:professional_officer_corps_spirit }
 	add_to_array = { global.army_spirit = token:elevated_engineering_corps_spirit }
@@ -684,6 +688,11 @@ d_fill_law_array = {
 	add_to_array = { global.army_spirit = token:superior_firepower_army_spirit }
 	add_to_array = { global.army_spirit = token:grand_battleplan_army_spirit }
 	add_to_array = { global.army_spirit = token:mass_assault_army_spirit }
+	add_to_array = { global.army_spirit = token:industry_connections_spirit }
+	add_to_array = { global.army_spirit = token:petrol_is_blood_spirit }
+
+
+
 	
 	add_to_array = { global.division_command_spirit = token:static_warfare_spirit }
 	add_to_array = { global.division_command_spirit = token:flexible_organization_spirit }
@@ -694,7 +703,11 @@ d_fill_law_array = {
 	add_to_array = { global.division_command_spirit = token:smoke_and_fire_spirit }
 	add_to_array = { global.division_command_spirit = token:logistical_focus_spirit }
 	add_to_array = { global.division_command_spirit = token:operational_reserve_spirit }
-	
+	add_to_array = { global.division_command_spirit = token:asymmetrical_warfare_spirit }
+	add_to_array = { global.division_command_spirit = token:adaptable_modernizers_spirit }
+
+
+
 	add_to_array = { global.naval_academy_spirit = token:instilled_aggression_spirit }
 	add_to_array = { global.naval_academy_spirit = token:calculated_restraint_spirit }
 	add_to_array = { global.naval_academy_spirit = token:signals_training_spirit }
@@ -703,7 +716,10 @@ d_fill_law_array = {
 	add_to_array = { global.naval_academy_spirit = token:fleet_in_being_academy_spirit }
 	add_to_array = { global.naval_academy_spirit = token:trade_interdiction_academy_spirit }
 	add_to_array = { global.naval_academy_spirit = token:base_strike_academy_spirit }
-	
+	add_to_array = { global.naval_academy_spirit = token:gifted_strategists_spirit}
+	add_to_array = { global.naval_academy_spirit = token:naval_traditions_spirit}
+
+
 	add_to_array = { global.navy_spirit = token:jeune_ecole_spirit }
 	add_to_array = { global.navy_spirit = token:big_gun_club_spirit }
 	add_to_array = { global.navy_spirit = token:aviation_enthusiasts_spirit }
@@ -713,7 +729,13 @@ d_fill_law_array = {
 	add_to_array = { global.navy_spirit = token:integrated_designers_spirit }
 	add_to_array = { global.navy_spirit = token:naval_reform_spirit }
 	add_to_array = { global.navy_spirit = token:naval_refit_yards_spirit }
+	add_to_array = { global.navy_spirit = token:efficient_shipping_spirit }
+	add_to_array = { global.navy_spirit = token:marines_spirit }
+	add_to_array = { global.navy_spirit = token:blue_water_navy_spirit}
+	add_to_array = { global.navy_spirit = token:green_water_navy_spirit}
 	
+
+
 	add_to_array = { global.naval_command_spirit = token:close_combat_navy_spirit }
 	add_to_array = { global.naval_command_spirit = token:night_fighting_spirit }
 	add_to_array = { global.naval_command_spirit = token:surprise_attacks_spirit }
@@ -724,6 +746,8 @@ d_fill_law_array = {
 	add_to_array = { global.naval_command_spirit = token:base_strike_navy_spirit }
 	add_to_array = { global.naval_command_spirit = token:inclimate_weather_experience_spirit }
 	add_to_array = { global.naval_command_spirit = token:brave_commanders_spirit }
+	add_to_array = { global.naval_command_spirit = token:aa_experts_spirit }
+	add_to_array = { global.naval_command_spirit = token:prized_ships_spirit}
 	
 	
 	add_to_array = { global.air_force_spirit = token:independent_air_force_spirit }
@@ -744,6 +768,10 @@ d_fill_law_array = {
 	add_to_array = { global.air_force_command_spirit = token:massed_strike_spirit }
 	add_to_array = { global.air_force_command_spirit = token:continuous_strike_spirit }
 	add_to_array = { global.air_force_command_spirit = token:strategic_strike_spirit }
+	add_to_array = { global.air_force_command_spirit = token:experimental_rocketry_spirit}
+	add_to_array = { global.air_force_command_spirit = token:flight_plan_optimization_spirit }
+
+
 	
 }
 

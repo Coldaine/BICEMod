@@ -1,5 +1,29 @@
 ideas = {
 	hidden_ideas = {
+		gifted_strategists_spirit = {
+            picture = gifted_strategists_spirit
+
+			
+			modifier = {
+				navy_leader_start_attack_level = 1
+                navy_leader_start_defense_level = 1
+                trait_superior_tactician_xp_gain_factor = 0.25
+				naval_doctrine_cost_factor = -0.05
+			}
+			
+		}
+		naval_traditions_spirit = {
+            picture = naval_traditions_spirit
+
+			
+			modifier = {
+				navy_leader_start_coordination_level = 1 
+                navy_leader_start_maneuvering_level = 1
+                trait_fleet_protector_xp_gain_factor = 0.25
+				repair_speed_factor = 0.1
+			}
+			
+		}
 		instilled_aggression_spirit = {
 			allowed = { always = no }
 			modifier = {
@@ -62,7 +86,85 @@ ideas = {
 		}
 	}
 
-	hidden_ideas = {
+	hidden_ideas = { #Spirit of navy itself
+	green_water_navy_spirit = {
+		picture = green_water_navy_spirit
+		
+		
+		research_bonus = {
+			naval_mines = 0.2
+		}
+		equipment_bonus = {
+			screen_ship = {
+				build_cost_ic = -0.05 instant = yes
+			}
+			light_cruiser = {
+				build_cost_ic = -0.05 instant = yes
+			}
+		}
+		on_add = {
+			set_technology = { coastal_defense_ships = 1 }
+		}
+		modifier = {
+			trait_inshore_fighter_xp_gain_factor = 0.25
+			trait_green_water_expert_xp_gain_factor = 0.25
+		}
+		
+	}
+	blue_water_navy_spirit = {
+		picture = blue_water_navy_spirit
+		
+		
+		research_bonus = {
+			radar_tech = 0.1
+		}
+		equipment_bonus = {
+			capital_ship = {
+				build_cost_ic = -0.05 instant = yes
+			}
+			carrier = {
+				build_cost_ic = -0.05 instant = yes
+			}
+		}
+		on_add = {
+			set_technology = { pre_dreadnoughts = 1 }
+		}
+		modifier = {
+			trait_arctic_water_expert_xp_gain_factor = 0.25
+			trait_blue_water_expert_xp_gain_factor = 0.25
+
+		}
+		
+	}
+	marines_spirit = {
+		
+		
+		research_bonus = {
+			marine_tech = 0.20
+		}
+		modifier = {
+			weekly_manpower = 50
+			naval_invasion_penalty = -0.1
+			unit_marine_design_cost_factor = -1
+		}
+		
+	}
+	efficient_shipping_spirit = {
+		
+		
+		#equipment_bonus = {
+			#floating_harbor_equipment = {
+				#build_cost_ic = -0.1 instant = yes
+			#}
+		#}
+		modifier = {
+			min_export = -0.05
+			transport_capacity = -0.2
+			floating_harbor_supply = 0.2
+		}
+		
+	}
+		
 		jeune_ecole_spirit = {
 			allowed = { always = no }
 			research_bonus = {
@@ -159,6 +261,24 @@ ideas = {
 	}
 
 	hidden_ideas = {
+		prized_ship_spirit = {
+
+			picture = blue_water_navy_spirit
+			modifier = {
+				naval_has_potf_in_combat_attack = 0.1
+				naval_has_potf_in_combat_defense = 0.1
+				critical_receive_chance = -0.2
+			}
+		} 
+		aa_experts_spirit = {
+
+			picture = aa_experts_spirit
+			modifier = {
+				navy_anti_air_attack_factor = 0.1
+				trait_fly_swatter_xp_gain_factor = 0.5
+				fighter_sortie_efficiency = 0.1				
+			}
+		}
 		close_combat_navy_spirit = {
 			allowed = { always = no }
 			modifier ={
