@@ -650,7 +650,7 @@ leader_traits = {
 	head_of_intelligence = {
 		random = no
 		sprite = 15
-		agency_upgrade_time = -0.35
+		agency_upgrade_time = -0.25
 		intel_from_operatives_factor = 0.30
 		
 		operative_slot = 2

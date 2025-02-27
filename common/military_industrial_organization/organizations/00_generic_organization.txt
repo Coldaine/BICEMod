@@ -90,6 +90,7 @@ generic_tank_organization = {
 	research_categories = { mio_cat_tech_light_armor_and_modules 
 	mio_cat_tech_medium_armor_and_modules 
 	armor_tech
+	train_equipment
     land_doctrine 
 				}
 
@@ -1393,10 +1394,12 @@ generic_heavy_tank_organization = {
 		always = no # Archetype only - countries using it have their own verisons
 	}
 
-	equipment_type = { mio_cat_eq_all_heavy_tank }
+	equipment_type = { mio_cat_eq_all_heavy_tank
+	train_equipment }
 	research_categories = { mio_cat_tech_heavy_armor_and_modules 
 	armor_tech
     land_doctrine
+	train_equipment
     }
 
 	tree_header_text = {
