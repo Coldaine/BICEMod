@@ -361,8 +361,8 @@ ideas = {
 				military_leader_cost_factor = 0.75
 				consumer_goods_expected_value = 0.02
 				max_command_power = 15
-				command_power_gain = 0.01
-				special_forces_cap = 0.10	
+				command_power_gain = 0.04
+				special_forces_cap = 0.40	
 				naval_coordination = 0.10
 				
 				cadet_org_bonus_factor = 0.5

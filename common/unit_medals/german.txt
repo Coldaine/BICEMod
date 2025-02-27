@@ -22,6 +22,11 @@
 # max_dig_in
 # max_dig_in_factor
 
+
+#			army_attack_factor = 0.03
+#			army_defence_factor = 0.03
+
+
 @cost = 30
 
 unit_medals = {
@@ -32,19 +37,16 @@ unit_medals = {
 	Star_of_the_Grand_Cross_of_the_Iron_Cross = {
 		
 		available = { should_have_german_medals_trigger = yes
-			OR = { 
-			controls_state = 282
-			controls_state = 361
-			
-			 }
+
 		 }
 		frame = 1
 		icon = "GFX_medal_icon_ger"
 		
-		cost = 900
+		cost = 25
 		
 		unit_modifiers = {
 			army_morale_factor = 0.20
+
 		}
 		
 		one_time_effect = {
@@ -57,16 +59,16 @@ unit_medals = {
 	Grand_Cross_of_the_Iron_Cross = {
 		
 		available = { should_have_german_medals_trigger = yes
-			controls_state = 126
-			controls_state = 219
+
 		 }
 		frame = 2
 		icon = "GFX_medal_icon_ger"
 		
-		cost = 700
+		cost = 25
 		
 		unit_modifiers = {
 			army_fuel_capacity_factor = 0.05
+			army_fuel_consumption_factor = -0.10			
 		}
 		
 		one_time_effect = {
@@ -88,8 +90,8 @@ unit_medals = {
 		cost = 500
 		
 		unit_modifiers = {
-			army_morale_factor = 0.02
-			army_strength_factor = 0.02
+			army_morale_factor = 0.04
+			army_strength_factor = 0.05
 		}
 		
 		one_time_effect = {
@@ -185,6 +187,7 @@ unit_medals = {
 		cost = 50
 		
 		unit_modifiers = {
+			army_attack_factor = 0.03
 			army_org_factor = 0.05
 		}
 		
@@ -235,7 +238,7 @@ unit_medals = {
 		cost = 25
 		
 		unit_modifiers = {
-			breakthrough_factor = 0.04
+			breakthrough_factor = 0.1
 		}
 		
 		one_time_effect = {
@@ -249,7 +252,6 @@ unit_medals = {
 	iron_cross_first_class = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_war_with_major = yes
 		 }
 		frame = 9
 		icon = "GFX_medal_icon_ger"
@@ -273,7 +275,6 @@ unit_medals = {
 	iron_cross_second_class_ = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_war_with_major = yes
 		}
 
 		frame = 10
@@ -300,8 +301,6 @@ unit_medals = {
 		
 		available = { should_have_german_medals_trigger = yes
 
-				NOT = { has_government = communism
-		        	}
 				
 		 }
 		frame = 11
@@ -441,7 +440,7 @@ unit_medals = {
 	Eastern_Medal = {
 		
 		available = { should_have_german_medals_trigger = yes 
-				has_war_with = SOV
+
 		}
 		frame = 16
 		icon = "GFX_medal_icon_ger"
@@ -468,6 +467,7 @@ unit_medals = {
 		
 		unit_modifiers = {
 			experience_loss_factor = -0.10
+			army_strength_factor = 0.05
 		}
 		
 		one_time_effect = {
@@ -480,12 +480,7 @@ unit_medals = {
 	Spanish_Cross = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_war = no
-                                OR = {
-					SPR = { has_government = fascism
-					}
-				civilwar_target = SPR
-				 }
+                            
 		 }
 		frame = 18
 		icon = "GFX_medal_icon_ger"
@@ -494,6 +489,9 @@ unit_medals = {
 		
 		unit_modifiers = {
 			army_org_factor = 0.10
+			equipment_capture_factor = 0.05
+			army_strength_factor = 0.1
+
 		}
 		
 		one_time_effect = {
@@ -506,7 +504,7 @@ unit_medals = {
 	Narvik_Shield = {
 		
 		available = { should_have_german_medals_trigger = yes
-			controls_state = 144
+
 		 }
 		frame = 19
 		icon = "GFX_medal_icon_ger"
@@ -526,7 +524,7 @@ unit_medals = {
 	Crimea_Shield = {
 		
 		available = { should_have_german_medals_trigger = yes
-			controls_state = 137
+
 		 }
 		frame = 20
 		icon = "GFX_medal_icon_ger"
@@ -547,7 +545,7 @@ unit_medals = {
 	Gross_Britanien_Shield = {
 		
 		available = { should_have_german_medals_trigger = yes
-			controls_state = 126
+
 		 }
 		frame = 21
 		icon = "GFX_medal_icon_ger"
@@ -567,7 +565,7 @@ unit_medals = {
 	Stalingradschild = {
 		
 		available = { should_have_german_medals_trigger = yes
-			controls_state = 217
+
 		 }
 		frame = 22
 		icon = "GFX_medal_icon_ger"
@@ -631,7 +629,7 @@ unit_medals = {
 	Karl-Marx-Orden = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
+
 		 }
 		frame = 26
 		icon = "GFX_medal_icon_ger"
@@ -652,7 +650,6 @@ unit_medals = {
 	Vaterlandischer_Verdienstorden_Ehrenspange = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
 		 }
 		frame = 27
 		icon = "GFX_medal_icon_ger"
@@ -672,7 +669,6 @@ unit_medals = {
 	Vaterlandischer_Verdienstorden = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
 		 }
 		frame = 28
 		icon = "GFX_medal_icon_ger"
@@ -692,7 +688,7 @@ unit_medals = {
 	Banner_der_Arbeit = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
+
 		 }
 		frame = 29
 		icon = "GFX_medal_icon_ger"
@@ -712,7 +708,7 @@ unit_medals = {
 	Scharnhorst_Order = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
+
 		 }
 		frame = 30
 		icon = "GFX_medal_icon_ger"
@@ -732,7 +728,7 @@ unit_medals = {
 	Kampforden_Fur_Verdienste_um_Volk_und_Vaterland = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
+
 		 }
 		frame = 31
 		icon = "GFX_medal_icon_ger"
@@ -752,7 +748,7 @@ unit_medals = {
 	Blucher-Orden = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
+
 				has_war_with_major = yes
 		 }
 		frame = 32
@@ -773,7 +769,7 @@ unit_medals = {
 	Hans-Beimler-Medaille = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
+
 				has_war_with_major = no
 		 }
 		frame = 33
@@ -794,7 +790,7 @@ unit_medals = {
 	Medaille_fur_Kampfer_gegen_den_Faschismus = {
 		
 		available = { should_have_german_medals_trigger = yes
-				has_government = communism
+
 
 		 }
 		frame = 34

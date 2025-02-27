@@ -85,8 +85,8 @@ sub_units = {
 		supply_consumption = 0.03
 		
 		# Important Ability
-		supply_consumption_factor = -0.11
-		fuel_consumption_factor = -0.05
+		supply_consumption_factor = -0.15
+		fuel_consumption_factor = -0.08
 		fuel_capacity = 15
 		own_equipment_fuel_consumption_mult = 4.5 # reduced fuel use (60%)
 		
@@ -106,7 +106,7 @@ sub_units = {
 		need = {
 			support_equipment = 40
 			infantry_uniforms = 60
-			motorized_lia_equipment = 150 
+			motorized_lia_equipment = 125 
 		}
 		
 		transport = motorized_lia_equipment

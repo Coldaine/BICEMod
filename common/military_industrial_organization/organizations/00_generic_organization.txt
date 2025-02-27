@@ -7865,7 +7865,7 @@ generic_motorized_mechanized_organization = {
 		name = generic_mio_initial_trait_motorized_mechanized_manufacturer
 
 		equipment_bonus = {
-			reliability = 0.01
+			reliability = 0.04
 		}
 	}
 
@@ -7884,8 +7884,8 @@ generic_motorized_mechanized_organization = {
 		}
 
 		equipment_bonus = {
-			reliability = -0.07
-			build_cost_ic = -0.05
+			reliability = -0.06
+			build_cost_ic = -0.09
 		}
 	}
 
@@ -7952,7 +7952,7 @@ generic_motorized_mechanized_organization = {
 		}
 
 		equipment_bonus = {
-			fuel_consumption = -0.04
+			fuel_consumption = -0.05
 		}
 	}
 
@@ -7976,7 +7976,7 @@ generic_motorized_mechanized_organization = {
 
 		equipment_bonus = {
 			fuel_consumption = 0.05
-			maximum_speed = 0.03
+			maximum_speed = 0.06
 		}
 	}
 
@@ -7994,7 +7994,7 @@ generic_motorized_mechanized_organization = {
 			motorized_AC_equipment
 		}
 		equipment_bonus = {
-			soft_attack = 0.02
+			soft_attack = 0.05
 		}
 	}
 
@@ -8009,7 +8009,7 @@ generic_motorized_mechanized_organization = {
 		all_parents = { generic_mio_trait_medium_machinegun_mounts }
 
 		equipment_bonus = {
-			hardness = 0.05
+			hardness = 0.06
 		}
 	}
 
@@ -8030,8 +8030,8 @@ generic_motorized_mechanized_organization = {
 			mechanized_mortar
 		}
 		equipment_bonus = {
-			defense = 0.05
-			build_cost_ic = 0.06
+			defense = 0.08
+			build_cost_ic = 0.02
 		}
 	}
 
@@ -8054,7 +8054,7 @@ generic_motorized_mechanized_organization = {
 		}
 		
 		equipment_bonus = {
-			breakthrough = 0.04
+			breakthrough = 0.07
 			build_cost_ic = 0.01
 		}
 	}
@@ -8075,7 +8075,7 @@ generic_motorized_mechanized_organization = {
 
 		equipment_bonus = {
 			ap_attack = 0.1
-			hard_attack = 0.02
+			hard_attack = 0.05
 		}
 	}
 
@@ -8092,8 +8092,8 @@ generic_motorized_mechanized_organization = {
 
 
 		equipment_bonus = {
-			defense = -0.02
-			build_cost_ic = -0.03
+			defense = -0.03
+			build_cost_ic = -0.06
 		}
 	}
 
@@ -8110,7 +8110,7 @@ generic_motorized_mechanized_organization = {
 
 
 		equipment_bonus = {
-			armor_value = 0.05
+			armor_value = 0.1
 		}
 	}
 
@@ -8128,7 +8128,7 @@ generic_motorized_mechanized_organization = {
 		any_parent = { generic_mio_trait_closed_chassi generic_mio_trait_open_chassi }
 
 		equipment_bonus = {
-			hardness = 0.05
+			hardness = 0.06
 		}
 	}
 
@@ -8145,7 +8145,7 @@ generic_motorized_mechanized_organization = {
 		all_parents = { generic_mio_trait_bulletproof_panels }
 
 		equipment_bonus = {
-			soft_attack = 0.035
+			soft_attack = 0.05
 		}
 	}
 
@@ -8162,7 +8162,7 @@ generic_motorized_mechanized_organization = {
 		all_parents = { generic_mio_trait_bulletproof_panels }
 
 		equipment_bonus = {
-			defense = 0.06
+			defense = 0.09
 			maximum_speed = -0.02
 		}
 	}
