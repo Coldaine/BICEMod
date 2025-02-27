@@ -747,7 +747,7 @@ d_fill_law_array = {
 	add_to_array = { global.naval_command_spirit = token:inclimate_weather_experience_spirit }
 	add_to_array = { global.naval_command_spirit = token:brave_commanders_spirit }
 	add_to_array = { global.naval_command_spirit = token:aa_experts_spirit }
-	add_to_array = { global.naval_command_spirit = token:prized_ships_spirit}
+	add_to_array = { global.naval_command_spirit = token:prized_ship_spirit}
 	
 	
 	add_to_array = { global.air_force_spirit = token:independent_air_force_spirit }

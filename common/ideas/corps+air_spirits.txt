@@ -10,7 +10,6 @@ ideas = {
 			   modifier = {
 				   custom_modifier_tooltip = torpedo_bombers_spirit_tt
 				   hidden_modifier = {
-				   small_plane_nav_airframe_design_cost_factor = -0.75
 				   cv_small_plane_airframe_design_cost_factor = -0.75
 				   }
 			   }
@@ -47,7 +46,6 @@ ideas = {
 		   }
 		   experimental_rocketry_spirit = {
 			  
-			   available = { has_air_academy = yes has_tech = experimental_rockets }
 			   #visible = { has_tech = experimental_rockets }
 			   equipment_bonus = {
 				   guided_missile_equipment = {
