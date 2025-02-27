@@ -60,8 +60,9 @@ leader_traits = {
 		type = operative
 		trait_type = personality_trait
 
-		#new_commander_weight = {
-		#}
+		new_commander_weight = {
+			factor = 1.25
+		}
 
 		modifier = {
 			boost_ideology_mission_factor = 0.25
@@ -76,7 +77,7 @@ leader_traits = {
 		trait_type = personality_trait
 
 		new_commander_weight = {
-			factor = 0.5
+			factor = 1.25
 		}
 
 		modifier = {
@@ -119,8 +120,9 @@ leader_traits = {
 		type = operative
 		trait_type = basic_trait
 
-		#new_commander_weight = {
-		#}
+		new_commander_weight = {
+			factor = 0.75
+		}
 
 		modifier = {
 			intel_network_gain_factor = 0.3
@@ -304,6 +306,11 @@ meticulous = {
 	operative_weak_willed = {
 		type = operative
 		trait_type = personality_trait
+		new_commander_weight = {
+			factor = 0.5
+		}
+
+
 
 		cost = 500
 		gain_xp_leader = {
