@@ -1182,7 +1182,7 @@ NMilitary = {
 		0.40,
 	},
 
-	DIVISIONAL_COMMANDER_TRAIT_XP_REQUIREMENT = 600.0,	--Get a trait if any valid options & xp gained >= this
+	DIVISIONAL_COMMANDER_TRAIT_XP_REQUIREMENT = 400.0,	--Get a trait if any valid options & xp gained >= this
 	NUM_DAYS_FOR_OPERATION_ENTRY = 60,					--Number of days that a unit must have been on a particular active order instance to receive a history entry.
 	MAX_LEADERS_TO_SHOW = 50,							--Max officers to show in field officers list, sorted by field EXP. Divisions with awardable entries will potentially supercede this limit
 	BASE_FEMALE_DIVISIONAL_COMMANDER_CHANCE = 0,		--Chance to receive a female divisonal commander. This is set to zero in the base game, as we do not have generic female portraits for many graphical culture groups.
@@ -1197,15 +1197,15 @@ NMilitary = {
 	},
 
 	VPS_FOR_HISTORY_ENTRY = 3,					-- Minimum VPs required to receive an entry in divisional history
-	VPS_FOR_HIGH_HISTORY_ENTRY = 8,				-- VPs required for high-level history entry
+	VPS_FOR_HIGH_HISTORY_ENTRY = 7,				-- VPs required for high-level history entry
 	ENTRIES_TO_CHECK_FOR_DUPLICATE = 2,			-- Max number of history entries to check back to see if we're being awarded the same entry
 	COST_INCREASE_PER_ACTIVE_MEDAL = 0.25,		-- Additional cost factor per active medal
 	MAX_ENTRY_ELISION_COUNT = 4,				-- If we do the same type of thing consecutively, each entry will stack locations up to this number
 	GENERATE_AI_DIV_COMMAND_HISTORY_ENTRIES = false,	--Should we generate history entries for the AI (may cause savegame bloat)
 	FIELD_EXPERIENCE_ON_DIVISION_MULT = 0.03,	-- Multiply field experience gained by this, when applying to divisional commander
 	MAX_FIELD_EXPERIENCE_ON_DIVISION = 8000,	-- Max experience that can be gained on divisional commanders
-	FIELD_EXPERIENCE_ON_DIVISION_PER_MEDAL_MULT = 0.1,	--Multiply officer field experience gain by this * number of division medals on application
-	HISTORY_OPERATION_RANDOM_MAX = 24,			-- max random int to roll when determining whether to grant an awardable entry for operations. 1/N chances.
+	FIELD_EXPERIENCE_ON_DIVISION_PER_MEDAL_MULT = 0.25,	--Multiply officer field experience gain by this * number of division medals on application
+	HISTORY_OPERATION_RANDOM_MAX = 8,			-- max random int to roll when determining whether to grant an awardable entry for operations. 1/N chances.
 	CASUALTY_COUNT_FOR_HISTORY_ENTRY = 40000,	-- number of received casualties to receive a history entry (one only)
 	FIELD_OFFICER_PROMOTION_PENALTY = 0.25,		--Amount of division experience lost when promoting a commander (reduced by modifiers)
 	
@@ -3393,7 +3393,7 @@ NOperatives = {
 	AGENCY_AI_BASE_NUM_FACTORIES = 30.0,			-- Used by AI to pace the upgrades. Formula : if( AGENCY_AI_BASE_NUM_FACTORIES <= num_civ_factories - num_upgrades * AGENCY_AI_PER_UPGRADE_FACTORIES )
 	AGENCY_AI_PER_UPGRADE_FACTORIES = 6.0,			-- Used by AI to pace the upgrades. Formula : if( AGENCY_AI_BASE_NUM_FACTORIES <= num_civ_factories - num_upgrades * AGENCY_AI_PER_UPGRADE_FACTORIES )
 	AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 10,			-- Number of upgrade needed to unlock an additional operative slot
-	MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 2,	-- max operative slots gained from upgrades
+	MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 5,	-- max operative slots gained from upgrades
 	AGENCY_OPERATIVE_RECRUITMENT_TIME = 60,			-- Number of days to wait to have operative to recruit when an operative slot first becomes available
 	BECOME_SPYMASTER_PP_COST = 50,					-- Number of political power used to become Spy Master
 	BECOME_SPYMASTER_MIN_UPGRADES = 10,				-- Number of agency upgrades you need before becoming Spy Master
@@ -3449,7 +3449,7 @@ NOperatives = {
 	-- second number is total factory needed (mil and civ) for giving previous ratio
 	OPERATIVE_SLOTS_FROM_FACTION_MEMBERS_FOR_SPY_MASTER = {
 		0.0, 	0.0, 			-- 0 operative for [0, 10)
-		0.25,  	10.0, 	-- 0.25 operative for [10, 50)
+		0.25,  	5.0, 	-- 0.25 operative for [10, 50)
 		0.5, 	50.0, 		-- 0.5 operative for >= 50
 	},
 	
@@ -3501,7 +3501,7 @@ NOperatives = {
 	OPERATIVE_MIN_DAYS_FORCED_INTO_HIDING = 7,				-- Minimum number of days an operative can be forced into hiding. Applied after modifiers. Can be zero.
 	OPERATIVE_MAX_DAYS_FORCED_INTO_HIDING = 120,				-- Maximum number of days an operative can be forced into hiding. Applied after modifiers. Is ignored if negative
 	OPERATIVE_MAX_DAYS_TO_AUTO_RESUME_MISSION = 30,				-- Maximum number of days an operative has to be disabled before its mission is not automatically resumed once he is available again
-	MAX_RECRUITED_OPERATIVES = 10,	
+	MAX_RECRUITED_OPERATIVES = 12,	
 	
 	CRYPTO_BASE_CRYPTO_LEVEL = 10000,						-- base crypto strength for a country
 	CRYPTO_CRYPTO_LEVEL_PER_CRYPTO_UPGRADE = 2500,			-- crypto strength per crypto upgrade
@@ -3539,7 +3539,7 @@ NOperatives = {
 
 	NUM_DAYS_BEFORE_REMOVING_PREPARED_OPERATIONS = 60, -- num days before removing prepared operations
 
-	ON_CAPTURE_COUNTERINTELLIGENCE_OPERATIVE_XP_GAIN = 100,					-- Xp gain when an enemy operative is captured in the country the operative is assigned to counter intelligence to. Apply to a single randomly selected operative
+	ON_CAPTURE_COUNTERINTELLIGENCE_OPERATIVE_XP_GAIN = 250,					-- Xp gain when an enemy operative is captured in the country the operative is assigned to counter intelligence to. Apply to a single randomly selected operative
 	ON_CAPTURE_COUNTERINTELLIGENCE_OPERATIVE_WEIGHT_OWN_COUNTRY_FOR_XP = 2,			-- An integer on how likely an operative operating in his own country is to get selected for the xp reward on enemy operative capture
 	ON_CAPTURE_COUNTERINTELLIGENCE_OPERATIVE_WEIGHT_DIFFERENT_COUNTRY_FOR_XP = 1,		-- same for an operative assigned to counter intelligence in a different country than his own
 

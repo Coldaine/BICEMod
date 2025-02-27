@@ -1035,7 +1035,7 @@ leader_traits = {
 	war_industrialist = {
 		sprite = 10
 		random = yes
-		production_speed_arms_factory_factor = 0.05
+		production_speed_arms_factory_factor = 0.15
 		production_speed_dockyard_factor = 0.05
 		production_speed_shipyard_factor = 0.05
 		production_speed_subyard_factor = 0.05
@@ -1084,6 +1084,8 @@ leader_traits = {
 		production_speed_arms_factory_factor = 0.05
 		production_speed_artillery_assembly_factor = 0.1
 		production_speed_tank_assembly_factor = 0.1
+		industrial_capacity_factory = 0.05
+		industrial_capacity_dockyard = 0.05
 		
 		ai_will_do = {
 			factor = 0
