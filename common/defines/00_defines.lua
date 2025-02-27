@@ -3388,7 +3388,7 @@ NOperatives = {
 	TECH_STEAL_YEAR_FACTOR = 4,
 	----
 	AGENCY_CREATION_DAYS = 45,						-- Number of days needed to create an intelligence agency
-	AGENCY_UPGRADE_DAYS = 120,						-- Number of days needed to upgrade an intelligence agency
+	AGENCY_UPGRADE_DAYS = 90,						-- Number of days needed to upgrade an intelligence agency
 	AGENCY_CREATION_FACTORIES = 5,					-- Number of factories used to create an intelligence agency
 	AGENCY_AI_BASE_NUM_FACTORIES = 30.0,			-- Used by AI to pace the upgrades. Formula : if( AGENCY_AI_BASE_NUM_FACTORIES <= num_civ_factories - num_upgrades * AGENCY_AI_PER_UPGRADE_FACTORIES )
 	AGENCY_AI_PER_UPGRADE_FACTORIES = 6.0,			-- Used by AI to pace the upgrades. Formula : if( AGENCY_AI_BASE_NUM_FACTORIES <= num_civ_factories - num_upgrades * AGENCY_AI_PER_UPGRADE_FACTORIES )
@@ -3403,8 +3403,8 @@ NOperatives = {
 	INTEL_NETWORK_GAIN_RATE_ON_OUT_OF_RANGE = -0.3,				-- Amount of network strength lost in a state that has the right controller but is out of range of any operative
 	INTEL_NETWORK_GAIN_FROM_ADJACENCY_FACTOR = 0.5,				-- Factor multiplied to the sum of the positive difference between a state's strength and its neighbors'. In other words, how strongly neighbors impact the strength gained in a state. Values greater or equal to 1 are discouraged.
 	INTEL_NETWORK_GAIN_DECAY_PER_STEP_FACTOR = 0.5,				-- Factor multiplied to the gain of the previous node in the netowrk initially contributed by the agent. In other words, before adjacency, the strength gain in a state would be GainFromOperative * ( INTEL_NETWORK_GAIN_DECAY_PER_STEP_FACTOR ^ NodeDepth ) where NodeDepth is the distance between the state and the operative's location.
-	INTEL_NETWORK_STRENGTH_TARGET_OFFSET_PER_OPERATIVE = 10.0,		-- The amount of strength each operative on build intel network mission in a sub network add to the base target network strength
-	INTEL_NETWORK_STRENGTH_DECAY_WHEN_ABOVE_TARGET = -2.5,			-- The amount of strength removed each tick from a state that has more strength than the target
+	INTEL_NETWORK_STRENGTH_TARGET_OFFSET_PER_OPERATIVE = 15.0,		-- The amount of strength each operative on build intel network mission in a sub network add to the base target network strength
+	INTEL_NETWORK_STRENGTH_DECAY_WHEN_ABOVE_TARGET = -0.5,			-- The amount of strength removed each tick from a state that has more strength than the target
 	INTEL_NETWORK_BASE_STRENGTH_TARGET_COUNTERINTELLIGENCE_FACTOR = -8.5,	-- BaseStrengthTarget = Factor * CounterIntelligenceRating + Offset
 	INTEL_NETWORK_BASE_STRENGTH_TARGET_COUNTERINTELLIGENCE_OFFSET = 75,	-- Offset mentioned above
 	INTEL_NETWORK_MIN_VP_TO_TARGET = 5,							-- The minimum value of the highest VP in a state to consider the state as a valid target to start building an intel network
@@ -3434,7 +3434,7 @@ NOperatives = {
 	OPERATIVE_MISSION_DETECTION_CHANCE_FACTOR = {
 		-- Factor multiplied to the detection chance of an agent on mission before the offsets
 		0.0, -- NoMission
-		1.0, -- BuildIntelNetwork
+		1.5, -- BuildIntelNetwork
 		1.0, -- QuietIntelNetwork
 		1.0, -- CounterIntelligence
 		0.0, -- RootOutResistance
@@ -3465,12 +3465,12 @@ NOperatives = {
 	COUNTER_INTELLIGENCE_TO_DEFENSE_DIVISOR = 1.0,				-- see above
 	COUNTER_INTELLIGENCE_DAILY_XP_GAIN = 0.112,
 	BOOST_IDEOLOGY_NATIONAL_COVERAGE_FACTOR = 1.0,				-- used to compute the drift factor as follow: BASE * SUB_NETWORK_NC * BOOST_IDEOLOGY_DEFENSE_FACTOR
-	BOOST_IDEOLOGY_MAX_DRIFT_BY_OPERATIVE = 0.25,				-- the maximum drift an operative can cause, a negative value means no maximum
-	BOOST_IDEOLOGY_DRIFT_STACKING_FACTOR = 0.55,				-- multiplied to the drift of an operative for each operative after the first one, with the greatest drift. So if we have the following drift values [ 0.1, 0.3, 0.2 ], the factor is applied twice for the lowest value and once for the 2nd lowest one as such : [ 0.3, 0.2 * D, 0.1 * D * D ] and then the result is summed up to give the final drift value.
+	BOOST_IDEOLOGY_MAX_DRIFT_BY_OPERATIVE = 0.5,				-- the maximum drift an operative can cause, a negative value means no maximum
+	BOOST_IDEOLOGY_DRIFT_STACKING_FACTOR = 0.75,				-- multiplied to the drift of an operative for each operative after the first one, with the greatest drift. So if we have the following drift values [ 0.1, 0.3, 0.2 ], the factor is applied twice for the lowest value and once for the 2nd lowest one as such : [ 0.3, 0.2 * D, 0.1 * D * D ] and then the result is summed up to give the final drift value.
 	BOOST_IDEOLOGY_DEFENSE_FACTOR = 0.2,					-- multiplied to the target's defense to get the amount of drift to remove from each operative's drift
 	BOOST_IDEOLOGY_DAILY_XP_GAIN = 0.274,
 	OPERATIVE_BASE_INTEL_AGENCY_DEFENSE = 1.0,				-- Base amount of intel agency defense contributed by an operative on counter_intelligence mission
-	OPERATIVE_BASE_BOOST_IDEOLOGY = 0.1,					-- Base amount of daily ideology drift provoked by an operative
+	OPERATIVE_BASE_BOOST_IDEOLOGY = 0.2,					-- Base amount of daily ideology drift provoked by an operative
 	OPERATIVE_BASE_PROPAGANDA_POWER = 0.0003,					-- Base amount of daily war support and stability change when an operative is assigned to propaganda
 	PROPAGANDA_SUB_NETWORK_STRENGTH_FACTOR = 1.0,				-- Multiplied to the network strength before being multiplied to the Stability/WarSupport drift caused by an operative 
 	PROPAGANDA_DEFENSE_FACTOR = 0.015,					-- Multiplied to the target's defense before being subtracted from the Stability/WarSupport drift caused by an operative
@@ -3537,7 +3537,7 @@ NOperatives = {
 	DANGER_LEVEL_INTEGRAL_FACTOR = 0.001,
 	DANGER_LEVEL_DERIVATIVE_FACTOR = 0,
 
-	NUM_DAYS_BEFORE_REMOVING_PREPARED_OPERATIONS = 60, -- num days before removing prepared operations
+	NUM_DAYS_BEFORE_REMOVING_PREPARED_OPERATIONS = 90, -- num days before removing prepared operations
 
 	ON_CAPTURE_COUNTERINTELLIGENCE_OPERATIVE_XP_GAIN = 250,					-- Xp gain when an enemy operative is captured in the country the operative is assigned to counter intelligence to. Apply to a single randomly selected operative
 	ON_CAPTURE_COUNTERINTELLIGENCE_OPERATIVE_WEIGHT_OWN_COUNTRY_FOR_XP = 2,			-- An integer on how likely an operative operating in his own country is to get selected for the xp reward on enemy operative capture
