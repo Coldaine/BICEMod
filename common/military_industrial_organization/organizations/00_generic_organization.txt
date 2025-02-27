@@ -3800,8 +3800,8 @@ generic_refurbishment_repair_organization = {
 		all_parents = { generic_mio_trait_foam_fire_extinguishers }
 		
 		equipment_bonus = {
-			reliability = 0.01
-			armor_value = 0.02
+			reliability = 0.04
+			armor_value = 0.03
 		}
 	}
 
@@ -3816,8 +3816,8 @@ generic_refurbishment_repair_organization = {
 		all_parents = { generic_mio_trait_bulkhead_shoring_procedure }
 		
 		equipment_bonus = {
-			reliability = 0.01
-			armor_value = 0.02
+			reliability = 0.03
+			armor_value = 0.04
 		}
 	}
 
@@ -3832,7 +3832,7 @@ generic_refurbishment_repair_organization = {
 		all_parents = { generic_mio_trait_bulkhead_shoring_procedure }
 		
 		equipment_bonus = {
-			max_strength = 0.03
+			max_strength = 0.05
 		}
 	}
 
@@ -3863,7 +3863,7 @@ generic_refurbishment_repair_organization = {
 		
 		equipment_bonus = {
 			sub_detection = 0.05
-			surface_detection = 0.05
+			surface_detection = 0.1
 		}
 	}
 

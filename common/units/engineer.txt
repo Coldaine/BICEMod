@@ -6,7 +6,7 @@ sub_units = {
 		priority = 0
 		ai_priority = 0
 		active = no
-		affects_speed = yes
+		affects_speed = no
 
 		type = {
 			infantry
@@ -41,7 +41,7 @@ sub_units = {
 		entrenchment  = 5
 		combat_width = 0.0
 
-		maximum_speed = 0.2 #slight boost to allow use with light infantry
+		maximum_speed = 0.8 #slight boost to allow use with light infantry
 		
 		#OTHER
 		training_time = 120
@@ -328,10 +328,10 @@ sub_units = {
 		priority = 0
 		ai_priority = 0
 		active = no
-		affects_speed = yes
+		affects_speed = no
 
 		same_support_type = combat_engineer
-		can_be_parachuted = no
+		can_be_parachuted = yes
 		
 		type = {
 			infantry

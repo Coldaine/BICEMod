@@ -28,10 +28,10 @@ ideas = {
 			}
 			
 			modifier = {
-				industrial_capacity_factory = 0.02
-				industrial_capacity_dockyard = 0.02
-				production_speed_arms_factory_factor = 0.02
-				production_speed_dockyard_factor = 0.02
+				industrial_capacity_factory = 0.08
+				industrial_capacity_dockyard = 0.08
+				production_speed_arms_factory_factor = 0.08
+				production_speed_dockyard_factor = 0.08
 			}
 			
 			cancel_if_invalid = no
@@ -48,10 +48,10 @@ ideas = {
 			removal_cost = -1
 			
 			modifier = {
-				industrial_capacity_factory = 0.04
-				industrial_capacity_dockyard = 0.04
-				production_speed_arms_factory_factor = 0.04
-				production_speed_dockyard_factor = 0.04
+				industrial_capacity_factory = 0.08
+				industrial_capacity_dockyard = 0.08
+				production_speed_arms_factory_factor = 0.08
+				production_speed_dockyard_factor = 0.08
 				war_support_weekly = 0.001
 			}
 					
@@ -64,11 +64,11 @@ ideas = {
 			}
 			
 			modifier = {
-				industrial_capacity_factory = 0.06
-				industrial_capacity_dockyard = 0.06
-				production_speed_arms_factory_factor = 0.06
-				production_speed_dockyard_factor = 0.06
-				consumer_goods_expected_value = -0.01
+				industrial_capacity_factory = 0.12
+				industrial_capacity_dockyard = 0.12
+				production_speed_arms_factory_factor = 0.12
+				production_speed_dockyard_factor = 0.12
+				consumer_goods_expected_value = -0.04
 				war_support_weekly = 0.001
 				
 			}		
@@ -82,11 +82,11 @@ ideas = {
 			}
 			modifier = {
 			
-				industrial_capacity_factory = 0.08
-				industrial_capacity_dockyard = 0.08
-				production_speed_arms_factory_factor = 0.08
-				production_speed_dockyard_factor = 0.08
-				consumer_goods_expected_value = -0.02
+				industrial_capacity_factory = 0.2
+				industrial_capacity_dockyard = 0.2
+				production_speed_arms_factory_factor = 0.2
+				production_speed_dockyard_factor = 0.2
+				consumer_goods_expected_value = -0.08
 				war_support_weekly = 0.001
 
 			}				
@@ -99,12 +99,12 @@ ideas = {
 				always = no
 			}
 			modifier = {
-				industrial_capacity_factory = 0.10
-				industrial_capacity_dockyard = 0.10
-				production_speed_arms_factory_factor = 0.10
-				production_speed_dockyard_factor = 0.10
-				consumer_goods_expected_value = -0.025
-				resources_factor = 0.04
+				industrial_capacity_factory = 0.3
+				industrial_capacity_dockyard = 0.3
+				production_speed_arms_factory_factor = 0.3
+				production_speed_dockyard_factor = 0.3
+				consumer_goods_expected_value = -0.1
+				resources_factor = 0.08
 
 			}		
 			cancel_if_invalid = no
@@ -118,12 +118,12 @@ ideas = {
 			}
 			
 			modifier = {
-				industrial_capacity_factory = 0.14
-				industrial_capacity_dockyard = 0.14
-				production_speed_arms_factory_factor = 0.14
-				production_speed_dockyard_factor = 0.14
-				resources_factor = 0.08
-				consumer_goods_expected_value = -0.03
+				industrial_capacity_factory = 0.4
+				industrial_capacity_dockyard = 0.4
+				production_speed_arms_factory_factor = 0.4
+				production_speed_dockyard_factor = 0.4
+				resources_factor = 0.15
+				consumer_goods_expected_value = -0.1
 			}
 				
 			cancel_if_invalid = no		

@@ -132,7 +132,7 @@ ideas = {
 				opposition_party_drift = 0.05
 				#bad_ideology_drift = 0.02
 				party_popularity_stability_factor = -0.05
-				intelligence_agency_defense = 1.0
+				intelligence_agency_defense = 1.5
 			}
 			on_add = {
 				if = { #remove previous law

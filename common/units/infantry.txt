@@ -212,38 +212,40 @@ sub_units = {
 		plains = {
 			attack = -0.05
 			defence = -0.05
+			movement = 0.25
 		}
 		desert = {
 			attack = -0.1
 			defence = -0.15
-			movement = -0.15
+			movement = 0.15
 		}
 		marsh = {
-			attack = 0.05
-			movement = 0.08
+			attack = 0.15
+			movement = 0.3
 		}
 		jungle = {
 			attack = 0.05
-			movement = 0.08
+			movement = 0.3
 		}
 		hills = {
 			attack = 0.1
 			defence = 0.05
-			movement = 0.08
+			movement = 0.25
 		}
 		mountain = {
 			attack = 0.1
 			defence = 0.05
-			movement = 0.1
+			movement = 0.2
 		}
 		forest = {
-			attack = 0.1
-			defence = 0.05
-			movement = 0.10
+			attack = 0.15
+			defence = 0.075
+			movement = 0.25
 		}
 		urban = {
 			attack = -0.05
 			defence = -0.05
+			movement = 0.25
 		}
 		densecity = {
 			attack = -0.05

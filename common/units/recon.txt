@@ -4,7 +4,7 @@ sub_units = {
 		map_icon_category = infantry
 		priority = 0
 		ai_priority = 0
-		affects_speed = yes
+		affects_speed = no
 		active = no
 
 		same_support_type = recon
