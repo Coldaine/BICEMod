@@ -3383,7 +3383,7 @@ NOperatives = {
 	-- instance of operation that were already executed against same target. 
 	-- can be overridden using time_multiplier & cost_multiplier in operation.
 	DEFAULT_OPERATION_COST_MULTIPLIER = 0.15,
-	DEFAULT_OPERATION_TIME_MULTIPLIER = 0.0, 
+	DEFAULT_OPERATION_TIME_MULTIPLIER = -0.25, 
 	TECH_STEAL_EQUIPMENT_FACTOR = 2,
 	TECH_STEAL_YEAR_FACTOR = 4,
 	----
@@ -3394,10 +3394,10 @@ NOperatives = {
 	AGENCY_AI_PER_UPGRADE_FACTORIES = 6.0,			-- Used by AI to pace the upgrades. Formula : if( AGENCY_AI_BASE_NUM_FACTORIES <= num_civ_factories - num_upgrades * AGENCY_AI_PER_UPGRADE_FACTORIES )
 	AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 10,			-- Number of upgrade needed to unlock an additional operative slot
 	MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 5,	-- max operative slots gained from upgrades
-	AGENCY_OPERATIVE_RECRUITMENT_TIME = 60,			-- Number of days to wait to have operative to recruit when an operative slot first becomes available
+	AGENCY_OPERATIVE_RECRUITMENT_TIME = 45,			-- Number of days to wait to have operative to recruit when an operative slot first becomes available
 	BECOME_SPYMASTER_PP_COST = 50,					-- Number of political power used to become Spy Master
 	BECOME_SPYMASTER_MIN_UPGRADES = 10,				-- Number of agency upgrades you need before becoming Spy Master
-	BASE_COUNTER_INTELLIGENCE_RATING = 0.0,					-- Base national counter intelligence rating for all countries
+	BASE_COUNTER_INTELLIGENCE_RATING = -0.5,					-- Base national counter intelligence rating for all countries
 	AGENCY_DEFENSE_EFFECT_ON_HOSTILE_ACTION_COST = 0.2,			-- Defense factor that is responsible for multiplying the cost hostile actions against our country by its level and this value
 	INTEL_NETWORK_GAIN_RATE_ON_WRONG_CONTROLLER = -10.0,			-- Amount of network strength lost in a state when it does not have the right controller anymore
 	INTEL_NETWORK_GAIN_RATE_ON_OUT_OF_RANGE = -0.3,				-- Amount of network strength lost in a state that has the right controller but is out of range of any operative
@@ -3730,7 +3730,7 @@ NIntel = {
 		15.0, -- Capital ship
 		15.0, -- Carrier ship
 	},
-	CAPTURED_OPERATIVE_MAX_FACTOR = 20.0,	-- Define the maximum of the randomized factor, before the factor from operative is applied
+	CAPTURED_OPERATIVE_MAX_FACTOR = 30.0,	-- Define the maximum of the randomized factor, before the factor from operative is applied
 	CAPTURED_OPERATIVE_MIN_FACTOR = 10.0,	-- Define the minimum of the randomized factor, before the factor from operative is applied
 	CAPTURED_OPERATIVE_INTEL_YIELD = {
 		-- Values are the same order as in COUNTRY_LEVEL_INTEL_MAXIMUMS

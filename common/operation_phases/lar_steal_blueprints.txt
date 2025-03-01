@@ -9,7 +9,7 @@ steal_blueprints_bribe = {
 	equipment = {
 		civilian_factories = {
 			amount = 3
-			days = 30
+			days = 15
 		}
 	}
 }

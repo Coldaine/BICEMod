@@ -12,7 +12,7 @@ operation_rescue_operative = { ### 0 1/35
 	prevent_captured_operative_to_die = yes
 
 
-	days = 35
+	days = 25
 	network_strength = 30
 	operatives = 1
 
@@ -122,7 +122,7 @@ operation_infiltrate_civilian = { ### 1 1/35
 	desc = operation_infiltrate_civilian_desc
 	priority = 1
 
-	days = 90
+	days = 50
 	network_strength = 35
 	operatives = 2
 
@@ -267,7 +267,7 @@ operation_fake_intel = { ### 2 1/40
 	desc = operation_fake_intel_desc
 	priority = 2
 
-	days = 60
+	days = 45
 	network_strength = 40
 	operatives = 2
 
@@ -408,7 +408,7 @@ operation_capture_cipher = { ### 3 1/55
 	desc = operation_capture_cipher_desc
 	priority = 3
 
-	days = 120
+	days = 90
 	network_strength = 50
 	operatives = 2
 
@@ -556,7 +556,7 @@ operation_infiltrate_armed_forces_army = { ### 4 1/55
 	desc = operation_infiltrate_armed_forces_army_desc
 	priority = 4
 
-	days = 90
+	days = 60
 	network_strength = 50
 	operatives = 2
 
@@ -707,7 +707,7 @@ operation_infiltrate_armed_forces_navy = { ### 5 1/55
 	desc = operation_infiltrate_armed_forces_navy_desc
 	priority = 5
 
-	days = 90
+	days = 60
 	network_strength = 50
 	operatives = 2
 
@@ -865,7 +865,7 @@ operation_infiltrate_armed_forces_airforce = { ### 6 1/55
 	desc = operation_infiltrate_armed_forces_airforce_desc
 	priority = 6
 
-	days = 90
+	days = 60
 	network_strength = 50
 	operatives = 2
 
@@ -1302,7 +1302,7 @@ operation_boost_resistance = { ### 8 2/40
 			add_resistance_target = {
 				amount = 10
 				tooltip = intelligency_agency_resistance_boost_tt
-				days = 90 
+				days = 120 
 			}
 			subtract_from_variable = { boost_resistance_chance = 10 }
 		}
@@ -1314,12 +1314,12 @@ operation_boost_resistance = { ### 8 2/40
 					add_resistance_target = {
 						amount = 20
 						tooltip = intelligency_agency_resistance_boost_tt
-						days = 120 
+						days = 180 
 					}
 					subtract_from_variable = { boost_resistance_chance = 10 }
 				}
 				FROM.FROM = {
-					add_compliance = -10
+					add_compliance = -15
 				}
 			}
 			67 = { #normal success
@@ -1329,7 +1329,7 @@ operation_boost_resistance = { ### 8 2/40
 						tooltip = intelligency_agency_resistance_boost_tt
 						days = 90 
 					}
-					subtract_from_variable = { boost_resistance_chance = 10 }
+					subtract_from_variable = { boost_resistance_chance = 15 }
 				}
 			}
 		}
@@ -1401,7 +1401,7 @@ operation_make_resistance_contacts = { ### 9 2/40
 	desc = operation_make_resistance_contacts_desc
 	priority = 9
 
-	days = 60
+	days = 40
 	network_strength = 40
 	operatives = 2
 
@@ -1578,7 +1578,7 @@ operation_collaboration_government = { ### 10 2/55
 	desc = operation_collaboration_government_desc
 	priority = 10
 
-	days = 180
+	days = 150
 	network_strength = 50
 	operatives = 2
 
@@ -1842,7 +1842,7 @@ operation_steal_tech_civilian = { ### 12 3/35
 	desc = operation_steal_tech_civilian_desc
 	priority = 12
 
-	days = 120
+	days = 75
 	network_strength = 35
 	operatives = 3
 
@@ -1997,7 +1997,7 @@ operation_targeted_sabotage_industry = { ### 13 3/35
 	desc = operation_targeted_sabotage_industry_desc
 	priority = 13
 
-	days = 120
+	days = 90
 	network_strength = 35
 	operatives = 3
 
@@ -2143,7 +2143,7 @@ operation_targeted_sabotage_infrastructure = { ### 14 3/35
 	desc = operation_targeted_sabotage_infrastructure_desc
 	priority = 14
 
-	days = 120
+	days = 90
 	network_strength = 35
 	operatives = 3
 
@@ -2287,7 +2287,7 @@ operation_targeted_sabotage_resources = { ### 15 3/35
 	desc = operation_targeted_sabotage_resources_desc
 	priority = 15
 
-	days = 120
+	days = 75
 	network_strength = 35
 	operatives = 3
 
@@ -2429,7 +2429,7 @@ operation_steal_tech_army = { ### 16 3/55
 	desc = operation_steal_tech_army_desc
 	priority = 16
 
-	days = 120
+	days = 60
 	network_strength = 50
 	operatives = 3
 
@@ -2590,7 +2590,7 @@ operation_steal_tech_navy = { ### 17 3/55
 	desc = operation_steal_tech_navy_desc
 	priority = 17
 
-	days = 120
+	days = 60
 	network_strength = 50
 	operatives = 3
 
@@ -2754,7 +2754,7 @@ operation_steal_tech_airforce = { ### 18 3/55
 	priority = 18
 
 
-	days = 120
+	days = 60
 	network_strength = 50
 	operatives = 3
 	allowed = {
