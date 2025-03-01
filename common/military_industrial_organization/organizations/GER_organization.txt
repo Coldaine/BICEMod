@@ -1873,7 +1873,7 @@ GER_heinkel_organization = {
 		relative_position_id = generic_mio_trait_reinforced_frames
 
 		equipment_bonus = {
-			maximum_speed = 0.05
+			maximum_speed = 0.10
 		} 
 	} 
 
@@ -1888,7 +1888,7 @@ GER_heinkel_organization = {
 		all_parents = { generic_mio_trait_pressurized_cockpit }
 
 		equipment_bonus = {
-			night_penalty = -0.05
+			night_penalty = -0.2
 		} 
 	} 
 
@@ -1902,10 +1902,10 @@ GER_heinkel_organization = {
 		relative_position_id = generic_mio_trait_pressurized_cockpit
 		all_parents = { generic_mio_trait_pressurized_cockpit }
 
-		limit_to_equipment_type = { large_plane_airframe }
+		limit_to_equipment_type = { heavy_nav_bomber_equipment mio_cat_eq_all_heavy_plane}
 
 		equipment_bonus = {
-			air_bombing = 0.05
+			air_bombing = 0.15
 		} 
 	} 
 
@@ -1972,7 +1972,7 @@ GER_heinkel_organization = {
 		}
 
 
-		limit_to_equipment_type = { large_plane_airframe }
+		limit_to_equipment_type = { mio_cat_eq_all_heavy_plane }
 
 		equipment_bonus = {
 			air_range = 0.1
@@ -2002,8 +2002,8 @@ GER_dornier_organization = {
 		limit_to_equipment_type = { mio_cat_eq_all_medium_plane }
 
 		equipment_bonus = {
-			surface_detection = 0.03
-			naval_strike_attack = 0.05
+			surface_detection = 0.15
+			naval_strike_attack = 0.10
 		} 
 	}
 

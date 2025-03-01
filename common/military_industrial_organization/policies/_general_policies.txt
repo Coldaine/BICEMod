@@ -54,9 +54,9 @@ mio_policy_general_vertical_integration = {
 	production_bonus = {
 		same_as_mio = {
 			production_efficiency_cap_factor = 0.05
-			production_resource_need_factor = 0.25
+			production_resource_need_factor = 0.075
 			production_resource_penalty_factor = 0.1
-			production_capacity_factor = 0.15
+			production_cost_factor = -0.02
 		}
 	}
 }
@@ -68,6 +68,7 @@ mio_policy_general_mechanical_genius  = {
 	equipment_bonus = {
 		same_as_mio = {
 			reliability_factor = 0.1
+						production_resource_need_factor = -0.075
 		}
 	}
 }
@@ -94,7 +95,7 @@ mio_policy_NOR_general_permanent_industrial_revolution = {
 
 	production_bonus = {
 		same_as_mio = {
-			production_resource_need_factor = -0.05
+			production_resource_need_factor = -0.1
 			reliability_factor = -0.01
 		}
 	}

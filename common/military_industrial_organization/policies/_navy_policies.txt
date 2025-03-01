@@ -33,7 +33,7 @@ mio_policy_navy_space_efficient_design = {
 		}
 		same_as_mio = {
 			naval_range = 0.25
-			production_cost_factor = -0.02
+			production_cost_factor = -0.05
 		}
 	}
 }
