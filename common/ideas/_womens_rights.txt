@@ -9,7 +9,7 @@ ideas = {
 			
 			available = {
 				OR = {
-					has_country_leader_ideology = socialism
+					has_government = socialism
 					has_government = neutrality
 				}
 			}
@@ -75,7 +75,7 @@ ideas = {
 
 			available = {
 				NOT = { 
-				has_country_leader_ideology = socialism
+				has_government = socialism
 				has_government = communism
 				}
 			}
@@ -100,7 +100,7 @@ ideas = {
 
 			available = {
 				NOT = { 
-				has_country_leader_ideology = socialism
+				has_government = socialism
 				has_country_leader_ideology = liberalism
 				has_government = communism
 				has_country_leader_ideology = centrism

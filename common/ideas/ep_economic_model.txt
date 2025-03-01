@@ -381,7 +381,7 @@
                 OR = {
                   has_government = communism
                   has_country_leader_ideology = fascism
-                  has_country_leader_ideology = socialism
+                  has_government = socialism
                 }
             }
 
@@ -419,7 +419,7 @@
                 }
 
                 modifier = {
-                    has_country_leader_ideology = socialism
+                    has_government = socialism
                     add = 50
                 }
 
