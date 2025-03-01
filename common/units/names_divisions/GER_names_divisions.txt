@@ -522,6 +522,38 @@ GER_LTINF_01 = {
 	}
 }
 
+
+
+GER_LTINF_02 = {
+	name = "Light Infantry Brigades"
+
+	for_countries = { GER }
+	
+	division_types = { "light_infantry" }
+
+	fallback_name = "%d. Jäger-Brig."
+
+	#link_numbering_with = { GER_Inf_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered = {
+	    8 = { "%d. Jäger-Brig." }
+		5 = { "%d. Jäger-Brig." }
+		28 = { "%d. Jäger-Brig." }
+		97 = { "%d. Jäger-Brig." }
+		100 = { "%d. Jäger-Brig." }
+		101 = { "%d. Jäger-Brig." }
+		104 = { "%d. Jäger-Brig." }
+		114 = { "%d. Jäger-Brig." }
+		117 = { "%d. Jäger-Brig." }
+		118 = { "%d. Jäger-Brig." }
+		42 = { "%d. Jäger-Brig." }
+		
+		# this was a small series of divisions raised/converted with only two regiments, reduced and decentralized heavy weapons and services for operating in rough terrain with bad roads. Not full mountain troops.
+		# some of these were renamed from leichte-Infanterie, some raised from scratch
+	}
+}
+
 GER_SEMI_MOT_01 = {
 	name = "Semi-Motorized Divisions"
 
@@ -1201,4 +1233,6 @@ GER_WK_01 = {
 		5 = { "5. SS Panzer-Division 'Wiking'" }
 	}
 }
+
+
 ### EOF ###
