@@ -406,7 +406,7 @@ ideas = {
             available = {
                 OR = {
                     has_government = communism
-                    has_country_leader_ideology = socialism
+                    has_government = socialism
                 } 
             }
 
@@ -450,7 +450,7 @@ ideas = {
                 }
 
                 modifier = {
-                    has_country_leader_ideology = socialism
+                    has_government = socialism
                     add = 20
                 }
 
