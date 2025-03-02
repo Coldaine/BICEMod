@@ -930,7 +930,12 @@ generic_mobile_tank_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_3
 
 	allowed = {
-		always = no # Archetype only - countries using it have their own verisons
+NOT = {
+	original_tag = POL
+}
+
+
+		#		always = no # Archetype only - countries using it have their own verisons
 	}
 
 	equipment_type = { armor }
@@ -1152,7 +1157,13 @@ generic_medium_tank_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_2
 
 	allowed = {
-		always = no # Archetype only - countries using it have their own verisons
+		NOT = {
+			original_tag = GER
+
+		}
+
+
+
 	}
 
 	equipment_type = { mio_cat_eq_all_medium_tank }
@@ -1648,7 +1659,11 @@ generic_tank_refurbishment_plant_organization = {
 	icon = GFX_idea_generic_tank_manufacturer_3
 
 	allowed = {
-		always = no # Archetype only - countries using it have their own verisons
+	NOT = {
+		original_tag = GER
+	}
+
+	}
 	}
 
 	equipment_type = {
@@ -2200,7 +2215,10 @@ generic_battle_line_ship_organization = {
 	icon = GFX_idea_generic_naval_manufacturer_2
 
 	allowed = {
-		always = no # Archetype only - countries using it have their own verisons
+		NOT = {
+			original_tag = GER
+		}
+#		always = no # Archetype only - countries using it have their own verisons#
 	}
 
 	equipment_type = {
@@ -3377,7 +3395,12 @@ generic_black_sea_fleet_organization = {
 	icon = GFX_idea_generic_naval_manufacturer_2
 
 	allowed = {
-		always = no # Archetype only - countries using it have their own verisons
+		
+		NOT = {
+			tag = ENG
+		}
+		
+		# Archetype only - countries using it have their own verisons
 	}
 
 	equipment_type = {
@@ -5311,8 +5334,6 @@ generic_cas_aircraft_organization = {
 
 	equipment_type = {
 		mio_cat_eq_only_light_fighter
-		small_plane_cas_airframe
-		cv_small_plane_cas_airframe
 		twin_cas_equipment
 		
 		CAS_equipment
@@ -5320,11 +5341,10 @@ generic_cas_aircraft_organization = {
 	}
 
 	research_categories = {	
-		mio_cat_all_light_fighter_and_modules 
-		mio_cat_all_cas_and_modules 
 		air_doctrine
 		junkers_air
 		CAS_equipment
+		air_equipment
 	}
 	
 	tree_header_text = {
@@ -5586,7 +5606,7 @@ heavy_nav_bomber_equipment
 
 	}
 
-	research_categories = { mio_cat_all_naval_bomber_and_modules 
+	research_categories = {  
 	air_doctrine
 	naval_air
 	fieseler_air
@@ -5779,11 +5799,6 @@ heavy_nav_bomber_equipment
 
 		all_parents = { generic_mio_trait_navigation_equipment }
 
-		limit_to_equipment_type = {
-			cv_small_plane_airframe
-			cv_small_plane_cas_airframe
-			cv_small_plane_naval_bomber_airframe
-		}
 
 		equipment_bonus = {
 			reliability = 0.05
@@ -5801,9 +5816,6 @@ heavy_nav_bomber_equipment
 
 		all_parents = { generic_mio_air_cooled_engines }
 
-		limit_to_equipment_type = {
-			cv_small_plane_airframe
-		}
 
 		equipment_bonus = {
 			air_agility = 0.05
@@ -5821,9 +5833,6 @@ heavy_nav_bomber_equipment
 
 		all_parents = { generic_mio_multi_stage_super_charger }
 
-		limit_to_equipment_type = {
-			cv_small_plane_airframe
-		}
 
 		equipment_bonus = {
 			fuel_consumption = -0.05
@@ -5842,7 +5851,7 @@ heavy_nav_bomber_equipment
 		all_parents = { generic_mio_water_injection }
 
 		production_bonus = {
-			production_cost_factor = -0.1
+			production_cost_factor = -0.2
 			production_resource_need_factor = 0.1
 		}
 	}
@@ -6208,7 +6217,10 @@ generic_high_agility_fighter_aircraft_organization = {
 	icon = GFX_idea_generic_air_manufacturer_1
 
 	allowed = {
-		always = no # Archetype only - countries using it have their own verisons
+		NOT = {
+			original_tag = GER
+				}
+
 	}
 
 	equipment_type = {
@@ -7845,7 +7857,9 @@ generic_motorized_mechanized_organization = {
 	icon = GFX_idea_generic_motorized_equipment_manufacturer_3
 
 	allowed = {
-		has_generic_motorized_mechanized_organization = yes
+		NOT = {
+			tag = GER
+		}
 	}
 
 	equipment_type = {
@@ -7920,7 +7934,7 @@ generic_motorized_mechanized_organization = {
 			reliability = 0.05
 		}
 		production_bonus = {
-			production_resource_need_factor = 0.05
+			production_resource_need_factor = -0.02
 		}
 	}
 
@@ -8305,7 +8319,7 @@ generic_horsey_organization = {
 			reliability = 0.03
 		}
 		production_bonus = {
-			production_resource_need_factor = 0.05
+			production_resource_need_factor = -0.05
 		}		
 	}
 	trait = {

@@ -326,7 +326,7 @@ leader_traits = {
 			has_combat_modifier = lack_of_supply
 		}
 
-		cost = 2000
+		cost = 1500
 
 		modifier = {
 			supply_consumption_factor = -0.05
@@ -1287,8 +1287,8 @@ leader_traits = {
 		non_shared_modifier = {
 			experience_gain_factor = -0.1
 			promote_cost_factor = -0.2
-			planning_skill_chance = 0.2
-			logistics_skill_chance = 0.2
+			planning_skill_chance = 0.4
+			logistics_skill_chance = 0.3
 		}
 		
 	}
@@ -2332,7 +2332,7 @@ leader_traits = {
 		
 		modifier = {
 			experience_gain_factor = 0.02
-			army_speed_factor = 0.01
+			army_speed_factor = 0.03
 		}
 	}
 

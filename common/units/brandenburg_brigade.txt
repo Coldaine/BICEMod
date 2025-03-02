@@ -35,8 +35,8 @@ sub_units = {
 			category_special_forces ## VKs
 		}
 		
-		combat_width = 1			## VK era 2
-
+		combat_width = 0.75			## VK era 2
+		
 
 ### BOOLEAN		
 
@@ -63,11 +63,11 @@ sub_units = {
 		training_time = 150             # Training time - Time in days to train this unit
 		#reliability = 0.9       	# Reliability controls how often equipment will suffer random failures.
 
-		#maximum_speed = 0.6           	# Maximum speed acts as a "bonus" mulitipler to the speed determined by the unit equipment in km/h. 
+		maximum_speed = 0.8           	# Maximum speed acts as a "bonus" mulitipler to the speed determined by the unit equipment in km/h. 
                                			# The formula for the calculated speed is <base speed> * (1 + maximum_speed)km/h; thus a maximum_speed
                                		 	# of 0.5 gives a movement speed 50% faster, a maximum_speed of 2 equals 200% faster, etc.
 	
-		supply_consumption = 0.05       # Supply consumption determmines how much supply a unit consumes per day
+		supply_consumption = 0.03       # Supply consumption determmines how much supply a unit consumes per day
 		#default_morale = 0.3           # Default morale determines how much extra organisation can be regained hourly when not in combat
 		suppression = 3
 
