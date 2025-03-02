@@ -30,7 +30,7 @@ sub_units = {
 		max_organisation = 0
 		default_morale = 0.1
 		training_time = 210
-		max_strength = 8
+		max_strength = 18
 		weight = 1.5
 		supply_consumption = 0.24
 		own_equipment_fuel_consumption_mult = 2.0 #Fuel use standardized for 25 Tanks, plus some extra for mobility
@@ -378,11 +378,11 @@ sub_units = {
 		manpower = 240
 		max_organisation = 5
 		default_morale = 0.1
-		max_strength = 4
+		max_strength = 8
 		training_time = 210
 		weight = 0.8
 		supply_consumption = 0.18
-		recon = 2.0
+		recon = 3.0
 		
 		own_equipment_fuel_consumption_mult = 1.2 #Fuel use standardized for 25 Tanks, Recon uses some extra for mobility
 		
