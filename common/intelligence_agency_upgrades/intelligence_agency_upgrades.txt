@@ -406,6 +406,19 @@ branch_defense = {
 				set_country_flag = { flag = upgrade_expand_operations value = 2 }
 			}
 		}
+
+		level = {
+			modifier = {
+				operative_slot = 2
+				new_operative_slot_bonus = 1
+			}
+			
+			complete_effect = {
+				set_country_flag = { flag = upgrade_expand_operations value = 2 }
+			}
+		}
+
+
 	}
 	
 	upgrade_underground_contacts = {

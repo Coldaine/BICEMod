@@ -3392,12 +3392,12 @@ NOperatives = {
 	AGENCY_CREATION_FACTORIES = 5,					-- Number of factories used to create an intelligence agency
 	AGENCY_AI_BASE_NUM_FACTORIES = 30.0,			-- Used by AI to pace the upgrades. Formula : if( AGENCY_AI_BASE_NUM_FACTORIES <= num_civ_factories - num_upgrades * AGENCY_AI_PER_UPGRADE_FACTORIES )
 	AGENCY_AI_PER_UPGRADE_FACTORIES = 6.0,			-- Used by AI to pace the upgrades. Formula : if( AGENCY_AI_BASE_NUM_FACTORIES <= num_civ_factories - num_upgrades * AGENCY_AI_PER_UPGRADE_FACTORIES )
-	AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 10,			-- Number of upgrade needed to unlock an additional operative slot
-	MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 5,	-- max operative slots gained from upgrades
+	AGENCY_UPGRADE_PER_OPERATIVE_SLOT = 5,			-- Number of upgrade needed to unlock an additional operative slot
+	MAX_OPERATIVE_SLOT_FROM_AGENCY_UPGRADES = 20,	-- max operative slots gained from upgrades
 	AGENCY_OPERATIVE_RECRUITMENT_TIME = 45,			-- Number of days to wait to have operative to recruit when an operative slot first becomes available
 	BECOME_SPYMASTER_PP_COST = 50,					-- Number of political power used to become Spy Master
 	BECOME_SPYMASTER_MIN_UPGRADES = 10,				-- Number of agency upgrades you need before becoming Spy Master
-	BASE_COUNTER_INTELLIGENCE_RATING = -0.5,					-- Base national counter intelligence rating for all countries
+	BASE_COUNTER_INTELLIGENCE_RATING = -1.0,					-- Base national counter intelligence rating for all countries
 	AGENCY_DEFENSE_EFFECT_ON_HOSTILE_ACTION_COST = 0.2,			-- Defense factor that is responsible for multiplying the cost hostile actions against our country by its level and this value
 	INTEL_NETWORK_GAIN_RATE_ON_WRONG_CONTROLLER = -10.0,			-- Amount of network strength lost in a state when it does not have the right controller anymore
 	INTEL_NETWORK_GAIN_RATE_ON_OUT_OF_RANGE = -0.3,				-- Amount of network strength lost in a state that has the right controller but is out of range of any operative
@@ -3434,7 +3434,7 @@ NOperatives = {
 	OPERATIVE_MISSION_DETECTION_CHANCE_FACTOR = {
 		-- Factor multiplied to the detection chance of an agent on mission before the offsets
 		0.0, -- NoMission
-		1.5, -- BuildIntelNetwork
+		2.0, -- BuildIntelNetwork
 		1.0, -- QuietIntelNetwork
 		1.0, -- CounterIntelligence
 		0.0, -- RootOutResistance
@@ -3465,13 +3465,13 @@ NOperatives = {
 	COUNTER_INTELLIGENCE_TO_DEFENSE_DIVISOR = 1.0,				-- see above
 	COUNTER_INTELLIGENCE_DAILY_XP_GAIN = 0.112,
 	BOOST_IDEOLOGY_NATIONAL_COVERAGE_FACTOR = 1.0,				-- used to compute the drift factor as follow: BASE * SUB_NETWORK_NC * BOOST_IDEOLOGY_DEFENSE_FACTOR
-	BOOST_IDEOLOGY_MAX_DRIFT_BY_OPERATIVE = 0.5,				-- the maximum drift an operative can cause, a negative value means no maximum
-	BOOST_IDEOLOGY_DRIFT_STACKING_FACTOR = 0.75,				-- multiplied to the drift of an operative for each operative after the first one, with the greatest drift. So if we have the following drift values [ 0.1, 0.3, 0.2 ], the factor is applied twice for the lowest value and once for the 2nd lowest one as such : [ 0.3, 0.2 * D, 0.1 * D * D ] and then the result is summed up to give the final drift value.
+	BOOST_IDEOLOGY_MAX_DRIFT_BY_OPERATIVE = 0.75,				-- the maximum drift an operative can cause, a negative value means no maximum
+	BOOST_IDEOLOGY_DRIFT_STACKING_FACTOR = 0.8,				-- multiplied to the drift of an operative for each operative after the first one, with the greatest drift. So if we have the following drift values [ 0.1, 0.3, 0.2 ], the factor is applied twice for the lowest value and once for the 2nd lowest one as such : [ 0.3, 0.2 * D, 0.1 * D * D ] and then the result is summed up to give the final drift value.
 	BOOST_IDEOLOGY_DEFENSE_FACTOR = 0.2,					-- multiplied to the target's defense to get the amount of drift to remove from each operative's drift
 	BOOST_IDEOLOGY_DAILY_XP_GAIN = 0.274,
 	OPERATIVE_BASE_INTEL_AGENCY_DEFENSE = 1.0,				-- Base amount of intel agency defense contributed by an operative on counter_intelligence mission
 	OPERATIVE_BASE_BOOST_IDEOLOGY = 0.2,					-- Base amount of daily ideology drift provoked by an operative
-	OPERATIVE_BASE_PROPAGANDA_POWER = 0.0003,					-- Base amount of daily war support and stability change when an operative is assigned to propaganda
+	OPERATIVE_BASE_PROPAGANDA_POWER = 0.001,					-- Base amount of daily war support and stability change when an operative is assigned to propaganda
 	PROPAGANDA_SUB_NETWORK_STRENGTH_FACTOR = 1.0,				-- Multiplied to the network strength before being multiplied to the Stability/WarSupport drift caused by an operative 
 	PROPAGANDA_DEFENSE_FACTOR = 0.015,					-- Multiplied to the target's defense before being subtracted from the Stability/WarSupport drift caused by an operative
 	PROPAGANDA_OPERATIVE_STACKING_FACTOR = 0.5,				-- Multiplied to the Stability/WarSupport drift values of each operative after the one with the greatest values. The process is done separatly for Stability and WarSupport
@@ -3501,7 +3501,7 @@ NOperatives = {
 	OPERATIVE_MIN_DAYS_FORCED_INTO_HIDING = 7,				-- Minimum number of days an operative can be forced into hiding. Applied after modifiers. Can be zero.
 	OPERATIVE_MAX_DAYS_FORCED_INTO_HIDING = 120,				-- Maximum number of days an operative can be forced into hiding. Applied after modifiers. Is ignored if negative
 	OPERATIVE_MAX_DAYS_TO_AUTO_RESUME_MISSION = 30,				-- Maximum number of days an operative has to be disabled before its mission is not automatically resumed once he is available again
-	MAX_RECRUITED_OPERATIVES = 12,	
+	MAX_RECRUITED_OPERATIVES = 18,	
 	
 	CRYPTO_BASE_CRYPTO_LEVEL = 10000,						-- base crypto strength for a country
 	CRYPTO_CRYPTO_LEVEL_PER_CRYPTO_UPGRADE = 2500,			-- crypto strength per crypto upgrade

@@ -57508,10 +57508,10 @@ equipment_modules = {
 		gui_category = nrm_ship_hullform_cruiser
 		
 		add_stats = {
-			naval_torpedo_enemy_critical_chance_factor = -0.05
-			naval_torpedo_damage_reduction_factor = 0.1
-			naval_heavy_gun_hit_chance_factor = 0.075
-			naval_light_gun_hit_chance_factor = 0.075
+			naval_torpedo_enemy_critical_chance_factor = -0.1
+			naval_torpedo_damage_reduction_factor = 0.15
+			naval_heavy_gun_hit_chance_factor = 0.15
+			naval_light_gun_hit_chance_factor = 0.15
 		}
 		add_average_stats = {
 			

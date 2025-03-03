@@ -50,7 +50,7 @@ sub_units = {
 				nrm_submarine_hull_cruiser_5 = 1
 			}
 		}
-		max_organisation = 10
+		max_organisation = 15
 		
 		supply_consumption = 0.001
 		

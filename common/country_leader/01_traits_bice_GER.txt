@@ -61,10 +61,10 @@ leader_traits = {
 	GER_ruthless_pragmatist = {
 		sprite = 10
 		stability_weekly = -0.001
-		industrial_capacity_factory = 0.05
+		industrial_capacity_factory = 0.1
 	 	production_speed_arms_factory_factor = 0.05
-		resources_factor = 0.03
-		fuel_gain_factor = 0.05
+		resources_factor = 0.05
+		fuel_gain_factor = 0.09
 
 		ai_will_do = {
 			factor = 0
