@@ -25,7 +25,7 @@ sub_units = {
 			infantry
 		}
 		
-		group = infantry
+		group = special_forces
 		
 		categories = {
 			category_front_line
@@ -35,7 +35,7 @@ sub_units = {
 			category_special_forces ## VKs
 		}
 		
-		combat_width = 0.75			## VK era 2
+		combat_width = 1.25			## VK era 2
 		
 
 ### BOOLEAN		
@@ -53,7 +53,8 @@ sub_units = {
 						# Units with no organisation can't fight or move effectively.		
 		default_morale = 0.5
 		manpower = 600                  # Manpower - Cost in manpower to produce
-		weight = 0.4                    # Weight controls how many transports a unit needs to embark.
+		weight = 0.3                    # Weight controls how many transports a unit needs to embark.
+		transport = infantry_equipment
 
 		
 
@@ -63,7 +64,7 @@ sub_units = {
 		training_time = 150             # Training time - Time in days to train this unit
 		#reliability = 0.9       	# Reliability controls how often equipment will suffer random failures.
 
-		maximum_speed = 0.8           	# Maximum speed acts as a "bonus" mulitipler to the speed determined by the unit equipment in km/h. 
+		maximum_speed = 1.2           	# Maximum speed acts as a "bonus" mulitipler to the speed determined by the unit equipment in km/h. 
                                			# The formula for the calculated speed is <base speed> * (1 + maximum_speed)km/h; thus a maximum_speed
                                		 	# of 0.5 gives a movement speed 50% faster, a maximum_speed of 2 equals 200% faster, etc.
 	
@@ -80,12 +81,12 @@ sub_units = {
 
 ### OFFENSIVE
 		#attack = 0.1               	# Firepower - Amount of damage done per attack
-		soft_attack = 0.2 		# Soft Attack - How many attacks the unit can make versus enemies with low hardness.
+		soft_attack = 0.5 		# Soft Attack - How many attacks the unit can make versus enemies with low hardness.
 							 #(In this example here, this would mean that the unit would get 10% less Soft #Attack than they would usually get from its equipment
 		#hard_attack = -0.5             # Hard Attack - How many attacks the unit can make versus enemies with high hardness
 		#air_attack = 1                 # Air Attack - How much damage we can do against airplanes. High Air Attack also helps to counter enemy Air Superiority effects
 		#ap_attack = 1        		# Piercing - Having equal or greater Piercing to the targets Armor value allows you to do more damage.
-		breakthrough = 0.5 #0.2         # Breakthrough - How many enemy attacks a unit can attempt to avoid while on the offensive, effectively allowing it to stay on the offense longer.
+		breakthrough = 0.75 #0.2         # Breakthrough - How many enemy attacks a unit can attempt to avoid while on the offensive, effectively allowing it to stay on the offense longer.
 
 
 
@@ -111,7 +112,9 @@ sub_units = {
 ### EQUIPMENT		
 
 		need = {
-			infantry_equipment = 120 #90
+			infantry_equipment = 125
+			infantry_uniforms = 125
+
 		}
 
 
@@ -126,16 +129,16 @@ sub_units = {
 
 
 		desert = {
-			attack = 0.1
-			defence = 0.1
-			movement = 0
+			attack = 0.15
+			defence = 0.15
+			movement = 0.2
 		}
 
 
 		forest = {
-			attack = 0.20		#VK
+			attack = 0.25		#VK
 			defence = 0.2		#VK
-			movement = 0
+			movement = 0.15
 		}
 
 
@@ -148,22 +151,22 @@ sub_units = {
 
 		hills = {
 			attack = 0.2
-			defence = 0.2
-			movement = 0
+			defence = 0.25
+			movement = 0.15
 		}
 
 
 		mountain = {
 			attack = 0
-			defence = 0
-			movement = 0
+			defence = 0.2
+			movement = 0.1
 		}
 
 
 		marsh = {
-			attack = 0
-			defence = 0
-			movement = 0
+			attack = 0.10
+			defence = 0.2
+			movement = 0.2
 		}
 
 
@@ -182,9 +185,9 @@ sub_units = {
 
 
 		urban = {
-			attack = 0.1
-			defence = 0.2
-			movement = 0
+			attack = 0.2
+			defence = 0.25
+			movement = 0.15
 		}
 		
 	}
