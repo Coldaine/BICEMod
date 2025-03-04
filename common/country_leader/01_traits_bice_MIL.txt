@@ -394,7 +394,7 @@ leader_traits = {
 	}
 	army_chief_maneuver_1 = { # Ground units move 5% faster
 		sprite = 5
-		army_speed_factor = 0.02
+		army_speed_factor = 0.03
 		
 		ai_will_do = {
 			factor = 0
@@ -402,7 +402,7 @@ leader_traits = {
 	}
 	army_chief_maneuver_2 = { # Ground units move 10% faster
 		sprite = 5
-		army_speed_factor = 0.04
+		army_speed_factor = 0.05
 		
 		ai_will_do = {
 			factor = 0
@@ -410,7 +410,7 @@ leader_traits = {
 	}
 	army_chief_maneuver_3 = { # Ground units move 15% faster
 		sprite = 5
-		army_speed_factor = 0.06
+		army_speed_factor = 0.08
 		
 		ai_will_do = {
 			factor = 0

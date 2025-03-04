@@ -152,7 +152,7 @@ sub_units = {
 		ai_priority = 0
 		priority = 100
 		active = no
-		affects_speed = yes
+		affects_speed = no
 
 		type = {
 			infantry
@@ -169,7 +169,7 @@ sub_units = {
 		##BASE stats
 		#Size Definitions
 		max_strength = 2
-		max_organisation = 2
+		max_organisation = 3
 		default_morale = 0.1
 		supply_consumption = 0.05
 		weight = 0.25
@@ -244,7 +244,7 @@ sub_units = {
 		##BASE stats
 		#Size Definitions
 		max_strength = 2
-		max_organisation = 4
+		max_organisation = 5
 		default_morale = 0.1
 		supply_consumption = 0.075
 		weight = 0.25
@@ -259,7 +259,7 @@ sub_units = {
 		#Misc Abilities
 		training_time = 120
 		manpower = 200 	#500
-		experience_loss_factor = -0.20
+		experience_loss_factor = -0.25
 		
 		suppression = 0.1
 		

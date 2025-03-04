@@ -1342,15 +1342,16 @@ leader_traits = {
 		trait_type = personality_trait
 		
 		modifier = {
+			army_speed_factor = 0.04
 			max_planning_factor = -0.2
-			planning_speed = 0.1
+			planning_speed = 0.3
 			wounded_chance_factor = 0.5  # +50% chance to get wounded
 		}
 		
 		non_shared_modifier = {
-			army_attack_skill_chance = 0.2
-			army_defense_skill_chance = -0.2
-			logistics_skill_chance = -0.2
+			army_attack_skill_chance = 0.5
+			army_defense_skill_chance = -0.1
+			logistics_skill_chance = -0.1
 		}
 	}
 

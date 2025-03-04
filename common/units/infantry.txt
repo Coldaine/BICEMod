@@ -1442,7 +1442,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		maximum_speed = -0.35
+		maximum_speed = -0.25
 		max_strength = 25
 		max_organisation = 40
 		default_morale = 0.1
@@ -1538,7 +1538,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		maximum_speed = -0.35
+		maximum_speed = -0.25
 		max_strength = 22.5
 		max_organisation = 40
 		default_morale = 0.1
@@ -1866,16 +1866,16 @@ sub_units = {
 		##BASE stats
 		#maximum_speed = 0.2
 		max_strength = 20
-		max_organisation = 40
+		max_organisation = 45
 		default_morale = 0.1
 		weight = 0.75
 		supply_consumption = 0.3
 		
 		##COMBAT stats
-		combat_width = 2
+		combat_width = 1.75
 		soft_attack = 0.05
 		hard_attack = 0.05
-		breakthrough = 0.1
+		breakthrough = 0.15
 		
 		##OTHER
 		training_time = 90

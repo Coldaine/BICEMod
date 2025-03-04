@@ -174,11 +174,11 @@ equipments = {
 		interface_category = interface_category_land
 
 		##BASE stats
-		maximum_speed = 10.5
+		maximum_speed = 13.5
 		reliability = 0.65
 		#recon = 0.6
 		fuel_capacity = 24
-		fuel_consumption = 0.35 #standardized for 100 equipment
+		fuel_consumption = 0.3 #standardized for 100 equipment
 
 		##OTHER
 		#Space taken in convoy
