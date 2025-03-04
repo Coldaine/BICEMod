@@ -2776,10 +2776,6 @@ focus_tree = {
 		id = HUN_improve_the_huba_order_of_battle
 		icon = GFX_goal_improve_the_huba_order_of_battle
 		prerequisite = { focus = HUN_huba_order_of_battle }
-		mutually_exclusive = { focus = HUN_kossuth_order_of_battle }
-		mutually_exclusive = { focus = HUN_pilis_order_of_battle }
-		mutually_exclusive = { focus = HUN_naval_tradition }
-		mutually_exclusive = { focus = HUN_blitzkrieg_adoption }
 		search_filters = {FOCUS_FILTER_ARMY FOCUS_FILTER_AIRFORCE}
 		available = {
 			OR = {

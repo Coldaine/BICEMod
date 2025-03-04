@@ -16,6 +16,10 @@ ROM_historical = {
 		ROM_balkan_status
 		ROM_failure_entente
 		ROM_romanian_bridgehead
+		ROM_trade_treaty_with_germany
+		ROM_invite_german_advisors
+		ROM_license_german_equipment
+		ROM_join_axis
 
 		ROM_foreign_built_army
 		ROM_agricultural_modernisation
@@ -63,6 +67,11 @@ ROM_historical = {
 		ROM_expand_the_galati_shipyards
 		ROM_demand_a_western_guarantee
 #		ROM_vanatori_de_munte
+
+
+
+
+
 
 #		ROM_force_abdication
 #		ROM_the_armored_division

@@ -84,7 +84,7 @@ opinion_modifiers = {
 	}
 
 	pact_against_us= {
-		value = -50
+		value = -25
 	}
 
 	worse_pact_against_us= {
@@ -156,12 +156,12 @@ opinion_modifiers = {
 	}
 
 	sov_ger_treaty = {
-		value = 25
+		value = 100
 	}
 
 	sov_ger_treaty_trade = {
 		trade = yes
-		value = 25
+		value = 50
 	}
 	
 	usa_jap_treaty_trade = {
@@ -754,7 +754,7 @@ opinion_modifiers = {
 		value = -75
 	}
 	ENG_broke_french_relations = {
-		value = 15
+		value = 1
 	}
 	ENG_tackle_fascism = {
 		value = -75

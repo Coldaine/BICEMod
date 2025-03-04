@@ -3470,11 +3470,11 @@ NOperatives = {
 	BOOST_IDEOLOGY_DEFENSE_FACTOR = 0.2,					-- multiplied to the target's defense to get the amount of drift to remove from each operative's drift
 	BOOST_IDEOLOGY_DAILY_XP_GAIN = 0.274,
 	OPERATIVE_BASE_INTEL_AGENCY_DEFENSE = 1.0,				-- Base amount of intel agency defense contributed by an operative on counter_intelligence mission
-	OPERATIVE_BASE_BOOST_IDEOLOGY = 0.2,					-- Base amount of daily ideology drift provoked by an operative
+	OPERATIVE_BASE_BOOST_IDEOLOGY = 3.2,					-- Base amount of daily ideology drift provoked by an operative
 	OPERATIVE_BASE_PROPAGANDA_POWER = 0.001,					-- Base amount of daily war support and stability change when an operative is assigned to propaganda
 	PROPAGANDA_SUB_NETWORK_STRENGTH_FACTOR = 1.0,				-- Multiplied to the network strength before being multiplied to the Stability/WarSupport drift caused by an operative 
 	PROPAGANDA_DEFENSE_FACTOR = 0.015,					-- Multiplied to the target's defense before being subtracted from the Stability/WarSupport drift caused by an operative
-	PROPAGANDA_OPERATIVE_STACKING_FACTOR = 0.5,				-- Multiplied to the Stability/WarSupport drift values of each operative after the one with the greatest values. The process is done separatly for Stability and WarSupport
+	PROPAGANDA_OPERATIVE_STACKING_FACTOR = 0.75,				-- Multiplied to the Stability/WarSupport drift values of each operative after the one with the greatest values. The process is done separatly for Stability and WarSupport
 	PROPAGANDA_COUNTRY_STACKING_FACTOR = 0.4,				-- Multiplied to the Stability/WarSupport drift values of each country after the one with the greatest values. The process is done separatly for Stability and WarSupport
 	PROPAGANDA_DAILY_XP_GAIN = 0.350,
 	OPERATIVE_BASE_ROOT_OUT_RESISTANCE_EFFICIENCY = 1.0,			-- The base efficiency of an operative at the RootOutResistance mission (this is a percentage, 1.0 == 100%)

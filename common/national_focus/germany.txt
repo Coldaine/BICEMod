@@ -2025,7 +2025,7 @@ focus_tree = {
 			}
 		}
 
-		completion_reward = {
+		completion_reward = {		
 			recent_major_land_acquisition_effect = yes
 			#custom_effect_tooltip = allied.anger.plus.3
 

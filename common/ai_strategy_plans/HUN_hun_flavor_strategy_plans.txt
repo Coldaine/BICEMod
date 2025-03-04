@@ -117,6 +117,10 @@ HUN_hun_flavor_revisionist = {
 		HUN_found_maort							#7 August 1940
 		HUN_budapest_ferihegy_airport			#16 October 1940
 		HUN_fighter_production_innovations		#25 December 1940	
+	
+	
+	
+	
 	}
 
 	ai_strategy = {
@@ -235,6 +239,51 @@ HUN_hun_flavor_revisionist_germany = {
 		HUN_found_maort							#7 August 1940
 		HUN_budapest_ferihegy_airport			#16 October 1940
 		HUN_hungarian_german_research_effort	#25 December 1940	
+HUN_improve_the_huba_order_of_battle
+HUN_danuvia_heavy_submachine_guns
+HUN_huba_order_of_battle
+HUN_infantry_tactics 
+
+HUN_hun_flavor_historical
+HUN_men_for_burgenland
+HUN_the_rongyos_garda
+HUN_hungarian_german_research_effort
+HUN_cooperation_with_italy
+HUN_hungarist_ideas
+HUN_german_economic_connections
+HUN_hungarian_ss
+HUN_the_adriatic_initiative
+HUN_declare_state_of_emergency
+HUN_autarky
+HUN_industrial_and_work_reforms
+HUN_rapid_corps
+HUN_expand_the_rapid_corps
+HUN_celebrate_the_successful_revision
+HUN_expand_the_ludovica_academy
+HUN_budapest_research_group
+HUN_budapest_ferihegy_airport
+HUN_project_toldi
+HUN_budapest_industrial_district
+HUN_transdanubian_construction_grants
+HUN_the_debrecen_industrial_concern
+HUN_hungarian_motorway_network
+HUN_industrial_research_projects
+HUN_saint_ladislaus_paratrooper_division
+HUN_air_superiority_focus
+HUN_fighter_production_innovations
+HUN_introduce_foreign_service
+HUN_the_aerotechnics_institute
+HUN_military_intelligence
+HUN_the_bay_group
+		
+HUN_szekely_mountaineers
+HUN_motorization_build
+HUN_advanced_doctrine
+		
+HUN_recruitment
+HUN_invite_foreign_military_mission
+
+
 	}
 
 	ai_strategy = {
