@@ -3383,7 +3383,7 @@ NOperatives = {
 	-- instance of operation that were already executed against same target. 
 	-- can be overridden using time_multiplier & cost_multiplier in operation.
 	DEFAULT_OPERATION_COST_MULTIPLIER = 0.15,
-	DEFAULT_OPERATION_TIME_MULTIPLIER = -0.25, 
+	DEFAULT_OPERATION_TIME_MULTIPLIER = -0.9, 
 	TECH_STEAL_EQUIPMENT_FACTOR = 2,
 	TECH_STEAL_YEAR_FACTOR = 4,
 	----
