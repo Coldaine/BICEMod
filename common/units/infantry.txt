@@ -1442,7 +1442,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		maximum_speed = -0.25
+		maximum_speed = -3.0
 		max_strength = 25
 		max_organisation = 40
 		default_morale = 0.1
@@ -1538,7 +1538,7 @@ sub_units = {
 		}
 		
 		##BASE stats
-		maximum_speed = -0.25
+		maximum_speed = -0.275
 		max_strength = 22.5
 		max_organisation = 40
 		default_morale = 0.1

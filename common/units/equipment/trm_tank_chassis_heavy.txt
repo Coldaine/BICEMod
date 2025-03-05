@@ -812,6 +812,14 @@ equipments = {
 					trm_armour_030
 					trm_armour_035
 					trm_armour_040
+					trm_armour_050
+					trm_armour_055
+					trm_armour_060
+					trm_armour_065
+					trm_armour_070
+					trm_armour_075
+					trm_armour_080
+					trm_armour_090
 				}
 			}
 			fixed_trm_tank_armor_design_slot = {
