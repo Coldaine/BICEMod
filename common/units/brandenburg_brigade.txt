@@ -68,7 +68,7 @@ sub_units = {
                                			# The formula for the calculated speed is <base speed> * (1 + maximum_speed)km/h; thus a maximum_speed
                                		 	# of 0.5 gives a movement speed 50% faster, a maximum_speed of 2 equals 200% faster, etc.
 	
-		supply_consumption = 0.03       # Supply consumption determmines how much supply a unit consumes per day
+		supply_consumption = 0.025       # Supply consumption determmines how much supply a unit consumes per day
 		#default_morale = 0.3           # Default morale determines how much extra organisation can be regained hourly when not in combat
 		suppression = 3
 
@@ -78,16 +78,15 @@ sub_units = {
 		#build_cost_ic = 0.4            # Production Cost - How much factory output this piece of equipment needs
 
 
-
 ### OFFENSIVE
 		#attack = 0.1               	# Firepower - Amount of damage done per attack
-		soft_attack = 4.5 		# Soft Attack - How many attacks the unit can make versus enemies with low hardness.
+		soft_attack = 0.15 		# Soft Attack - How many attacks the unit can make versus enemies with low hardness.
 							 #(In this example here, this would mean that the unit would get 10% less Soft #Attack than they would usually get from its equipment
-		hard_attack = 2.5             # Hard Attack - How many attacks the unit can make versus enemies with high hardness
+		hard_attack = 0.1             # Hard Attack - How many attacks the unit can make versus enemies with high hardness
 		#air_attack = 1                 # Air Attack - How much damage we can do against airplanes. High Air Attack also helps to counter enemy Air Superiority effects
 		#ap_attack = 1        		# Piercing - Having equal or greater Piercing to the targets Armor value allows you to do more damage.
-		breakthrough = 2.75 #0.2         # Breakthrough - How many enemy attacks a unit can attempt to avoid while on the offensive, effectively allowing it to stay on the offense longer.
-
+		breakthrough = 0.2 #0.2         # Breakthrough - How many enemy attacks a unit can attempt to avoid while on the offensive, effectively allowing it to stay on the offense longer.
+        recon = 1
 
 
 ### DEFENSIVE
