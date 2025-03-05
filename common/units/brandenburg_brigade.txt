@@ -48,7 +48,7 @@ sub_units = {
 
 
 #SIZE DEFINITIONS
-		max_strength = 26               # HP - Strength represents how much damage this unit can suffer before it is destroyed
+		max_strength = 28               # HP - Strength represents how much damage this unit can suffer before it is destroyed
 		max_organisation = 95		# Organisation indicates combat readiness and how organized a unit is
 						# Units with no organisation can't fight or move effectively.		
 		default_morale = 0.5
@@ -81,17 +81,17 @@ sub_units = {
 
 ### OFFENSIVE
 		#attack = 0.1               	# Firepower - Amount of damage done per attack
-		soft_attack = 0.5 		# Soft Attack - How many attacks the unit can make versus enemies with low hardness.
+		soft_attack = 4.5 		# Soft Attack - How many attacks the unit can make versus enemies with low hardness.
 							 #(In this example here, this would mean that the unit would get 10% less Soft #Attack than they would usually get from its equipment
-		#hard_attack = -0.5             # Hard Attack - How many attacks the unit can make versus enemies with high hardness
+		hard_attack = 2.5             # Hard Attack - How many attacks the unit can make versus enemies with high hardness
 		#air_attack = 1                 # Air Attack - How much damage we can do against airplanes. High Air Attack also helps to counter enemy Air Superiority effects
 		#ap_attack = 1        		# Piercing - Having equal or greater Piercing to the targets Armor value allows you to do more damage.
-		breakthrough = 0.75 #0.2         # Breakthrough - How many enemy attacks a unit can attempt to avoid while on the offensive, effectively allowing it to stay on the offense longer.
+		breakthrough = 2.75 #0.2         # Breakthrough - How many enemy attacks a unit can attempt to avoid while on the offensive, effectively allowing it to stay on the offense longer.
 
 
 
 ### DEFENSIVE
-		defense = 0.2 #0.1                   # Defense - How many enemy attacks a unit can avoid whilst on the defensive, effectively allowing it to stay on the defensive longer.
+		defense = 0.3 #0.1                   # Defense - How many enemy attacks a unit can avoid whilst on the defensive, effectively allowing it to stay on the defensive longer.
 		#max_strength = 2               # HP - Strength represents how much damage this unit can suffer before it is destroyed
 		#armor_value = 0                # Armor - Armor that is higher than the opponents Piercing value reduces damage taken and allows more attacks to occur
 		#hardness = 0.5                 # Hardness - Represents how much of your divsion is made up of armoured vehicles. High Hardness = High Hard Attacks, Low Soft Attack
@@ -114,7 +114,10 @@ sub_units = {
 		need = {
 			infantry_equipment = 125
 			infantry_uniforms = 125
-
+            HMG_equipment = 12
+			radio_equipment = 12
+           	mortar_equipment = 6
+			handheld_at_equipment = 4
 		}
 
 
